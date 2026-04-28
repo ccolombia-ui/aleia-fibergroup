@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato PSS — Formulación MGA Territorios Digitales Transformativos · [Territorio] · Variant B</title>
+<style>
+:root{
+  --navy:#0f172a; --blue:#0369a1; --text:#1e293b; --muted:#64748b;
+  --border:#cbd5e1; --bg:#f8fafc; --mono:'Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:11pt;line-height:1.7;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.print-btn:hover{background:var(--blue);}
+
+/* ENCABEZADO */
+.doc-header{text-align:center;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:.3rem;}
+.doc-title{font-size:15pt;font-weight:700;color:var(--navy);margin-bottom:.3rem;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.2rem .75rem;border-radius:4px;font-size:8pt;font-weight:700;background:rgba(3,105,161,.1);color:var(--blue);font-family:Arial,sans-serif;border:1px solid rgba(3,105,161,.2);margin-top:.35rem;}
+
+/* PARTES */
+.partes-box{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem 1.3rem;margin-bottom:1.5rem;}
+.partes-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:.7rem;}
+.parte{margin-bottom:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--border);}
+.parte:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.parte-rol{font-size:8.5pt;font-weight:700;text-transform:uppercase;color:var(--blue);font-family:Arial,sans-serif;}
+.parte-nombre{font-size:11pt;font-weight:700;color:var(--navy);}
+.parte-det{font-size:9.5pt;color:var(--muted);line-height:1.5;}
+
+/* CLÁUSULAS */
+.clausula{margin-bottom:1.3rem;}
+.cl-num{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);font-family:Arial,sans-serif;border-bottom:1px solid var(--border);padding-bottom:.18rem;margin-bottom:.5rem;}
+.cl-body{font-size:10.5pt;line-height:1.75;text-align:justify;}
+.cl-body p{margin-bottom:.55rem;}
+.cl-body ul{padding-left:1.4rem;margin:.35rem 0 .55rem;}
+.cl-body li{margin-bottom:.3rem;}
+
+/* TABLA PAGOS */
+.pay-table{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:9.5pt;}
+.pay-table th{background:var(--navy);color:#fff;padding:.32rem .6rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.pay-table td{padding:.28rem .6rem;border-bottom:1px solid var(--border);}
+.pay-table tr:nth-child(even) td{background:var(--bg);}
+.pay-amt{font-family:var(--mono);font-weight:700;color:var(--navy);}
+.pay-total td{font-weight:700;border-top:2px solid var(--navy);background:#f1f5f9!important;}
+
+/* VALOR BOX */
+.valor-box{background:var(--navy);color:#fff;border-radius:6px;padding:.75rem 1.2rem;margin:.5rem 0 .7rem;display:flex;justify-content:space-between;align-items:center;}
+.valor-label{font-size:8pt;font-family:Arial,sans-serif;opacity:.65;text-transform:uppercase;letter-spacing:.5px;}
+.valor-num{font-size:14pt;font-weight:700;font-family:var(--mono);color:#38bdf8;}
+
+/* FIRMAS */
+.firmas{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.firma-block{text-align:center;}
+.firma-line{border-top:1.5px solid var(--navy);margin-bottom:.35rem;margin-top:2.5rem;}
+.firma-nombre{font-weight:700;font-size:10.5pt;color:var(--navy);}
+.firma-rol{font-size:9pt;color:var(--muted);}
+.firma-det{font-size:8.5pt;color:var(--muted);font-family:var(--mono);}
+
+/* FOOTER */
+.doc-footer{margin-top:2rem;padding-top:.75rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+.conf-lbl{font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#dc2626;}
+
+/* PRINT */
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  .print-btn{display:none!important;}
+  .clausula{break-inside:avoid;}
+  .firmas{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<!-- ENCABEZADO -->
+<div class="doc-header">
+  <div class="doc-type">Contrato de Prestación de Servicios de Consultoría</div>
+  <div class="doc-title">Formulación MGA — Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-B &nbsp;·&nbsp; Bogotá D.C., ___ de __________ de 2026</div>
+  <div class="doc-variant">Variante B · Solo formulación MGA · Sin licencia Creciverso</div>
+</div>
+
+<!-- PARTES -->
+<div class="partes-box">
+  <div class="partes-title">Partes del contrato</div>
+  <div class="parte">
+    <div class="parte-rol">Contratante</div>
+    <div class="parte-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="parte-det">
+      NIT / CC: [NIT_O_CC] &nbsp;·&nbsp; Representante legal: [NOMBRE_REP_LEGAL]<br>
+      Dirección: [DIRECCIÓN] &nbsp;·&nbsp; Ciudad: [CIUDAD]<br>
+      Correo: [CORREO] &nbsp;·&nbsp; Tel.: [TELÉFONO]<br>
+      En adelante <strong>EL CONTRATANTE</strong>
+    </div>
+  </div>
+  <div class="parte">
+    <div class="parte-rol">Contratista — Consultor</div>
+    <div class="parte-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="parte-det">
+      C.C.: [CC_CONSULTOR] &nbsp;·&nbsp; NIT/RUT: [NIT_CONSULTOR]<br>
+      Domicilio: Bogotá D.C., Colombia<br>
+      Correo: ccolombia@soygenial.co &nbsp;·&nbsp; Tel.: [TELÉFONO_CONSULTOR]<br>
+      En adelante <strong>EL CONTRATISTA</strong>
+    </div>
+  </div>
+</div>
+
+<!-- CONSIDERANDOS -->
+<div class="clausula">
+  <div class="cl-num">Considerandos</div>
+  <div class="cl-body">
+    <p>Que el Contratante requiere los servicios de un consultor especializado para la formulación completa del proyecto de inversión pública denominado <em>Territorios Digitales Transformativos · [Territorio]</em>, destinado a mejorar la conectividad digital en municipios del departamento de Arauca, mediante la Metodología General Ajustada (MGA Web) del Departamento Nacional de Planeación (DNP).</p>
+    <p>Que el Contratista cuenta con la experiencia, conocimiento y capacidad técnica para formular dicho proyecto conforme a los estándares del DNP, incorporando marcos metodológicos de gestión basada en resultados (RBM-GAC), planificación estratégica (BSC-s v5.1) y gestión de proyectos ágil (Agile–ODI).</p>
+    <p>Que las partes, de común acuerdo y con plena capacidad jurídica, celebran el presente contrato con sujeción a las siguientes cláusulas:</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 1 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 1ª — Objeto del contrato</div>
+  <div class="cl-body">
+    <p>El Contratista se obliga a prestar sus servicios de consultoría especializada para la <strong>formulación completa del proyecto de inversión pública Territorios Digitales Transformativos · [Territorio]</strong> en municipios de Arauca, conforme a los requerimientos de la MGA Web (Manual v6.0, DNP), incluyendo:</p>
+    <ul>
+      <li>Diagnóstico territorial, definición de la solución, análisis de sector e impacto (E1).</li>
+      <li>Detalle técnico de la solución, cadena de valor RBM-GAC, productos, cronograma y riesgos (E2).</li>
+      <li>Detalle presupuestal CAPEX/OPEX, fuentes de financiamiento y proyección plurianual (E3).</li>
+      <li>Consolidación integral, registro en MGA Web §1–§8 y gestión del código BPIN ante el DNP-SUIFP (E4).</li>
+    </ul>
+    <p>El alcance de los entregables por sprint se detalla en el Anexo 1 — Plan de trabajo aprobado.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 2 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 2ª — Obligaciones del Contratista</div>
+  <div class="cl-body">
+    <p>Son obligaciones del Contratista:</p>
+    <ul>
+      <li>Formular el proyecto de inversión pública conforme a la MGA Web (DNP, Manual v6.0) con la calidad técnica suficiente para su aprobación en el SUIFP.</li>
+      <li>Entregar los productos E1, E2, E3 y E4 en los plazos establecidos en el plan de trabajo (Anexo 1), conforme a la metodología Agile–ODI acordada.</li>
+      <li>Gestionar el registro del proyecto en MGA Web hasta la obtención del código BPIN emitido por el DNP.</li>
+      <li>Mantener comunicación permanente con el Contratante mediante los canales y ceremonias definidos en el Acta ODI (Anexo 2).</li>
+      <li>Guardar estricta confidencialidad sobre la información territorial, financiera y estratégica suministrada por el Contratante.</li>
+      <li>Responder las observaciones del Contratante a cada entregable en un plazo no mayor a dos (2) días hábiles.</li>
+      <li>Atender los requerimientos técnicos del DNP durante el proceso de evaluación y registro del proyecto.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CLÁUSULA 3 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 3ª — Obligaciones del Contratante</div>
+  <div class="cl-body">
+    <p>Son obligaciones del Contratante:</p>
+    <ul>
+      <li>Desembolsar el anticipo del cuarenta por ciento (40%) del valor del contrato en la fecha de firma.</li>
+      <li>Realizar los pagos correspondientes a cada hito (E1, E2, E3, E4) dentro de los cinco (5) días hábiles siguientes al sign-off de cada entregable.</li>
+      <li>Facilitar oportunamente los insumos requeridos por el Contratista: datos de campo, especificaciones técnicas de red, tablas de precios y cualquier otro documento necesario para el cumplimiento del objeto.</li>
+      <li>Garantizar la disponibilidad y respuesta de los Frentes B (Arquitectura de Redes), C (Especialista Presupuesto) y D (Técnicos de Campo) en las fechas comprometidas en el plan de trabajo.</li>
+      <li>Revisar cada entregable y emitir aprobación o comentarios en un plazo no mayor a dos (2) días hábiles para E1 y cinco (5) días hábiles para E2, E3 y E4.</li>
+      <li>Garantizar el acceso a las plataformas digitales requeridas (MGA Web, Drive, canales de comunicación).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CLÁUSULA 4 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 4ª — Valor del contrato</div>
+  <div class="cl-body">
+    <div class="valor-box">
+      <div>
+        <div class="valor-label">Valor total del contrato (IVA incluido)</div>
+        <div class="valor-num">$27.000.000 COP</div>
+      </div>
+      <div style="text-align:right">
+        <div class="valor-label">En letras</div>
+        <div style="font-size:10pt;font-family:'Times New Roman',serif;color:#e2e8f0;font-style:italic">Veintisiete millones de pesos M/cte.</div>
+      </div>
+    </div>
+    <p>El valor incluye todos los costos del Contratista para el cumplimiento del objeto. Los costos de los Frentes B, C y D son de exclusiva responsabilidad del Contratante.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 5 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 5ª — Forma de pago</div>
+  <div class="cl-body">
+    <p>El Contratante pagará el valor del contrato en los siguientes hitos verificables:</p>
+    <table class="pay-table">
+      <thead><tr><th>Hito</th><th>Condición de pago</th><th>%</th><th>Monto COP</th><th>Plazo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>E0 · Anticipo</strong></td><td>Firma del presente contrato</td><td>40%</td><td class="pay-amt">$10.800.000</td><td>Fecha de firma</td></tr>
+        <tr><td><strong>E1 · Pago 1</strong></td><td>Sign-off E1 por el Contratante (diagnóstico + solución + sector)</td><td>30%</td><td class="pay-amt">$8.100.000</td><td>5 días hábiles post sign-off E1</td></tr>
+        <tr><td><strong>E2 · Pago 2</strong></td><td>Sign-off E2 por el Contratante (detalle técnico + cadena de valor)</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días hábiles post sign-off E2</td></tr>
+        <tr><td><strong>E3 · Pago 3</strong></td><td>Sign-off E3 por el Contratante (detalle presupuestal)</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días hábiles post sign-off E3</td></tr>
+        <tr><td><strong>E4 · Pago final</strong></td><td>BPIN emitido por DNP + acta de entrega firmada</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días hábiles post BPIN</td></tr>
+        <tr class="pay-total"><td colspan="2"><strong>Total</strong></td><td><strong>100%</strong></td><td class="pay-amt"><strong>$27.000.000</strong></td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p>Los pagos se realizarán mediante transferencia bancaria a la cuenta del Contratista: [BANCO] · [TIPO_CUENTA] · No. [NÚMERO_CUENTA] · a nombre de Carlos Camilo Madera Sepúlveda.</p>
+    <p>El anticipo no está sujeto a amortización por entregable; se descuenta al finalizar la relación contractual si el contrato se termina anticipadamente por causas imputables al Contratista.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 6 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 6ª — Plazo de ejecución</div>
+  <div class="cl-body">
+    <p>El plazo de ejecución del presente contrato es de <strong>aproximadamente siete (7) semanas calendario</strong> contadas a partir de la fecha de firma, conforme al siguiente esquema:</p>
+    <ul>
+      <li><strong>E0 (Sprint 0):</strong> Día de la firma — Fundación, kick-off y setup.</li>
+      <li><strong>E1 (Sprint 1):</strong> Semana 1 — Diagnóstico, solución, sector, impacto.</li>
+      <li><strong>E2 (Sprint 2):</strong> Semanas 2–4 — Detalle técnico, cadena de valor, productos, cronograma, riesgos.</li>
+      <li><strong>E3 (Sprint 3):</strong> Semanas 2–4 (paralelo a E2) — Detalle presupuestal.</li>
+      <li><strong>E4 (Sprint 4):</strong> Semanas 5–7 — Consolidación, MGA Web §1–§8, BPIN.</li>
+    </ul>
+    <p>El plazo podrá prorrogarse de mutuo acuerdo, mediante otrosí, cuando las demoras sean atribuibles al Contratante o a causas de fuerza mayor debidamente documentadas. Los retrasos en las entregas de los Frentes B, C o D que sean responsabilidad del Contratante darán derecho al Contratista a solicitar prórroga sin penalidad.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 7 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 7ª — Entregables</div>
+  <div class="cl-body">
+    <p>Los entregables del presente contrato se detallan en el Anexo 1 (Plan de trabajo) y se resumen así:</p>
+    <ul>
+      <li><strong>E1:</strong> Informe de diagnóstico territorial · Árbol de problemas-objetivos · Definición de la solución · Análisis del sector MinTIC · Análisis de impacto ODS.</li>
+      <li><strong>E2:</strong> Especificación técnica de la solución · Cadena de valor RBM-GAC · Ficha de productos MGA §5 · Cronograma de ejecución · Matriz de riesgos.</li>
+      <li><strong>E3:</strong> Presupuesto CAPEX/OPEX por producto · Estructura de fuentes de financiamiento · Proyección plurianual.</li>
+      <li><strong>E4:</strong> Evaluación económica VPN/TIR/B-C · Registro MGA Web §1–§8 en plataforma DNP · Código BPIN emitido · Acta de entrega final.</li>
+    </ul>
+    <p>Cada entregable se considerará recibido a satisfacción cuando el Contratante emita el sign-off correspondiente por escrito (correo electrónico o firma en el repositorio Drive del proyecto).</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 8 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 8ª — Propiedad intelectual</div>
+  <div class="cl-body">
+    <p><strong>8.1 Entregables del proyecto.</strong> Los documentos, análisis, formulaciones y registros producidos específicamente como objeto del presente contrato serán de propiedad del Contratante una vez efectuado el pago total del valor del contrato.</p>
+    <p><strong>8.2 Know-how y marcos metodológicos del Contratista.</strong> Los marcos metodológicos, frameworks, plantillas, herramientas y know-how utilizados por el Contratista para producir los entregables — incluyendo pero sin limitarse a CRISP-DM, BSC-s v5.1, RBM-GAC, Agile–ODI, Customer Development y KDMO — permanecen como propiedad exclusiva del Contratista. El Contratante no adquiere ningún derecho de uso, reproducción o comercialización sobre dichos marcos.</p>
+    <p><strong>8.3 Datos primarios.</strong> Los datos territoriales, estadísticos y técnicos aportados por el Contratante o levantados por los frentes externos (B, C, D) son y seguirán siendo de propiedad del Contratante o de sus titulares originales.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 9 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 9ª — Confidencialidad</div>
+  <div class="cl-body">
+    <p>Las partes se obligan a mantener estricta confidencialidad sobre toda información técnica, financiera, territorial y estratégica intercambiada en desarrollo del presente contrato. Esta obligación subsistirá por un período de dos (2) años contados desde la terminación del contrato. La información pública, la que sea de dominio de terceros o la que las partes deban divulgar por mandato legal o judicial, no estará sujeta a esta restricción.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 10 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 10ª — Independencia del Contratista</div>
+  <div class="cl-body">
+    <p>El Contratista actuará como profesional independiente. El presente contrato no genera relación laboral ni vínculo de subordinación alguno. El Contratista es responsable de sus propias obligaciones tributarias, de seguridad social y parafiscales. El Contratante no asume responsabilidad alguna sobre dichas obligaciones.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 11 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 11ª — Causales de terminación</div>
+  <div class="cl-body">
+    <p>El presente contrato podrá terminarse anticipadamente por:</p>
+    <ul>
+      <li><strong>Mutuo acuerdo:</strong> Mediante otrosí firmado por ambas partes, con liquidación proporcional de los entregables completados.</li>
+      <li><strong>Incumplimiento del Contratista:</strong> Si el Contratista no entrega los productos en los plazos establecidos sin causa justificada, previo requerimiento escrito con un plazo de cinco (5) días hábiles para subsanar.</li>
+      <li><strong>Incumplimiento del Contratante:</strong> Si el Contratante no efectúa los pagos en los plazos establecidos, el Contratista podrá suspender la ejecución previo aviso de tres (3) días hábiles y, si persiste el incumplimiento, dar por terminado el contrato con derecho a cobrar los entregables ya producidos.</li>
+      <li><strong>Fuerza mayor:</strong> Eventos imprevisibles e irresistibles que hagan imposible la ejecución del objeto, debidamente documentados.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CLÁUSULA 12 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 12ª — Modificaciones</div>
+  <div class="cl-body">
+    <p>Cualquier modificación al presente contrato — en su objeto, valor, plazo o forma de pago — deberá constar en otrosí escrito, firmado por ambas partes, con igual fuerza jurídica que el contrato principal. Los cambios de alcance solicitados por el Contratante después del sign-off de un entregable podrán generar ajuste en el valor del contrato, previo acuerdo de las partes.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 13 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 13ª — Resolución de conflictos</div>
+  <div class="cl-body">
+    <p>Las diferencias que surjan entre las partes en desarrollo o con ocasión del presente contrato serán resueltas, en primer término, de manera directa y amigable entre las partes dentro de los quince (15) días hábiles siguientes a la notificación del conflicto. Si no se logra acuerdo, las partes se someterán a la jurisdicción ordinaria de la República de Colombia, con domicilio en la ciudad de Bogotá D.C.</p>
+  </div>
+</div>
+
+<!-- CLÁUSULA 14 -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 14ª — Documentos integrantes del contrato</div>
+  <div class="cl-body">
+    <p>Forman parte integral del presente contrato, con igual valor jurídico, los siguientes documentos:</p>
+    <ul>
+      <li><strong>Anexo 1:</strong> Plan de trabajo — Sprint Charters E0–E4 y calendarios de actividades.</li>
+      <li><strong>Anexo 2:</strong> Acta ODI — Criterios de aceptación por entregable.</li>
+      <li><strong>Anexo 3:</strong> Propuesta técnica y económica Ref. CCMS-CB-2026-001-v7.</li>
+    </ul>
+    <p>En caso de contradicción entre los documentos, prevalece el texto del presente contrato.</p>
+  </div>
+</div>
+
+<!-- FIRMAS -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 15ª — Aceptación y firmas</div>
+  <div class="cl-body">
+    <p>En constancia de haber leído, entendido y aceptado el presente contrato en todas sus partes, las partes lo suscriben en dos (2) ejemplares del mismo tenor y valor, en la ciudad de _____________________, a los _____ días del mes de _______________ de 2026.</p>
+  </div>
+</div>
+
+<div class="firmas">
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="firma-rol">El Contratante</div>
+    <div class="firma-det">NIT / CC: [NIT_O_CC]<br>C.C. Rep. Legal: [CC_REP]</div>
+  </div>
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="firma-rol">El Contratista</div>
+    <div class="firma-det">C.C.: [CC_CONSULTOR]<br>ccolombia@soygenial.co</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div><span class="conf-lbl">Documento Confidencial</span> — Uso restringido a las partes signatarias</div>
+  <div>Ref. CCMS-CB-2026-001-B &nbsp;·&nbsp; Variante B · Solo formulación MGA</div>
+</div>
+
+</body>
+</html>

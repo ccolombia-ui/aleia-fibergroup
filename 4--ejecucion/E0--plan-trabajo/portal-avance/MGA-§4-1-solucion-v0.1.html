@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §4.1 Solución Preliminar · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st::before{content:"●";font-size:7pt;}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-b{background:rgba(4,120,87,.12);color:var(--emr);border-color:rgba(4,120,87,.25);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.section-banner{background:linear-gradient(135deg,rgba(4,120,87,.09) 0%,rgba(4,120,87,.05) 100%);border:1px solid rgba(4,120,87,.25);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--emr);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.benchmark-card{background:linear-gradient(135deg,rgba(4,120,87,.07) 0%,rgba(4,120,87,.03) 100%);border:1px solid rgba(4,120,87,.2);border-radius:4px;padding:.35rem .55rem;margin:.15rem 0;display:flex;gap:.7rem;align-items:flex-start;}
+.bench-val{font-size:12pt;font-weight:700;color:var(--emr);font-family:var(--mono);}
+.bench-label{font-size:7pt;color:var(--muted);font-family:var(--sans);}
+.bench-src{font-size:6.3pt;font-family:var(--mono);color:var(--blue-d);margin-top:.1rem;}
+.field-box{background:rgba(248,250,252,.8);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.35rem .55rem;margin:.15rem 0;}
+.field-label{font-size:6.4pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.field-value{font-size:9pt;font-family:var(--sans);color:var(--navy);font-weight:600;}
+.field-inst{font-size:7.5pt;color:var(--muted);font-family:var(--sans);margin-top:.06rem;font-style:italic;}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§4.1 Solución Preliminar · FTTH GPON · 4.000 hogares · 24 meses</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§4-1-solucion-v0.1 · 3 may 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 3 may 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §4.1 · Descripción de la solución seleccionada</div>
+    <div class="banner-title">Alternativa A1 seleccionada: FTTH GPON · cofinanciación MinTIC FUTIC ~95%</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D · B</strong></div>
+    <div class="banner-date">Día de entrega: <strong>3 may 2026</strong></div>
+  </div>
+</div>
+
+<!-- BENCHMARKS -->
+<div class="cl-num">§4.1.A — Benchmarks verificados que soportan la solución</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.3rem;margin:.18rem 0;">
+  <div class="benchmark-card">
+    <div>
+      <div class="bench-val">$865.627</div>
+      <div class="bench-label">COP/hogar total</div>
+      <div class="bench-label"><strong>Mi Casa Bacana Atlántico</strong></div>
+      <div class="bench-src">MinTIC 78,9% · Gob 21,1%</div>
+    </div>
+  </div>
+  <div class="benchmark-card">
+    <div>
+      <div class="bench-val">$1.875.764</div>
+      <div class="bench-label">COP/hogar total</div>
+      <div class="bench-label"><strong>FTTH N. Santander PDET</strong></div>
+      <div class="bench-src">MinTIC 87% · Gob 13%</div>
+    </div>
+  </div>
+  <div class="benchmark-card">
+    <div>
+      <div class="bench-val">$875.000</div>
+      <div class="bench-label">COP/hogar · meta Arauquita</div>
+      <div class="bench-label"><strong>Estimado proyecto</strong></div>
+      <div class="bench-src">B-03 BRONZE · ±30%</div>
+    </div>
+  </div>
+</div>
+
+<!-- DESCRIPCIÓN DE LA SOLUCIÓN -->
+<div class="cl-num">§4.1.B — Narrativa de la solución (campos MGA Web DNP §4.1)</div>
+
+<div class="field-box">
+  <div class="field-label">Descripción de la solución (qué se hace)</div>
+  <div class="field-value">Despliegue de red de fibra óptica al hogar (FTTH) con tecnología GPON, complementado con un programa de apropiación digital, para proveer acceso a internet de banda ancha a aproximadamente 4.000 hogares del municipio de Arauquita, departamento de Arauca.</div>
+  <div class="field-inst">Máx. 500 caracteres en MGA Web. Incluir: tecnología seleccionada · número beneficiarios · municipio · departamento. No incluir montos en esta sección.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">A quién beneficia</div>
+  <div class="field-value">~4.000 hogares (estimado ~14.000 personas) en la cabecera municipal y 4 centros poblados priorizados de Arauquita. Municipio clasificado PDET, ZOMAC y ZDP.</div>
+  <div class="field-inst">Conectar con §3 Población para coherencia. Verificar clasificación PDET/ZOMAC/ZDP con JUR antes de 30 abr.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Dónde se implementa</div>
+  <div class="field-value">Municipio de Arauquita · Departamento de Arauca · Código DANE 81065 · Coordenadas cabecera: [D provee · 29 abr]</div>
+  <div class="field-inst">Conectar con mapa KML P1-03 (§3). Los centros poblados específicos los define el Frente D el 1 may.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Con qué tecnología</div>
+  <div class="field-value">Fibra óptica al hogar · arquitectura FTTH GPON (Gigabit-capable Passive Optical Network). Velocidades conformes a Resolución MinTIC 3689/2023: Estrato E1 ≥ 25 Mbps bajada / 10 Mbps subida. CPE con WiFi 6 para cada hogar.</div>
+  <div class="field-inst">Detalle técnico completo (BOM · topología · planos) en E2 Sprint 2 Frente B. Para §4.1 Sprint 1 es suficiente la descripción funcional.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Con qué cofinanciación</div>
+  <div class="field-value">Fondo Único de TIC (FUTIC) MinTIC: ~95% (~$3.325M COP) · Contraparte Fibergroup S.A.S. E.S.P.: ~5% (~$175M COP). Base legal: Ley 1978/2019 · Resolución 3689/2023. Mecanismo: convocatoria FUTIC + convenio de ejecución.</div>
+  <div class="field-inst">Porcentajes aspiracionales. Justificación: triple condición PDET+ZOMAC+ZDP. Confirmar con JUR antes de ingresar a MGA Web.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">En qué tiempo</div>
+  <div class="field-value">24 meses de ejecución desde la firma del convenio de financiación: 12 meses de diseño, adquisición y despliegue · 12 meses de operación sostenida y transferencia de capacidades.</div>
+  <div class="field-inst">Plazo estándar benchmarks similares. Cronograma detallado en E2 Sprint 2 Frente B.</div>
+</div>
+
+<!-- TABLA TÉCNICA SUMMARY -->
+<div class="cl-num">§4.1.C — Resumen técnico de la solución A1 (datos preliminares)</div>
+
+<table class="tbl">
+  <thead><tr><th>Parámetro técnico</th><th>Valor preliminar</th><th>Fuente</th><th>¿Confirmar Sprint 2?</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="4">ARQUITECTURA DE RED</td></tr>
+    <tr><td>Tipo de red</td><td>FTTH GPON (fiber-to-the-home)</td><td>DEC-2 Sprint 1</td><td>Confirmado en §4.2</td></tr>
+    <tr><td>Split ratio GPON</td><td>1:32 o 1:64 (B define)</td><td>Estándar industria</td><td>Sí · B Sprint 2</td></tr>
+    <tr><td>Velocidad mínima ofrecida</td><td>E1 ≥ 25/10 Mbps simétrico</td><td>Res. MinTIC 3689/2023</td><td>No · normativo</td></tr>
+    <tr><td>CPE por hogar</td><td>ONT + Router WiFi 6</td><td>CAPEX ~$150K/CPE (S-04)</td><td>Sí · B Sprint 2 BOM</td></tr>
+    <tr class="subt"><td colspan="4">ESCALA DEL PROYECTO</td></tr>
+    <tr><td>Hogares objetivo</td><td>~4.000</td><td>B-07</td><td>Sí · D Sprint 1</td></tr>
+    <tr><td>CAPEX estimado/hogar</td><td>~$875.000 COP</td><td>B-03 ±30%</td><td>Sí · B+C Sprint 2</td></tr>
+    <tr><td>Presupuesto total</td><td>~$3.500M COP</td><td>B-05 ±25%</td><td>Sí · §7 Sprint 2</td></tr>
+    <tr><td>Km red backbone estimado</td><td>[B define Sprint 2]</td><td>—</td><td>Sí · B Sprint 2</td></tr>
+    <tr><td>Km última milla estimado</td><td>[B define Sprint 2]</td><td>—</td><td>Sí · B Sprint 2</td></tr>
+    <tr class="subt"><td colspan="4">SOSTENIBILIDAD</td></tr>
+    <tr><td>Tarifa máxima usuario final</td><td>E1: $11.917/mes (Res. 3689/2023)</td><td>S-08</td><td>No · normativo</td></tr>
+    <tr><td>Modelo de operación</td><td>Fibergroup como PRST · red propia</td><td>Contrato CCMS-CB-2026-001-B-v11</td><td>No · definido</td></tr>
+    <tr><td>Período de sostenibilidad</td><td>12 meses dentro del proyecto</td><td>Estándar FUTIC</td><td>Sí · JUR Sprint 1</td></tr>
+  </tbody>
+</table>
+
+<!-- TAREAS -->
+<div class="cl-num">§4.1.D — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Redactar narrativa completa §4.1 con todos los campos. Ingresar en MGA Web DNP §4.1.</td><td><span class="act act-cti">CTI</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>D valida pertinencia territorial · B valida factibilidad técnica preliminar FTTH en el área.</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-b">B</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Review legal: cumplimiento Res. 3689 · estructura cofinanciación MinTIC FUTIC · convenio Fiducoldex · clasificación PDET/ZOMAC/ZDP verificada.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>Sign-off del Gerente sobre §4.1 solución preliminar · publicar v1.0 en portal de avance.</td><td><span class="act act-ger">GER</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Dependencia clave:</strong> §4.1 depende de DEC-2 (selección alternativa §4.2) que debe estar firmada el 3 may. Primero aprobar §4.2 · luego redactar §4.1 con la alternativa ganadora confirmada por el GER.</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§4-1-solucion-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

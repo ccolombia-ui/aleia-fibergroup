@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Casa Bacana Arauquita · Conexiones Residenciales FTTH · Infografía v1</title>
+<style>
+:root {
+  --navy: #0f172a; --navy-m: #1e293b; --navy-l: #1e3a5f;
+  --sky: #0284c7; --sky-d: #0369a1; --sky-l: #38bdf8; --sky-bg: #e0f2fe;
+  --emr: #059669; --emr-d: #047857; --emr-l: #34d399;
+  --pur: #7c3aed; --pur-d: #6d28d9; --pur-l: #a78bfa; --pur-bg: #f5f3ff;
+  --gld: #d97706; --gld-d: #b45309; --gld-l: #fcd34d;
+  --org: #ea580c; --org-d: #c2410c; --org-l: #fb923c;
+  --rose: #e11d48; --rose-d: #be123c;
+  --text: #334155; --muted: #64748b; --bg: #f8fafc; --border: rgba(0,0,0,0.08);
+  --mono: 'Courier New', Courier, monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Calibri, Carlito, Arial, sans-serif; font-size: 9.5pt; line-height: 1.42; color: var(--text); background: #fff; max-width: 215mm; margin: 0 auto; padding: 9mm 13mm; }
+
+.print-btn { position: fixed; top: 12px; right: 12px; background: var(--sky); color:#fff; border:none; padding: 0.5rem 1.1rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer; z-index: 999; font-family: inherit; box-shadow: 0 4px 14px rgba(0,0,0,0.28); }
+.print-btn:hover { background: var(--sky-d); }
+
+h1 { font-size: 20pt; font-weight: 700; color: var(--navy); line-height: 1.08; }
+h2 { font-size: 11pt; font-weight: 700; color: var(--navy); margin: 0.6rem 0 0.3rem; border-bottom: 2px solid var(--sky); padding-bottom: 0.15rem; }
+h3 { font-size: 9.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.18rem; }
+p  { margin-bottom: 0.28rem; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+
+.hdr { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: end; margin-bottom: 0.4rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--sky); }
+.hdr .sub { font-size: 7.5pt; color: var(--sky-d); font-weight: 700; font-family: var(--mono); margin-top: 0.12rem; letter-spacing: 0.01em; }
+.hdr-meta { text-align: right; font-size: 7pt; color: var(--muted); line-height: 1.7; font-family: var(--mono); }
+
+.pg-2, .pg-3, .pg-4, .pg-5, .pg-6, .pg-7 { page-break-before: always; break-before: page; }
+
+.stats-hero { display: grid; grid-template-columns: repeat(6,1fr); background: linear-gradient(135deg, var(--sky-d) 0%, var(--navy) 100%); border-radius: 9px; overflow: hidden; margin: 0.5rem 0 0.45rem; }
+.sh { padding: 0.5rem 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.sh:last-child { border-right: none; }
+.sh-n { font-size: 12.5pt; font-weight: 700; color: var(--sky-l); display: block; font-family: var(--mono); }
+.sh-l { font-size: 6pt; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.05rem; }
+
+.tagline { font-size: 8.5pt; color: var(--text); line-height: 1.5; background: var(--sky-bg); padding: 0.45rem 0.7rem; border-left: 3.5px solid var(--sky); border-radius: 0 6px 6px 0; margin-bottom: 0.35rem; }
+.tagline strong { color: var(--sky-d); }
+
+.tesis { background: var(--navy); border-radius: 10px; padding: 0.7rem 1rem; margin: 0.4rem 0; color: #fff; }
+.tesis-eq { font-family: 'Georgia', serif; font-size: 12.5pt; font-weight: 700; color: var(--sky-l); text-align: center; line-height: 1.3; margin-bottom: 0.25rem; }
+.tesis-eq .arrow { color: var(--gld-l); padding: 0 0.25rem; }
+.tesis-sub { font-size: 8pt; color: rgba(255,255,255,0.78); text-align: center; font-style: italic; }
+
+.si { font-size: 8pt; color: var(--muted); margin-bottom: 0.4rem; }
+
+.charts-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.4rem 0; }
+.chart-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.7rem; background: #fff; break-inside: avoid; page-break-inside: avoid; }
+.chart-title { font-size: 8.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; padding-bottom: 0.2rem; border-bottom: 1.2px solid var(--bg); }
+.chart-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-top: -0.18rem; margin-bottom: 0.3rem; }
+.chart-foot { font-size: 6.5pt; color: var(--muted); margin-top: 0.3rem; padding-top: 0.22rem; border-top: 1px dashed var(--border); }
+
+table.tbl { width: 100%; border-collapse: collapse; font-size: 7.5pt; }
+table.tbl th { background: var(--navy); color: white; font-weight: 700; padding: 0.25rem 0.45rem; text-align: left; font-size: 7pt; }
+table.tbl td { padding: 0.25rem 0.45rem; border-bottom: 1px solid var(--border); }
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl tr:nth-child(even) { background: var(--bg); }
+.tbl .num { font-family: var(--mono); text-align: right; }
+.tbl .hi { color: var(--rose-d); font-weight: 700; }
+.tbl .ok { color: var(--emr-d); font-weight: 700; }
+
+.stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin: 0.4rem 0; }
+.stk { border-radius: 7px; padding: 0.5rem 0.6rem; border: 1px solid var(--border); break-inside: avoid; }
+.stk-icon { font-size: 14pt; line-height: 1; }
+.stk-name { font-size: 8pt; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
+.stk-tech { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.2rem; }
+.stk-bpa { font-size: 6.5pt; color: var(--sky-d); font-style: italic; }
+.stk-cost { font-size: 6.5pt; color: var(--emr-d); font-weight: 700; margin-top: 0.15rem; }
+.stk.s1 { background: linear-gradient(180deg,#fff,#eff6ff); border-left: 3px solid var(--sky); }
+.stk.s2 { background: linear-gradient(180deg,#fff,#f0fdf4); border-left: 3px solid var(--emr); }
+.stk.s3 { background: linear-gradient(180deg,#fff,#fef3c7); border-left: 3px solid var(--gld); }
+.stk.s4 { background: linear-gradient(180deg,#fff,#f5f3ff); border-left: 3px solid var(--pur); }
+.stk.s5 { background: linear-gradient(180deg,#fff,#fff7ed); border-left: 3px solid var(--org); }
+.stk.s6 { background: linear-gradient(180deg,#fff,#fef2f2); border-left: 3px solid var(--rose); }
+
+.tree { background: var(--bg); border-radius: 7px; padding: 0.7rem 0.9rem; font-family: var(--mono); font-size: 7pt; line-height: 1.55; color: var(--text); border: 1px solid var(--border); }
+
+.cmt-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.cmt { background: linear-gradient(135deg,#fff,#fafbfc); border: 1px solid var(--border); border-top: 3px solid var(--sky); border-radius: 6px; padding: 0.45rem 0.5rem; text-align: center; }
+.cmt-n { font-size: 13pt; font-weight: 700; font-family: var(--mono); color: var(--sky-d); display: block; line-height: 1; }
+.cmt-l { font-size: 5.8pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.18rem; }
+
+.ft { margin-top: 0.65rem; padding-top: 0.45rem; border-top: 1.5px solid var(--border); display: grid; grid-template-columns: 1fr auto; font-size: 6.5pt; color: var(--muted); }
+.ft-r { text-align: right; font-family: var(--mono); }
+
+.kpi-mini { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.kpi { background: var(--bg); border-radius: 6px; padding: 0.4rem 0.45rem; border: 1px solid var(--border); }
+.kpi-n { font-family: var(--mono); font-weight: 700; color: var(--sky-d); font-size: 11pt; }
+.kpi-l { font-size: 6.5pt; color: var(--muted); }
+
+.timeline { display: grid; grid-template-columns: repeat(8,1fr); gap: 4px; margin: 0.5rem 0; }
+.tl { padding: 0.45rem 0.3rem; border-radius: 5px; text-align: center; font-size: 6.5pt; }
+.tl-q { font-weight: 700; font-family: var(--mono); display: block; font-size: 7pt; color: var(--navy); }
+.tl-l { color: var(--muted); display: block; margin-top: 0.15rem; line-height: 1.25; }
+.tl-1 { background: linear-gradient(180deg,#dbeafe,#fff); border-left: 3px solid var(--sky); }
+.tl-2 { background: linear-gradient(180deg,#dbeafe,#fff); border-left: 3px solid var(--sky); }
+.tl-3 { background: linear-gradient(180deg,#d1fae5,#fff); border-left: 3px solid var(--emr); }
+.tl-4 { background: linear-gradient(180deg,#d1fae5,#fff); border-left: 3px solid var(--emr); }
+.tl-5 { background: linear-gradient(180deg,#fef3c7,#fff); border-left: 3px solid var(--gld); }
+.tl-6 { background: linear-gradient(180deg,#fef3c7,#fff); border-left: 3px solid var(--gld); }
+.tl-7 { background: linear-gradient(180deg,#f5f3ff,#fff); border-left: 3px solid var(--pur); }
+.tl-8 { background: linear-gradient(180deg,#fef2f2,#fff); border-left: 3px solid var(--rose); }
+
+.norm-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.5rem; }
+.norm { background: var(--bg); border-radius: 6px; padding: 0.5rem 0.65rem; border-left: 3px solid var(--navy); }
+.norm-h { font-weight: 700; color: var(--navy); font-size: 8pt; }
+.norm-d { font-size: 7pt; color: var(--text); margin-top: 0.2rem; }
+
+.bench { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin: 0.4rem 0; }
+.bn { background: linear-gradient(135deg,#fff,#f8fafc); border: 1px solid var(--border); border-top: 3px solid var(--sky); border-radius: 7px; padding: 0.55rem 0.7rem; }
+.bn.cur { border-top-color: var(--emr); background: linear-gradient(135deg,#fff,#f0fdf4); }
+.bn-h { font-weight: 700; color: var(--navy); font-size: 8pt; }
+.bn-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.3rem; }
+.bn-row { display: flex; justify-content: space-between; font-size: 7pt; padding: 0.12rem 0; border-bottom: 1px dotted var(--border); }
+.bn-row:last-child { border-bottom: none; font-weight: 700; color: var(--navy); }
+
+@page { size: Letter portrait; margin: 9mm 11mm 9mm 11mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { margin:0; padding:0; max-width:100%; }
+  .print-btn { display: none !important; }
+  body { font-size: 8.5pt; padding: 0; line-height: 1.38; }
+  .pg-2, .pg-3, .pg-4, .pg-5, .pg-6, .pg-7 { page-break-before: always !important; break-before: page !important; }
+  .charts-2col, .stack, .cmt-grid, .kpi-mini, table.tbl, .tree, .norm-grid, .bench, .timeline { break-inside: avoid; page-break-inside: avoid; }
+  .chart-box, .stk, .cmt, .kpi, .norm, .bn, .tl { break-inside: avoid; page-break-inside: avoid; }
+  h2 { margin: 0.45rem 0 0.22rem; font-size: 10pt; }
+  h1 { font-size: 18pt; }
+  .stats-hero { margin: 0.35rem 0 0.3rem; }
+  .sh { padding: 0.4rem 0.4rem; }
+  .sh-n { font-size: 11pt; }
+  .tagline { padding: 0.32rem 0.55rem; font-size: 7.8pt; line-height: 1.42; }
+  .tesis { padding: 0.55rem 0.85rem; }
+  .tesis-eq { font-size: 11pt; }
+  .tesis-sub { font-size: 7.2pt; }
+  .charts-2col { gap: 0.55rem; margin: 0.3rem 0; }
+  .chart-box { padding: 0.42rem 0.55rem; }
+  .chart-title { font-size: 8pt; margin-bottom: 0.22rem; }
+  .chart-sub { font-size: 6pt; }
+  .chart-foot { font-size: 6pt; margin-top: 0.22rem; padding-top: 0.18rem; }
+  .si { font-size: 7.2pt; margin-bottom: 0.3rem; }
+  table.tbl th, table.tbl td { padding: 0.2rem 0.35rem; }
+  table.tbl { font-size: 7pt; }
+  .stk { padding: 0.4rem 0.5rem; }
+  .stk-name { font-size: 7.5pt; }
+  .stk-tech { font-size: 6pt; }
+  .stk-bpa, .stk-cost { font-size: 6pt; }
+  .tree { padding: 0.55rem 0.7rem; font-size: 6.3pt; line-height: 1.48; }
+  .cmt-n { font-size: 11.5pt; }
+  .cmt-l { font-size: 5.5pt; }
+  .chart-box svg { max-height: 175px; }
+  .ft { margin-top: 0.5rem; padding-top: 0.35rem; }
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 1 · COVER + IDENTIDAD + STATS + TESIS + LOCALIZACIÓN ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<div class="hdr">
+  <div>
+    <h1>Mi Casa Bacana Arauquita · Conexiones Residenciales FTTH</h1>
+    <div class="sub">conectividad_universal_PDET · convenio_FUTIC_GobArauca · BPA Casa-Bacana-Atlántico + ConectiVIDAd · 4.000 hogares · 24 meses</div>
+  </div>
+  <div class="hdr-meta">
+    Iniciativa Casa Bacana · Arauquita Arauca<br>
+    Cód. DANE 81065 · PDET · ZOMAC · ZDP<br>
+    URN: poc-cb:arauquita:fttth-conexion-residencial<br>
+    2026-04-27 · DRAFT v1 · scope ConectiVIDAd Tipo 2
+  </div>
+</div>
+
+<div class="stats-hero">
+  <div class="sh"><span class="sh-n">$3.500M</span><span class="sh-l">COP CAPEX+OPEX 24m</span></div>
+  <div class="sh"><span class="sh-n">4.000</span><span class="sh-l">hogares E1+E2</span></div>
+  <div class="sh"><span class="sh-n">24</span><span class="sh-l">meses ejecución</span></div>
+  <div class="sh"><span class="sh-n">25/5</span><span class="sh-l">Mbps min down/up</span></div>
+  <div class="sh"><span class="sh-n">95/5</span><span class="sh-l">% MinTIC / GobArauca</span></div>
+  <div class="sh"><span class="sh-n">67.8%</span><span class="sh-l">brecha TIC actual</span></div>
+</div>
+
+<div class="tesis">
+  <div class="tesis-eq">BRECHA CRÍTICA <span class="arrow">→</span> CONEXIÓN UNIVERSAL <span class="arrow">→</span> TERRITORIO TRANSFORMATIVO</div>
+  <div class="tesis-sub">Arauquita PDET · 67.8% brecha TIC (mayor de subregión Arauca · MCB-DNP) · 5.8% hogares con internet (CNPV 2018) → 100% cabecera + centros poblados conectados con FTTH bajo modelo ConectiVIDAd</div>
+</div>
+
+<div class="tagline">
+  <strong>Mi Casa Bacana Arauquita</strong> replica el modelo <strong>"Mi Casa Bacana Digital"</strong> del Atlántico ($38.045M · 43.945 hogares · $865K/hogar · MinTIC 79% + Gobernación 21%) y el <strong>Convenio PDET Norte de Santander</strong> ($23.000M · 12.265 hogares · MinTIC 87% + GobNSantander 13%) en el municipio con <strong>mayor brecha TIC del Arauca (67.8% MCB-DNP)</strong> · despliega <strong>red FTTH GPON</strong> nueva + <strong>4.000 conexiones residenciales</strong> E1+E2 · opera bajo el marco <strong>ConectiVIDAd para Cambiar Vidas</strong> (Convenio 790/2023 FUTIC-InterNexa) y la <strong>Resolución MinTIC 3689/2023</strong> · ejecutor <strong>Fibergroup S.A.S. E.S.P.</strong> (PRST RUTIC) · cofinanciación <strong>MinTIC 95% + GobArauca 5%</strong> sobre Eje 6 PDD "Arauca Mejor" · $875.000/hogar validado por 2 precedentes reales.
+</div>
+
+<h2>Composición del Paquete · 2 vistas</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$3.500M COP · 6 Componentes Stack FTTH</div>
+    <div class="chart-sub">// CAPEX 75% red+CPE + OPEX 24m 25%</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri,sans-serif" font-size="6.5">
+        <rect x="20" y="14" width="62" height="14" fill="#0284c7" rx="3"/>
+        <text x="87" y="24" fill="#0f172a">Backbone + última milla FTTH · $1.890M (54%)</text>
+        <rect x="20" y="32" width="22" height="14" fill="#059669" rx="3"/>
+        <text x="47" y="42" fill="#0f172a">CPE/ONT GPON 4.000u · $600M (17%)</text>
+        <rect x="20" y="50" width="20" height="14" fill="#d97706" rx="3"/>
+        <text x="45" y="60" fill="#0f172a">Instalación + activación · $560M (16%)</text>
+        <rect x="20" y="68" width="13" height="14" fill="#7c3aed" rx="3"/>
+        <text x="38" y="78" fill="#0f172a">OPEX operación 24m · $182M (5%)</text>
+        <rect x="20" y="86" width="11" height="14" fill="#ea580c" rx="3"/>
+        <text x="36" y="96" fill="#0f172a">Apropiación digital MarTICa · $148M (4%)</text>
+        <rect x="20" y="104" width="6" height="14" fill="#e11d48" rx="3"/>
+        <text x="31" y="114" fill="#0f172a">Plataforma OSS/BSS · $80M (2%)</text>
+        <rect x="20" y="122" width="3" height="14" fill="#64748b" rx="3"/>
+        <text x="28" y="132" fill="#0f172a">Gestión + supervisión · $40M (1%)</text>
+      </g>
+      <line x1="20" y1="10" x2="20" y2="142" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="120" y="160" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Total: $3.500M COP · MinTIC 95% + GobArauca 5%</text>
+    </svg>
+    <div class="chart-foot">Costo unitario: $875.000/hogar (24m) · benchmark Casa Bacana Atlántico: $865.627/hogar · CONFIRMADO</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Localización · Arauquita Arauca</div>
+    <div class="chart-sub">// cabecera + 4 centros poblados · 4.000 hogares meta</div>
+    <svg viewBox="0 0 280 145" style="width:100%;display:block;">
+      <path d="M 0,90 Q 60,80 90,85 Q 130,90 160,80 Q 200,70 280,85 L 280,145 L 0,145 Z" fill="#dbeafe" opacity="0.4"/>
+      <path d="M 0,90 Q 60,80 90,85 Q 130,90 160,80 Q 200,70 280,85" stroke="#0284c7" stroke-width="1.5" fill="none"/>
+      <text x="20" y="14" font-family="Calibri" font-size="7" font-weight="700" fill="#0284c7">Río Arauca (frontera Venezuela)</text>
+
+      <!-- Cabecera Arauquita - core 3.500 hogares -->
+      <circle cx="140" cy="60" r="22" fill="#0284c7" stroke="white" stroke-width="2"/>
+      <text x="140" y="58" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="white">CABECERA</text>
+      <text x="140" y="68" text-anchor="middle" font-family="Calibri" font-size="6" fill="white">3.500 hogares</text>
+      <text x="140" y="32" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="#0f172a">Arauquita</text>
+      <text x="140" y="92" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#64748b">13.720 hab cabecera (CNPV 2018)</text>
+
+      <!-- Centro Poblado 1: La Esmeralda -->
+      <circle cx="80" cy="48" r="9" fill="#059669" stroke="white" stroke-width="1.5"/>
+      <text x="80" y="51" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="white">CP1</text>
+      <text x="80" y="32" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="#0f172a">La Esmeralda</text>
+      <text x="80" y="65" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">~150 hogares</text>
+
+      <!-- Centro Poblado 2: Aguachica -->
+      <circle cx="200" cy="50" r="9" fill="#059669" stroke="white" stroke-width="1.5"/>
+      <text x="200" y="53" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="white">CP2</text>
+      <text x="200" y="34" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="#0f172a">Aguachica</text>
+      <text x="200" y="67" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">~150 hogares</text>
+
+      <!-- Centro Poblado 3: Panamá -->
+      <circle cx="220" cy="80" r="9" fill="#059669" stroke="white" stroke-width="1.5"/>
+      <text x="220" y="83" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="white">CP3</text>
+      <text x="220" y="100" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="#0f172a">Panamá</text>
+      <text x="220" y="113" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">~100 hogares</text>
+
+      <!-- Centro Poblado 4: La Pesquera -->
+      <circle cx="60" cy="78" r="9" fill="#059669" stroke="white" stroke-width="1.5"/>
+      <text x="60" y="81" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="white">CP4</text>
+      <text x="60" y="98" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="#0f172a">La Pesquera</text>
+      <text x="60" y="112" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">~100 hogares</text>
+
+      <!-- Conexiones FTTH -->
+      <line x1="89" y1="48" x2="118" y2="55" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+      <line x1="69" y1="78" x2="118" y2="68" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+      <line x1="161" y1="55" x2="191" y2="50" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+      <line x1="160" y1="68" x2="211" y2="80" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+
+      <!-- Backbone InterNexa FTTH -->
+      <rect x="60" y="124" width="160" height="16" fill="#1e293b" rx="4"/>
+      <text x="140" y="135" text-anchor="middle" font-family="'Courier New'" font-size="6.5" font-weight="700" fill="#fcd34d">★ BACKBONE FTTH InterNexa-FUTIC ★</text>
+    </svg>
+    <div class="chart-foot">3.500 cabecera (88%) + 500 centros poblados (12%) = 4.000 hogares · cobertura 22.6% del total municipal</div>
+  </div>
+</div>
+
+<h2>Posicionamiento · Marco ConectiVIDAd + Casa Bacana</h2>
+<table class="tbl">
+  <thead><tr><th>Dimensión</th><th>Posición de "Mi Casa Bacana Arauquita"</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Programa MinTIC</strong></td><td>ConectiVIDAd para Cambiar Vidas · Tipo 2 (despliegue nueva red FTTH) · Convenio Marco 790/2023 FUTIC-InterNexa</td></tr>
+    <tr><td><strong>Marco normativo base</strong></td><td>Resolución MinTIC 3689/2023 · Ley 1341/2009 art. 35 num. 1, 2 y 23 (mod. Ley 1978/2019 + Ley 2294/2023) · Ley 2108/2021</td></tr>
+    <tr><td><strong>Modelo de referencia</strong></td><td><span class="ok">Mi Casa Bacana Digital Atlántico</span> · $38.045M / 43.945 hogares / 22 municipios / convenio MinTIC + Gobernación</td></tr>
+    <tr><td><strong>Estructura financiera</strong></td><td>Patrimonio Autónomo Fiducoldex · MinTIC 95% ($3.325M) + GobArauca 5% ($175M) · desembolso por hitos</td></tr>
+    <tr><td><strong>Articulación PDD Arauca</strong></td><td>Pilar 1 "Prosperidad Económica" · <strong>Eje Estratégico 6: TIC (Conectividad) + CTeI</strong></td></tr>
+    <tr><td><strong>Articulación PDM Arauquita</strong></td><td>"Arauquita Somos Todos 2024-2027" (Acuerdo 013/2024) · cofinanciación regalías SGR posibles</td></tr>
+    <tr><td><strong>Productos MGA sector 23</strong></td><td>2301027 (acceso) · 2301028 (portador FTTH) · 2301030 + 2301084 (educ informal + apropiación) · 2301087 (sedes tecnológicas)</td></tr>
+    <tr><td><strong>Ejecutor / ISP</strong></td><td>Fibergroup S.A.S. E.S.P. NIT 901.322.864-7 · CIIU 6190 · PRST <30K usuarios → numeral 23 Art. 35 Ley 1341</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Conexiones Residenciales FTTH · Página 1/7</div>
+  <div class="ft-r">CCMS-CB-2026-001-B · v1 · Fibergroup-CCMS</div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 2 · DIAGNÓSTICO TERRITORIAL ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<h2 class="pg-2" style="margin-top:0;">Diagnóstico Territorial · Arauquita PDET</h2>
+<div class="si">// fuentes GOLD · DANE CNPV 2018 · ART PDET Arauca 2023 · MinTIC IBD 2024 (Octubre 2025)</div>
+
+<h2>Demografía · CNPV 2018 + Proyección 2024</h2>
+<div class="cmt-grid">
+  <div class="cmt"><span class="cmt-n">63.432</span><span class="cmt-l">población 2024 (DANE)</span></div>
+  <div class="cmt"><span class="cmt-n">49.841</span><span class="cmt-l">población 2018 ajustada</span></div>
+  <div class="cmt"><span class="cmt-n">72.5%</span><span class="cmt-l">población rural / disperso</span></div>
+  <div class="cmt"><span class="cmt-n">13.882</span><span class="cmt-l">hogares CNPV 2018</span></div>
+  <div class="cmt"><span class="cmt-n">~17.672</span><span class="cmt-l">hogares estimados 2024</span></div>
+  <div class="cmt"><span class="cmt-n">5.8%</span><span class="cmt-l">viviendas con internet 2018</span></div>
+  <div class="cmt"><span class="cmt-n">~16.435</span><span class="cmt-l">hogares SIN internet 2024</span></div>
+  <div class="cmt"><span class="cmt-n">3°</span><span class="cmt-l">municipio en Arauca</span></div>
+</div>
+
+<h2>Brechas MCB-DNP · Comparativa Subregión Arauca (PDET 2023)</h2>
+<table class="tbl">
+  <thead><tr><th>Dimensión</th><th class="num">Arauquita</th><th class="num">Tame</th><th class="num">Fortul</th><th class="num">Saravena</th><th>Observación</th></tr></thead>
+  <tbody>
+    <tr><td><strong>TIC (Conectividad)</strong></td><td class="num hi">67.8%</td><td class="num">64.6%</td><td class="num">61.1%</td><td class="num">57.4%</td><td><strong>Arauquita = MAYOR brecha de subregión</strong></td></tr>
+    <tr><td>Educación</td><td class="num hi">38.5%</td><td class="num">30.1%</td><td class="num">32.9%</td><td class="num">26.4%</td><td>Arauquita 1°</td></tr>
+    <tr><td>Vivienda y ord. territorial</td><td class="num hi">48.5%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>Arauquita mayor</td></tr>
+    <tr><td>Inclusión social</td><td class="num hi">36.7%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>Arauquita mayor</td></tr>
+    <tr><td>Gobierno territorial</td><td class="num hi">24.6%</td><td class="num">17.7%</td><td class="num">19.2%</td><td class="num">11.8%</td><td>Arauquita mayor</td></tr>
+    <tr><td>Agricultura</td><td class="num hi">46.8%</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td>Arauquita mayor</td></tr>
+    <tr><td>Energía</td><td class="num">23.3%</td><td class="num">0.0%</td><td class="num ok">13.9%</td><td class="num">57.9%</td><td>Saravena peor (ELN)</td></tr>
+    <tr><td>Salud</td><td class="num">8.8%</td><td class="num hi">10.8%</td><td class="num">—</td><td class="num">—</td><td>Tame peor</td></tr>
+  </tbody>
+</table>
+
+<h2>Cobertura Servicios Públicos · Arauquita (CNPV 2018)</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">Acceso por Servicio · % de viviendas</div>
+    <div class="chart-sub">// internet = el servicio público con MENOR cobertura</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="7">
+        <text x="5" y="20" fill="#0f172a">Energía eléctrica</text>
+        <rect x="100" y="12" width="120" height="11" fill="#e0f2fe" rx="2"/>
+        <rect x="100" y="12" width="101.5" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="20" fill="#0f172a" font-weight="700">84.6%</text>
+
+        <text x="5" y="40" fill="#0f172a">Acueducto</text>
+        <rect x="100" y="32" width="120" height="11" fill="#e0f2fe" rx="2"/>
+        <rect x="100" y="32" width="60.5" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="40" fill="#0f172a" font-weight="700">50.4%</text>
+
+        <text x="5" y="60" fill="#0f172a">Recolección basuras</text>
+        <rect x="100" y="52" width="120" height="11" fill="#e0f2fe" rx="2"/>
+        <rect x="100" y="52" width="52.9" height="11" fill="#059669" rx="2"/>
+        <text x="225" y="60" fill="#0f172a" font-weight="700">44.1%</text>
+
+        <text x="5" y="80" fill="#0f172a">Alcantarillado</text>
+        <rect x="100" y="72" width="120" height="11" fill="#e0f2fe" rx="2"/>
+        <rect x="100" y="72" width="40.7" height="11" fill="#d97706" rx="2"/>
+        <text x="225" y="80" fill="#0f172a" font-weight="700">33.9%</text>
+
+        <text x="5" y="100" fill="#e11d48" font-weight="700">Internet</text>
+        <rect x="100" y="92" width="120" height="11" fill="#fee2e2" rx="2"/>
+        <rect x="100" y="92" width="6.96" height="11" fill="#e11d48" rx="2"/>
+        <text x="225" y="100" fill="#e11d48" font-weight="700">5.8% ⚠</text>
+
+        <text x="5" y="120" fill="#0f172a">Gas natural</text>
+        <rect x="100" y="112" width="120" height="11" fill="#fee2e2" rx="2"/>
+        <rect x="100" y="112" width="1.32" height="11" fill="#e11d48" rx="2"/>
+        <text x="225" y="120" fill="#0f172a" font-weight="700">1.1%</text>
+      </g>
+      <line x1="100" y1="8" x2="100" y2="135" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="160" y="152" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Internet = MENOR cobertura entre servicios públicos</text>
+    </svg>
+    <div class="chart-foot">5.8% = ~805 viviendas conectadas (de 13.882) · 13.077 sin internet · CNPV 2018 oficial DANE</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Penetración Internet · Comparativa Multi-Nivel</div>
+    <div class="chart-sub">// brecha de ~58 puntos vs nacional</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="7">
+        <text x="5" y="20" fill="#e11d48" font-weight="700">Arauquita 2018</text>
+        <rect x="120" y="12" width="100" height="11" fill="#fee2e2" rx="2"/>
+        <rect x="120" y="12" width="5.8" height="11" fill="#e11d48" rx="2"/>
+        <text x="225" y="20" fill="#e11d48" font-weight="700">5.8%</text>
+
+        <text x="5" y="40" fill="#d97706" font-weight="700">Subregión Arauca 2022</text>
+        <rect x="120" y="32" width="100" height="11" fill="#fef3c7" rx="2"/>
+        <rect x="120" y="32" width="7" height="11" fill="#d97706" rx="2"/>
+        <text x="225" y="40" fill="#d97706" font-weight="700">7.0%</text>
+
+        <text x="5" y="60" fill="#d97706" font-weight="700">PDET nacional 2024</text>
+        <rect x="120" y="52" width="100" height="11" fill="#fef3c7" rx="2"/>
+        <rect x="120" y="52" width="7.4" height="11" fill="#d97706" rx="2"/>
+        <text x="225" y="60" fill="#d97706" font-weight="700">7.4%</text>
+
+        <text x="5" y="80" fill="#0284c7" font-weight="700">Rural Colombia 2025</text>
+        <rect x="120" y="72" width="100" height="11" fill="#e0f2fe" rx="2"/>
+        <rect x="120" y="72" width="41.9" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="80" fill="#0284c7" font-weight="700">41.9%</text>
+
+        <text x="5" y="100" fill="#059669" font-weight="700">Nacional 2024</text>
+        <rect x="120" y="92" width="100" height="11" fill="#d1fae5" rx="2"/>
+        <rect x="120" y="92" width="65.6" height="11" fill="#059669" rx="2"/>
+        <text x="225" y="100" fill="#059669" font-weight="700">65.6%</text>
+
+        <text x="5" y="120" fill="#7c3aed" font-weight="700">Meta proyecto Arauquita</text>
+        <rect x="120" y="112" width="100" height="11" fill="#f5f3ff" rx="2"/>
+        <rect x="120" y="112" width="100" height="11" fill="#7c3aed" rx="2"/>
+        <text x="225" y="120" fill="#7c3aed" font-weight="700">~100% cab</text>
+      </g>
+      <line x1="120" y1="8" x2="120" y2="135" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="170" y="152" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Salto disruptivo: 5.8% → 100% en cabecera</text>
+    </svg>
+    <div class="chart-foot">IBD 2024 Orinoquia-Amazonia (Arauca) = 0.499 · PEOR región de Colombia · MinTIC ONTIC oct 2025</div>
+  </div>
+</div>
+
+<h2>Visión PATR Arauca 2028 · Articulación con el Proyecto</h2>
+<div class="tagline" style="background:#f0fdf4;border-left-color:var(--emr);">
+  <em>"En el 2028 el Programa de Desarrollo con Enfoque Territorial de la subregión de Arauca, garantiza un territorio <strong>ordenado y conectado</strong>, [...] <strong>fomenta la investigación, la innovación y la tecnología</strong>, garantiza el acceso a los servicios, los derechos, la vida digna y el buen vivir."</em>
+  <br><span class="muted">— Visión PATR Arauca · ART PDET 2023 · GOLD</span>
+</div>
+
+<table class="tbl">
+  <thead><tr><th>Testimonio comunitario · Líder Arauquita Evaluación LB 2022</th><th>Implicación MGA</th></tr></thead>
+  <tbody>
+    <tr><td><em>"Arauquita es un municipio atípico, somos en su gran mayoría un municipio rural y no todo el municipio tiene el beneficio de contar con todos los beneficios de los servicios públicos [...] <strong>la conectividad de internet no es la mejor</strong>. Aún existen muchas falencias en los diferentes servicios."</em></td><td>Validación cualitativa de la brecha digital + carácter rural disperso</td></tr>
+    <tr><td><em>"Los PDET se supone que se plantearon para mitigar [...] hacer que la educación se fortalezca, asimismo fortalecer la educación desde otros sectores como <strong>la luz eléctrica, el internet</strong> que son elementos para fortalecer la educación, así mismo fortalecer las zonas rurales en términos de educación."</em></td><td>Conectividad como habilitador transversal de educación rural — alineación con Eje 8 PDD Arauca</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Diagnóstico Territorial · Página 2/7</div>
+  <div class="ft-r">Fuentes GOLD: DANE CNPV2018 · ART PDET 2023 · MinTIC IBD 2024</div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 3 · ARQUITECTURA TÉCNICA + STACK + CADENA VALOR ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<h2 class="pg-3" style="margin-top:0;">Arquitectura Técnica · 6 Componentes del Stack FTTH</h2>
+<div class="si">// stack ConectiVIDAd Tipo 2 · GPON ITU-T G.984 · velocidad mínima 25/5 Mbps · backbone InterNexa</div>
+
+<div class="stack">
+  <div class="stk s1">
+    <div class="stk-icon">🌐</div>
+    <div class="stk-name">Backbone FTTH + OLTs</div>
+    <div class="stk-tech">fibra troncal · OLT 16xGE · ITU-T G.984 GPON</div>
+    <div class="stk-bpa">→ Interconexión backbone InterNexa-FUTIC</div>
+    <div class="stk-cost">$1.890M · 54%</div>
+  </div>
+  <div class="stk s2">
+    <div class="stk-icon">📡</div>
+    <div class="stk-name">CPE/ONT GPON Hogar</div>
+    <div class="stk-tech">ONT 1GE · WiFi 5 · 25/5 Mbps min · IPv4/IPv6</div>
+    <div class="stk-bpa">→ ConectiVIDAd Conv005 estándar</div>
+    <div class="stk-cost">$600M · 17% · $150K/hogar</div>
+  </div>
+  <div class="stk s3">
+    <div class="stk-icon">🔧</div>
+    <div class="stk-name">Instalación + Activación</div>
+    <div class="stk-tech">drop cable · splitter · pruebas SLA · OPM</div>
+    <div class="stk-bpa">→ ConectiVIDAd Conv005 estándar</div>
+    <div class="stk-cost">$560M · 16% · $140K/hogar</div>
+  </div>
+  <div class="stk s4">
+    <div class="stk-icon">⚙️</div>
+    <div class="stk-name">OPEX Operación 24m</div>
+    <div class="stk-tech">NOC 24/7 · mantenimiento preventivo · SLA</div>
+    <div class="stk-bpa">→ ITU-T O.41 medición calidad</div>
+    <div class="stk-cost">$182M · 5% · $1.900/mes/hogar</div>
+  </div>
+  <div class="stk s5">
+    <div class="stk-icon">🎓</div>
+    <div class="stk-name">Apropiación Digital MarTICa</div>
+    <div class="stk-tech">talleres · plataforma web · contenidos · 30h/hogar</div>
+    <div class="stk-bpa">→ MarTICa Atlántico Casa Bacana</div>
+    <div class="stk-cost">$148M · 4% · $37K/hogar</div>
+  </div>
+  <div class="stk s6">
+    <div class="stk-icon">💻</div>
+    <div class="stk-name">Plataforma OSS/BSS</div>
+    <div class="stk-tech">facturación · gestión clientes · provisioning</div>
+    <div class="stk-bpa">→ TM Forum eTOM</div>
+    <div class="stk-cost">$80M · 2% · $20K/hogar</div>
+  </div>
+</div>
+
+<h2>Cadena de Valor · ANTES vs DESPUÉS del Despliegue FTTH</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">ANTES: Brecha Digital Arauquita 2024</div>
+    <div class="chart-sub">// 94.2% hogares sin conexión + servicios degradados</div>
+    <svg viewBox="0 0 260 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6">
+        <rect x="10" y="20" width="60" height="20" fill="#e11d48" rx="3"/>
+        <text x="40" y="33" text-anchor="middle" fill="white" font-weight="700">16.435 hogares</text>
+        <text x="40" y="42" text-anchor="middle" fill="#fff" font-size="5.5">sin internet (94.2%)</text>
+
+        <text x="80" y="30" fill="#64748b">→ Educación remota imposible</text>
+        <text x="80" y="40" fill="#64748b">→ Telemedicina inaccesible</text>
+
+        <rect x="10" y="55" width="60" height="20" fill="#d97706" rx="3"/>
+        <text x="40" y="68" text-anchor="middle" fill="white" font-weight="700">~805 hogares</text>
+        <text x="40" y="77" text-anchor="middle" fill="#fff" font-size="5.5">con internet (5.8%)</text>
+
+        <text x="80" y="65" fill="#64748b">→ Mayoría móvil prepago</text>
+        <text x="80" y="75" fill="#64748b">→ Velocidades bajas</text>
+
+        <rect x="10" y="90" width="60" height="20" fill="#7c3aed" rx="3"/>
+        <text x="40" y="103" text-anchor="middle" fill="white" font-weight="700">Starlink/comercial</text>
+        <text x="40" y="112" text-anchor="middle" fill="#fff" font-size="5.5">$200K+/mes (E1+E2)</text>
+
+        <text x="80" y="100" fill="#64748b">→ Inviable para E1+E2</text>
+        <text x="80" y="110" fill="#64748b">→ Tarifa &gt; ingreso</text>
+
+        <rect x="10" y="125" width="60" height="20" fill="#64748b" rx="3"/>
+        <text x="40" y="138" text-anchor="middle" fill="white" font-weight="700">Brecha TIC</text>
+        <text x="40" y="147" text-anchor="middle" fill="#fff" font-size="5.5">67.8% (peor Arauca)</text>
+
+        <text x="80" y="135" fill="#64748b">→ Atraso económico territorio</text>
+        <text x="80" y="145" fill="#64748b">→ Migración juventud</text>
+
+        <text x="130" y="170" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="#e11d48">CICLO DE EXCLUSIÓN DIGITAL · PDET marginal</text>
+      </g>
+    </svg>
+    <div class="chart-foot">5.8% penetración (2018) · brecha más alta de subregión Arauca · sin programa MinTIC asignado</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">DESPUÉS: 4.000 Hogares Conectados FTTH</div>
+    <div class="chart-sub">// servicio Tipo 2 ConectiVIDAd · tarifas sociales E1/E2</div>
+    <svg viewBox="0 0 260 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6">
+        <rect x="10" y="20" width="60" height="20" fill="#059669" rx="3"/>
+        <text x="40" y="33" text-anchor="middle" fill="white" font-weight="700">3.500 hogares</text>
+        <text x="40" y="42" text-anchor="middle" fill="#fff" font-size="5.5">cabecera FTTH GPON</text>
+
+        <text x="80" y="30" fill="#0f172a">→ Educación digital activa</text>
+        <text x="80" y="40" fill="#0f172a">→ Telesalud habilitada</text>
+
+        <rect x="10" y="55" width="60" height="20" fill="#34d399" rx="3"/>
+        <text x="40" y="68" text-anchor="middle" fill="white" font-weight="700">500 hogares</text>
+        <text x="40" y="77" text-anchor="middle" fill="#fff" font-size="5.5">centros poblados</text>
+
+        <text x="80" y="65" fill="#0f172a">→ Comercio rural digital</text>
+        <text x="80" y="75" fill="#0f172a">→ Información mercado</text>
+
+        <rect x="10" y="90" width="60" height="20" fill="#0284c7" rx="3"/>
+        <text x="40" y="103" text-anchor="middle" fill="white" font-weight="700">Tarifa Social</text>
+        <text x="40" y="112" text-anchor="middle" fill="#fff" font-size="5.5">E1 $11.917 / E2 $26.391</text>
+
+        <text x="80" y="100" fill="#0f172a">→ &lt;3% ingreso mínimo E1</text>
+        <text x="80" y="110" fill="#0f172a">→ Sostenibilidad post-24m</text>
+
+        <rect x="10" y="125" width="60" height="20" fill="#7c3aed" rx="3"/>
+        <text x="40" y="138" text-anchor="middle" fill="white" font-weight="700">Apropiación</text>
+        <text x="40" y="147" text-anchor="middle" fill="#fff" font-size="5.5">MarTICa 30h/hogar</text>
+
+        <text x="80" y="135" fill="#0f172a">→ Habilidades digitales</text>
+        <text x="80" y="145" fill="#0f172a">→ Uso productivo</text>
+
+        <text x="130" y="170" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="#059669">CICLO VIRTUOSO TRANSFORMATIVO · 100% cabecera</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Cobertura cabecera ~100% · velocidad 25/5 Mbps min (CRC banda ancha) · 24m operación subsidiada</div>
+  </div>
+</div>
+
+<h2>Especificaciones Técnicas Mínimas · Conv005/2025 ConectiVIDAd</h2>
+<table class="tbl">
+  <thead><tr><th>Especificación</th><th>Valor mínimo exigido</th><th>Estándar / Norma</th></tr></thead>
+  <tbody>
+    <tr><td>Velocidad descarga</td><td>25 Mbps</td><td>CRC banda ancha + Conv005/2025</td></tr>
+    <tr><td>Velocidad subida</td><td>5 Mbps</td><td>CRC banda ancha + Conv005/2025</td></tr>
+    <tr><td>Tecnología capa física</td><td>FTTH GPON ITU-T G.984</td><td>ITU-T · ConectiVIDAd Tipo 2</td></tr>
+    <tr><td>CPE/ONT</td><td>1GE WAN + WiFi 5 + IPv4/IPv6</td><td>HomePNA / G.hn / 802.11ac</td></tr>
+    <tr><td>Disponibilidad SLA</td><td>≥98% mensual</td><td>ITU-T O.41 + Anexo 2 Conv005</td></tr>
+    <tr><td>Latencia</td><td>≤80ms (RTT a Bogotá)</td><td>CRC indicador IT.7</td></tr>
+    <tr><td>Tarifa máxima E1</td><td>$11.917/mes (2024 · IPC desde 2025)</td><td>Conv005 + Res 3689 marco</td></tr>
+    <tr><td>Tarifa máxima E2</td><td>$26.391/mes (2024 · IPC desde 2025)</td><td>Conv005 + Res 3689 marco</td></tr>
+    <tr><td>Período tarifa subsidiada</td><td>24 meses desde activación</td><td>ConectiVIDAd estándar</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Arquitectura Técnica · Página 3/7</div>
+  <div class="ft-r">Fuentes: ConectiVIDAd Conv005-006/2025 · Res MinTIC 3689/2023</div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 4 · MODELO FINANCIERO + BENCHMARKS ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<h2 class="pg-4" style="margin-top:0;">Modelo Financiero · $3.500M COP · 24 meses</h2>
+
+<div class="tesis" style="padding:0.6rem 0.95rem;margin:0.35rem 0 0.5rem;">
+  <div class="tesis-eq" style="font-size:11.5pt;">$875.000 / hogar · 24 meses · BENCHMARK CONFIRMADO</div>
+  <div class="tesis-sub">Casa Bacana Atlántico (43.945 hog · $38.045M) → $865.627/hogar · Mi Casa Bacana Arauquita 4.000 hog × $875K = <strong>$3.500M COP</strong> · MinTIC 95% + GobArauca 5%</div>
+</div>
+
+<h2>Benchmarks · Matriz Programas Conexiones Residenciales MinTIC (Verificados)</h2>
+<div class="si">// fuentes SILVER/GOLD · mintic.gov.co · atlantico.gov.co · DPL News · HSBNoticias · 2023-2026</div>
+<table class="tbl">
+  <thead><tr><th>Programa MinTIC</th><th>Mecanismo</th><th class="num">Hogares</th><th class="num">Inversión Total</th><th class="num">MinTIC%</th><th class="num">Gobernación%</th><th class="num">$/hogar</th><th>Territorio</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Hogares Conectados</strong> (2019-2022)</td><td>Licitación PA FUTIC → ISP existente</td><td class="num">418.732</td><td class="num">&gt;$465.000M</td><td class="num ok">100%</td><td class="num">0%</td><td class="num">~$1.111K</td><td>379 mun · 25 depts · urbano/semi-urb</td></tr>
+    <tr><td><strong>Líneas de Fomento 1.0</strong> (2023-2024)</td><td>FUTIC → ISP pequeño (&lt;30K usuarios)</td><td class="num">21.417</td><td class="num">$29.000M</td><td class="num ok">100%</td><td class="num">0%</td><td class="num">~$1.354K</td><td>92 mun · 10 depts · urbano+rural</td></tr>
+    <tr><td><strong>Líneas de Fomento 2.0</strong> (2024)</td><td>FUTIC → ISP pequeño · Res.620/2024</td><td class="num">84.050</td><td class="num">N/D total</td><td class="num ok">100%</td><td class="num">0%</td><td class="num">~$508K*</td><td>292 mun · 21 depts · Casanare ejm</td></tr>
+    <tr><td><strong>ConectiVIDAd p/Cambiar Vidas</strong> (2023-2026)</td><td>Conv. 790/2023 FUTIC-InterNexa → ISP</td><td class="num">~400.000</td><td class="num">N/D total</td><td class="num ok">100%</td><td class="num">0%</td><td class="num">~$396K†</td><td>Conv.001-007 · Pacífico-Atlántico-Arauca</td></tr>
+    <tr style="background:#f0fdf4;"><td><strong>Mi Casa Bacana Digital · Atlántico</strong> (sep2024)</td><td>Convenio cofinanciado MinTIC + Gobernación</td><td class="num">43.945</td><td class="num">$38.045M</td><td class="num">78.9%</td><td class="num">21.1%</td><td class="num ok">$865.627</td><td>22 mun Atlántico · FTTH fibra óptica</td></tr>
+    <tr style="background:#eff6ff;"><td><strong>Convenio FTTH N. Santander PDET</strong> (2023)</td><td>Convenio cofinanciado MinTIC + Gobernación PDET</td><td class="num">12.265</td><td class="num">$23.000M</td><td class="num">87%</td><td class="num">13%</td><td class="num hi">$1.875.764</td><td>5 mun PDET Catatumbo · red troncal+última milla</td></tr>
+    <tr style="background:#fef9c3; font-weight:700;"><td>🎯 Mi Casa Bacana Arauquita (PROPUESTA)</td><td>Convenio MinTIC + GobArauca · PDET+ZOMAC</td><td class="num">4.000</td><td class="num">$3.500M</td><td class="num">95%</td><td class="num">5%</td><td class="num">$875.000</td><td>Arauquita Arauca · PDET EIBC · mayor brecha TIC</td></tr>
+  </tbody>
+</table>
+<div class="si">* Casanare: $675.842.160 / 1.330 hogares · † Solo CPE $150K + instalación $200K + mant. $1.900×24m (sin despliegue red) · Fuentes: mintic.gov.co/portal, atlantico.gov.co, DPL News conv006</div>
+
+<div class="bench" style="margin-top:0.5rem;">
+  <div class="bn">
+    <div class="bn-h">📍 Atlántico · Mi Casa Bacana Digital</div>
+    <div class="bn-sub">// Convenio MinTIC + Gobernación · sep2024-2026 · SILVER</div>
+    <div class="bn-row"><span>Hogares meta</span><span class="mono">43.945</span></div>
+    <div class="bn-row"><span>Inversión total</span><span class="mono">$38.045M</span></div>
+    <div class="bn-row"><span>MinTIC (78.9%)</span><span class="mono">$30.000M</span></div>
+    <div class="bn-row"><span>Gobernación (21.1%)</span><span class="mono">$8.045M</span></div>
+    <div class="bn-row"><span>Tecnología</span><span class="mono">FTTH fibra óptica</span></div>
+    <div class="bn-row"><span>Velocidad</span><span class="mono">25-40 Mbps</span></div>
+    <div class="bn-row"><span>Costo/hogar</span><span class="mono">$865.627 ✓</span></div>
+  </div>
+
+  <div class="bn cur">
+    <div class="bn-h">🎯 Arauquita · Mi Casa Bacana (PROPUESTA)</div>
+    <div class="bn-sub">// Convenio MinTIC + GobArauca · 2026-2028 · PDET EIBC</div>
+    <div class="bn-row"><span>Hogares meta</span><span class="mono">4.000</span></div>
+    <div class="bn-row"><span>Inversión total</span><span class="mono">$3.500M</span></div>
+    <div class="bn-row"><span>MinTIC (95%)</span><span class="mono">$3.325M</span></div>
+    <div class="bn-row"><span>GobArauca (5%)</span><span class="mono">$175M</span></div>
+    <div class="bn-row"><span>Tecnología</span><span class="mono">FTTH GPON nueva</span></div>
+    <div class="bn-row"><span>Velocidad</span><span class="mono">25-40 Mbps</span></div>
+    <div class="bn-row"><span>Costo/hogar</span><span class="mono">$875.000 ✓</span></div>
+  </div>
+
+  <div class="bn">
+    <div class="bn-h">📍 Norte de Santander · PDET Catatumbo</div>
+    <div class="bn-sub">// Convenio MinTIC + Gobernación PDET · 2023 · SILVER</div>
+    <div class="bn-row"><span>Hogares meta</span><span class="mono">12.265</span></div>
+    <div class="bn-row"><span>Inversión total</span><span class="mono">$23.000M</span></div>
+    <div class="bn-row"><span>MinTIC (87%)</span><span class="mono">$20.000M</span></div>
+    <div class="bn-row"><span>Gobernación (13%)</span><span class="mono">$3.000M</span></div>
+    <div class="bn-row"><span>Tecnología</span><span class="mono">Fibra óptica troncal</span></div>
+    <div class="bn-row"><span>Municipios</span><span class="mono">5 PDET Catatumbo</span></div>
+    <div class="bn-row"><span>Costo/hogar</span><span class="mono">$1.876.000 (troncal+última milla)</span></div>
+  </div>
+</div>
+
+<h2>Distribución Presupuestal · 24 Meses</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">CAPEX vs OPEX · $3.500M total</div>
+    <div class="chart-sub">// 75% inversión inicial + 25% operación 24m</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <!-- Donut chart -->
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#0284c7" stroke-width="20" stroke-dasharray="259 86" transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#059669" stroke-width="20" stroke-dasharray="86 259" stroke-dashoffset="-259" transform="rotate(-90 80 80)"/>
+      <text x="80" y="78" text-anchor="middle" font-family="Calibri" font-size="9" font-weight="700" fill="#0f172a">$3.500M</text>
+      <text x="80" y="89" text-anchor="middle" font-family="Calibri" font-size="6.5" fill="#64748b">total 24m</text>
+
+      <!-- Legend -->
+      <rect x="160" y="40" width="10" height="10" fill="#0284c7"/>
+      <text x="175" y="48" font-family="Calibri" font-size="7" fill="#0f172a">CAPEX 75%</text>
+      <text x="175" y="58" font-family="Calibri" font-size="6" fill="#64748b">$2.625M (red+CPE+inst)</text>
+
+      <rect x="160" y="75" width="10" height="10" fill="#059669"/>
+      <text x="175" y="83" font-family="Calibri" font-size="7" fill="#0f172a">OPEX 24m 25%</text>
+      <text x="175" y="93" font-family="Calibri" font-size="6" fill="#64748b">$875M (operación + capac.)</text>
+
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">CAPEX intensivo · activos retenidos por Fibergroup</text>
+    </svg>
+    <div class="chart-foot">Resolución 3689 Art.17 §1: equipos quedan en propiedad del proveedor post-ejecución</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Cofinanciación · Comparativa 3 Precedentes Reales</div>
+    <div class="chart-sub">// MinTIC % vs Gobernación % · programas ejecutados · fuentes SILVER</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <!-- Precedente 1: Atlántico MCB Digital -->
+        <text x="5" y="18" fill="#64748b" font-weight="700">Atlántico · Mi Casa Bacana Digital 2024</text>
+        <rect x="5" y="22" width="171" height="10" fill="#0284c7" rx="2"/>
+        <rect x="176" y="22" width="43" height="10" fill="#d97706" rx="2"/>
+        <text x="88" y="30" text-anchor="middle" fill="white" font-size="5.5" font-weight="700">MinTIC 78.9% · $30.000M</text>
+        <text x="197" y="30" text-anchor="middle" fill="white" font-size="5.5">21.1%</text>
+        <text x="222" y="30" fill="#64748b" font-size="5.5">Gob</text>
+
+        <!-- Precedente 2: Norte de Santander PDET -->
+        <text x="5" y="50" fill="#64748b" font-weight="700">N. Santander · PDET Catatumbo 2023</text>
+        <rect x="5" y="54" width="192" height="10" fill="#0284c7" rx="2"/>
+        <rect x="197" y="54" width="27" height="10" fill="#d97706" rx="2"/>
+        <text x="100" y="62" text-anchor="middle" fill="white" font-size="5.5" font-weight="700">MinTIC 87% · $20.000M</text>
+        <text x="210" y="62" text-anchor="middle" fill="white" font-size="5.5">13%</text>
+        <text x="227" y="62" fill="#64748b" font-size="5.5">Gob</text>
+
+        <!-- Propuesta: Arauquita -->
+        <text x="5" y="82" fill="#059669" font-weight="700">🎯 Arauquita · Mi Casa Bacana (PROPUESTA)</text>
+        <rect x="5" y="86" width="209" height="12" fill="#0284c7" rx="2"/>
+        <rect x="214" y="86" width="11" height="12" fill="#d97706" rx="2"/>
+        <text x="108" y="95" text-anchor="middle" fill="white" font-size="6" font-weight="700">MinTIC 95% · $3.325M · PDET priorizado</text>
+        <text x="219" y="95" text-anchor="middle" fill="white" font-size="5.5">5%</text>
+        <rect x="5" y="86" width="209" height="12" fill="none" stroke="#059669" stroke-width="1.5" rx="2"/>
+
+        <line x1="5" y1="112" x2="225" y2="112" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="126" fill="#334155" font-size="6">Justificación 95%: Arauquita = mayor brecha TIC subregión (67.8%)</text>
+        <text x="5" y="137" fill="#334155" font-size="6">+ PDET + ZOMAC + ZDP = máxima priorización FUTIC</text>
+        <text x="5" y="148" fill="#334155" font-size="6">GobArauca 5% ($175M): Eje 6 TIC PDD "Arauca Mejor" · $2.300M cuatrienio</text>
+
+        <text x="120" y="163" text-anchor="middle" font-size="6" font-weight="700" fill="#059669">Precedentes reales: 79%-87% MinTIC → 95% PDET justificado</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Fuentes: mintic.gov.co (Conv006/2025 nota prensa) · atlantico.gov.co (Convenio MCB sep2024) · Nota MinTIC (Convenio N.Stder PDET 2023)</div>
+  </div>
+</div>
+
+<h2>Tarifas Sociales · Período Subsidiado 24 Meses</h2>
+<table class="tbl">
+  <thead><tr><th>Estrato</th><th class="num">Tarifa Mensual 2024</th><th class="num">Anual</th><th class="num">% del SMMLV 2024</th><th>Comparativa comercial</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Estrato 1</strong></td><td class="num ok">$11.917</td><td class="num">$143.004</td><td class="num">0.9% SMMLV</td><td>vs $50K-$80K comercial</td></tr>
+    <tr><td><strong>Estrato 2</strong></td><td class="num ok">$26.391</td><td class="num">$316.692</td><td class="num">2.0% SMMLV</td><td>vs $80K-$120K comercial</td></tr>
+    <tr><td><strong>Comercial mercado</strong></td><td class="num">~$80.000</td><td class="num">$960.000</td><td class="num">6.2% SMMLV</td><td>tarifa promedio FTTH</td></tr>
+    <tr><td><strong>Starlink rural</strong></td><td class="num hi">$220.000+</td><td class="num">$2.640.000</td><td class="num">17.0% SMMLV</td><td>inviable E1+E2</td></tr>
+  </tbody>
+</table>
+
+<div class="si" style="margin-top:0.5rem;">// Marco normativo tarifas: CRC + Condiciones Conv005-006/2025 · IPC anual desde 2025 · Fibergroup factura tarifa social, FUTIC compensa diferencia</div>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Modelo Financiero · Página 4/7</div>
+  <div class="ft-r">Benchmark validado: Casa Bacana Atlántico 2024-2025</div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 5 · CRONOGRAMA DESPLIEGUE 24 MESES ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<h2 class="pg-5" style="margin-top:0;">Plan de Despliegue · 24 Meses · 8 Trimestres</h2>
+<div class="si">// metodología CRISP-DM aplicada · hitos por trimestre · activos progresivos</div>
+
+<div class="timeline">
+  <div class="tl tl-1">
+    <span class="tl-q">T1 · M1-3</span>
+    <span class="tl-l"><strong>Estructuración</strong><br>Ingeniería detalle, permisos, contratos, dotación NOC</span>
+  </div>
+  <div class="tl tl-2">
+    <span class="tl-q">T2 · M4-6</span>
+    <span class="tl-l"><strong>Backbone FTTH</strong><br>Tendido fibra troncal Arauca→Arauquita, OLT</span>
+  </div>
+  <div class="tl tl-3">
+    <span class="tl-q">T3 · M7-9</span>
+    <span class="tl-l"><strong>Última milla</strong><br>Splitters, drop cables, plantas externas cabecera</span>
+  </div>
+  <div class="tl tl-4">
+    <span class="tl-q">T4 · M10-12</span>
+    <span class="tl-l"><strong>Conexión Fase 1</strong><br>1.500 hogares activados (cabecera centro)</span>
+  </div>
+  <div class="tl tl-5">
+    <span class="tl-q">T5 · M13-15</span>
+    <span class="tl-l"><strong>Conexión Fase 2</strong><br>4.000 hogares completos (cabecera + CP)</span>
+  </div>
+  <div class="tl tl-6">
+    <span class="tl-q">T6 · M16-18</span>
+    <span class="tl-l"><strong>Operación + MarTICa</strong><br>Inicio talleres apropiación 30h/hogar</span>
+  </div>
+  <div class="tl tl-7">
+    <span class="tl-q">T7 · M19-21</span>
+    <span class="tl-l"><strong>Medición impacto</strong><br>Encuestas, KPIs uso, ajustes operativos</span>
+  </div>
+  <div class="tl tl-8">
+    <span class="tl-q">T8 · M22-24</span>
+    <span class="tl-l"><strong>Cierre + Sostenibilidad</strong><br>Transición tarifa post-subsidio, certificación FUTIC</span>
+  </div>
+</div>
+
+<h2>Hitos Críticos por Trimestre · Pagos FUTIC</h2>
+<table class="tbl">
+  <thead><tr><th>Hito</th><th>Trimestre</th><th>Indicador verificable</th><th class="num">% Desembolso</th></tr></thead>
+  <tbody>
+    <tr><td>H1 · Acta de Inicio</td><td>T1 (M1)</td><td>Contrato firmado · garantías constituidas · NOC dotado</td><td class="num">10%</td></tr>
+    <tr><td>H2 · Backbone activo</td><td>T2 (M6)</td><td>Backbone Arauca→Arauquita activo · OLT operativa · pruebas</td><td class="num">20%</td></tr>
+    <tr><td>H3 · Última milla cabecera</td><td>T3 (M9)</td><td>≥80% cabecera con red disponible · plantas externas</td><td class="num">15%</td></tr>
+    <tr><td>H4 · Fase 1 conectada</td><td>T4 (M12)</td><td>1.500 hogares conectados · facturación tarifa social · SLA ≥98%</td><td class="num">15%</td></tr>
+    <tr><td>H5 · Fase 2 conectada</td><td>T5 (M15)</td><td>4.000 hogares conectados · 100% cabecera + 4 CP</td><td class="num">15%</td></tr>
+    <tr><td>H6 · Apropiación inicio</td><td>T6 (M18)</td><td>50% hogares con MarTICa iniciada · ≥15h/hogar</td><td class="num">10%</td></tr>
+    <tr><td>H7 · Medición impacto</td><td>T7 (M21)</td><td>100% MarTICa completada · encuestas Línea Base + Final</td><td class="num">10%</td></tr>
+    <tr><td>H8 · Cierre + Certificación</td><td>T8 (M24)</td><td>Informe final · certificado FUTIC · transición sostenibilidad</td><td class="num">5%</td></tr>
+  </tbody>
+</table>
+
+<h2>KPIs de Cumplimiento Operativo · Mensual</h2>
+<div class="kpi-mini">
+  <div class="kpi"><div class="kpi-n">≥98%</div><div class="kpi-l">Disponibilidad SLA red FTTH</div></div>
+  <div class="kpi"><div class="kpi-n">≤80ms</div><div class="kpi-l">Latencia RTT a Bogotá</div></div>
+  <div class="kpi"><div class="kpi-n">≥25/5</div><div class="kpi-l">Mbps efectivos por hogar</div></div>
+  <div class="kpi"><div class="kpi-n">≤4h</div><div class="kpi-l">Tiempo respuesta soporte N1</div></div>
+</div>
+
+<h2>Distribución Trimestral de Hogares Conectados (Acumulado)</h2>
+<div class="chart-box">
+  <svg viewBox="0 0 600 130" style="width:100%;display:block;">
+    <g font-family="Calibri" font-size="9">
+      <line x1="40" y1="100" x2="580" y2="100" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="40" y1="20" x2="40" y2="100" stroke="#94a3b8" stroke-width="1"/>
+
+      <!-- Y-axis labels -->
+      <text x="35" y="22" text-anchor="end" font-size="6" fill="#64748b">4000</text>
+      <text x="35" y="42" text-anchor="end" font-size="6" fill="#64748b">3000</text>
+      <text x="35" y="62" text-anchor="end" font-size="6" fill="#64748b">2000</text>
+      <text x="35" y="82" text-anchor="end" font-size="6" fill="#64748b">1000</text>
+      <text x="35" y="102" text-anchor="end" font-size="6" fill="#64748b">0</text>
+
+      <!-- Bars - acumulativo -->
+      <rect x="55" y="100" width="55" height="0" fill="#cbd5e1"/>
+      <text x="82" y="115" text-anchor="middle" font-size="7" fill="#64748b">T1</text>
+      <text x="82" y="124" text-anchor="middle" font-size="6" fill="#64748b">0</text>
+
+      <rect x="120" y="100" width="55" height="0" fill="#cbd5e1"/>
+      <text x="147" y="115" text-anchor="middle" font-size="7" fill="#64748b">T2</text>
+      <text x="147" y="124" text-anchor="middle" font-size="6" fill="#64748b">0</text>
+
+      <rect x="185" y="100" width="55" height="0" fill="#cbd5e1"/>
+      <text x="212" y="115" text-anchor="middle" font-size="7" fill="#64748b">T3</text>
+      <text x="212" y="124" text-anchor="middle" font-size="6" fill="#64748b">0 prep</text>
+
+      <rect x="250" y="70" width="55" height="30" fill="#0284c7"/>
+      <text x="277" y="115" text-anchor="middle" font-size="7" fill="#0f172a" font-weight="700">T4</text>
+      <text x="277" y="124" text-anchor="middle" font-size="6" fill="#0284c7" font-weight="700">1.500</text>
+
+      <rect x="315" y="20" width="55" height="80" fill="#059669"/>
+      <text x="342" y="115" text-anchor="middle" font-size="7" fill="#0f172a" font-weight="700">T5</text>
+      <text x="342" y="124" text-anchor="middle" font-size="6" fill="#059669" font-weight="700">4.000 ✓</text>
+
+      <rect x="380" y="20" width="55" height="80" fill="#059669"/>
+      <text x="407" y="115" text-anchor="middle" font-size="7" fill="#0f172a">T6</text>
+      <text x="407" y="124" text-anchor="middle" font-size="6" fill="#64748b">4.000</text>
+
+      <rect x="445" y="20" width="55" height="80" fill="#059669"/>
+      <text x="472" y="115" text-anchor="middle" font-size="7" fill="#0f172a">T7</text>
+      <text x="472" y="124" text-anchor="middle" font-size="6" fill="#64748b">4.000</text>
+
+      <rect x="510" y="20" width="55" height="80" fill="#059669"/>
+      <text x="537" y="115" text-anchor="middle" font-size="7" fill="#0f172a">T8</text>
+      <text x="537" y="124" text-anchor="middle" font-size="6" fill="#64748b">4.000</text>
+
+      <text x="310" y="14" text-anchor="middle" font-size="7" font-weight="700" fill="#0f172a">Hogares Conectados Acumulados · 24 meses</text>
+    </g>
+  </svg>
+  <div class="chart-foot">Aceleración: T4 1.500 → T5 4.000 (curva en S) · T5-T8 = 12 meses operación con 100% conectividad activa</div>
+</div>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Plan de Despliegue · Página 5/7</div>
+  <div class="ft-r">Cronograma 24m · 8 trimestres · 8 hitos verificables</div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 6 · MARCO NORMATIVO + ARTICULACIÓN ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<h2 class="pg-6" style="margin-top:0;">Marco Normativo + Articulación Multinivel</h2>
+<div class="si">// 4 niveles de articulación: nacional → departamental → municipal → ART PDET</div>
+
+<h2>Cadena Normativa Sector TIC · Nivel Nacional</h2>
+<div class="norm-grid">
+  <div class="norm">
+    <div class="norm-h">📜 Constitución Política · Arts. 334, 365</div>
+    <div class="norm-d">Servicios públicos como finalidad social del Estado · intervención estatal en TIC</div>
+  </div>
+  <div class="norm">
+    <div class="norm-h">📜 Ley 1341 de 2009 (Ley TIC marco)</div>
+    <div class="norm-d">Crea FUTIC (Art. 34) · funciones FUTIC (Art. 35 num. 1, 2, 23) · marco para acceso universal</div>
+  </div>
+  <div class="norm">
+    <div class="norm-h">📜 Ley 2108 de 2021 · Internet Solidario</div>
+    <div class="norm-d">Internet servicio público <strong>esencial</strong> · adiciona numeral 23 al Art. 35 Ley 1341</div>
+  </div>
+  <div class="norm">
+    <div class="norm-h">📜 Ley 2294 de 2023 · PND 2022-2026</div>
+    <div class="norm-d">"Colombia Potencia Mundial de la Vida" · meta 85% hogares E1+E2 conectados</div>
+  </div>
+  <div class="norm" style="border-left-color:var(--sky);">
+    <div class="norm-h">⚙️ Resolución MinTIC 3689 de 2023</div>
+    <div class="norm-d">Marco general convocatorias FUTIC · estructura: comité asesor, criterios, etapas, obligaciones PRST</div>
+  </div>
+  <div class="norm" style="border-left-color:var(--sky);">
+    <div class="norm-h">⚙️ Convenio Marco 790 de 2023</div>
+    <div class="norm-d">FUTIC-InterNexa · base operativa ConectiVIDAd para Cambiar Vidas · Patrimonio Autónomo Fiducoldex</div>
+  </div>
+  <div class="norm" style="border-left-color:var(--emr);">
+    <div class="norm-h">📋 CONPES 4167 de 2022 · "Conectados"</div>
+    <div class="norm-d">Política nacional cierre brecha digital · meta nacional 85% E1+E2</div>
+  </div>
+  <div class="norm" style="border-left-color:var(--emr);">
+    <div class="norm-h">📋 Decreto 1079 de 2023 · Internet comunitario</div>
+    <div class="norm-d">Marco para servicio internet comunitario fijo · sostenibilidad post-proyecto</div>
+  </div>
+</div>
+
+<h2>Articulación Departamental · PDD "Arauca Mejor 2024-2027" (Ordenanza 161/2024)</h2>
+<div class="tagline" style="background:#fef3c7;border-left-color:var(--gld);">
+  <strong>Pilar 1: Prosperidad Económica y Productividad</strong> → <strong>Eje Estratégico 6: Tecnologías de la Información y Comunicación (Conectividad); Ciencia, Tecnología e Innovación</strong>
+  <br><span class="muted">Sub-ejes: 8 Accesibilidad y Uso TIC · 9 Gestión en Desarrollo del TIC · 10 Ciencia, Tecnología e Innovación</span>
+</div>
+
+<table class="tbl">
+  <thead><tr><th>Instrumento</th><th>Articulación con Mi Casa Bacana Arauquita</th></tr></thead>
+  <tbody>
+    <tr><td><strong>PDD Arauca · Eje 6 TIC</strong></td><td>Cofinanciación 5% ($175M) encaja en Eje 6 sub-eje 8 (Accesibilidad TIC) · ejecución plurianual</td></tr>
+    <tr><td><strong>PDD Arauca · Pilar 2 Educación (Eje 8)</strong></td><td>Conectividad habilitador educación digital rural · sinergia con metas educativas PDD</td></tr>
+    <tr><td><strong>PDM Arauquita "Somos Todos 2024-2027" (Acuerdo 013/2024)</strong></td><td>Articulación con apuestas TIC municipales · validación local · respaldo alcaldía</td></tr>
+    <tr><td><strong>PATR Subregión Arauca 2018-2028 (ART PDET)</strong></td><td>Visión 2028: "territorio ordenado y conectado" · Mi Casa Bacana materializa este objetivo</td></tr>
+    <tr><td><strong>Plan de Inversión Plurianual 2024-2027 PDD</strong></td><td>$2.300M COP cuatrienio · espacio fiscal para cofinanciación TIC en Eje 6</td></tr>
+    <tr><td><strong>Sistema General de Regalías (SGR)</strong></td><td>Posible cofinanciación adicional Línea CTeI (Tipología D) · OCAD departamental Arauca</td></tr>
+  </tbody>
+</table>
+
+<h2>Productos MGA Sector 23 · Códigos de Cadena Valor</h2>
+<table class="tbl">
+  <thead><tr><th>Código MGA</th><th>Producto</th><th>Aporte al proyecto</th></tr></thead>
+  <tbody>
+    <tr><td class="mono"><strong>2301027</strong></td><td>Servicios de acceso a Internet (zonas urbanas)</td><td>Acceso de banda ancha a 4.000 hogares</td></tr>
+    <tr><td class="mono"><strong>2301028</strong></td><td>Servicios de portador (red FTTH)</td><td>Despliegue red GPON nueva</td></tr>
+    <tr><td class="mono"><strong>2301030</strong></td><td>Servicios de educación informal en TIC</td><td>MarTICa apropiación 30h/hogar</td></tr>
+    <tr><td class="mono"><strong>2301084</strong></td><td>Servicios de apropiación de TIC</td><td>Talleres habilidades digitales</td></tr>
+    <tr><td class="mono"><strong>2301087</strong></td><td>Servicios de sedes tecnológicas comunitarias</td><td>2 puntos comunitarios complementarios</td></tr>
+  </tbody>
+</table>
+
+<div class="si" style="margin-top:0.5rem;">// Trazabilidad Q23 antialucinación: 5 productos MGA validados con catálogo MGA Web SUIFP (DNP)</div>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Marco Normativo · Página 6/7</div>
+  <div class="ft-r">Cadena 4 niveles: Nacional → Departamental → Municipal → PDET</div>
+</div>
+
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+<!-- ════ PÁGINA 7 · IMPACTO + SOSTENIBILIDAD + KPIs ════ -->
+<!-- ═════════════════════════════════════════════════════════════════════ -->
+
+<h2 class="pg-7" style="margin-top:0;">Impacto Esperado · Cadena Resultados RBM-GAC</h2>
+<div class="si">// Marco Resultado: Insumos → Productos → Resultados → Impactos · 24m proyecto + 36m sostenibilidad</div>
+
+<h2>Cadena de Resultados · 4 Niveles</h2>
+<table class="tbl">
+  <thead><tr><th>Nivel</th><th>Indicador</th><th class="num">LB 2024</th><th class="num">Meta 2028</th><th>Plazo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>INSUMOS</strong></td><td>Inversión total</td><td class="num">$0</td><td class="num">$3.500M</td><td>24m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Hogares E1+E2 conectados FTTH</td><td class="num">~805</td><td class="num">4.805</td><td>15m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Km red FTTH desplegada</td><td class="num">0</td><td class="num">~85 km</td><td>9m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Hogares con MarTICa completada</td><td class="num">0</td><td class="num">4.000</td><td>21m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Penetración internet hogar (cabecera)</td><td class="num">5.8%</td><td class="num">~100%</td><td>15m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Brecha TIC (MCB-DNP)</td><td class="num hi">67.8%</td><td class="num ok">≤35%</td><td>36m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Tasa retención post-subsidio (M25-M36)</td><td class="num">N/A</td><td class="num">≥75%</td><td>36m</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>IBD Arauca dept (estimado)</td><td class="num hi">~0.494</td><td class="num">≤0.450</td><td>4 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Estudiantes con acceso digital en hogar</td><td class="num">~250</td><td class="num">~3.500</td><td>24m</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Migración juventud rural (anual)</td><td class="num">↑</td><td class="num">↓ 15%</td><td>5 años</td></tr>
+  </tbody>
+</table>
+
+<h2>Sostenibilidad Post-Proyecto · M25 - M48</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">Modelo Sostenibilidad · 4 Pilares</div>
+    <div class="chart-sub">// transición exitosa post-subsidio FUTIC</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <!-- Pilar 1 -->
+        <rect x="10" y="15" width="100" height="35" fill="#0284c7" rx="4" opacity="0.85"/>
+        <text x="60" y="30" text-anchor="middle" fill="white" font-weight="700">1. Tarifa social IPC</text>
+        <text x="60" y="40" text-anchor="middle" fill="#fff" font-size="5.5">$11.917 E1 / $26.391 E2 +IPC</text>
+        <text x="60" y="48" text-anchor="middle" fill="#fff" font-size="5.5">≥75% retención</text>
+
+        <!-- Pilar 2 -->
+        <rect x="120" y="15" width="100" height="35" fill="#059669" rx="4" opacity="0.85"/>
+        <text x="170" y="30" text-anchor="middle" fill="white" font-weight="700">2. Activos Fibergroup</text>
+        <text x="170" y="40" text-anchor="middle" fill="#fff" font-size="5.5">Red FTTH + ONT propios</text>
+        <text x="170" y="48" text-anchor="middle" fill="#fff" font-size="5.5">Res 3689 Art.17 §1</text>
+
+        <!-- Pilar 3 -->
+        <rect x="10" y="60" width="100" height="35" fill="#d97706" rx="4" opacity="0.85"/>
+        <text x="60" y="75" text-anchor="middle" fill="white" font-weight="700">3. Continuidad NOC</text>
+        <text x="60" y="85" text-anchor="middle" fill="#fff" font-size="5.5">Operación Fibergroup</text>
+        <text x="60" y="93" text-anchor="middle" fill="#fff" font-size="5.5">SLA ≥98% · soporte 24/7</text>
+
+        <!-- Pilar 4 -->
+        <rect x="120" y="60" width="100" height="35" fill="#7c3aed" rx="4" opacity="0.85"/>
+        <text x="170" y="75" text-anchor="middle" fill="white" font-weight="700">4. Apropiación MarTICa</text>
+        <text x="170" y="85" text-anchor="middle" fill="#fff" font-size="5.5">Habilidades retenidas</text>
+        <text x="170" y="93" text-anchor="middle" fill="#fff" font-size="5.5">Demanda activa servicio</text>
+
+        <!-- Resultado central -->
+        <rect x="60" y="115" width="120" height="35" fill="#1e293b" rx="5"/>
+        <text x="120" y="130" text-anchor="middle" fill="white" font-weight="700" font-size="7">Sostenibilidad Estructural</text>
+        <text x="120" y="142" text-anchor="middle" fill="#fcd34d" font-size="6">Operación &gt;5 años post-FUTIC</text>
+
+        <!-- Conexiones -->
+        <line x1="60" y1="50" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="50" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="60" y1="95" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="95" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+
+        <text x="120" y="170" text-anchor="middle" font-size="6.5" font-weight="700" fill="#0f172a">Modelo viable post-subsidio FUTIC</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Inspirado en Mi Casa Bacana Atlántico (43.945 hogares operativos &gt; 12 meses post-conexión)</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">ROI Social Estimado · Beneficio / Costo 5 años</div>
+    <div class="chart-sub">// VPN beneficio social vs $3.500M inversión inicial</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <!-- Beneficios verticales -->
+        <text x="5" y="20" fill="#0f172a" font-weight="700">Beneficios estimados (5 años)</text>
+
+        <text x="5" y="38" fill="#0f172a">Educación · 3.500 estudiantes</text>
+        <rect x="135" y="30" width="85" height="11" fill="#dbeafe" rx="2"/>
+        <rect x="135" y="30" width="65" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="38" fill="#0f172a" font-weight="700">$2.450M</text>
+
+        <text x="5" y="58" fill="#0f172a">Telesalud · 16.000 personas</text>
+        <rect x="135" y="50" width="85" height="11" fill="#d1fae5" rx="2"/>
+        <rect x="135" y="50" width="42" height="11" fill="#059669" rx="2"/>
+        <text x="225" y="58" fill="#0f172a" font-weight="700">$1.200M</text>
+
+        <text x="5" y="78" fill="#0f172a">Emprendim. digital · 800 hog</text>
+        <rect x="135" y="70" width="85" height="11" fill="#fef3c7" rx="2"/>
+        <rect x="135" y="70" width="58" height="11" fill="#d97706" rx="2"/>
+        <text x="225" y="78" fill="#0f172a" font-weight="700">$1.850M</text>
+
+        <text x="5" y="98" fill="#0f172a">Gobierno digital · trámites</text>
+        <rect x="135" y="90" width="85" height="11" fill="#f5f3ff" rx="2"/>
+        <rect x="135" y="90" width="32" height="11" fill="#7c3aed" rx="2"/>
+        <text x="225" y="98" fill="#0f172a" font-weight="700">$650M</text>
+
+        <text x="5" y="118" fill="#0f172a">Reducción migración juventud</text>
+        <rect x="135" y="110" width="85" height="11" fill="#fef2f2" rx="2"/>
+        <rect x="135" y="110" width="48" height="11" fill="#e11d48" rx="2"/>
+        <text x="225" y="118" fill="#0f172a" font-weight="700">$1.450M</text>
+
+        <line x1="5" y1="128" x2="225" y2="128" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="142" fill="#0f172a" font-weight="700">VPN beneficios totales</text>
+        <text x="225" y="142" text-anchor="end" fill="#059669" font-weight="700" font-size="8">$7.600M</text>
+
+        <text x="5" y="156" fill="#0f172a" font-weight="700">Inversión total</text>
+        <text x="225" y="156" text-anchor="end" fill="#0284c7" font-weight="700" font-size="8">$3.500M</text>
+
+        <text x="5" y="170" fill="#0f172a" font-weight="700">Ratio B/C</text>
+        <text x="225" y="170" text-anchor="end" fill="#7c3aed" font-weight="700" font-size="9">2.17 ✓</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Estimación BRONZE (E1) · validación E1 MGA con metodología CONPES + benchmarks proyectos similares</div>
+  </div>
+</div>
+
+<h2>Riesgos Críticos + Mitigaciones</h2>
+<table class="tbl">
+  <thead><tr><th>Riesgo</th><th class="num">Prob.</th><th class="num">Impacto</th><th>Estrategia de mitigación</th></tr></thead>
+  <tbody>
+    <tr><td>Seguridad: presencia ELN/disidencias FARC-EP</td><td class="num hi">Alto</td><td class="num hi">Alto</td><td>Coordinación Fuerza Pública · ruta segura despliegue · seguros riesgo</td></tr>
+    <tr><td>Sitios oficiales caídos (PDM/PDD acceso)</td><td class="num">Medio</td><td class="num">Bajo</td><td>Mirroring fuentes verificadas · trazabilidad Q23</td></tr>
+    <tr><td>Dilución cofinanciación GobArauca</td><td class="num">Medio</td><td class="num hi">Alto</td><td>Acuerdo previo cofinanciación · Eje 6 PDD vinculante</td></tr>
+    <tr><td>Retención post-subsidio &lt;75%</td><td class="num">Medio</td><td class="num">Medio</td><td>MarTICa demand-pull · tarifa social IPC ajustada · valor percibido</td></tr>
+    <tr><td>Inflación CAPEX (USD insumos red)</td><td class="num">Medio</td><td class="num">Medio</td><td>Cláusula ajuste IPC + IPP · contratación pre-instalación</td></tr>
+    <tr><td>Demora despliegue por permisos</td><td class="num">Medio</td><td class="num">Medio</td><td>Coordinación previa Alcaldía + Gobernación · usar postes existentes</td></tr>
+    <tr><td>Competencia ISP local (Totalnet, OnNet)</td><td class="num">Bajo</td><td class="num">Bajo</td><td>Tarifa social no compite con comercial · diferenciación E1+E2</td></tr>
+  </tbody>
+</table>
+
+<div class="tesis" style="padding:0.55rem 0.85rem;margin:0.5rem 0 0.3rem;">
+  <div class="tesis-eq" style="font-size:11pt;">5.8% → 100% conectividad · 67.8% → ≤35% brecha TIC · 24 meses</div>
+  <div class="tesis-sub">Mi Casa Bacana Arauquita transforma el municipio PDET con mayor brecha TIC del Arauca · cierre 32+ pp en 24 meses · sostenibilidad &gt;5 años post-FUTIC vía activos Fibergroup + tarifa social IPC + MarTICa</div>
+</div>
+
+<div class="ft">
+  <div>Mi Casa Bacana Arauquita · Impacto + Sostenibilidad · Página 7/7</div>
+  <div class="ft-r">FIN · 7 páginas · CCMS-CB-2026-001-B v1 · 2026-04-27</div>
+</div>
+
+</body>
+</html>

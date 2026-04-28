@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zonas Digitales Arauquita · WiFi Gratuito Comunitario · Infografía v1</title>
+<style>
+:root {
+  --navy: #0f172a; --navy-m: #1e293b; --navy-l: #1e3a5f;
+  --org: #ea580c; --org-d: #c2410c; --org-l: #fb923c; --org-bg: #fff7ed;
+  --sky: #0284c7; --sky-d: #0369a1; --sky-l: #38bdf8;
+  --emr: #059669; --emr-d: #047857; --emr-l: #34d399;
+  --pur: #7c3aed; --pur-d: #6d28d9; --pur-l: #a78bfa;
+  --gld: #d97706; --gld-d: #b45309; --gld-l: #fcd34d;
+  --rose: #e11d48; --rose-d: #be123c;
+  --text: #334155; --muted: #64748b; --bg: #f8fafc; --border: rgba(0,0,0,0.08);
+  --mono: 'Courier New', Courier, monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Calibri, Carlito, Arial, sans-serif; font-size: 9.5pt; line-height: 1.42; color: var(--text); background: #fff; max-width: 215mm; margin: 0 auto; padding: 9mm 13mm; }
+.print-btn { position: fixed; top: 12px; right: 12px; background: var(--org); color:#fff; border:none; padding: 0.5rem 1.1rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer; z-index: 999; font-family: inherit; box-shadow: 0 4px 14px rgba(0,0,0,0.28); }
+.print-btn:hover { background: var(--org-d); }
+h1 { font-size: 20pt; font-weight: 700; color: var(--navy); line-height: 1.08; }
+h2 { font-size: 11pt; font-weight: 700; color: var(--navy); margin: 0.6rem 0 0.3rem; border-bottom: 2px solid var(--org); padding-bottom: 0.15rem; }
+h3 { font-size: 9.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.18rem; }
+p  { margin-bottom: 0.28rem; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.hdr { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: end; margin-bottom: 0.4rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--org); }
+.hdr .sub { font-size: 7.5pt; color: var(--org-d); font-weight: 700; font-family: var(--mono); margin-top: 0.12rem; letter-spacing: 0.01em; }
+.hdr-meta { text-align: right; font-size: 7pt; color: var(--muted); line-height: 1.7; font-family: var(--mono); }
+.pg-2, .pg-3, .pg-4, .pg-5 { page-break-before: always; break-before: page; }
+.stats-hero { display: grid; grid-template-columns: repeat(6,1fr); background: linear-gradient(135deg, var(--org-d) 0%, var(--navy) 100%); border-radius: 9px; overflow: hidden; margin: 0.5rem 0 0.45rem; }
+.sh { padding: 0.5rem 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.sh:last-child { border-right: none; }
+.sh-n { font-size: 12.5pt; font-weight: 700; color: var(--org-l); display: block; font-family: var(--mono); }
+.sh-l { font-size: 6pt; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.05rem; }
+.tagline { font-size: 8.5pt; color: var(--text); line-height: 1.5; background: var(--org-bg); padding: 0.45rem 0.7rem; border-left: 3.5px solid var(--org); border-radius: 0 6px 6px 0; margin-bottom: 0.35rem; }
+.tagline strong { color: var(--org-d); }
+.tesis { background: var(--navy); border-radius: 10px; padding: 0.7rem 1rem; margin: 0.4rem 0; color: #fff; }
+.tesis-eq { font-family: 'Georgia', serif; font-size: 12.5pt; font-weight: 700; color: var(--org-l); text-align: center; line-height: 1.3; margin-bottom: 0.25rem; }
+.tesis-eq .arrow { color: var(--gld-l); padding: 0 0.25rem; }
+.tesis-sub { font-size: 8pt; color: rgba(255,255,255,0.78); text-align: center; font-style: italic; }
+.si { font-size: 8pt; color: var(--muted); margin-bottom: 0.4rem; }
+.charts-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.4rem 0; }
+.chart-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.7rem; background: #fff; break-inside: avoid; page-break-inside: avoid; }
+.chart-title { font-size: 8.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; padding-bottom: 0.2rem; border-bottom: 1.2px solid var(--bg); }
+.chart-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-top: -0.18rem; margin-bottom: 0.3rem; }
+.chart-foot { font-size: 6.5pt; color: var(--muted); margin-top: 0.3rem; padding-top: 0.22rem; border-top: 1px dashed var(--border); }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 7.5pt; }
+table.tbl th { background: var(--navy); color: white; font-weight: 700; padding: 0.25rem 0.45rem; text-align: left; font-size: 7pt; }
+table.tbl td { padding: 0.25rem 0.45rem; border-bottom: 1px solid var(--border); }
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl tr:nth-child(even) { background: var(--bg); }
+.tbl .num { font-family: var(--mono); text-align: right; }
+.tbl .hi { color: var(--rose-d); font-weight: 700; }
+.tbl .ok { color: var(--emr-d); font-weight: 700; }
+.stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin: 0.4rem 0; }
+.stk { border-radius: 7px; padding: 0.5rem 0.6rem; border: 1px solid var(--border); break-inside: avoid; }
+.stk-icon { font-size: 14pt; line-height: 1; }
+.stk-name { font-size: 8pt; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
+.stk-tech { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.2rem; }
+.stk-bpa { font-size: 6.5pt; color: var(--org-d); font-style: italic; }
+.stk-cost { font-size: 6.5pt; color: var(--emr-d); font-weight: 700; margin-top: 0.15rem; }
+.stk.s1 { background: linear-gradient(180deg,#fff,#eff6ff); border-left: 3px solid var(--sky); }
+.stk.s2 { background: linear-gradient(180deg,#fff,#f0fdf4); border-left: 3px solid var(--emr); }
+.stk.s3 { background: linear-gradient(180deg,#fff,#fef3c7); border-left: 3px solid var(--gld); }
+.stk.s4 { background: linear-gradient(180deg,#fff,#f5f3ff); border-left: 3px solid var(--pur); }
+.stk.s5 { background: linear-gradient(180deg,#fff,#fff7ed); border-left: 3px solid var(--org); }
+.stk.s6 { background: linear-gradient(180deg,#fff,#fef2f2); border-left: 3px solid var(--rose); }
+.cmt-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.cmt { background: linear-gradient(135deg,#fff,#fafbfc); border: 1px solid var(--border); border-top: 3px solid var(--org); border-radius: 6px; padding: 0.45rem 0.5rem; text-align: center; }
+.cmt-n { font-size: 13pt; font-weight: 700; font-family: var(--mono); color: var(--org-d); display: block; line-height: 1; }
+.cmt-l { font-size: 5.8pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.18rem; }
+.ft { margin-top: 0.65rem; padding-top: 0.45rem; border-top: 1.5px solid var(--border); display: grid; grid-template-columns: 1fr auto; font-size: 6.5pt; color: var(--muted); }
+.ft-r { text-align: right; font-family: var(--mono); }
+.bench { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.4rem 0; }
+.bn { background: linear-gradient(135deg,#fff,#f8fafc); border: 1px solid var(--border); border-top: 3px solid var(--sky); border-radius: 7px; padding: 0.55rem 0.7rem; }
+.bn.cur { border-top-color: var(--org); background: linear-gradient(135deg,#fff,#fff7ed); }
+.bn-h { font-weight: 700; color: var(--navy); font-size: 8pt; }
+.bn-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.3rem; }
+.bn-row { display: flex; justify-content: space-between; font-size: 7pt; padding: 0.12rem 0; border-bottom: 1px dotted var(--border); }
+.bn-row:last-child { border-bottom: none; font-weight: 700; color: var(--navy); }
+.timeline { display: grid; grid-template-columns: repeat(8,1fr); gap: 4px; margin: 0.5rem 0; }
+.tl { padding: 0.45rem 0.3rem; border-radius: 5px; text-align: center; font-size: 6.5pt; }
+.tl-q { font-weight: 700; font-family: var(--mono); display: block; font-size: 7pt; color: var(--navy); }
+.tl-l { color: var(--muted); display: block; margin-top: 0.15rem; line-height: 1.25; }
+.tl-1, .tl-2 { background: linear-gradient(180deg,#fff7ed,#fff); border-left: 3px solid var(--org); }
+.tl-3, .tl-4 { background: linear-gradient(180deg,#dbeafe,#fff); border-left: 3px solid var(--sky); }
+.tl-5, .tl-6 { background: linear-gradient(180deg,#d1fae5,#fff); border-left: 3px solid var(--emr); }
+.tl-7, .tl-8 { background: linear-gradient(180deg,#f5f3ff,#fff); border-left: 3px solid var(--pur); }
+.kpi-mini { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.kpi { background: var(--bg); border-radius: 6px; padding: 0.4rem 0.45rem; border: 1px solid var(--border); }
+.kpi-n { font-family: var(--mono); font-weight: 700; color: var(--org-d); font-size: 11pt; }
+.kpi-l { font-size: 6.5pt; color: var(--muted); }
+@page { size: Letter portrait; margin: 9mm 11mm 9mm 11mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { margin:0; padding:0; max-width:100%; }
+  .print-btn { display: none !important; }
+  body { font-size: 8.5pt; padding: 0; line-height: 1.38; }
+  .pg-2, .pg-3, .pg-4, .pg-5 { page-break-before: always !important; break-before: page !important; }
+  .charts-2col, .stack, .cmt-grid, .kpi-mini, table.tbl, .bench, .timeline { break-inside: avoid; page-break-inside: avoid; }
+  .chart-box, .stk, .cmt, .kpi, .bn, .tl { break-inside: avoid; page-break-inside: avoid; }
+  h2 { margin: 0.45rem 0 0.22rem; font-size: 10pt; }
+  h1 { font-size: 18pt; }
+  .stats-hero { margin: 0.35rem 0 0.3rem; }
+  .sh { padding: 0.4rem 0.4rem; }
+  .sh-n { font-size: 11pt; }
+  .tagline { padding: 0.32rem 0.55rem; font-size: 7.8pt; line-height: 1.42; }
+  .tesis { padding: 0.55rem 0.85rem; }
+  .tesis-eq { font-size: 11pt; }
+  .tesis-sub { font-size: 7.2pt; }
+  .charts-2col { gap: 0.55rem; margin: 0.3rem 0; }
+  .chart-box { padding: 0.42rem 0.55rem; }
+  table.tbl { font-size: 7pt; }
+  .stk { padding: 0.4rem 0.5rem; }
+  .stk-name { font-size: 7.5pt; }
+  .stk-tech, .stk-bpa, .stk-cost { font-size: 6pt; }
+  .cmt-n { font-size: 11.5pt; }
+  .cmt-l { font-size: 5.5pt; }
+  .ft { margin-top: 0.5rem; padding-top: 0.35rem; }
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+<!-- ════ PÁGINA 1 ════ -->
+<div class="hdr">
+  <div>
+    <h1>Zonas Digitales Arauquita · WiFi Gratuito Comunitario</h1>
+    <div class="sub">zonas_digitales_urbanas+rurales · MinTIC · 15 puntos · acceso 24/7 gratuito · 24 meses</div>
+  </div>
+  <div class="hdr-meta">
+    Iniciativa Zonas Digitales · Arauquita<br>
+    Cód. DANE 81065 · PDET · ZOMAC · ZDP<br>
+    URN: poc-cb:arauquita:zonas-digitales<br>
+    2026-04-27 · DRAFT v1 · scope MinTIC ZD
+  </div>
+</div>
+
+<div class="stats-hero">
+  <div class="sh"><span class="sh-n">$700M</span><span class="sh-l">COP CAPEX+OPEX 24m</span></div>
+  <div class="sh"><span class="sh-n">15</span><span class="sh-l">zonas WiFi gratuito</span></div>
+  <div class="sh"><span class="sh-n">5+10</span><span class="sh-l">urbanas + rurales</span></div>
+  <div class="sh"><span class="sh-n">~30K</span><span class="sh-l">usuarios mensuales meta</span></div>
+  <div class="sh"><span class="sh-n">24/7</span><span class="sh-l">disponibilidad rurales</span></div>
+  <div class="sh"><span class="sh-n">95/5</span><span class="sh-l">% MinTIC / GobArauca</span></div>
+</div>
+
+<div class="tesis">
+  <div class="tesis-eq">ESPACIOS PÚBLICOS <span class="arrow">→</span> WiFi GRATUITO 24/7 <span class="arrow">→</span> ACCESO UNIVERSAL COMUNITARIO</div>
+  <div class="tesis-sub">Zonas Digitales replica modelo MinTIC nacional ($60B+ inversión · 1.550 ZDR + 840 ZDU · 705 municipios) en 15 puntos estratégicos Arauquita · complementa Casa Bacana FTTH para usuarios sin conexión hogar · cobertura comunitaria total</div>
+</div>
+
+<div class="tagline">
+  <strong>Zonas Digitales Arauquita</strong> instala <strong>15 puntos de WiFi gratuito</strong> en espacios públicos de alto tráfico: <strong>5 Zonas Digitales Urbanas (ZDU)</strong> en parques, plazas e instituciones de la cabecera + <strong>10 Zonas Digitales Rurales (ZDR)</strong> 24/7 en centros poblados y veredas accesibles · velocidad <strong>30 Mbps urbanas / 10 Mbps rurales</strong> · cobertura por zona <strong>2.000-7.800 m²</strong> · réplica del programa MinTIC consolidado ($60B+ inversión nacional) · complemento natural a <strong>Mi Casa Bacana FTTH</strong> (alcanza usuarios sin conexión hogar) · cofinanciación <strong>MinTIC 95% + GobArauca 5%</strong>.
+</div>
+
+<h2>Composición del Paquete · 2 vistas</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$700M COP · 6 Componentes</div>
+    <div class="chart-sub">// CAPEX 60% equipos+instalación + OPEX 40% operación 24m</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri,sans-serif" font-size="6.5">
+        <rect x="20" y="14" width="42" height="14" fill="#ea580c" rx="3"/>
+        <text x="67" y="24" fill="#0f172a">5 ZDU urbanas (cabecera) · $325M (46%)</text>
+        <rect x="20" y="32" width="40" height="14" fill="#0284c7" rx="3"/>
+        <text x="65" y="42" fill="#0f172a">10 ZDR rurales 24/7 · $180M (26%)</text>
+        <rect x="20" y="50" width="20" height="14" fill="#7c3aed" rx="3"/>
+        <text x="45" y="60" fill="#0f172a">OPEX operación 24m · $90M (13%)</text>
+        <rect x="20" y="68" width="14" height="14" fill="#059669" rx="3"/>
+        <text x="39" y="78" fill="#0f172a">Plataforma autenticación + analítica · $50M (7%)</text>
+        <rect x="20" y="86" width="11" height="14" fill="#d97706" rx="3"/>
+        <text x="36" y="96" fill="#0f172a">Soporte técnico 24m · $35M (5%)</text>
+        <rect x="20" y="104" width="6" height="14" fill="#e11d48" rx="3"/>
+        <text x="31" y="114" fill="#0f172a">Promoción + capacitación uso · $20M (3%)</text>
+      </g>
+      <line x1="20" y1="10" x2="20" y2="125" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Total: $700M COP · MinTIC 95% + GobArauca 5%</text>
+      <text x="120" y="167" text-anchor="middle" font-family="Calibri" font-size="6" fill="#64748b">Costo unitario: ZDU $65M · ZDR $18M (benchmark MinTIC)</text>
+    </svg>
+    <div class="chart-foot">Costos optimizados aprovechando backbone Casa Bacana · validado vs benchmark MinTIC nacional</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Localización · 15 Zonas en Arauquita</div>
+    <div class="chart-sub">// 5 urbanas cabecera + 10 rurales (CP + veredas)</div>
+    <svg viewBox="0 0 280 145" style="width:100%;display:block;">
+      <path d="M 0,90 Q 60,80 90,85 Q 130,90 160,80 Q 200,70 280,85 L 280,145 L 0,145 Z" fill="#fff7ed" opacity="0.4"/>
+
+      <!-- 5 ZDU cabecera -->
+      <circle cx="135" cy="55" r="4" fill="#ea580c"/>
+      <text x="135" y="48" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">Pq Pcpal</text>
+      <circle cx="145" cy="48" r="4" fill="#ea580c"/>
+      <circle cx="148" cy="62" r="4" fill="#ea580c"/>
+      <circle cx="125" cy="62" r="4" fill="#ea580c"/>
+      <circle cx="120" cy="50" r="4" fill="#ea580c"/>
+      <text x="135" y="78" text-anchor="middle" font-family="Calibri" font-size="6" font-weight="700" fill="#ea580c">5 ZDU cabecera</text>
+      <text x="135" y="32" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Arauquita</text>
+
+      <!-- ZDR rurales -->
+      <circle cx="80" cy="48" r="6" fill="#0284c7"/>
+      <text x="80" y="38" text-anchor="middle" font-family="Calibri" font-size="5" fill="#0f172a">La Esmeralda</text>
+      <text x="80" y="63" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">2 ZDR</text>
+
+      <circle cx="220" cy="48" r="6" fill="#0284c7"/>
+      <text x="220" y="38" text-anchor="middle" font-family="Calibri" font-size="5" fill="#0f172a">Aguachica</text>
+      <text x="220" y="63" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">2 ZDR</text>
+
+      <circle cx="220" cy="85" r="6" fill="#0284c7"/>
+      <text x="220" y="103" text-anchor="middle" font-family="Calibri" font-size="5" fill="#0f172a">Panamá</text>
+      <text x="220" y="98" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">2 ZDR</text>
+
+      <circle cx="50" cy="85" r="6" fill="#0284c7"/>
+      <text x="50" y="103" text-anchor="middle" font-family="Calibri" font-size="5" fill="#0f172a">La Pesquera</text>
+      <text x="50" y="98" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">2 ZDR</text>
+
+      <circle cx="100" cy="105" r="4" fill="#38bdf8"/>
+      <circle cx="180" cy="108" r="4" fill="#38bdf8"/>
+      <text x="140" y="120" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">2 ZDR veredales adicionales</text>
+
+      <rect x="60" y="124" width="160" height="16" fill="#1e293b" rx="4"/>
+      <text x="140" y="135" text-anchor="middle" font-family="'Courier New'" font-size="6.5" font-weight="700" fill="#fb923c">★ 15 PUNTOS WiFi GRATUITO 24/7 ★</text>
+    </svg>
+    <div class="chart-foot">5 ZDU operan 1h/día · 10 ZDR operan 24/7 · cobertura 2.000-7.800 m² c/u</div>
+  </div>
+</div>
+
+<h2>Posicionamiento · Programa Zonas Digitales MinTIC</h2>
+<table class="tbl">
+  <thead><tr><th>Dimensión</th><th>Posición Zonas Digitales Arauquita</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Programa MinTIC base</strong></td><td>Zonas Digitales Urbanas (ZDU) + Zonas Digitales Rurales (ZDR) · operación complementaria</td></tr>
+    <tr><td><strong>Modelo de referencia</strong></td><td>Nacional: 1.550 ZDR + 840 ZDU · 705 municipios · $60B+ inversión consolidada</td></tr>
+    <tr><td><strong>Articulación Mi Casa Bacana</strong></td><td>Complementa cobertura para usuarios sin internet hogar (rurales dispersos, jóvenes sin pc en casa)</td></tr>
+    <tr><td><strong>Articulación Centro Creciverso</strong></td><td>Una de las ZDU se ubica EN el Centro Creciverso (sinergia uso espacio físico + WiFi)</td></tr>
+    <tr><td><strong>Articulación Escuelas Geniales</strong></td><td>2 ZDR ubicadas en sedes educativas rurales (servicio extendido fuera horario escolar)</td></tr>
+    <tr><td><strong>Articulación PDD Arauca</strong></td><td>Pilar 1 · Eje 6 sub-eje 8 (Accesibilidad y uso TIC)</td></tr>
+    <tr><td><strong>Productos MGA sector 23</strong></td><td>2301027 (acceso a internet) · 2301087 (sedes tecnológicas comunitarias)</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Zonas Digitales Arauquita · WiFi Gratuito · Página 1/5</div>
+  <div class="ft-r">CCMS-CB-2026-001-B-ZD · v1 · Fibergroup-CCMS</div>
+</div>
+
+<!-- ════ PÁGINA 2 · DIAGNÓSTICO + BENCHMARK ════ -->
+<h2 class="pg-2" style="margin-top:0;">Diagnóstico · Necesidad de WiFi Comunitario en Arauquita</h2>
+<div class="si">// 72.5% población rural · 5.8% hogares con internet · necesidad puntos públicos críticos</div>
+
+<div class="cmt-grid">
+  <div class="cmt"><span class="cmt-n">72.5%</span><span class="cmt-l">población rural Arauquita</span></div>
+  <div class="cmt"><span class="cmt-n">5.8%</span><span class="cmt-l">hogares con internet (CNPV)</span></div>
+  <div class="cmt"><span class="cmt-n">~16K</span><span class="cmt-l">hogares sin internet 2024</span></div>
+  <div class="cmt"><span class="cmt-n">63.432</span><span class="cmt-l">población total Arauquita</span></div>
+  <div class="cmt"><span class="cmt-n">~5</span><span class="cmt-l">parques + plazas cabecera</span></div>
+  <div class="cmt"><span class="cmt-n">4</span><span class="cmt-l">centros poblados clave</span></div>
+  <div class="cmt"><span class="cmt-n">1</span><span class="cmt-l">zona digital existente (Plan E&C)</span></div>
+  <div class="cmt"><span class="cmt-n">15</span><span class="cmt-l">zonas meta proyecto</span></div>
+</div>
+
+<h2>Benchmark · Programa Nacional Zonas Digitales · Verificado</h2>
+<div class="si">// fuentes SILVER · mintic.gov.co · energizando.com · eltiempo.com · ConectiVIDAd Conv004/2025 · 2019-2025</div>
+<table class="tbl">
+  <thead><tr><th>Programa / Tipo</th><th class="num">Zonas</th><th class="num">Inversión</th><th class="num">$/zona</th><th class="num">Velocidad</th><th>Observación</th></tr></thead>
+  <tbody>
+    <tr><td><strong>ZDU Zonas Digitales Urbanas</strong> · 2019-2022</td><td class="num">840</td><td class="num">&gt;$55.000M</td><td class="num ok">~$65.5M</td><td class="num">30 Mbps up+down</td><td>705 municipios · 28 depts · 39m operación · 1h/día por usuario</td></tr>
+    <tr><td><strong>ZDR Zonas Digitales Rurales</strong> · 2019-2022</td><td class="num">1.550+</td><td class="num">&gt;$60.000M</td><td class="num ok">~$38.7M</td><td class="num">10-25 Mbps</td><td>381+ municipios · centros poblados · 24/7 · standalone off-grid</td></tr>
+    <tr style="background:#eff6ff;"><td><strong>ConectiVIDAd Conv004/2025 · Zonas WiFi</strong></td><td class="num">82</td><td class="num">N/D</td><td class="num">~$20-30M*</td><td class="num">25 Mbps</td><td>Cauca+Chocó+Nariño · junto con 47.024 hogares · backbone InterNexa</td></tr>
+    <tr style="background:#fef9c3; font-weight:700;"><td>🎯 Zonas Digitales Arauquita (PROPUESTA)</td><td class="num">15</td><td class="num">$700M</td><td class="num">ZDU $65M / ZDR $18M</td><td class="num">30/10 Mbps</td><td>5 ZDU cabecera + 10 ZDR rurales · backbone Casa Bacana</td></tr>
+  </tbody>
+</table>
+<div class="si">* Estimado: ZDR optimizado $18M aprovecha backbone FTTH Casa Bacana ($39M standalone → $18M con backhaul compartido) · ZDU $65M mantiene benchmark nacional · Fuentes: MinTIC ZDU/ZDR programa nacional + Conv004/2025 + eltiempo.com</div>
+
+<div class="bench" style="margin-top:0.4rem;">
+  <div class="bn">
+    <div class="bn-h">📍 Nacional · ZDU $65M + ZDR $39M (standalone)</div>
+    <div class="bn-sub">// MinTIC programa nacional · 2019-2022 · SILVER</div>
+    <div class="bn-row"><span>ZDR rurales</span><span class="mono">1.550+ zonas</span></div>
+    <div class="bn-row"><span>Por ZDR standalone</span><span class="mono">~$38.7M avg ✓</span></div>
+    <div class="bn-row"><span>ZDU urbanas</span><span class="mono">840 zonas</span></div>
+    <div class="bn-row"><span>Por ZDU</span><span class="mono">~$65.5M avg ✓</span></div>
+    <div class="bn-row"><span>Velocidad ZDU</span><span class="mono">30 Mbps DL/UL</span></div>
+    <div class="bn-row"><span>Operación</span><span class="mono">39m garantizados</span></div>
+    <div class="bn-row"><span>Municipios</span><span class="mono">705 mun · 28 depts</span></div>
+  </div>
+
+  <div class="bn cur">
+    <div class="bn-h">🎯 Arauquita · 15 Zonas Digitales (PROPUESTA)</div>
+    <div class="bn-sub">// MinTIC 95% + GobArauca 5% · 2026-2028 · backbone FTTH</div>
+    <div class="bn-row"><span>ZDR rurales</span><span class="mono">10 zonas</span></div>
+    <div class="bn-row"><span>Por ZDR optimizado</span><span class="mono">$18M (backbone compartido)</span></div>
+    <div class="bn-row"><span>ZDU urbanas</span><span class="mono">5 zonas</span></div>
+    <div class="bn-row"><span>Por ZDU</span><span class="mono">$65M (benchmark nacional)</span></div>
+    <div class="bn-row"><span>Velocidad ZDU</span><span class="mono">30 Mbps / ZDR 10 Mbps</span></div>
+    <div class="bn-row"><span>Total</span><span class="mono">$700M = 5×$65M + 10×$18M</span></div>
+    <div class="bn-row"><span>Ahorro backbone</span><span class="mono">-$207M vs ZDR standalone ($39M×10)</span></div>
+  </div>
+</div>
+
+<h2>Características Técnicas · ZDR vs ZDU</h2>
+<table class="tbl">
+  <thead><tr><th>Característica</th><th>ZDU Urbana (cabecera)</th><th>ZDR Rural</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Ubicación típica</strong></td><td>Parque principal · plaza · institución pública</td><td>Centro poblado · escuela rural · iglesia</td></tr>
+    <tr><td><strong>Cobertura por zona</strong></td><td>~5.000-7.800 m²</td><td>~2.000-5.000 m²</td></tr>
+    <tr><td><strong>Velocidad bajada</strong></td><td>30 Mbps</td><td>10 Mbps</td></tr>
+    <tr><td><strong>Velocidad subida</strong></td><td>30 Mbps</td><td>3 Mbps</td></tr>
+    <tr><td><strong>Disponibilidad</strong></td><td>1 hora/día por usuario (renovable)</td><td>24/7 sin restricción</td></tr>
+    <tr><td><strong>Autenticación</strong></td><td>Captive portal "Zona + Digital Mejor País"</td><td>Captive portal · acceso libre</td></tr>
+    <tr><td><strong>Energía</strong></td><td>Conexión red eléctrica</td><td>Solar + batería (off-grid donde aplica)</td></tr>
+    <tr><td><strong>Operación garantizada</strong></td><td>24m + transición operador</td><td>24m + alineación Centros Digitales 2031</td></tr>
+    <tr><td><strong>Costo unitario benchmark</strong></td><td>~$65M (incluye 39m operación)</td><td>~$18M (optimizado backbone Casa Bacana)</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Zonas Digitales Arauquita · Diagnóstico · Página 2/5</div>
+  <div class="ft-r">ZDU $65.5M nacional ✓ · ZDR $38.7M standalone ✓ · ZDR optimizado $18M (backbone Casa Bacana) VERIFICADO</div>
+</div>
+
+<!-- ════ PÁGINA 3 · ARQUITECTURA + STACK ════ -->
+<h2 class="pg-3" style="margin-top:0;">Arquitectura · 6 Componentes Stack WiFi Comunitario</h2>
+<div class="si">// stack open standard · IEEE 802.11ac/ax · captive portal centralizado</div>
+
+<div class="stack">
+  <div class="stk s5">
+    <div class="stk-icon">📡</div>
+    <div class="stk-name">5 Zonas Digitales Urbanas</div>
+    <div class="stk-tech">AP outdoor IP67 · 802.11ax · cobertura 5-7K m²</div>
+    <div class="stk-bpa">→ ZDU MinTIC nacional</div>
+    <div class="stk-cost">$325M · 46%</div>
+  </div>
+  <div class="stk s1">
+    <div class="stk-icon">🌾</div>
+    <div class="stk-name">10 Zonas Digitales Rurales</div>
+    <div class="stk-tech">AP outdoor + solar + batería · 802.11ac · 24/7</div>
+    <div class="stk-bpa">→ ZDR MinTIC nacional</div>
+    <div class="stk-cost">$180M · 26%</div>
+  </div>
+  <div class="stk s2">
+    <div class="stk-icon">🔐</div>
+    <div class="stk-name">Plataforma Captive Portal</div>
+    <div class="stk-tech">Cloud · registro usuarios · analítica · "Zona + Digital"</div>
+    <div class="stk-bpa">→ MinTIC marca nacional</div>
+    <div class="stk-cost">$50M · 7%</div>
+  </div>
+  <div class="stk s4">
+    <div class="stk-icon">⚙️</div>
+    <div class="stk-name">OPEX Operación 24m</div>
+    <div class="stk-tech">conectividad backbone · monitoreo · ancho de banda</div>
+    <div class="stk-bpa">→ Sinergia Casa Bacana NOC</div>
+    <div class="stk-cost">$90M · 13%</div>
+  </div>
+  <div class="stk s3">
+    <div class="stk-icon">🔧</div>
+    <div class="stk-name">Soporte Técnico 24m</div>
+    <div class="stk-tech">Linea 018000 · técnicos itinerantes · reposición</div>
+    <div class="stk-bpa">→ Modelo Continuidad ZDR</div>
+    <div class="stk-cost">$35M · 5%</div>
+  </div>
+  <div class="stk s6">
+    <div class="stk-icon">📢</div>
+    <div class="stk-name">Promoción + Capacitación</div>
+    <div class="stk-tech">jornadas comunitarias · señalización · uso responsable</div>
+    <div class="stk-bpa">→ Apropiación comunitaria</div>
+    <div class="stk-cost">$20M · 3%</div>
+  </div>
+</div>
+
+<h2>Ubicaciones Específicas · 15 Zonas</h2>
+<table class="tbl">
+  <thead><tr><th>#</th><th>Tipo</th><th>Ubicación</th><th>Disponibilidad</th><th class="num">Vel. DL</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>ZDU</td><td>Parque Principal Arauquita (cabecera)</td><td>1h/día</td><td class="num">30 Mbps</td></tr>
+    <tr><td>2</td><td>ZDU</td><td>Plaza de Mercado / Comercio</td><td>1h/día</td><td class="num">30 Mbps</td></tr>
+    <tr><td>3</td><td>ZDU</td><td>Hospital San Lorenzo / urgencias</td><td>1h/día</td><td class="num">30 Mbps</td></tr>
+    <tr><td>4</td><td>ZDU</td><td>Centro Creciverso (sinergia espacio)</td><td>Permanente</td><td class="num">30 Mbps</td></tr>
+    <tr><td>5</td><td>ZDU</td><td>Alcaldía / Casa de la Cultura</td><td>1h/día</td><td class="num">30 Mbps</td></tr>
+    <tr><td>6-7</td><td>ZDR</td><td>La Esmeralda · escuela rural + plaza</td><td>24/7</td><td class="num">10 Mbps</td></tr>
+    <tr><td>8-9</td><td>ZDR</td><td>Aguachica · escuela rural + iglesia</td><td>24/7</td><td class="num">10 Mbps</td></tr>
+    <tr><td>10-11</td><td>ZDR</td><td>Panamá · escuela rural + casa comunal</td><td>24/7</td><td class="num">10 Mbps</td></tr>
+    <tr><td>12-13</td><td>ZDR</td><td>La Pesquera · escuela rural + plaza</td><td>24/7</td><td class="num">10 Mbps</td></tr>
+    <tr><td>14-15</td><td>ZDR</td><td>2 veredas adicionales (priorizadas PDET)</td><td>24/7</td><td class="num">10 Mbps</td></tr>
+  </tbody>
+</table>
+
+<div class="si" style="margin-top:0.4rem;">// Solapamiento Escuelas Geniales: ZDR 6, 8, 10, 12 ubicadas en sedes educativas (servicio extendido fuera horario escolar)</div>
+
+<div class="ft">
+  <div>Zonas Digitales Arauquita · Arquitectura · Página 3/5</div>
+  <div class="ft-r">Estándar técnico ZDU/ZDR MinTIC</div>
+</div>
+
+<!-- ════ PÁGINA 4 · CRONOGRAMA + FINANCIERO ════ -->
+<h2 class="pg-4" style="margin-top:0;">Plan de Despliegue · 24 Meses</h2>
+
+<div class="timeline">
+  <div class="tl tl-1"><span class="tl-q">T1 · M1-3</span><span class="tl-l"><strong>Estructuración</strong><br>Identificación 15 puntos · permisos · contratación</span></div>
+  <div class="tl tl-2"><span class="tl-q">T2 · M4-6</span><span class="tl-l"><strong>Despliegue ZDU 1-3</strong><br>Parque · Mercado · Hospital activos</span></div>
+  <div class="tl tl-3"><span class="tl-q">T3 · M7-9</span><span class="tl-l"><strong>Despliegue ZDU 4-5 + ZDR 1-4</strong><br>Centro Creciverso + Alcaldía + La Esmeralda + Aguachica</span></div>
+  <div class="tl tl-4"><span class="tl-q">T4 · M10-12</span><span class="tl-l"><strong>Despliegue ZDR 5-10</strong><br>Panamá + La Pesquera + 2 veredas · 100% activas</span></div>
+  <div class="tl tl-5"><span class="tl-q">T5 · M13-15</span><span class="tl-l"><strong>Operación + analítica</strong><br>~15K usuarios mensuales meta inicial</span></div>
+  <div class="tl tl-6"><span class="tl-q">T6 · M16-18</span><span class="tl-l"><strong>Promoción comunitaria</strong><br>Jornadas + capacitación uso responsable</span></div>
+  <div class="tl tl-7"><span class="tl-q">T7 · M19-21</span><span class="tl-l"><strong>Año 2 operación</strong><br>~30K usuarios mensuales · medición impacto</span></div>
+  <div class="tl tl-8"><span class="tl-q">T8 · M22-24</span><span class="tl-l"><strong>Cierre + transición</strong><br>Alineación Centros Digitales MinTIC 2031</span></div>
+</div>
+
+<h2>Distribución Presupuestal + Cofinanciación</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$700M COP · CAPEX 60% / OPEX 40%</div>
+    <div class="chart-sub">// CAPEX = equipos+instalación; OPEX = conectividad+soporte</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#ea580c" stroke-width="20" stroke-dasharray="207 138" transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#0284c7" stroke-width="20" stroke-dasharray="138 207" stroke-dashoffset="-207" transform="rotate(-90 80 80)"/>
+      <text x="80" y="78" text-anchor="middle" font-family="Calibri" font-size="9" font-weight="700" fill="#0f172a">$700M</text>
+      <text x="80" y="89" text-anchor="middle" font-family="Calibri" font-size="6.5" fill="#64748b">total 24m</text>
+
+      <rect x="160" y="40" width="10" height="10" fill="#ea580c"/>
+      <text x="175" y="48" font-family="Calibri" font-size="7" fill="#0f172a">CAPEX 60%</text>
+      <text x="175" y="58" font-family="Calibri" font-size="6" fill="#64748b">$420M (15 zonas equipos)</text>
+
+      <rect x="160" y="75" width="10" height="10" fill="#0284c7"/>
+      <text x="175" y="83" font-family="Calibri" font-size="7" fill="#0f172a">OPEX 24m 40%</text>
+      <text x="175" y="93" font-family="Calibri" font-size="6" fill="#64748b">$280M (operac.+soporte)</text>
+
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Activos transferidos a Alcaldía + alineación Centros Digitales</text>
+    </svg>
+    <div class="chart-foot">Equipos quedan en propiedad de la Alcaldía Arauquita</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Cofinanciación · MinTIC 95% / GobArauca 5%</div>
+    <div class="chart-sub">// Alcaldía aporta predios + soporte logístico</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="7">
+        <text x="5" y="20" fill="#0f172a" font-weight="700">MinTIC / FUTIC</text>
+        <rect x="100" y="12" width="120" height="16" fill="#fff7ed" rx="3"/>
+        <rect x="100" y="12" width="114" height="16" fill="#ea580c" rx="3"/>
+        <text x="225" y="23" fill="#0f172a" font-weight="700">95% · $665M</text>
+
+        <text x="5" y="48" fill="#0f172a" font-weight="700">Gob. Arauca</text>
+        <rect x="100" y="40" width="120" height="16" fill="#fef3c7" rx="3"/>
+        <rect x="100" y="40" width="6" height="16" fill="#d97706" rx="3"/>
+        <text x="225" y="51" fill="#0f172a" font-weight="700">5% · $35M</text>
+
+        <text x="5" y="76" fill="#0f172a" font-weight="700">Alcaldía Arauquita</text>
+        <rect x="100" y="68" width="120" height="16" fill="#dbeafe" rx="3"/>
+        <text x="225" y="79" fill="#0f172a" font-weight="700">Predios + electricidad</text>
+
+        <line x1="5" y1="95" x2="225" y2="95" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="115" fill="#64748b" font-style="italic">Comparativa programa nacional</text>
+        <text x="5" y="127" fill="#64748b">$60B+ ZDR · $55B+ ZDU · 705 municipios</text>
+        <text x="5" y="139" fill="#64748b">Modelo idéntico operación garantizada</text>
+
+        <text x="120" y="158" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Proyecto pequeño con alta cobertura territorial</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Sinergia operativa con Centros Digitales MinTIC (operación 2031)</div>
+  </div>
+</div>
+
+<h2>Hitos Críticos · Pagos por Avance</h2>
+<table class="tbl">
+  <thead><tr><th>Hito</th><th>Mes</th><th>Indicador verificable</th><th class="num">% Desembolso</th></tr></thead>
+  <tbody>
+    <tr><td>H1 · Estructuración + identificación</td><td>M3</td><td>15 puntos identificados · permisos · contrato firmado</td><td class="num">10%</td></tr>
+    <tr><td>H2 · ZDU 1-3 activas</td><td>M6</td><td>3 ZDU urbanas centro Arauquita activas · pruebas SLA</td><td class="num">20%</td></tr>
+    <tr><td>H3 · ZDU 4-5 + ZDR 1-4 activas</td><td>M9</td><td>9 zonas activas (5 ZDU + 4 ZDR)</td><td class="num">25%</td></tr>
+    <tr><td>H4 · 15 zonas activas</td><td>M12</td><td>100% (5 ZDU + 10 ZDR) · cobertura completa</td><td class="num">25%</td></tr>
+    <tr><td>H5 · 15K usuarios/mes</td><td>M15</td><td>15.000 usuarios únicos mensuales registrados</td><td class="num">10%</td></tr>
+    <tr><td>H6 · 30K usuarios/mes</td><td>M21</td><td>30.000 usuarios únicos mensuales · meta cumplida</td><td class="num">5%</td></tr>
+    <tr><td>H7 · Cierre + transición</td><td>M24</td><td>Acta transferencia Alcaldía · alineación Centros Digitales</td><td class="num">5%</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Zonas Digitales Arauquita · Cronograma + Financiero · Página 4/5</div>
+  <div class="ft-r">Estructura modelo ZDU+ZDR MinTIC nacional</div>
+</div>
+
+<!-- ════ PÁGINA 5 · IMPACTO + KPIs ════ -->
+<h2 class="pg-5" style="margin-top:0;">Impacto Esperado + KPIs</h2>
+
+<h2>Cadena de Resultados RBM-GAC</h2>
+<table class="tbl">
+  <thead><tr><th>Nivel</th><th>Indicador</th><th class="num">LB 2024</th><th class="num">Meta 2028</th><th>Plazo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>INSUMOS</strong></td><td>Inversión total</td><td class="num">$0</td><td class="num">$700M</td><td>24m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Zonas Digitales activas</td><td class="num">1</td><td class="num">15 (5 ZDU + 10 ZDR)</td><td>12m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Cobertura WiFi gratuito (m²)</td><td class="num">~3.000</td><td class="num">~75.000 m²</td><td>12m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Capacidad ancho banda total</td><td class="num">~30 Mbps</td><td class="num">~250 Mbps agregado</td><td>12m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Usuarios únicos mensuales</td><td class="num">~500</td><td class="num">~30.000</td><td>21m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Sesiones activas/mes</td><td class="num">~1.500</td><td class="num">~120.000</td><td>21m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Habitantes con acceso público</td><td class="num">~5%</td><td class="num">~50%</td><td>24m</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Brecha TIC Arauquita (MCB)</td><td class="num hi">67.8%</td><td class="num ok">≤45%</td><td>4 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Hogares sin internet con acceso público</td><td class="num">~5%</td><td class="num">~80%</td><td>3 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Gestión de trámites en línea</td><td class="num">~10%</td><td class="num">≥40%</td><td>3 años</td></tr>
+  </tbody>
+</table>
+
+<h2>KPIs Operativos · Mensual</h2>
+<div class="kpi-mini">
+  <div class="kpi"><div class="kpi-n">≥99%</div><div class="kpi-l">Disponibilidad ZDR 24/7</div></div>
+  <div class="kpi"><div class="kpi-n">≥30K</div><div class="kpi-l">Usuarios únicos mes operación plena</div></div>
+  <div class="kpi"><div class="kpi-n">≤24h</div><div class="kpi-l">Tiempo respuesta falla técnica</div></div>
+  <div class="kpi"><div class="kpi-n">≥4/5</div><div class="kpi-l">Calificación satisfacción usuario</div></div>
+</div>
+
+<h2>Sostenibilidad Post-Proyecto · M25-M84</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">Modelo Sostenibilidad Largo Plazo</div>
+    <div class="chart-sub">// alineación con programa Centros Digitales MinTIC 2031</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <rect x="10" y="15" width="100" height="35" fill="#ea580c" rx="4" opacity="0.85"/>
+        <text x="60" y="30" text-anchor="middle" fill="white" font-weight="700">1. Centros Digitales MinTIC</text>
+        <text x="60" y="40" text-anchor="middle" fill="#fff" font-size="5.5">Operación garantizada</text>
+        <text x="60" y="48" text-anchor="middle" fill="#fff" font-size="5.5">hasta 2031 nacional</text>
+
+        <rect x="120" y="15" width="100" height="35" fill="#0284c7" rx="4" opacity="0.85"/>
+        <text x="170" y="30" text-anchor="middle" fill="white" font-weight="700">2. Alcaldía operadora</text>
+        <text x="170" y="40" text-anchor="middle" fill="#fff" font-size="5.5">Activos transferidos</text>
+        <text x="170" y="48" text-anchor="middle" fill="#fff" font-size="5.5">presupuesto local</text>
+
+        <rect x="10" y="60" width="100" height="35" fill="#7c3aed" rx="4" opacity="0.85"/>
+        <text x="60" y="75" text-anchor="middle" fill="white" font-weight="700">3. Sinergia Casa Bacana</text>
+        <text x="60" y="85" text-anchor="middle" fill="#fff" font-size="5.5">Backbone FTTH compartido</text>
+        <text x="60" y="93" text-anchor="middle" fill="#fff" font-size="5.5">NOC común</text>
+
+        <rect x="120" y="60" width="100" height="35" fill="#059669" rx="4" opacity="0.85"/>
+        <text x="170" y="75" text-anchor="middle" fill="white" font-weight="700">4. Demanda comunitaria</text>
+        <text x="170" y="85" text-anchor="middle" fill="#fff" font-size="5.5">Hábito uso retenido</text>
+        <text x="170" y="93" text-anchor="middle" fill="#fff" font-size="5.5">apropiación social</text>
+
+        <rect x="60" y="115" width="120" height="35" fill="#1e293b" rx="5"/>
+        <text x="120" y="130" text-anchor="middle" fill="white" font-weight="700" font-size="7">Operación Larga Duración</text>
+        <text x="120" y="142" text-anchor="middle" fill="#fcd34d" font-size="6">Mínimo &gt;7 años garantizada</text>
+
+        <line x1="60" y1="50" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="50" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="60" y1="95" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="95" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+
+        <text x="120" y="170" text-anchor="middle" font-size="6.5" font-weight="700" fill="#0f172a">Proyecto pequeño con respaldo nacional sólido</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Centros Digitales MinTIC 14.745 espacios operativos hasta 2031 garantizan continuidad ZDR</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">ROI Social · WiFi Comunitario 5 años</div>
+    <div class="chart-sub">// VPN beneficio social vs $700M inversión</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <text x="5" y="20" fill="#0f172a" font-weight="700">Beneficios estimados (5 años)</text>
+
+        <text x="5" y="38" fill="#0f172a">Acceso público sin barrera económica</text>
+        <rect x="135" y="30" width="85" height="11" fill="#fff7ed" rx="2"/>
+        <rect x="135" y="30" width="55" height="11" fill="#ea580c" rx="2"/>
+        <text x="225" y="38" fill="#0f172a" font-weight="700">$580M</text>
+
+        <text x="5" y="58" fill="#0f172a">Trámites en línea ciudadanos</text>
+        <rect x="135" y="50" width="85" height="11" fill="#dbeafe" rx="2"/>
+        <rect x="135" y="50" width="40" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="58" fill="#0f172a" font-weight="700">$320M</text>
+
+        <text x="5" y="78" fill="#0f172a">Información mercado · agro</text>
+        <rect x="135" y="70" width="85" height="11" fill="#d1fae5" rx="2"/>
+        <rect x="135" y="70" width="32" height="11" fill="#059669" rx="2"/>
+        <text x="225" y="78" fill="#0f172a" font-weight="700">$220M</text>
+
+        <text x="5" y="98" fill="#0f172a">Comunicación familiar (migr.)</text>
+        <rect x="135" y="90" width="85" height="11" fill="#f5f3ff" rx="2"/>
+        <rect x="135" y="90" width="28" height="11" fill="#7c3aed" rx="2"/>
+        <text x="225" y="98" fill="#0f172a" font-weight="700">$180M</text>
+
+        <line x1="5" y1="115" x2="225" y2="115" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="130" fill="#0f172a" font-weight="700">VPN beneficios totales</text>
+        <text x="225" y="130" text-anchor="end" fill="#059669" font-weight="700" font-size="8">$1.300M</text>
+
+        <text x="5" y="145" fill="#0f172a" font-weight="700">Inversión total</text>
+        <text x="225" y="145" text-anchor="end" fill="#ea580c" font-weight="700" font-size="8">$700M</text>
+
+        <text x="5" y="160" fill="#0f172a" font-weight="700">Ratio B/C</text>
+        <text x="225" y="160" text-anchor="end" fill="#7c3aed" font-weight="700" font-size="9">1.86 ✓</text>
+      </g>
+    </svg>
+    <div class="chart-foot">BRONZE · estimado conservador · referencia ZDR programa nacional MinTIC</div>
+  </div>
+</div>
+
+<div class="tesis" style="padding:0.55rem 0.85rem;margin:0.5rem 0 0.3rem;">
+  <div class="tesis-eq" style="font-size:11pt;">15 zonas WiFi · 30K usuarios/mes · 24/7 rurales · cobertura comunitaria total</div>
+  <div class="tesis-sub">Zonas Digitales Arauquita complementa Casa Bacana FTTH para usuarios sin conexión hogar · cierra brecha TIC complementaria · respaldo permanente programa nacional Centros Digitales MinTIC</div>
+</div>
+
+<div class="ft">
+  <div>Zonas Digitales Arauquita · Impacto + Sostenibilidad · Página 5/5</div>
+  <div class="ft-r">FIN · 5 páginas · CCMS-CB-2026-001-B-ZD v1</div>
+</div>
+
+</body>
+</html>

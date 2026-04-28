@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Detallado · Sprint 1 (E1) — Caracterización del Territorio · Concepto · Solución · Formulación MGA · Arauca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#dbeafe', primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1', lineColor: '#475569',
+      secondaryColor: '#dcfce7', tertiaryColor: '#fef3c7',
+      fontFamily: 'Inter, Segoe UI, Arial, sans-serif', fontSize: '11px'
+    },
+    er: { fontSize: 11 },
+    sequence: { fontSize: 11, actorFontSize: 12, noteFontSize: 10 },
+    flowchart: { fontSize: 11, htmlLabels: true, curve: 'basis' }
+  });
+</script>
+<style>
+:root{
+  --navy:#0f172a; --blue:#0369a1; --blue-d:#075985; --blue-l:#38bdf8;
+  --emr:#047857; --pur:#6d28d9; --gld:#b45309; --rose:#be123c;
+  --text:#1e293b; --muted:#64748b; --muted-2:#94a3b8;
+  --border:#cbd5e1; --bg:#f8fafc;
+  --crit:#b91c1c;
+  --ok:#047857; --prog:#b45309; --pend:#94a3b8; --late:#be123c;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Times New Roman',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-num:first-of-type{margin-top:0;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+
+/* ───── Intro narrativa ───── */
+.intro-narr{background:linear-gradient(135deg,rgba(56,189,248,.10) 0%,rgba(3,105,161,.06) 100%);border:1px solid rgba(3,105,161,.25);border-radius:5px;padding:.5rem .75rem;margin:.25rem 0;font-size:9pt;line-height:1.5;text-align:justify;}
+.intro-narr p{margin-bottom:.3rem;}
+.intro-narr p:last-child{margin-bottom:0;}
+
+/* ───── Diagramas ───── */
+.diag-box{background:rgba(248,250,252,.5);border:1px solid var(--border);border-radius:5px;padding:.5rem .4rem;margin:.2rem 0;break-inside:avoid;page-break-inside:avoid;}
+.diag-cap{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-family:var(--sans);text-align:center;margin-top:.25rem;padding-top:.2rem;border-top:1px dashed var(--border);}
+.mermaid{display:flex;justify-content:center;font-family:var(--sans);font-size:11px!important;}
+
+/* ───── Tablas ───── */
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl th.center{text-align:center;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl td.center{text-align:center;}
+.tbl td.code{font-family:var(--mono);font-weight:600;color:var(--navy);font-size:7pt;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+
+/* ───── Estado semáforo ───── */
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-late{background:rgba(190,18,60,.14);color:var(--late);border:1px solid rgba(190,18,60,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.st-late::before{color:var(--late);}
+
+/* ───── Actor tags en celdas RACI ───── */
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-ctt{background:rgba(190,18,60,.10);color:var(--rose);border-color:rgba(190,18,60,.28);}
+.act-b{background:rgba(4,120,87,.12);color:var(--emr);border-color:rgba(4,120,87,.25);}
+.act-c{background:rgba(180,83,9,.12);color:var(--gld);border-color:rgba(180,83,9,.28);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.act-gob{background:rgba(56,189,248,.18);color:#0c4a6e;border-color:rgba(3,105,161,.4);}
+.act-art{background:rgba(180,83,9,.06);color:#7c2d12;border-color:rgba(180,83,9,.3);}
+
+/* ───── Portal-avance link ───── */
+.pl{display:inline-flex;align-items:center;gap:.2rem;padding:.06rem .3rem;border-radius:2px;background:rgba(56,189,248,.12);color:var(--blue-d);border:1px solid rgba(3,105,161,.22);font-size:6.6pt;font-family:var(--mono);font-weight:600;text-decoration:none;}
+.pl::before{content:"↗";font-size:7pt;}
+.pl:hover{background:rgba(56,189,248,.24);}
+
+/* ───── Cards ───── */
+.card{border:1px solid rgba(3,105,161,.25);border-radius:5px;padding:.4rem .55rem;margin:.22rem 0;background:rgba(248,250,252,.5);break-inside:avoid;page-break-inside:avoid;}
+.card-id{display:inline-block;padding:.06rem .35rem;border-radius:2px;font-size:6.6pt;font-weight:700;font-family:var(--mono);background:rgba(3,105,161,.15);color:var(--blue-d);letter-spacing:.4px;margin-right:.4rem;}
+.card-name{font-size:9pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+
+/* ───── Leyenda ───── */
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:.25rem;margin:.2rem 0;font-size:7pt;font-family:var(--sans);}
+.lg{padding:.2rem .35rem;border-radius:3px;border-left:3px solid var(--blue);background:var(--bg);}
+.lg-r{border-left-color:var(--blue);background:rgba(3,105,161,.06);}
+.lg-a{border-left-color:var(--rose);background:rgba(190,18,60,.06);}
+.lg-c{border-left-color:var(--gld);background:rgba(180,83,9,.06);}
+.lg-i{border-left-color:var(--muted);background:rgba(100,116,139,.06);}
+.lg strong{color:var(--navy);}
+
+/* ───── Nota ───── */
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.nota.warn{border-left-color:var(--rose);background:rgba(190,18,60,.05);}
+.nota.today{border-left-color:var(--emr);background:rgba(4,120,87,.06);}
+
+/* ───── Footer ───── */
+.consultor-footer{margin-top:.5rem;border-top:1px solid rgba(15,23,42,.35);padding-top:.3rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;font-size:6.5pt;font-family:var(--sans);color:var(--muted);align-items:center;}
+.cf-left{justify-self:start;}
+.cf-center{justify-self:center;text-align:center;font-family:var(--mono);font-weight:700;color:var(--blue-d);font-size:6.8pt;letter-spacing:.3px;}
+.cf-right{justify-self:end;text-align:right;}
+.cf-conf{display:inline-block;background:rgba(185,28,28,.06);color:var(--crit);padding:.06rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(185,28,28,.2);font-size:5.8pt;margin-right:.3rem;}
+.cf-meta{font-family:var(--mono);color:var(--muted-2);font-size:5.8pt;letter-spacing:.3px;}
+.cf-brand{color:var(--navy);font-weight:700;font-family:var(--sans);font-size:6.8pt;}
+
+@page{size:Letter portrait;margin:9mm 12mm 10mm 12mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  body{padding:6mm 10mm;}
+  .print-btn{display:none!important;}
+  .tbl,.card,.nota,.diag-box,.intro-narr{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Plan Detallado · Sprint 1 · E1 Caracterización Territorio + Concepto + Solución</div>
+  <div class="doc-title">Sprint 1 · E1 — Caracterización del Territorio · Concepto · Solución · Formulación MGA · Arauca</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-B-PLAN-S1 &nbsp;·&nbsp; Bogotá D.C. &nbsp;·&nbsp; 28 de abril de 2026</div>
+  <div class="doc-variant">Hoy 28 abr: kick-off · alineación · acta · Sprint 1 trabaja desde 29 abr → 4 may</div>
+</div>
+
+<!-- ═══════════════ INTRODUCCIÓN NARRATIVA ═══════════════ -->
+<div class="intro-narr">
+  <p>El <strong>Sprint 1</strong> tiene un foco único: producir el entregable <strong>E1 — Caracterización del territorio · Concepto · Solución</strong>, que sirve de base estructural para los Sprints 2 y 3. Hoy <strong>28 de abril de 2026</strong> nos concentramos en alinearnos: realizamos la reunión de kick-off, confirmamos roles y contactos de los Frentes B/C/D, abrimos los canales de comunicación, firmamos el <a class="pl" href="../facturacion/hito-1-starting-E0/ACTA-inicio-hito-1.html">Acta de Inicio Hito&nbsp;1</a> y emitimos la primera factura. Toda la ejecución del sprint comienza <strong>desde mañana 29 de abril</strong>.</p>
+  <p>El Contratista cuenta con un <strong>repositorio GOLD/SILVER ya verificado</strong> (DANE CNPV 2018, ART PDET 2023, MinTIC IBD 2024, Conv005-006/2025, PDD Arauca, Resolución MinTIC 3689/2023, infografías técnicas) que cubre buena parte del análisis sectorial y diagnóstico territorial. Lo que falta lo aporta el Contratante: PDM Arauquita, listado SISBEN, caracterización del problema desde la perspectiva Fibergroup, carta de intención GobArauca, caracterización del ISP en Arauca, teoría de cambio y datos de campo (Frente D).</p>
+  <p>El sprint se cierra con <strong>sign-off del Contratante el lunes 4 de mayo</strong> y libera el pago del Hito 2 ($8.100.000 COP). El producto E1 se materializa simultáneamente como <strong>documento PDF/DOCX</strong> y como <strong>portal HTML de avance en línea</strong> donde cada sección MGA se publica progresivamente — esto permite al Contratante validar el avance día a día sin esperar al cierre.</p>
+</div>
+
+<!-- ═══════════════ §1 LO QUE OBTENDREMOS · erDIAGRAM ═══════════════ -->
+<div class="cl-num">§1 — Lo que obtendremos · ecosistema documental del Sprint 1 · erDiagram</div>
+<div class="cl-body"><p>Al cerrar el Sprint 1 tendremos el ecosistema E1 consolidado: un documento E1 v1.0 que integra 6 productos especializados (P1-01 a P1-06) y publica las secciones MGA §1, §1.5, §1.7, §1.8, §2, §3, §4.1, §4.2, §6 (preliminares). Cada componente tiene su <strong>portal HTML de avance</strong> donde el Contratante verifica el progreso en tiempo real.</p></div>
+
+<div class="diag-box">
+<pre class="mermaid">
+erDiagram
+    DOC_E1_v10 ||--|| MGA_S1_Identificacion : "publica"
+    DOC_E1_v10 ||--|| MGA_S15_Sectorial : "publica"
+    DOC_E1_v10 ||--|| MGA_S17_Actores : "publica"
+    DOC_E1_v10 ||--|| MGA_S18_Marco_Logico : "publica"
+    DOC_E1_v10 ||--|| MGA_S2_Problema : "publica"
+    DOC_E1_v10 ||--|| MGA_S3_Poblacion : "publica"
+    DOC_E1_v10 ||--|| MGA_S41_Solucion : "publica"
+    DOC_E1_v10 ||--|| MGA_S42_Alternativas : "publica"
+    DOC_E1_v10 ||--|| MGA_S6_Impactos_Prelim : "publica"
+
+    P1_01_Documento_E1 ||--|| DOC_E1_v10 : "consolida"
+    P1_02_Arboles ||--o{ MGA_S2_Problema : "alimenta"
+    P1_03_Mapa_KML ||--o{ MGA_S3_Poblacion : "alimenta"
+    P1_04_Marco_Logico ||--o{ MGA_S18_Marco_Logico : "alimenta"
+    P1_05_Alternativas ||--o{ MGA_S42_Alternativas : "alimenta"
+    P1_06_Sectorial ||--o{ MGA_S15_Sectorial : "alimenta"
+
+    PORTAL_HTML_E1 ||--|| DOC_E1_v10 : "publica_en_vivo"
+    PORTAL_HTML_E1 ||--o{ MGA_S1_Identificacion : "muestra_avance"
+    PORTAL_HTML_E1 ||--o{ MGA_S2_Problema : "muestra_avance"
+    PORTAL_HTML_E1 ||--o{ MGA_S3_Poblacion : "muestra_avance"
+
+    FUENTES_GOLD_VERIFICADAS ||--o{ P1_01_Documento_E1 : "respalda_30%_aprox"
+    PDM_Arauquita_CLI ||--o{ P1_01_Documento_E1 : "respalda_PDM"
+    SISBEN_CLI ||--o{ P1_03_Mapa_KML : "georreferencia"
+    DATOS_CAMPO_D ||--o{ P1_03_Mapa_KML : "valida_terreno"
+    CARACTERIZ_FBG_CLI ||--o{ P1_02_Arboles : "informa_problema"
+    CARTA_GOB_CLI ||--o{ P1_04_Marco_Logico : "informa_supuestos"
+
+    DOC_E1_v10 {
+        string version "v1.0"
+        date sign_off "2026-05-04"
+        decimal hito_pago "8100000_COP"
+        string sign_off_por "Ciro_Manuel_Gonzalez"
+    }
+    PORTAL_HTML_E1 {
+        url path "Drive/Sprint-1/portal-avance-E1.html"
+        string render "navegador_+_imprimible_PDF"
+        bool live_update "true"
+    }
+</pre>
+<div class="diag-cap">Fig. 1 · Ecosistema E1 · 6 productos · 9 secciones MGA · portal HTML de avance en vivo</div>
+</div>
+
+<div class="nota"><strong>Portal de avance E1:</strong> cada producto P1-NN se publica en <code>Drive/Sprint-1/portal-avance/</code> como HTML imprimible (manual de marca contractual). Los enlaces de la §6 abajo permiten al Contratante validar el avance sin abrir DOCX/XLSX.</div>
+
+<!-- ═══════════════ §2 QUIENES PARTICIPAN ═══════════════ -->
+<div class="cl-num">§2 — Quiénes participan · roles del Sprint 1</div>
+<table class="tbl">
+  <thead><tr><th style="width:4rem">Tag</th><th style="width:8rem">Rol</th><th>Persona / entidad</th><th style="width:10rem">Contacto</th><th style="width:7rem">Carga Sprint 1</th></tr></thead>
+  <tbody>
+    <tr><td><span class="act act-cti">CTI</span></td><td>Contratista · Formulador</td><td>Carlos Camilo Madera Sepúlveda · C.C. 79.801.495</td><td>cmadera@udc.edu.co · +57 300 472 4009</td><td><strong>100% (full-time)</strong></td></tr>
+    <tr><td><span class="act act-ctt">CTT</span></td><td>Contratante · Aprobador</td><td>FIBERGROUP S.A.S. E.S.P.</td><td>Gerencia@fibergroup.net · (607) 691 6069</td><td>Reviews diarias 30min</td></tr>
+    <tr><td><span class="act act-ger">GER</span></td><td>Gerente Fibergroup · Aprobador final E1</td><td>Ciro Manuel González Hernández · C.C. 91.511.053</td><td>Gerencia@fibergroup.net</td><td>Sign-off Hito 2 (4 may)</td></tr>
+    <tr><td><span class="act act-jur">JUR</span></td><td>Asesor Jurídico Fibergroup · Revisor legal MGA</td><td>[Nombre · designado por GER]</td><td>[correo jurídico]</td><td>Reviews legales 1h × sección</td></tr>
+    <tr><td><span class="act act-d">D</span></td><td>Frente D · Téc. de Campo (experto E1)</td><td>[Nombre · designado por GER]</td><td>[correo Frente D]</td><td><strong>Trabajo intensivo en E1 (campo)</strong></td></tr>
+    <tr><td><span class="act act-b">B</span></td><td>Frente B · Arq. Redes (consulta E1)</td><td>[Nombre · designado por GER]</td><td>[correo Frente B]</td><td>1-2 reuniones · alternativas técnicas</td></tr>
+    <tr><td><span class="act act-c">C</span></td><td>Frente C · Esp. Presupuesto (consulta E1)</td><td>[Nombre · designado por GER]</td><td>[correo Frente C]</td><td>1 reunión · estimaciones VPN/TIR</td></tr>
+    <tr><td><span class="act act-gob">GOB</span></td><td>Gobernación de Arauca · Cofinanciador 5%</td><td>Secretaría TIC · enlace técnico</td><td>[correo enlace GOB]</td><td>Carta intención + reunión validación</td></tr>
+    <tr><td><span class="act act-art">ART</span></td><td>ART PDET subregión Arauca</td><td>Director regional</td><td>[correo enlace ART]</td><td>Informado · validación PATR</td></tr>
+  </tbody>
+</table>
+<div class="nota today"><strong>Acción del 28 abr (hoy):</strong> el Gerente Fibergroup confirma por correo a cmadera@udc.edu.co los nombres y correos de JUR, D, B, C, y los enlaces GOB/ART. Sin esto el Sprint 1 no puede iniciar mañana con todos los insumos.</div>
+
+<!-- ═══════════════ §3 FLUJO DE PRODUCTOS INTERMEDIOS ═══════════════ -->
+<div class="cl-num">§3 — Flujo de productos intermedios del Sprint 1 · flowchart</div>
+<div class="diag-box">
+<pre class="mermaid">
+flowchart LR
+    classDef cli fill:#fee2e2,stroke:#be123c,color:#7f1d1d
+    classDef cti fill:#dbeafe,stroke:#0369a1,color:#0f172a
+    classDef out fill:#ede9fe,stroke:#6d28d9,color:#0f172a
+
+    PDM[PDM Arauquita]:::cli
+    SIS[SISBEN E1+E2]:::cli
+    CARFG[Caracterización<br/>problema Fibergroup]:::cli
+    CARTAGOB[Carta intención<br/>GobArauca 5%]:::cli
+    ISP[Caracterización<br/>ISP Fibergroup]:::cli
+    TC[Teoría de<br/>cambio Fibergroup]:::cli
+    IND[Indicadores impacto<br/>Fibergroup]:::cli
+    CAMPO[Datos campo<br/>Frente D]:::cli
+    ALTB[Alternativas<br/>técnicas Frente B]:::cli
+
+    GOLD[Fuentes GOLD<br/>verificadas CTI<br/>DANE PATR IBD<br/>PDD MinTIC]:::cti
+
+    DIAG[A1-01 Diagnóstico<br/>territorial integrado]:::cti
+    SECT[A1-04 Análisis<br/>sectorial 23 TIC]:::cti
+    ARB[A1-02 Árboles<br/>problema/objetivos]:::cti
+    POB[A1-03 Población<br/>georreferenciada]:::cti
+    ACT[A1-05 Análisis<br/>actores]:::cti
+    ML[A1-06 Marco lógico<br/>RBM-GAC]:::cti
+    IMP[A1-07 Impactos<br/>preliminares]:::cti
+    SOL[A1-08 Definición<br/>solución]:::cti
+    ALT[A1-09 Alternativas<br/>A1/A2/A3]:::cti
+    CONS[A1-10 Consolidación<br/>E1 v1.0]:::cti
+
+    P1_01[P1-01 Documento E1 v1.0]:::out
+    P1_02[P1-02 Árboles PNG/SVG]:::out
+    P1_03[P1-03 Mapa KML]:::out
+    P1_04[P1-04 Marco lógico XLSX]:::out
+    P1_05[P1-05 Alternativas XLSX]:::out
+    P1_06[P1-06 Análisis sectorial]:::out
+
+    PDM --> DIAG
+    GOLD --> DIAG
+    GOLD --> SECT
+    CARFG --> ARB
+    DIAG --> ARB
+    CAMPO --> ARB
+    SIS --> POB
+    CAMPO --> POB
+    DIAG --> ACT
+    CARTAGOB --> ACT
+    ISP --> ACT
+    ARB --> ML
+    POB --> ML
+    TC --> ML
+    IND --> IMP
+    ML --> IMP
+    SECT --> ALT
+    ALTB --> ALT
+    DIAG --> SOL
+    ALT --> SOL
+
+    ARB --> P1_02
+    POB --> P1_03
+    ML --> P1_04
+    ALT --> P1_05
+    SECT --> P1_06
+    P1_02 --> CONS
+    P1_03 --> CONS
+    P1_04 --> CONS
+    P1_05 --> CONS
+    P1_06 --> CONS
+    SOL --> CONS
+    IMP --> CONS
+    CONS --> P1_01
+</pre>
+<div class="diag-cap">Fig. 2 · Flujo Sprint 1 · 9 insumos (rosa) → 10 actividades CTI (azul) → 6 productos finales (morado)</div>
+</div>
+
+<!-- ═══════════════ §4 DIAGRAMA DE SECUENCIA ═══════════════ -->
+<div class="cl-num">§4 — Diagrama de secuencia del Sprint 1 · día por día</div>
+<div class="diag-box">
+<pre class="mermaid">
+sequenceDiagram
+    autonumber
+    participant CTT as CTT<br/>Fibergroup
+    participant GER as GER<br/>Ciro Manuel
+    participant JUR as JUR<br/>Jurídico
+    participant D as D<br/>Téc.Campo
+    participant CTI as CTI<br/>Carlos
+    participant GOB as GOB<br/>Arauca
+
+    rect rgb(220, 252, 231)
+    Note over CTT,GOB: HOY · 28 abr (mar) · Kick-off + Acta + Factura Hito 1
+    CTT->>CTI: Reunión kick-off (presencial/virtual) · alineación
+    GER->>CTI: Confirma nombres y correos JUR/D/B/C
+    CTI->>CTT: Acceso Drive · canal WA/Teams
+    GER->>CTI: Firma Acta-Inicio Hito 1
+    CTI->>CTT: Factura electrónica DAFE-XX ($5.4M)
+    CTT->>CTI: Desembolso Hito 1 (≤5 días hábiles)
+    end
+
+    rect rgb(219, 234, 254)
+    Note over CTT,GOB: D+1 · 29 abr (mié) · I1-01..03 + arranque diagnóstico
+    CTT->>CTI: I1-01 PDM Arauquita PDF
+    CTT->>CTI: I1-02 SISBEN A1-B7 georreferenciado XLSX+KML
+    CTT->>CTI: I1-03 Caracterización problema Fibergroup
+    CTI->>CTI: A1-01 Diagnóstico (con GOLD existente + I1-01..03)
+    CTI->>CTT: Publica MGA-§1 Identificación al portal de avance
+    end
+
+    rect rgb(219, 234, 254)
+    Note over CTT,GOB: D+2 · 30 abr (jue) · árboles + sectorial + I1-04..07
+    GER->>GOB: Gestiona I1-04 carta intención cofinanciación 5%
+    GOB-->>GER: Carta intención firmada
+    GER->>CTI: I1-04 carta GOB · I1-05 ISP · I1-06 teoría cambio · I1-07 alternativas
+    CTI->>CTI: A1-02 Árboles · A1-04 Sectorial completo
+    D->>CTI: I1-09 datos campo (relevamiento socio-territorial)
+    CTI->>CTT: Publica MGA-§2 Problema + §1.5 Sectorial al portal
+    end
+
+    rect rgb(219, 234, 254)
+    Note over CTT,GOB: D+3 · 1 may (vie · feriado) · población + actores + I1-08
+    CTT->>CTI: I1-08 Indicadores impacto Fibergroup
+    CTI->>CTI: A1-03 Población KML · A1-05 Actores
+    CTI->>CTT: Publica MGA-§3 Población + §1.7 Actores al portal
+    end
+
+    rect rgb(254, 243, 199)
+    Note over CTT,GOB: D+4 · 2 may (sáb) · marco lógico + alternativas (CTI sin CTT)
+    CTI->>CTI: A1-06 Marco lógico · A1-09 Alternativas A1/A2/A3
+    CTI->>CTT: Publica MGA-§1.8 Marco lógico + §4.2 Alternativas al portal
+    end
+
+    rect rgb(219, 234, 254)
+    Note over CTT,GOB: D+5 · 3 may (dom) · impactos + solución + review intermedia
+    CTI->>CTT: Solicitud DEC-1 review árboles
+    JUR->>CTI: Review legal de citaciones normativas árboles
+    GER->>CTI: I1-10 sign-off árboles
+    CTI->>CTI: A1-07 Impactos · A1-08 Solución
+    CTI->>CTT: Publica MGA-§6 Impactos + §4.1 Solución al portal
+    end
+
+    rect rgb(220, 252, 231)
+    Note over CTT,GOB: D+6 · 4 may (lun) · CONSOLIDACIÓN + SIGN-OFF + FACTURA HITO 2
+    CTI->>CTI: A1-10 Consolidación E1 v1.0
+    CTI->>CTT: Carga 6 productos P1-01..06 al Drive Final/
+    CTT->>JUR: Solicita revisión legal final
+    JUR->>GER: Visto bueno legal MGA E1
+    GER->>CTI: SIGN-OFF Sprint 1 · autoriza Hito 2
+    CTI->>CTT: Factura electrónica DAFE-XX ($8.1M)
+    CTT->>CTI: Desembolso Hito 2 (≤12 may)
+    end
+</pre>
+<div class="diag-cap">Fig. 3 · Secuencia Sprint 1 · 7 actores · 7 micro-fases (kick-off + 6 días) · ~30 mensajes</div>
+</div>
+
+<!-- ═══════════════ §5 MATRIZ RACI INVERTIDA ═══════════════ -->
+<div class="cl-num">§5 — Matriz RACI · estado · fecha entrega · roles como columnas</div>
+<div class="legend">
+  <div class="lg lg-a"><strong>A</strong> · Accountable — aprueba (único)</div>
+  <div class="lg lg-r"><strong>R</strong> · Responsible — ejecuta</div>
+  <div class="lg lg-c"><strong>C</strong> · Consulted — aporta input</div>
+  <div class="lg lg-i"><strong>I</strong> · Informed — recibe notificación</div>
+</div>
+
+<table class="tbl">
+  <thead><tr><th style="width:4rem">ID</th><th>Actividad / Insumo / Decisión</th><th class="center" style="width:5rem">Estado</th><th style="width:4rem">Fecha</th><th style="width:5rem">A</th><th style="width:6rem">R</th><th style="width:7rem">C</th><th style="width:7rem">I</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="8">Insumos · I1-01..10 · entregas del Contratante / Frentes</td></tr>
+    <tr><td class="code">I1-01</td><td>PDM Arauquita 2024-2027 + Acuerdo Concejo</td><td class="center"><span class="st st-pend">Pend</span></td><td>29 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-ctt">CTT</span></td><td>—</td><td><span class="act act-cti">CTI</span></td></tr>
+    <tr><td class="code">I1-02</td><td>SISBEN A1-B7 hogares Arauquita 2026 georref.</td><td class="center"><span class="st st-pend">Pend</span></td><td>29 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-ctt">CTT</span></td><td><span class="act act-d">D</span></td><td><span class="act act-cti">CTI</span></td></tr>
+    <tr><td class="code">I1-03</td><td>Caracterización del problema territorial Fibergroup</td><td class="center"><span class="st st-pend">Pend</span></td><td>29 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-ctt">CTT</span></td><td><span class="act act-cti">CTI</span> <span class="act act-d">D</span></td><td>—</td></tr>
+    <tr><td class="code">I1-04</td><td>Carta intención GobArauca cofinanciación 5%</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><span class="act act-gob">GOB</span></td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-art">ART</span></td></tr>
+    <tr><td class="code">I1-05</td><td>Caracterización ISP Fibergroup en Arauca + RUTIC</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-ctt">CTT</span></td><td><span class="act act-b">B</span></td><td><span class="act act-cti">CTI</span></td></tr>
+    <tr><td class="code">I1-06</td><td>Teoría de cambio Fibergroup</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-ctt">CTT</span></td><td><span class="act act-cti">CTI</span></td><td>—</td></tr>
+    <tr><td class="code">I1-07</td><td>Listado preliminar alternativas técnicas</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-b">B</span></td><td><span class="act act-cti">CTI</span></td><td>—</td></tr>
+    <tr><td class="code">I1-08</td><td>Indicadores de impacto preliminares Fibergroup</td><td class="center"><span class="st st-pend">Pend</span></td><td>1 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-ctt">CTT</span></td><td><span class="act act-cti">CTI</span></td><td>—</td></tr>
+    <tr><td class="code">I1-09</td><td>Datos de campo Frente D · relevamiento</td><td class="center"><span class="st st-pend">Pend</span></td><td>1 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-d">D</span></td><td><span class="act act-cti">CTI</span></td><td>—</td></tr>
+    <tr><td class="code">I1-10</td><td>Sign-off review intermedia árboles problema/objetivos</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-jur">JUR</span></td><td>—</td></tr>
+
+    <tr class="subt"><td colspan="8">Actividades · A1-01..10 · ejecución del Contratista</td></tr>
+    <tr><td class="code">A1-01</td><td>Diagnóstico territorial integrado (GOLD + I1-01..03)</td><td class="center"><span class="st st-pend">Pend</span></td><td>29 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-d">D</span></td><td><span class="act act-b">B</span> <span class="act act-c">C</span></td></tr>
+    <tr><td class="code">A1-02</td><td>Árbol de problemas + árbol de objetivos</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-d">D</span></td><td><span class="act act-jur">JUR</span></td></tr>
+    <tr><td class="code">A1-03</td><td>Población objetivo georreferenciada (mapa KML)</td><td class="center"><span class="st st-pend">Pend</span></td><td>1 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-d">D</span></td><td>—</td></tr>
+    <tr><td class="code">A1-04</td><td>Análisis sectorial Sector 23 TIC</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-jur">JUR</span></td><td><span class="act act-art">ART</span></td></tr>
+    <tr><td class="code">A1-05</td><td>Análisis de actores y stakeholders multinivel</td><td class="center"><span class="st st-pend">Pend</span></td><td>1 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-d">D</span> <span class="act act-gob">GOB</span></td><td><span class="act act-art">ART</span></td></tr>
+    <tr><td class="code">A1-06</td><td>Marco lógico RBM-GAC + teoría de cambio</td><td class="center"><span class="st st-pend">Pend</span></td><td>2 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-b">B</span> <span class="act act-c">C</span> <span class="act act-d">D</span></td><td>—</td></tr>
+    <tr><td class="code">A1-07</td><td>Análisis preliminar impactos (ODS + VPN/TIR cualitativo)</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-c">C</span></td><td>—</td></tr>
+    <tr><td class="code">A1-08</td><td>Definición preliminar de la solución FTTH GPON</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-b">B</span></td><td><span class="act act-jur">JUR</span></td></tr>
+    <tr><td class="code">A1-09</td><td>Alternativas técnicas A1/A2/A3 con scoring multicriterio</td><td class="center"><span class="st st-pend">Pend</span></td><td>2 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-b">B</span></td><td>—</td></tr>
+    <tr><td class="code">A1-10</td><td>Consolidación documento E1 v1.0 + envío sign-off</td><td class="center"><span class="st st-pend">Pend</span></td><td>4 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-jur">JUR</span></td><td><span class="act act-d">D</span> <span class="act act-b">B</span> <span class="act act-c">C</span></td></tr>
+
+    <tr class="subt"><td colspan="8">Decisiones · puntos de aprobación formal</td></tr>
+    <tr><td class="code">DEC-1</td><td>Aprobación árboles problema/objetivos (review intermedia)</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-jur">JUR</span> <span class="act act-d">D</span></td><td>—</td></tr>
+    <tr><td class="code">DEC-2</td><td>Selección alternativa técnica preliminar (FTTH GPON)</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-b">B</span></td><td>—</td></tr>
+    <tr><td class="code">DEC-3</td><td>SIGN-OFF Sprint 1 + autorización facturación Hito 2</td><td class="center"><span class="st st-pend">Pend</span></td><td>4 may</td><td><span class="act act-ger">GER</span></td><td><span class="act act-cti">CTI</span></td><td><span class="act act-jur">JUR</span></td><td><span class="act act-ctt">CTT</span></td></tr>
+  </tbody>
+</table>
+<div class="nota"><strong>Convención de estado:</strong> al inicio del sprint todo aparece como <span class="st st-pend">Pend</span>. Conforme el CTI publica al portal de avance, cambia a <span class="st st-prog">Progress</span>. Tras sign-off del GER pasa a <span class="st st-ok">OK</span>. Si una fecha vence sin entregar, salta a <span class="st st-late">Retraso</span>.</div>
+
+<!-- ═══════════════ §6 ENTREGABLES MGA · AVANCES PARCIALES Y PORTAL EN LÍNEA ═══════════════ -->
+<div class="cl-num">§6 — Entregables MGA del Sprint 1 · avances parciales con reporte en línea</div>
+<div class="cl-body"><p>Cada sección MGA producida en el Sprint 1 se publica en un <strong>portal HTML imprimible</strong> alojado en Drive (manual de marca contractual), permitiendo al Contratante validar el avance día a día. Estado: <span class="st st-ok">OK</span> sign-off · <span class="st st-prog">Progress</span> en construcción · <span class="st st-pend">Pend</span> sin iniciar · <span class="st st-late">Retraso</span> fecha vencida.</p></div>
+
+<table class="tbl">
+  <thead><tr><th style="width:4rem">Sección</th><th>Entregable MGA · alcance Sprint 1</th><th class="center" style="width:5rem">Estado</th><th style="width:4rem">Fecha</th><th style="width:7rem">Portal de avance</th><th style="width:5rem">Producto</th></tr></thead>
+  <tbody>
+    <tr><td class="code">§1</td><td>Identificación · nombre · sector 23 TIC · entidad · localización · presupuesto</td><td class="center"><span class="st st-pend">Pend</span></td><td>29 abr</td><td><a class="pl" href="portal-avance/MGA-§1-identificacion-v0.1.html">§1 portal</a></td><td>P1-01</td></tr>
+    <tr><td class="code">§1.5</td><td>Análisis sectorial 23 TIC · normativa · política · programas vigentes</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><a class="pl" href="portal-avance/MGA-§1-5-sectorial-v0.1.html">§1.5 portal</a></td><td>P1-06</td></tr>
+    <tr><td class="code">§1.7</td><td>Análisis de actores · mapa multinivel</td><td class="center"><span class="st st-pend">Pend</span></td><td>1 may</td><td><a class="pl" href="portal-avance/MGA-§1-7-actores-v0.1.html">§1.7 portal</a></td><td>P1-01</td></tr>
+    <tr><td class="code">§1.8</td><td>Marco lógico RBM-GAC · matriz insumos→impactos</td><td class="center"><span class="st st-pend">Pend</span></td><td>2 may</td><td><a class="pl" href="portal-avance/MGA-§1-8-marco-logico-v0.1.html">§1.8 portal</a></td><td>P1-04</td></tr>
+    <tr><td class="code">§2</td><td>Problema · árbol de problemas y árbol de objetivos</td><td class="center"><span class="st st-pend">Pend</span></td><td>30 abr</td><td><a class="pl" href="portal-avance/MGA-§2-problema-v0.1.html">§2 portal</a></td><td>P1-02</td></tr>
+    <tr><td class="code">§3</td><td>Población objetivo · cuantificación + georreferenciación KML</td><td class="center"><span class="st st-pend">Pend</span></td><td>1 may</td><td><a class="pl" href="portal-avance/MGA-§3-poblacion-v0.1.html">§3 portal</a></td><td>P1-03</td></tr>
+    <tr><td class="code">§4.1</td><td>Solución preliminar · FTTH GPON · 4.000 hogares · 24m</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><a class="pl" href="portal-avance/MGA-§4-1-solucion-v0.1.html">§4.1 portal</a></td><td>P1-01</td></tr>
+    <tr><td class="code">§4.2</td><td>Alternativas A1/A2/A3 + scoring multicriterio</td><td class="center"><span class="st st-pend">Pend</span></td><td>2 may</td><td><a class="pl" href="portal-avance/MGA-§4-2-alternativas-v0.1.html">§4.2 portal</a></td><td>P1-05</td></tr>
+    <tr><td class="code">§6 prelim</td><td>Impactos preliminares · ODS 9/10/17 · estimados VPN/TIR cualitativos</td><td class="center"><span class="st st-pend">Pend</span></td><td>3 may</td><td><a class="pl" href="portal-avance/MGA-§6-impactos-v0.1.html">§6 portal</a></td><td>P1-01</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ §7 AGENDA POR ROL HUMANO ═══════════════ -->
+<div class="cl-num">§7 — Agenda por rol humano · día por día</div>
+
+<div class="card">
+<span class="card-id"><span class="act act-cti">CTI</span></span><span class="card-name">Carlos Camilo Madera Sepúlveda · Contratista · Formulador</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:4rem">Día</th><th>Agenda diaria · CTI</th></tr></thead>
+  <tbody>
+    <tr><td><strong>28 abr (mar)</strong></td><td>Hoy · kick-off + alineación · firmar Acta-Inicio · emitir factura DAFE Hito 1 · configurar Drive y portal-avance · enviar plantilla brief a Frentes B/C/D</td></tr>
+    <tr><td>29 abr (mié)</td><td>Recibir I1-01..03 · A1-01 diagnóstico territorial · publicar §1 portal · iniciar borrador árbol problemas con I1-03</td></tr>
+    <tr><td>30 abr (jue)</td><td>Recibir I1-04..07 · A1-02 árboles + A1-04 sectorial · publicar §2 + §1.5 portal · reunión 1h con D para validar problema</td></tr>
+    <tr><td>1 may (vie · feriado)</td><td>Recibir I1-08, I1-09 · A1-03 mapa KML + A1-05 actores · publicar §3 + §1.7 portal</td></tr>
+    <tr><td>2 may (sáb)</td><td>A1-06 marco lógico + A1-09 alternativas A1/A2/A3 · publicar §1.8 + §4.2 portal · reunión 30min con B (alternativas)</td></tr>
+    <tr><td>3 may (dom)</td><td>Solicitar review intermedia árboles · A1-07 impactos + A1-08 solución · publicar §6 + §4.1 portal · esperar I1-10 sign-off árboles</td></tr>
+    <tr><td><strong>4 may (lun)</strong></td><td>A1-10 consolidación E1 v1.0 antes 12:00 · enviar correo formal sign-off antes 13:00 · post sign-off → factura DAFE Hito 2 · cierre Sprint 1</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card">
+<span class="card-id"><span class="act act-ger">GER</span></span><span class="card-name">Ciro Manuel González · Gerente Fibergroup · Aprobador final</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:4rem">Día</th><th>Agenda diaria · GER</th></tr></thead>
+  <tbody>
+    <tr><td><strong>28 abr (mar)</strong></td><td>Hoy · presidir kick-off · confirmar nombres y correos JUR/D/B/C a CTI · firmar Acta-Inicio Hito 1 · autorizar desembolso Hito 1</td></tr>
+    <tr><td>29 abr (mié)</td><td>Despachar I1-01 PDM · I1-02 SISBEN · I1-03 caracterización problema · review diaria 18:00 (30 min)</td></tr>
+    <tr><td>30 abr (jue)</td><td>Gestionar I1-04 carta GobArauca · despachar I1-05 ISP · I1-06 teoría cambio · I1-07 alternativas · review diaria</td></tr>
+    <tr><td>1 may (vie)</td><td>Despachar I1-08 indicadores · receso feriado · review opcional vía correo</td></tr>
+    <tr><td>3 may (dom)</td><td>Recibir y aprobar I1-10 sign-off árboles (DEC-1) · review intermedia · prevalidar selección A1 (DEC-2)</td></tr>
+    <tr><td><strong>4 may (lun)</strong></td><td>Recibir paquete E1 · solicitar review JUR · 16:00 sign-off Sprint 1 (DEC-3) · autorizar Hito 2 · programar desembolso ≤12 may</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card">
+<span class="card-id"><span class="act act-d">D</span></span><span class="card-name">Frente D · Técnico de Campo · Experto E1 (territorio)</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:4rem">Día</th><th>Agenda diaria · D</th></tr></thead>
+  <tbody>
+    <tr><td><strong>28 abr (mar)</strong></td><td>Hoy · kick-off · recibir BRIEF-frente-d-campo · plan de relevamiento Arauquita</td></tr>
+    <tr><td>29 abr (mié)</td><td>Iniciar relevamiento de campo: cabecera Arauquita · validación SISBEN · georreferenciación de 4 centros poblados</td></tr>
+    <tr><td>30 abr (jue)</td><td>Continuar relevamiento · reunión virtual 1h con CTI para validar problema territorial · enviar fotos + datos parciales</td></tr>
+    <tr><td>1 may (vie)</td><td>Cierre relevamiento · entregar I1-09 datos campo (XLSX + fotos + GPS) · sign-off del paquete</td></tr>
+    <tr><td>2-4 may</td><td>Disponibilidad para consultas puntuales del CTI (marco lógico · solución · validación)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card">
+<span class="card-id"><span class="act act-b">B</span></span><span class="card-name">Frente B · Arq. Redes · Consulta E1 (alternativas técnicas)</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:4rem">Día</th><th>Agenda diaria · B</th></tr></thead>
+  <tbody>
+    <tr><td><strong>28 abr (mar)</strong></td><td>Hoy · kick-off · recibir BRIEF-frente-b-redes · iniciar trabajo Sprint 2 (entrega 5-9 may)</td></tr>
+    <tr><td>30 abr (jue)</td><td>Entregar I1-07 listado preliminar alternativas técnicas (FTTH · radio · híbrida · satelital) · 1 página resumen cada una</td></tr>
+    <tr><td>2 may (sáb)</td><td>Reunión 30 min con CTI para validar selección preliminar A1 FTTH GPON</td></tr>
+    <tr><td>3 may (dom)</td><td>Visto bueno DEC-2 selección alternativa A1 FTTH</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card">
+<span class="card-id"><span class="act act-c">C</span></span><span class="card-name">Frente C · Esp. Presupuesto · Consulta E1 (estimaciones VPN/TIR)</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:4rem">Día</th><th>Agenda diaria · C</th></tr></thead>
+  <tbody>
+    <tr><td><strong>28 abr (mar)</strong></td><td>Hoy · kick-off · recibir BRIEF-frente-c-presupuesto · iniciar trabajo Sprint 2 (entrega 5-9 may)</td></tr>
+    <tr><td>3 may (dom)</td><td>Reunión 30 min con CTI para validar estimaciones VPN/TIR/B-C cualitativas (rango aproximado)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="card">
+<span class="card-id"><span class="act act-jur">JUR</span></span><span class="card-name">Asesor Jurídico Fibergroup · Revisor legal MGA</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:4rem">Día</th><th>Agenda diaria · JUR</th></tr></thead>
+  <tbody>
+    <tr><td><strong>28 abr (mar)</strong></td><td>Hoy · kick-off · revisar contrato CCMS-CB-2026-001-B-v11 firmado · alineación con CTI sobre marco normativo a citar</td></tr>
+    <tr><td>30 abr (jue)</td><td>Review legal §1.5 análisis sectorial (citas Ley 1341, 1978, 2108, 2294) · 1h</td></tr>
+    <tr><td>3 may (dom)</td><td>Review legal árboles problema/objetivos (DEC-1) · validar referencia a normativa PDET/ZOMAC</td></tr>
+    <tr><td><strong>4 may (lun)</strong></td><td>Review legal final E1 v1.0 antes sign-off del GER · 1h · concepto formal a GER</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ═══════════════ §8 ENTREGABLE E1 · ESTRUCTURA POR SECCIÓN MGA ═══════════════ -->
+<div class="cl-num">§8 — Entregable E1 · construcción MGA por sección · 4 tareas tipo</div>
+<div class="cl-body"><p>Cada sección MGA del Sprint 1 se construye con la misma cadencia de 4 tareas: <strong>(i) Construir</strong> contenido por el Contratista usando insumos · <strong>(ii) Consultar al experto E1</strong> (Frente D · territorio) · <strong>(iii) Informar al jurídico</strong> (Asesor JUR Fibergroup) · <strong>(iv) Aprobar el gerente</strong> (Ciro Manuel · GER). Esta misma estructura aplica a E2 (Sprint 2 · experto = Frente B Redes) y a E3 (Sprint 2 · experto = Frente C Presupuesto).</p></div>
+
+<!-- §1 Identificación -->
+<div class="card">
+<span class="card-id">MGA §1</span><span class="card-name">Identificación · nombre · sector · localización · presupuesto</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>Llenar campos: nombre · sector 23 TIC · entidad responsable · localización Arauquita · plazo 24m · presupuesto $3.500M · fuentes</td><td><span class="act act-cti">CTI</span></td><td>29 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar localización + datos territoriales con experto E1 (Frente D campo)</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>29 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Visto bueno legal: nombre del proyecto · entidad responsable · presupuesto coherente con contrato</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>29 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre la sección §1 (publicación al portal de avance)</td><td><span class="act act-ger">GER</span></td><td>29 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §1.5 Sectorial -->
+<div class="card">
+<span class="card-id">MGA §1.5</span><span class="card-name">Análisis sectorial · Sector 23 TIC</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>Producir P1-06 (8-12pp): marco normativo · CONPES · MinTIC programs · PDD · PDM · PATR · stakeholders · tendencias</td><td><span class="act act-cti">CTI</span></td><td>30 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar interpretación territorial con experto E1 (Frente D · contexto Arauca)</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>30 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Review legal de citaciones normativas: Ley 1341 · 1978 · 2108 · 2294 · Res. 3689 · CONPES 4167</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>30 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre §1.5 (publicación al portal de avance)</td><td><span class="act act-ger">GER</span></td><td>30 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §2 Problema -->
+<div class="card">
+<span class="card-id">MGA §2</span><span class="card-name">Problema · árbol de problemas y árbol de objetivos</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>P1-02: árbol problemas (1 problema central + 3 causas + 6 sub-causas + 3 efectos + 6 sub-efectos) + árbol objetivos espejo · evidencias numéricas</td><td><span class="act act-cti">CTI</span></td><td>30 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar causas y efectos con experto E1 (Frente D · datos campo I1-09) · ajustar narrativa territorial</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>30 abr</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Review legal del problema: redacción técnica sin sesgos · referencia normativa correcta · concepto JUR a GER</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>DEC-1 sign-off árboles del Gerente (review intermedia) · I1-10</td><td><span class="act act-ger">GER</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §3 Población -->
+<div class="card">
+<span class="card-id">MGA §3</span><span class="card-name">Población objetivo · cuantificación + georreferenciación</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>P1-03 mapa KML: 6 capas (cabecera 3.500 hog · 4 CP 500 hog · backbone · última milla · sedes educ · sedes salud) · WGS84</td><td><span class="act act-cti">CTI</span></td><td>1 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar con experto E1 (Frente D) las coordenadas de campo + ajuste población por centro poblado</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>1 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Visto bueno legal sobre tratamiento de datos personales SISBEN (Ley 1581/2012) · anonimización en mapa publicado</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>1 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre §3 (publicación al portal de avance)</td><td><span class="act act-ger">GER</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §1.7 Actores -->
+<div class="card">
+<span class="card-id">MGA §1.7</span><span class="card-name">Análisis de actores · stakeholders multinivel</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>Mapa de actores: nacional (MinTIC · DNP · ART) · departamental (GOB · ART regional) · municipal (alcaldía · comunidad) · privado (Fibergroup · ISPs)</td><td><span class="act act-cti">CTI</span></td><td>1 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar enlaces y caracterización con D (campo) · GOB (departamental) · ART (PDET)</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-gob">GOB</span></td><td>1 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Validación legal del listado de actores · roles institucionales correctamente nombrados</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>1 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre §1.7 (publicación al portal de avance)</td><td><span class="act act-ger">GER</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §1.8 Marco lógico -->
+<div class="card">
+<span class="card-id">MGA §1.8</span><span class="card-name">Marco lógico RBM-GAC · matriz insumos→impactos</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>P1-04 XLSX 5 tabs: Insumos (8-10) · Actividades (12-15) · Productos (5 MGA Sector 23) · Resultados (4-5) · Impactos (3-4) · indicadores · LB · meta · supuestos</td><td><span class="act act-cti">CTI</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar coherencia con expertos: D (campo) · B (técnico) · C (económico)</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-b">B</span> <span class="act act-c">C</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Review legal de supuestos: contingencias contractuales · riesgos legales · cumplimiento DNP-SUIFP</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre §1.8 marco lógico (publicación al portal)</td><td><span class="act act-ger">GER</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §4.2 Alternativas -->
+<div class="card">
+<span class="card-id">MGA §4.2</span><span class="card-name">Alternativas técnicas · A1/A2/A3 con scoring multicriterio</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>P1-05 XLSX: A1 FTTH GPON · A2 Radio+WiFi mesh · A3 Satelital LEO · matriz 7 criterios scoring 1-5 ponderados · justificación selección A1</td><td><span class="act act-cti">CTI</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar alternativas con experto E1 (Frente D · viabilidad territorial) y consulta técnica a B</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-b">B</span></td><td>2 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Review legal de criterios de selección · cumplimiento Res. MinTIC 3689/2023 · neutralidad tecnológica</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>DEC-2 selección alternativa A1 FTTH GPON · sign-off del Gerente</td><td><span class="act act-ger">GER</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §4.1 Solución preliminar -->
+<div class="card">
+<span class="card-id">MGA §4.1</span><span class="card-name">Solución preliminar · FTTH GPON 4.000 hogares 24m</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>Narrativa de la solución: qué se hace · a quién · dónde · con qué tecnología · con qué cofinanciación · en qué tiempo</td><td><span class="act act-cti">CTI</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar pertinencia con experto E1 (D · territorio) y B (factibilidad técnica preliminar)</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-b">B</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Review legal de la solución: cumplimiento Res. 3689 · cofinanciación MinTIC FUTIC · estructura PA Fiducoldex</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre §4.1 solución preliminar</td><td><span class="act act-ger">GER</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- §6 Impactos preliminares -->
+<div class="card">
+<span class="card-id">MGA §6 prelim</span><span class="card-name">Impactos preliminares · ODS + estimados VPN/TIR/B-C cualitativos</span>
+<table class="tbl" style="margin-top:.2rem">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5rem">Responsable</th><th style="width:4rem">Día</th><th class="center" style="width:5rem">Estado</th></tr></thead>
+  <tbody>
+    <tr><td>Construir</td><td>Identificar ≥2 ODS (9 · 10 · 17) · estimados cualitativos VPN/TIR/B-C basados en benchmarks Mi Casa Bacana Atlántico + N. Santander PDET</td><td><span class="act act-cti">CTI</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Consultar</td><td>Validar magnitud estimada con experto E1 (D · realidad social Arauquita) y revisión rangos económicos con C</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-c">C</span></td><td>3 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Informar</td><td>Visto bueno legal de la narrativa de impactos · sin promesas inviables · cumplimiento DNP-MGA</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>4 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td>Aprobar</td><td>Sign-off del Gerente sobre §6 impactos preliminares (en consolidación E1)</td><td><span class="act act-ger">GER</span></td><td>4 may</td><td class="center"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ═══════════════ §9 SIGUIENTES SPRINTS · ESTRUCTURA HEREDADA ═══════════════ -->
+<div class="cl-num">§9 — Estructura heredada para Sprints 2-3 (referencia futura)</div>
+<table class="tbl">
+  <thead><tr><th style="width:6rem">Entregable</th><th>Tema</th><th style="width:8rem">Experto consultado</th><th style="width:7rem">Sprint</th></tr></thead>
+  <tbody>
+    <tr><td><strong>E1</strong></td><td>Caracterización del territorio · concepto · solución</td><td><span class="act act-d">D</span> Téc. Campo</td><td>Sprint 1 (este)</td></tr>
+    <tr><td><strong>E2</strong></td><td>Diseño técnico · formatos-spec FTTH (BOM · topología · cronograma)</td><td><span class="act act-b">B</span> Arq. Redes</td><td>Sprint 2 · 5-9 may</td></tr>
+    <tr><td><strong>E3</strong></td><td>Modelo financiero · formato-presupuesto (Cadena Valor §7 · CAPEX · OPEX · fuentes)</td><td><span class="act act-c">C</span> Esp. Presup.</td><td>Sprint 2 · 5-9 may</td></tr>
+    <tr><td><strong>E4</strong></td><td>Construcción MGA Web · §1-§8 · indicadores · BPIN</td><td>Asesor SUIFP-DNP</td><td>Sprint 3 · 10-16 may</td></tr>
+  </tbody>
+</table>
+<div class="nota"><strong>Cadencia heredada:</strong> en cada Sprint, cada sección MGA mantiene la misma estructura de 4 tareas (Construir · Consultar al experto · Informar al jurídico · Aprobar el gerente) con su portal HTML de avance. Los planes detallados de Sprint 2 y Sprint 3 se generarán al cierre del Sprint anterior, una vez verificadas las premisas y entregables.</div>
+
+<div class="consultor-footer">
+  <div class="cf-left"><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias</span></div>
+  <div class="cf-center">CCMS-CB-2026-001-B-PLAN-S1 · plan sprint 1 v2</div>
+  <div class="cf-right"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><br><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+
+</body>
+</html>

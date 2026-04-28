@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Acta ODI — Criterios de Aceptación E1–E4 · Territorios Digitales Transformativos · [Territorio]</title>
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--mono:'Courier New',monospace;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:10.5pt;line-height:1.65;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.doc-header{text-align:center;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;}
+.doc-title{font-size:14pt;font-weight:700;color:var(--navy);margin:.3rem 0;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.intro{font-size:9.5pt;color:var(--muted);background:var(--bg);border-left:3px solid var(--blue);padding:.5rem .8rem;margin-bottom:1.2rem;border-radius:0 5px 5px 0;}
+
+/* Sprint blocks */
+.sprint-block{margin-bottom:1.4rem;border-radius:8px;border:1.5px solid var(--border);overflow:hidden;}
+.sprint-header{padding:.5rem .85rem;display:flex;justify-content:space-between;align-items:center;}
+.sprint-header.e1{background:rgba(3,105,161,.08);border-bottom:1.5px solid rgba(3,105,161,.2);}
+.sprint-header.e2{background:rgba(4,120,87,.08);border-bottom:1.5px solid rgba(4,120,87,.2);}
+.sprint-header.e3{background:rgba(109,40,217,.08);border-bottom:1.5px solid rgba(109,40,217,.2);}
+.sprint-header.e4{background:rgba(180,83,9,.08);border-bottom:1.5px solid rgba(180,83,9,.2);}
+.sprint-tag{font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-family:Arial,sans-serif;}
+.e1 .sprint-tag{color:var(--blue);}
+.e2 .sprint-tag{color:var(--emr);}
+.e3 .sprint-tag{color:var(--pur);}
+.e4 .sprint-tag{color:var(--gld);}
+.sprint-title{font-size:10.5pt;font-weight:700;color:var(--navy);}
+.sprint-meta{font-size:8pt;color:var(--muted);font-family:var(--mono);}
+.sprint-body{padding:.6rem .85rem;}
+
+.crit-table{width:100%;border-collapse:collapse;font-size:9pt;margin:.3rem 0;}
+.crit-table th{background:var(--navy);color:#fff;padding:.25rem .5rem;text-align:left;font-family:Arial,sans-serif;font-size:7.5pt;}
+.crit-table td{padding:.22rem .5rem;border-bottom:1px solid var(--border);vertical-align:top;}
+.crit-table tr:nth-child(even) td{background:var(--bg);}
+.crit-check{text-align:center;font-size:11pt;}
+.rechazo{font-size:9pt;color:#dc2626;background:rgba(220,38,38,.05);border:1px solid rgba(220,38,38,.15);border-radius:4px;padding:.3rem .6rem;margin:.35rem 0;}
+.rechazo-lbl{font-weight:700;font-family:Arial,sans-serif;font-size:8pt;text-transform:uppercase;}
+
+.signoff-row{margin-top:.6rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;}
+.signoff-item{border:1px solid var(--border);border-radius:5px;padding:.35rem .5rem;font-size:8.5pt;}
+.signoff-lbl{font-size:7.5pt;font-family:Arial,sans-serif;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:.15rem;}
+.signoff-blank{border-bottom:1px solid var(--navy);height:1.2rem;margin-top:.2rem;}
+
+.firmas{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.firma-block{text-align:center;}
+.firma-line{border-top:1.5px solid var(--navy);margin-bottom:.35rem;margin-top:2.2rem;}
+.firma-nombre{font-weight:700;font-size:10.5pt;color:var(--navy);}
+.firma-rol{font-size:9pt;color:var(--muted);}
+.doc-footer{margin-top:1.5rem;padding-top:.65rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}html,body{margin:0;padding:0;max-width:100%;}.print-btn{display:none!important;}.sprint-block{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-header">
+  <div class="doc-type">Acta ODI — Outcome-Driven Innovation · Criterios de Aceptación por Entregable</div>
+  <div class="doc-title">Acta ODI · E1–E4 · Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-ACTA-ODI &nbsp;·&nbsp; Fecha: _______________ de 2026</div>
+</div>
+
+<div class="intro">
+  Esta Acta ODI define, antes del inicio de cada sprint, los criterios concretos que determinan si un entregable se considera <strong>aprobado (sign-off)</strong> o <strong>rechazado con observaciones</strong>. Fue acordada entre el Formulador y el Contratante en el Kick-off (E0) y es de obligatorio cumplimiento para la activación de cada hito de pago.
+</div>
+
+<!-- E1 -->
+<div class="sprint-block">
+  <div class="sprint-header e1">
+    <div>
+      <div class="sprint-tag">E1 · Sprint 1</div>
+      <div class="sprint-title">Diagnóstico territorial + Definición de solución + Análisis de sector + Impacto</div>
+    </div>
+    <div class="sprint-meta">1 semana · 30% · $8.100.000 COP</div>
+  </div>
+  <div class="sprint-body">
+    <table class="crit-table">
+      <thead><tr><th>#</th><th>Criterio de aceptación (DoD)</th><th>Fuente verificable</th><th>Aprobado</th></tr></thead>
+      <tbody>
+        <tr><td>E1-C1</td><td>Diagnóstico territorial IBD Arauca 2024: IBD 0.494 (rank 25/33) verificado con fuente MinTIC + datos de campo</td><td>Informe diagnóstico en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E1-C2</td><td>Árbol de problemas causa-efecto construido y validado con al menos 3 causas directas y 3 efectos</td><td>Árbol en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E1-C3</td><td>Árbol de objetivos medios-fines coherente con el árbol de problemas</td><td>Árbol en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E1-C4</td><td>Definición de la solución: qué intervención, a quién va dirigida, en qué municipios, con qué tecnología de referencia</td><td>Sección solución en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E1-C5</td><td>Análisis del sector MinTIC: marco normativo vigente (Ley 1341, CONPES 3975, etc.) + actores + proyectos comparables</td><td>Sección sector en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E1-C6</td><td>Análisis de impacto con al menos 2 ODS relacionados (9/10/17) y estimados cualitativos de VPN/TIR</td><td>Sección impacto en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E1-C7</td><td>Datos de campo del Frente D integrados: al menos _____ municipios de Arauca cubiertos</td><td>Formulario campo en Drive</td><td class="crit-check">☐</td></tr>
+      </tbody>
+    </table>
+    <div class="rechazo">
+      <div class="rechazo-lbl">Condición de rechazo</div>
+      Si alguno de los criterios E1-C1 a E1-C4 no está cumplido, el Contratante emite observaciones concretas. El Formulador tiene 2 días hábiles para subsanar. Máximo 1 ciclo de revisión antes del sign-off.
+    </div>
+    <div class="signoff-row">
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de entrega</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de review</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de sign-off</div><div class="signoff-blank"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- E2 -->
+<div class="sprint-block">
+  <div class="sprint-header e2">
+    <div>
+      <div class="sprint-tag">E2 · Sprint 2</div>
+      <div class="sprint-title">Detalle técnico + Cadena de valor + Productos + Cronograma + Riesgos</div>
+    </div>
+    <div class="sprint-meta">3 semanas · 10% · $2.700.000 COP</div>
+  </div>
+  <div class="sprint-body">
+    <table class="crit-table">
+      <thead><tr><th>#</th><th>Criterio de aceptación (DoD)</th><th>Fuente verificable</th><th>Aprobado</th></tr></thead>
+      <tbody>
+        <tr><td>E2-C1</td><td>Especificación técnica de la solución: alternativa seleccionada justificada (tecnología + cobertura + razones de selección vs. A1/A2/A3)</td><td>Sección técnica en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E2-C2</td><td>Especificación técnica de Frente B integrada: al menos 3 alternativas evaluadas con CAPEX indicativo cada una</td><td>Ficha A1/A2/A3 en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E2-C3</td><td>Cadena de valor RBM-GAC completa: Insumos → Actividades → Productos → Resultados → Impactos, con al menos 3 productos identificados</td><td>Cadena valor en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E2-C4</td><td>Ficha de productos MGA §5: al menos 3 productos con descripción, unidad de medida, cantidad y meta cuantificada</td><td>Ficha productos en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E2-C5</td><td>Cronograma de ejecución: fases + actividades + vigencias (al menos 2 años), coherente con el presupuesto de E3</td><td>Cronograma en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E2-C6</td><td>Matriz de riesgos: al menos 5 riesgos con probabilidad, impacto y medida de mitigación</td><td>Matriz en Drive</td><td class="crit-check">☐</td></tr>
+      </tbody>
+    </table>
+    <div class="rechazo">
+      <div class="rechazo-lbl">Condición de rechazo</div>
+      Si E2-C1 o E2-C3 no están cumplidos, el Contratante emite observaciones. El Formulador tiene 3 días hábiles para subsanar. Máximo 1 ciclo de revisión.
+    </div>
+    <div class="signoff-row">
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de entrega</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de review</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de sign-off</div><div class="signoff-blank"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- E3 -->
+<div class="sprint-block">
+  <div class="sprint-header e3">
+    <div>
+      <div class="sprint-tag">E3 · Sprint 3 · paralelo a E2</div>
+      <div class="sprint-title">Detalle presupuestal</div>
+    </div>
+    <div class="sprint-meta">3 semanas · 10% · $2.700.000 COP</div>
+  </div>
+  <div class="sprint-body">
+    <table class="crit-table">
+      <thead><tr><th>#</th><th>Criterio de aceptación (DoD)</th><th>Fuente verificable</th><th>Aprobado</th></tr></thead>
+      <tbody>
+        <tr><td>E3-C1</td><td>Tabla de precios CAPEX por producto MGA: mínimo 10 ítems con precio unitario verificado en SECOP II o publicación MinTIC</td><td>Tabla CAPEX en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E3-C2</td><td>Tabla de precios OPEX: mínimo 5 ítems anuales con fuente y vigencia</td><td>Tabla OPEX en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E3-C3</td><td>Estructura de fuentes de financiamiento: al menos 2 fuentes identificadas (SGR / PGN / APP / Cofinanciación) con justificación de elegibilidad</td><td>Sección fuentes en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E3-C4</td><td>Proyección plurianual: CAPEX año 1 + OPEX años 2–N, coherente con la alternativa técnica seleccionada en E2</td><td>Tabla plurianual en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E3-C5</td><td>Presupuesto total coherente con el rango de valor del proyecto (25–50 mil M COP) o justificación de variación</td><td>Resumen presupuestal en Drive</td><td class="crit-check">☐</td></tr>
+      </tbody>
+    </table>
+    <div class="rechazo">
+      <div class="rechazo-lbl">Condición de rechazo</div>
+      Si E3-C1, E3-C3 o E3-C5 no están cumplidos, el Contratante emite observaciones. El Formulador tiene 3 días hábiles para subsanar.
+    </div>
+    <div class="signoff-row">
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de entrega</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de review</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha de sign-off</div><div class="signoff-blank"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- E4 -->
+<div class="sprint-block">
+  <div class="sprint-header e4">
+    <div>
+      <div class="sprint-tag">E4 · Sprint 4 · cierre del proyecto</div>
+      <div class="sprint-title">Consolidación-Entrega final · MGA Web §1–§8 · BPIN</div>
+    </div>
+    <div class="sprint-meta">3 semanas · 10% · $2.700.000 COP</div>
+  </div>
+  <div class="sprint-body">
+    <table class="crit-table">
+      <thead><tr><th>#</th><th>Criterio de aceptación (DoD)</th><th>Fuente verificable</th><th>Aprobado</th></tr></thead>
+      <tbody>
+        <tr><td>E4-C1</td><td>Evaluación económica VPN calculado con tasa de descuento social del DNP (12% referencia) y resultado positivo o justificado</td><td>Tabla VPN en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E4-C2</td><td>Evaluación TIR calculada con análisis de sensibilidad ±10% en costos</td><td>Tabla TIR en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E4-C3</td><td>Relación B-C calculada (mínimo B-C ≥ 1.0 o justificación técnica)</td><td>Tabla B-C en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E4-C4</td><td>Registro MGA Web §1–§8 completo en plataforma DNP: sin campos obligatorios vacíos, aprobado por el Contratante en Review Final</td><td>Pantallazos MGA en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E4-C5</td><td>Código BPIN emitido por el DNP-SUIFP y documentado en Drive</td><td>Notificación DNP en Drive</td><td class="crit-check">☐</td></tr>
+        <tr><td>E4-C6</td><td>Acta de entrega final firmada por ambas partes</td><td>Acta en Drive</td><td class="crit-check">☐</td></tr>
+      </tbody>
+    </table>
+    <div class="rechazo">
+      <div class="rechazo-lbl">Condición de rechazo</div>
+      E4-C5 (BPIN) es el criterio definitivo — no puede ser rechazado una vez emitido por el DNP. Si el DNP solicita correcciones al registro MGA, el Formulador las atiende dentro de 2 días hábiles sin costo adicional.
+    </div>
+    <div class="signoff-row">
+      <div class="signoff-item"><div class="signoff-lbl">Fecha Review Final</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha BPIN emitido</div><div class="signoff-blank"></div></div>
+      <div class="signoff-item"><div class="signoff-lbl">Fecha acta entrega</div><div class="signoff-blank"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FIRMAS -->
+<div class="firmas">
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="firma-rol">El Contratante — Aprobador ODI</div>
+    <div class="firma-det">C.C. / NIT: [________]</div>
+  </div>
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="firma-rol">El Contratista — Formulador</div>
+    <div class="firma-det">C.C.: [________] · ccolombia@soygenial.co</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div>Acta ODI · Territorios Digitales Transformativos · [Territorio] · Arauca — Criterios de aceptación E1–E4</div>
+  <div>Ref. CCMS-CB-2026-001-ACTA-ODI &nbsp;·&nbsp; Aprobada en Kick-off E0</div>
+</div>
+
+</body>
+</html>

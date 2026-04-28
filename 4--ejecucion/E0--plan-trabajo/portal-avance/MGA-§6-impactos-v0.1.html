@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §6 Impactos Preliminares · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st::before{content:"●";font-size:7pt;}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-c{background:rgba(180,83,9,.12);color:var(--gld);border-color:rgba(180,83,9,.28);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.alerta{background:rgba(190,18,60,.05);border-left:2px solid rgba(190,18,60,.4);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.alerta strong{color:var(--rose);}
+.ods-badge{display:inline-flex;align-items:center;gap:.3rem;padding:.1rem .45rem;border-radius:3px;font-size:7pt;font-weight:700;font-family:var(--sans);border:1px solid;margin:.05rem .1rem .05rem 0;}
+.ods-9{background:rgba(255,90,0,.12);color:#b45309;border-color:rgba(255,90,0,.3);}
+.ods-10{background:rgba(221,4,38,.10);color:#be123c;border-color:rgba(221,4,38,.25);}
+.ods-17{background:rgba(25,72,106,.12);color:#0f172a;border-color:rgba(25,72,106,.28);}
+.section-banner{background:linear-gradient(135deg,rgba(4,120,87,.09) 0%,rgba(4,120,87,.05) 100%);border:1px solid rgba(4,120,87,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--emr);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.3rem;margin:.18rem 0;}
+.metric-card{background:rgba(248,250,252,.8);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.3rem .45rem;text-align:center;}
+.metric-val{font-size:13pt;font-weight:700;font-family:var(--mono);color:var(--navy);}
+.metric-label{font-size:6.5pt;color:var(--muted);font-family:var(--sans);margin-top:.05rem;}
+.metric-src{font-size:5.8pt;font-family:var(--mono);color:var(--emr);}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§6 Impactos Preliminares · ODS · VPN/TIR/B-C Cualitativos</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§6-impactos-v0.1 · 3–4 may 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 4 may 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §6 · Impactos · ODS · VPN/TIR/B-C cualitativos · benchmarks</div>
+    <div class="banner-title">Análisis económico preliminar · ODS 9 · 10 · 17 · rentabilidad social</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D · C</strong></div>
+    <div class="banner-date">Día de entrega: <strong>3–4 may 2026</strong></div>
+  </div>
+</div>
+
+<!-- ODS -->
+<div class="cl-num">§6.A — Objetivos de Desarrollo Sostenible (ODS) · alineación verificada</div>
+<div class="cl-body"><p>La MGA Web DNP §6 requiere identificar los ODS con los que se alinea el proyecto. Se identifican los ODS primarios (directos) y secundarios (indirectos). El proyecto tiene vinculación directa verificable con al menos 3 ODS.</p></div>
+
+<div style="display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0;">
+  <span class="ods-badge ods-9">ODS 9 — Industria, Innovación e Infraestructura</span>
+  <span class="ods-badge ods-10">ODS 10 — Reducción de las Desigualdades</span>
+  <span class="ods-badge ods-17">ODS 17 — Alianzas para lograr los objetivos</span>
+</div>
+
+<table class="tbl">
+  <thead><tr><th style="width:4rem">ODS</th><th>Meta específica</th><th>Vinculación con el proyecto</th><th>Indicador del proyecto</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="4">ODS PRIMARIOS (impacto directo)</td></tr>
+    <tr>
+      <td><strong>ODS 9</strong><br><small>Meta 9.c</small></td>
+      <td>Aumentar significativamente el acceso a las tecnologías de la información y las comunicaciones, en particular en países menos adelantados</td>
+      <td>El proyecto amplía la cobertura de internet de banda ancha en municipio PDET con penetración actual del 5,8%</td>
+      <td>4.000 hogares nuevos con acceso · penetración ↑ de 5,8% a ~28%</td>
+    </tr>
+    <tr>
+      <td><strong>ODS 10</strong><br><small>Meta 10.3</small></td>
+      <td>Garantizar la igualdad de oportunidades y reducir la desigualdad de resultados</td>
+      <td>Arauquita municipio PDET con brecha MCB-DNP 67,8% — proyecto actúa directamente sobre la desigualdad digital</td>
+      <td>Brecha MCB-DNP reducida ≥ 10 pp al año 3 post-proyecto</td>
+    </tr>
+    <tr class="subt"><td colspan="4">ODS SECUNDARIOS (impacto indirecto)</td></tr>
+    <tr>
+      <td><strong>ODS 4</strong><br><small>Meta 4.4</small></td>
+      <td>Aumentar el número de jóvenes y adultos con habilidades para el empleo, el trabajo decente y el emprendimiento</td>
+      <td>Programa de apropiación digital (Producto 2301030 · 500 personas)</td>
+      <td>500 personas certificadas en habilidades digitales</td>
+    </tr>
+    <tr>
+      <td><strong>ODS 17</strong><br><small>Meta 17.8</small></td>
+      <td>Poner en marcha la alianza mejorada en favor de los países en desarrollo, así como el banco de tecnología</td>
+      <td>Alianza público-privada MinTIC-Fibergroup-Alcaldía · cofinanciación 95/5%</td>
+      <td>Mecanismo de APP documentado · replicable a otros municipios PDET</td>
+    </tr>
+    <tr>
+      <td><strong>ODS 3</strong><br><small>Meta 3.8</small></td>
+      <td>Lograr la cobertura sanitaria universal, incluida la protección del riesgo financiero</td>
+      <td>Conectividad habilita telemedicina en IPS rurales cubiertas</td>
+      <td>IPS conectadas · [D define número · Sprint 1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- BENCHMARKS VPN/TIR/B-C -->
+<div class="cl-num">§6.B — Análisis económico preliminar · VPN/TIR/B-C cualitativos basados en benchmarks</div>
+<div class="cl-body"><p>Para Sprint 1 el análisis económico es cualitativo/orientativo basado en benchmarks verificados. El análisis cuantitativo completo (VPN · TIR · Costo-Beneficio) se realiza en Sprint 2 con el Frente C (Esp. Presupuesto) con datos exactos de CAPEX/OPEX de E2.</p></div>
+
+<div class="alerta"><strong>Advertencia DNP:</strong> Los valores que siguen son estimados preliminares para orientar la formulación. NO deben ingresarse como cifras definitivas en MGA Web hasta que el Frente C valide en Sprint 2. Las cifras definitivas van en §6 de la versión E4 (BPIN-SUIFP).</div>
+
+<div class="metric-grid">
+  <div class="metric-card">
+    <div class="metric-val" style="color:var(--emr);">POSITIVO</div>
+    <div class="metric-label">VPN (Valor Presente Neto)</div>
+    <div class="metric-src">Cualitativo · benchmarks MCB Atlántico</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-val" style="color:var(--blue-d);">≥ 15%</div>
+    <div class="metric-label">TIR social estimada</div>
+    <div class="metric-src">Rango típico proyectos FTTH PDET</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-val" style="color:var(--gld);">≥ 1.3:1</div>
+    <div class="metric-label">Relación Beneficio/Costo</div>
+    <div class="metric-src">B-C social cualitativo</div>
+  </div>
+</div>
+
+<table class="tbl">
+  <thead><tr><th>Benchmark comparador</th><th>CAPEX/hogar</th><th>VPN social</th><th>Condición</th><th>Fuente</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Mi Casa Bacana Digital · Atlántico</strong></td>
+      <td>$865.627 COP</td>
+      <td>Positivo (aprobado DNP)</td>
+      <td>MinTIC 78,9% · Gob 21,1%</td>
+      <td>Conv. 790/2023 GOLD</td>
+    </tr>
+    <tr>
+      <td><strong>FTTH Norte de Santander PDET</strong></td>
+      <td>$1.875.764 COP</td>
+      <td>Positivo (aprobado DNP)</td>
+      <td>MinTIC 87% · Gob 13% · PDET</td>
+      <td>Conv. PDET 2023 SILVER</td>
+    </tr>
+    <tr>
+      <td><strong>Este proyecto · Arauquita (estimado)</strong></td>
+      <td>~$875.000 COP ±30%</td>
+      <td>Positivo (proyectado)</td>
+      <td>MinTIC ~95% · PDET+ZOMAC+ZDP</td>
+      <td>B-03/B-05 BRONZE</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- IMPACTOS SECTORIALES -->
+<div class="cl-num">§6.C — Impactos sectoriales identificados</div>
+
+<table class="tbl">
+  <thead><tr><th style="width:3rem">#</th><th>Impacto</th><th>Tipo</th><th>Cuantificación preliminar</th><th>Verificación</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="5">IMPACTOS DIRECTOS (población objetivo)</td></tr>
+    <tr>
+      <td>I1</td>
+      <td>Acceso a internet de calidad para ~14.000 personas</td>
+      <td>Social</td>
+      <td>4.000 hogares × 3,5 p/h = ~14.000 beneficiarios directos</td>
+      <td>DANE promedio p/h Arauca · G-01</td>
+    </tr>
+    <tr>
+      <td>I2</td>
+      <td>Reducción brecha digital MCB-DNP de 67,8% a ≤55%</td>
+      <td>Social</td>
+      <td>Reducción ≥ 12,8 pp en Arauquita al año 3</td>
+      <td>Indicador PATR · G-02</td>
+    </tr>
+    <tr>
+      <td>I3</td>
+      <td>Habilitación de telemedicina en IPS conectadas</td>
+      <td>Salud</td>
+      <td>[D define número IPS · Sprint 1]</td>
+      <td>Frente D · lista IPS</td>
+    </tr>
+    <tr>
+      <td>I4</td>
+      <td>Acceso a educación virtual en sedes conectadas</td>
+      <td>Educación</td>
+      <td>[D define número sedes · Sprint 1]</td>
+      <td>Frente D · lista sedes edu.</td>
+    </tr>
+    <tr class="subt"><td colspan="5">IMPACTOS ECONÓMICOS</td></tr>
+    <tr>
+      <td>I5</td>
+      <td>Eficiencia en trámites ciudadanos · acceso a servicios del Estado</td>
+      <td>Económico</td>
+      <td>Ahorro tiempo ≥ 2h/trámite × 14.000 beneficiarios</td>
+      <td>Referencia DNP racionalización trámites</td>
+    </tr>
+    <tr>
+      <td>I6</td>
+      <td>Incremento productividad Mipymes locales con acceso digital</td>
+      <td>Económico</td>
+      <td>[C cuantifica en Sprint 2 · VPN/TIR]</td>
+      <td>Frente C · Sprint 2</td>
+    </tr>
+    <tr>
+      <td>I7</td>
+      <td>Valorización de inmuebles en zonas cubiertas</td>
+      <td>Económico</td>
+      <td>Referencia: +8-15% valor predial (CEPAL 2022)</td>
+      <td>C valida · Sprint 2</td>
+    </tr>
+    <tr class="subt"><td colspan="5">IMPACTOS AMBIENTALES Y TERRITORIALES</td></tr>
+    <tr>
+      <td>I8</td>
+      <td>Potencial reducción de desplazamiento físico por teletrabajo/trámites</td>
+      <td>Ambiental</td>
+      <td>Menor huella de carbono por movilidad (cualitativo)</td>
+      <td>Cualitativo · D valida</td>
+    </tr>
+    <tr>
+      <td>I9</td>
+      <td>Fortalecimiento de la cohesión social PDET</td>
+      <td>Territorial</td>
+      <td>Municipio PDET con mayor participación ciudadana digital</td>
+      <td>ART PATR 2023 · G-02</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- RIESGOS RELEVANTES PARA §6 -->
+<div class="cl-num">§6.D — Riesgos que afectan los impactos (mención para MGA §6)</div>
+<table class="tbl">
+  <thead><tr><th>Riesgo</th><th>Probabilidad</th><th>Impacto</th><th>Mitigación</th></tr></thead>
+  <tbody>
+    <tr><td>Baja adopción por parte de hogares (ej. no pago de tarifa E1)</td><td>Media</td><td>Alto</td><td>Programa apropiación digital + tarifa subsidiada E1 $11.917</td></tr>
+    <tr><td>Interrupción del backbone de fibra nacional hacia Arauquita</td><td>Baja</td><td>Alto</td><td>Acuerdo SLA con proveedor backbone · redundancia parcial</td></tr>
+    <tr><td>Cambio de política MinTIC / no aprobación BPIN</td><td>Baja</td><td>Muy alto</td><td>Formulación MGA robusta · alineación CONPES 4167</td></tr>
+    <tr><td>Demoras en permisos de obra (ROW)</td><td>Media</td><td>Medio</td><td>Carta de aval Alcaldía · JUR gestiona permisos Sprint 3</td></tr>
+  </tbody>
+</table>
+
+<!-- TAREAS -->
+<div class="cl-num">§6.E — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Identificar ≥2 ODS principales · construir tabla de impactos · estimar VPN/TIR/B-C cualitativos con benchmarks Mi Casa Bacana y N. Santander PDET.</td><td><span class="act act-cti">CTI</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>D valida magnitud social real en territorio · C valida rangos económicos (VPN/TIR cualitativos coherentes con contexto).</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-c">C</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Visto bueno legal de la narrativa de impactos: sin promesas inviables · sin afirmaciones que no tienen respaldo · cumplimiento DNP-MGA.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>4 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>Sign-off del Gerente sobre §6 impactos preliminares. Esta sección se completará en Sprint 3 con datos definitivos de E2/E3.</td><td><span class="act act-ger">GER</span></td><td>4 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Nota Sprint 3:</strong> El §6 completo con análisis VPN/TIR/B-C cuantitativo se construye en Sprint 3 (E4 · 10-16 may) cuando el Frente C entregue E3 modelo financiero completo (CAPEX por rubro · OPEX mensual · proyección 10 años). Este portal v0.1 documenta solo la versión preliminar para cierre de Sprint 1.</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§6-impactos-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

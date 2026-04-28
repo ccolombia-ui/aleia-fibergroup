@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §2 Problema · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{primaryColor:'#fef3c7',primaryTextColor:'#0f172a',primaryBorderColor:'#b45309',lineColor:'#475569',fontFamily:'Inter, Segoe UI, Arial, sans-serif',fontSize:'11px'},flowchart:{fontSize:11,htmlLabels:true,curve:'basis'}});
+</script>
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.tree-box{background:rgba(254,243,199,.3);border:1px solid rgba(180,83,9,.25);border-radius:5px;padding:.45rem .6rem;margin:.2rem 0;break-inside:avoid;}
+.tree-title{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gld);font-family:var(--sans);margin-bottom:.25rem;}
+.mermaid{display:flex;justify-content:center;font-family:var(--sans);}
+.section-banner{background:linear-gradient(135deg,rgba(180,83,9,.08) 0%,rgba(180,83,9,.04) 100%);border:1px solid rgba(180,83,9,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--gld);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.field-box{background:rgba(248,250,252,.8);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.35rem .55rem;margin:.15rem 0;}
+.field-label{font-size:6.4pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.field-value{font-size:9pt;font-family:var(--mono);color:var(--navy);font-weight:600;}
+.field-inst{font-size:7.5pt;color:var(--muted);font-family:var(--sans);margin-top:.06rem;font-style:italic;}
+.field-src{display:inline-block;font-size:6.2pt;font-family:var(--mono);color:var(--emr);background:rgba(4,120,87,.07);padding:.02rem .22rem;border-radius:2px;border:1px solid rgba(4,120,87,.18);margin-left:.3rem;}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§2 Identificación y Descripción del Problema</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§2-problema-v0.1 · 30 abr 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 30 abr 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §2 · Árbol de problemas + árbol de objetivos</div>
+    <div class="banner-title">Problema central · causas · efectos · árbol de objetivos</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D</strong></div>
+    <div class="banner-date">DEC-1 sign-off: <strong>3 may 2026</strong></div>
+  </div>
+</div>
+
+<!-- PROBLEMA CENTRAL -->
+<div class="cl-num">§2.A — Problema central (formulación sugerida)</div>
+<div class="cl-body"><p>El problema central del proyecto debe formularse como un enunciado de la situación negativa actual, cuantificable, verificable y directamente relacionada con la brecha TIC en Arauquita. La formulación que sigue está basada en fuentes GOLD/SILVER y debe ser validada con el Frente D el 30 abr antes de ingresar al sistema MGA Web DNP.</p></div>
+
+<div class="field-box">
+  <div class="field-label">Problema central (propuesta CTI — validar con D) <span class="field-src">G-01 G-02 G-03</span></div>
+  <div class="field-value">Bajo acceso y uso efectivo de internet de banda ancha en la población del municipio de Arauquita, departamento de Arauca</div>
+  <div class="field-inst">Evidencia cuantitativa base: 5,8% hogares con internet (DANE CNPV2018 · G-01) · 7% penetración subregión PDET (ART 2022 · G-02) · IBD Orinoquia-Amazonia 0.499 vs nacional 0.384 (MinTIC IBD 2024 · G-03 — leer con cuidado: menor IBD = mayor brecha). Ajustar con datos PDM Arauquita cuando D lo entregue.</div>
+</div>
+
+<!-- ÁRBOL DE PROBLEMAS ESTRUCTURADO -->
+<div class="cl-num">§2.B — Árbol de problemas (estructura para P1-02)</div>
+<div class="cl-body"><p>Estructura 1 problema central + 3 causas directas + 6 sub-causas + 3 efectos directos + 6 sub-efectos. Los valores evidencia deben provenir de fuentes con trazabilidad (GOLD/SILVER). Los [brackets] indican datos a confirmar con Frente D.</p></div>
+
+<table class="tbl">
+  <thead><tr><th style="width:7rem">Nivel</th><th>Enunciado</th><th style="width:6rem">Evidencia clave</th><th style="width:5rem">Fuente</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="4">EFECTOS</td></tr>
+    <tr><td>Efecto 3</td><td>Exclusión digital de comunidades rurales y vulnerables · perpetuación de brechas socioeconómicas</td><td>MCB-DNP brecha 67,8% Arauquita</td><td><strong>G-02</strong></td></tr>
+    <tr><td>Efecto 2</td><td>Limitado acceso a servicios del Estado, educación virtual, telemedicina y empleo digital</td><td>[Confirmar con D estadísticas locales]</td><td><strong>PENDIENTE D</strong></td></tr>
+    <tr><td>Efecto 1</td><td>Baja productividad del sector empresarial local · reducida competitividad del municipio PDET</td><td>[Confirmar con D y GOB departamental]</td><td><strong>PENDIENTE D</strong></td></tr>
+    <tr class="subt"><td colspan="4">PROBLEMA CENTRAL</td></tr>
+    <tr><td><strong>Central</strong></td><td><strong>Bajo acceso y uso efectivo de internet de banda ancha en Arauquita</strong></td><td>5,8% hogares · 93% sin servicio</td><td><strong>G-01 B-02</strong></td></tr>
+    <tr class="subt"><td colspan="4">CAUSAS</td></tr>
+    <tr><td>Causa 1</td><td>Ausencia de infraestructura de red de telecomunicaciones de última milla en zonas rurales y urbanas periféricas</td><td>MinTIC G-04: Arauquita excluida Conv005/2025</td><td><strong>G-04</strong></td></tr>
+    <tr><td>Sub-causa 1.1</td><td>Operadores privados no encuentran rentable invertir por baja densidad poblacional y dispersión territorial</td><td>[Confirmar con SIUST · pendiente]</td><td><strong>PENDIENTE</strong></td></tr>
+    <tr><td>Sub-causa 1.2</td><td>Red troncal de fibra óptica nacional no llega al municipio o tiene capacidad insuficiente</td><td>G-08 MinTIC Despliegue Infra D81065</td><td><strong>G-08</strong></td></tr>
+    <tr><td>Causa 2</td><td>Costos de acceso y dispositivos insostenibles para el ingreso de la población objetivo</td><td>IBD Acceso Material 0.588 · G-03</td><td><strong>G-03</strong></td></tr>
+    <tr><td>Sub-causa 2.1</td><td>Tarifas de internet por encima de la capacidad de pago de hogares en condición SISBEN I-II</td><td>[Confirmar con D · datos PDM]</td><td><strong>PENDIENTE D</strong></td></tr>
+    <tr><td>Sub-causa 2.2</td><td>Alta proporción de hogares sin dispositivos de acceso (computador · tableta · smarthome)</td><td>DANE CNPV2018 acceso dispositivos · G-01</td><td><strong>G-01</strong></td></tr>
+    <tr><td>Causa 3</td><td>Déficit de apropiación y habilidades digitales en la población</td><td>IBD Habilidades 0.682 (bajo) · G-03</td><td><strong>G-03</strong></td></tr>
+    <tr><td>Sub-causa 3.1</td><td>Escasa oferta de programas de alfabetización digital en el municipio</td><td>[Confirmar con D y Alcaldía]</td><td><strong>PENDIENTE D</strong></td></tr>
+    <tr><td>Sub-causa 3.2</td><td>Deserción escolar y bajo nivel educativo reducen adopción de tecnología</td><td>[PDM Arauquita · pendiente]</td><td><strong>PENDIENTE D</strong></td></tr>
+  </tbody>
+</table>
+
+<!-- ÁRBOL DE OBJETIVOS -->
+<div class="cl-num">§2.C — Árbol de objetivos (espejo del árbol de problemas)</div>
+<div class="cl-body"><p>Transformar cada enunciado negativo del árbol de problemas en su enunciado positivo logrado. El objetivo central es el mismo del §1. Los medios = causas invertidas · los fines = efectos invertidos.</p></div>
+
+<table class="tbl">
+  <thead><tr><th style="width:7rem">Nivel</th><th>Enunciado positivo</th><th style="width:9rem">Indicador meta</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="3">FINES</td></tr>
+    <tr><td>Fin 3</td><td>Inclusión digital de comunidades rurales · reducción brecha MCB-DNP</td><td>Brecha MCB-DNP reducida ≥ 10 pp</td></tr>
+    <tr><td>Fin 2</td><td>Acceso garantizado a servicios del Estado, educación, salud y empleo digital</td><td>≥ 80% hogares conectados acceden a trámites en línea</td></tr>
+    <tr><td>Fin 1</td><td>Mayor productividad sectorial · municipio PDET competitivo digitalmente</td><td>[Meta a definir con D y GOB]</td></tr>
+    <tr class="subt"><td colspan="3">OBJETIVO CENTRAL</td></tr>
+    <tr><td><strong>Central</strong></td><td><strong>Proveer acceso a internet de banda ancha a ~4.000 hogares de Arauquita en 24 meses</strong></td><td><strong>4.000 hogares conectados · velocidad ≥ E1 Res.3689/2023</strong></td></tr>
+    <tr class="subt"><td colspan="3">MEDIOS</td></tr>
+    <tr><td>Medio 1</td><td>Despliegue de infraestructura FTTH GPON: red troncal + última milla</td><td>≥ 4.000 hogares con acceso físico a red</td></tr>
+    <tr><td>Medio 2</td><td>Subsidio a tarifa y/o provisión de CPE para hogares SISBEN I-II</td><td>Tarifas ≤ E1 ($11.917 · Res.3689/2023)</td></tr>
+    <tr><td>Medio 3</td><td>Programa de apropiación digital · capacitación comunidades</td><td>≥ 500 personas certificadas MGA Producto 2301030</td></tr>
+  </tbody>
+</table>
+
+<!-- §2.D MERMAID ÁRBOL VISUAL -->
+<div class="cl-num">§2.D — Árbol de problemas · diagrama visual (orientativo)</div>
+<div class="tree-box">
+<div class="tree-title">Árbol de Problemas · Arauquita · Brecha TIC</div>
+<div class="mermaid">
+flowchart TD
+  P["<b>Bajo acceso y uso efectivo de internet<br>de banda ancha en Arauquita</b><br><i>5,8% hogares · 93% sin servicio</i>"]
+
+  E1["Fin 1: Exclusión digital<br>perpetuación brechas"]
+  E2["Fin 2: Sin acceso a servicios<br>Estado · educación · salud"]
+  E3["Fin 3: Baja productividad<br>empresarial PDET"]
+
+  C1["Causa 1: Ausencia<br>infraestructura última milla"]
+  C2["Causa 2: Costos acceso<br>insostenibles"]
+  C3["Causa 3: Déficit habilidades<br>digitales"]
+
+  SC11["SC1.1: Operadores<br>no invierten"]
+  SC12["SC1.2: Red troncal<br>insuficiente"]
+  SC21["SC2.1: Tarifas altas<br>vs ingreso"]
+  SC22["SC2.2: Sin dispositivos<br>de acceso"]
+  SC31["SC3.1: Escasa alfab.<br>digital"]
+  SC32["SC3.2: Bajo nivel<br>educativo"]
+
+  C1 --> P
+  C2 --> P
+  C3 --> P
+  P --> E1
+  P --> E2
+  P --> E3
+  SC11 --> C1
+  SC12 --> C1
+  SC21 --> C2
+  SC22 --> C2
+  SC31 --> C3
+  SC32 --> C3
+
+  style P fill:#fef3c7,stroke:#b45309,stroke-width:2px,color:#1e293b
+  style E1 fill:#fee2e2,stroke:#be123c,color:#1e293b
+  style E2 fill:#fee2e2,stroke:#be123c,color:#1e293b
+  style E3 fill:#fee2e2,stroke:#be123c,color:#1e293b
+  style C1 fill:#dbeafe,stroke:#0369a1,color:#1e293b
+  style C2 fill:#dbeafe,stroke:#0369a1,color:#1e293b
+  style C3 fill:#dbeafe,stroke:#0369a1,color:#1e293b
+</div>
+</div>
+
+<!-- §2.E TAREAS -->
+<div class="cl-num">§2.E — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Redactar árbol de problemas (P1-02) con todos los enunciados + evidencias cuantitativas. Ingresar a MGA Web DNP §2.</td><td><span class="act act-cti">CTI</span></td><td>30 abr 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>Validar causas y efectos con Frente D: ¿son las causas reales en el territorio? ¿los datos de campo confirman las causas 2 y 3? Ajustar narrativa con realidad territorial.</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>30 abr 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Review legal: redacción técnica sin sesgos · referencia normativa correcta · sin afirmaciones que comprometan entidades sin respaldo. Concepto JUR a GER.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>DEC-1 sign-off: Gerente Ciro Manuel González aprueba árboles de problema/objetivos. Publicar v1.0 en portal de avance.</td><td><span class="act act-ger">GER</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Insumos críticos para §2:</strong> I1-01 DANE CNPV2018 (G-01 · disponible) · I1-02 ART PDET 2023 (G-02 · disponible) · I1-03 MinTIC IBD 2024 (G-03 · disponible) · I1-06 PDM Arauquita (pendiente D) · I1-09 datos campo Frente D (pendiente · insumo para validar causas 2 y 3).</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§2-problema-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

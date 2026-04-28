@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato PSS + Licencia Creciverso + Coejec. — Territorios Digitales Transformativos · [Territorio] · Variant A1</title>
+<style>
+:root{
+  --navy:#0f172a; --blue:#0369a1; --pur:#6d28d9; --emr:#047857;
+  --text:#1e293b; --muted:#64748b; --border:#cbd5e1; --bg:#f8fafc;
+  --mono:'Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:11pt;line-height:1.7;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--emr);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.print-btn:hover{background:var(--pur);}
+.doc-header{text-align:center;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:.3rem;}
+.doc-title{font-size:14.5pt;font-weight:700;color:var(--navy);margin-bottom:.3rem;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.2rem .75rem;border-radius:4px;font-size:8pt;font-weight:700;background:rgba(4,120,87,.1);color:var(--emr);font-family:Arial,sans-serif;border:1px solid rgba(4,120,87,.25);margin-top:.35rem;}
+.partes-box{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem 1.3rem;margin-bottom:1.5rem;}
+.partes-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:.7rem;}
+.parte{margin-bottom:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--border);}
+.parte:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.parte-rol{font-size:8.5pt;font-weight:700;text-transform:uppercase;color:var(--emr);font-family:Arial,sans-serif;}
+.parte-nombre{font-size:11pt;font-weight:700;color:var(--navy);}
+.parte-det{font-size:9.5pt;color:var(--muted);line-height:1.5;}
+.clausula{margin-bottom:1.3rem;}
+.cl-num{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);font-family:Arial,sans-serif;border-bottom:1px solid var(--border);padding-bottom:.18rem;margin-bottom:.5rem;}
+.cl-num.creciverso{color:var(--pur);border-bottom-color:rgba(109,40,217,.3);}
+.cl-num.coejec{color:var(--emr);border-bottom-color:rgba(4,120,87,.3);}
+.cl-body{font-size:10.5pt;line-height:1.75;text-align:justify;}
+.cl-body p{margin-bottom:.55rem;}
+.cl-body ul{padding-left:1.4rem;margin:.35rem 0 .55rem;}
+.cl-body li{margin-bottom:.3rem;}
+.crec-box{background:rgba(109,40,217,.05);border:1.5px solid rgba(109,40,217,.25);border-radius:6px;padding:.85rem 1.1rem;margin:.5rem 0 .7rem;}
+.crec-box-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--pur);font-family:Arial,sans-serif;margin-bottom:.4rem;}
+.coejec-box{background:rgba(4,120,87,.05);border:1.5px solid rgba(4,120,87,.3);border-radius:6px;padding:.85rem 1.1rem;margin:.5rem 0 .7rem;}
+.coejec-box-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--emr);font-family:Arial,sans-serif;margin-bottom:.4rem;}
+.param{background:#fef3c7;border:1px dashed #d97706;border-radius:3px;padding:.05rem .3rem;font-family:var(--mono);font-size:9pt;color:#92400e;font-weight:700;}
+.pay-table{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:9.5pt;}
+.pay-table th{background:var(--navy);color:#fff;padding:.32rem .6rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.pay-table td{padding:.28rem .6rem;border-bottom:1px solid var(--border);}
+.pay-table tr:nth-child(even) td{background:var(--bg);}
+.pay-amt{font-family:var(--mono);font-weight:700;color:var(--navy);}
+.pay-total td{font-weight:700;border-top:2px solid var(--navy);background:#f1f5f9!important;}
+.pay-section{background:rgba(4,120,87,.04)!important;}
+.pay-section td{color:var(--emr);}
+.valor-box{border-radius:6px;padding:.75rem 1.2rem;margin:.5rem 0 .7rem;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:.7rem;}
+.valor-item{color:#fff;border-radius:4px;padding:.55rem .9rem;}
+.valor-label{font-size:7pt;font-family:Arial,sans-serif;opacity:.65;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.15rem;}
+.valor-num{font-size:12pt;font-weight:700;font-family:var(--mono);color:#e2e8f0;}
+.valor-item.mgb{background:var(--blue);}
+.valor-item.crec{background:var(--pur);}
+.valor-item.coejec{background:var(--emr);}
+.valor-item.total{background:var(--navy);border:2px solid #38bdf8;}
+.valor-item.total .valor-num{color:#38bdf8;}
+.firmas{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.firma-block{text-align:center;}
+.firma-line{border-top:1.5px solid var(--navy);margin-bottom:.35rem;margin-top:2.5rem;}
+.firma-nombre{font-weight:700;font-size:10.5pt;color:var(--navy);}
+.firma-rol{font-size:9pt;color:var(--muted);}
+.firma-det{font-size:8.5pt;color:var(--muted);font-family:var(--mono);}
+.doc-footer{margin-top:2rem;padding-top:.75rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+.conf-lbl{font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#dc2626;}
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  .print-btn{display:none!important;}
+  .clausula,.firmas,.valor-box,.coejec-box,.crec-box{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-header">
+  <div class="doc-type">Contrato de Prestación de Servicios de Consultoría + Licencia de PI + Acuerdo de Coejec.</div>
+  <div class="doc-title">Formulación MGA + Licencia Creciverso + Coejecución — Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-A1 &nbsp;·&nbsp; Bogotá D.C., ___ de __________ de 2026</div>
+  <div class="doc-variant">Variante A1 · MGA + Licencia Creciverso reducida ($10M) + Coejecución · Riesgo compartido</div>
+</div>
+
+<div class="partes-box">
+  <div class="partes-title">Partes del contrato</div>
+  <div class="parte">
+    <div class="parte-rol">Contratante — Licenciatario — Co-ejecutor</div>
+    <div class="parte-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="parte-det">
+      NIT / CC: [NIT_O_CC] &nbsp;·&nbsp; Representante legal: [NOMBRE_REP_LEGAL]<br>
+      Dirección: [DIRECCIÓN] &nbsp;·&nbsp; Ciudad: [CIUDAD]<br>
+      Correo: [CORREO] &nbsp;·&nbsp; Tel.: [TELÉFONO]<br>
+      En adelante <strong>EL CONTRATANTE</strong>
+    </div>
+  </div>
+  <div class="parte">
+    <div class="parte-rol">Contratista — Consultor — Licenciante — Co-ejecutor</div>
+    <div class="parte-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="parte-det">
+      C.C.: [CC_CONSULTOR] &nbsp;·&nbsp; NIT/RUT: [NIT_CONSULTOR]<br>
+      Titular exclusivo de la conceptualización <em>Creciverso</em><br>
+      Correo: ccolombia@soygenial.co &nbsp;·&nbsp; Tel.: [TELÉFONO_CONSULTOR]<br>
+      En adelante <strong>EL CONTRATISTA</strong>
+    </div>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Considerandos</div>
+  <div class="cl-body">
+    <p>Que el Contratante requiere los servicios de consultoría para la formulación del proyecto de inversión pública <em>Territorios Digitales Transformativos · [Territorio]</em> en municipios de Arauca mediante la MGA Web (DNP).</p>
+    <p>Que el Contratista es titular de la conceptualización denominada <strong>Creciverso</strong>, marco de diseño para proyectos de inversión pública que incluye arquitectura de plataforma digital y protocolo de apropiación y entrenamiento ciudadano.</p>
+    <p>Que el Contratante, además de usar la conceptualización Creciverso en la formulación del proyecto, desea <strong>participar en la ejecución</strong> de la capa de aplicación digital y de entrenamiento/apropiación durante la ejecución del proyecto financiado, condición que, bajo un esquema de riesgo compartido, reduce el valor de la licencia de su tarifa plena de cuarenta y cinco millones ($45.000.000) a diez millones ($10.000.000).</p>
+    <p>Que las partes convienen en celebrar el presente contrato con sujeción a las siguientes cláusulas:</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 1ª — Objeto del contrato</div>
+  <div class="cl-body">
+    <p>El presente contrato tiene un objeto triple:</p>
+    <ul>
+      <li><strong>Componente A — Consultoría MGA:</strong> Formulación completa del proyecto Territorios Digitales Transformativos · [Territorio] mediante MGA Web, entregables E1–E4, hasta BPIN emitido.</li>
+      <li><strong>Componente B — Licencia Creciverso:</strong> Otorgamiento al Contratante de licencia no exclusiva de la conceptualización Creciverso para el proyecto Territorios Digitales Transformativos · [Territorio], a valor reducido en virtud de la coejecución acordada.</li>
+      <li><strong>Componente C — Acuerdo de coejecución:</strong> Participación del Contratista en la ejecución de la capa de plataforma digital (app) y la capa de apropiación y entrenamiento del proyecto Territorios Digitales Transformativos · [Territorio], una vez este sea aprobado y financiado, en los términos del Anexo 4 (Acuerdo de Coejecución).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num creciverso">Cláusula 2ª — La conceptualización Creciverso</div>
+  <div class="cl-body">
+    <div class="crec-box">
+      <div class="crec-box-title">Descripción de Creciverso</div>
+      <p style="font-size:10pt;margin:0">Creciverso es una conceptualización propietaria de Carlos Camilo Madera Sepúlveda para el diseño de proyectos de inversión pública, estructurada en tres capas: (1) <strong>Marco conceptual</strong> — estructura lógica de intervención adaptable; (2) <strong>Capa de plataforma digital (app)</strong> — arquitectura funcional de gestión y seguimiento; (3) <strong>Capa de apropiación y entrenamiento</strong> — protocolo de capacitación y transferencia de capacidades a actores territoriales. Su valor de licencia plena es de cuarenta y cinco millones ($45.000.000) de pesos M/cte.</p>
+    </div>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num coejec">Cláusula 3ª — Acuerdo de coejecución</div>
+  <div class="cl-body">
+    <div class="coejec-box">
+      <div class="coejec-box-title">Coejecución: capa app + entrenamiento/apropiación</div>
+      <p style="font-size:10pt;margin:0;margin-bottom:.4rem">Una vez el proyecto Territorios Digitales Transformativos · [Territorio] sea <strong>aprobado por el DNP y financiado</strong> (SGR / PGN / APP u otra fuente), las partes ejecutarán conjuntamente:</p>
+      <ul style="font-size:10pt;margin-left:1.2rem">
+        <li><strong>Capa de plataforma digital (app):</strong> Despliegue y configuración de la plataforma Creciverso para el seguimiento del proyecto. El Contratista lidera el diseño técnico-funcional; el Contratante lidera la implementación territorial.</li>
+        <li><strong>Capa de apropiación y entrenamiento:</strong> Diseño y ejecución del protocolo de capacitación a actores municipales (alcaldías, juntas, IEs). El Contratista aporta el marco metodológico; el Contratante aporta la red territorial.</li>
+      </ul>
+    </div>
+    <p><strong>3.1 Mecanismo de participación.</strong> La participación del Contratista en la ejecución se instrumentará mediante <strong>alianza estratégica · acuerdo de voluntades</strong> entre las partes, a ser formalizado en el Anexo 4 una vez se conozcan el valor y condiciones del contrato de ejecución del proyecto.</p>
+    <p><strong>3.2 Participación económica del Contratista en la ejecución.</strong> El Contratista tendrá derecho a participar en <span class="param">[PORCENTAJE_EJECUCION: ____% del valor de los módulos app + apropiación]</span> del contrato de ejecución correspondiente a los componentes de plataforma digital y entrenamiento. El valor estimado de estos componentes en el presupuesto del proyecto es de <span class="param">[VALOR_ESTIMADO_COMPONENTE: $_______ COP]</span>.</p>
+    <p><strong>3.3 Riesgo compartido de coejecución.</strong> Las partes reconocen que la activación del Acuerdo de Coejecución (Componente C) está supeditada a la aprobación y financiamiento del proyecto por la fuente de inversión pública correspondiente, hecho que se encuentra fuera del control de ambas partes. El valor reducido de la licencia Creciverso (Componente B) refleja una distribución equitativa de este riesgo: el Contratista asume voluntariamente el riesgo de que la coejecución no se materialice, como contrapartida del derecho a participar en la ejecución una vez el proyecto sea aprobado; el Contratante asume el costo íntegro de los Componentes A y B con independencia del resultado de la postulación. En consecuencia, si el proyecto no obtiene financiamiento, ninguna de las partes tendrá derecho a exigir compensación adicional a la otra derivada del presente Acuerdo de Coejecución.</p>
+    <p><strong>3.4 Exclusividad de componentes.</strong> El Contratante se compromete a no contratar la ejecución de la capa de plataforma digital ni de apropiación/entrenamiento con terceros sin dar al Contratista la primera opción de participación en igualdad de condiciones.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 4ª — Obligaciones de las partes</div>
+  <div class="cl-body">
+    <p><strong>Del Contratista:</strong> Idénticas a Variante A2 más: (i) participar activamente en la coejecución de los componentes acordados una vez el proyecto sea financiado; (ii) aportar el marco técnico de Creciverso durante la ejecución.</p>
+    <p><strong>Del Contratante:</strong> Idénticas a Variante A2 más: (i) incluir los componentes de app y apropiación en el presupuesto del proyecto formulado; (ii) notificar al Contratista dentro de los quince (15) días hábiles siguientes a la aprobación del proyecto por el DNP; (iii) dar prioridad al Contratista en la asignación de los componentes de coejecución.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 5ª — Valor del contrato</div>
+  <div class="cl-body">
+    <div class="valor-box">
+      <div class="valor-item mgb">
+        <div class="valor-label">Comp. A · Consultoría MGA</div>
+        <div class="valor-num">$27M</div>
+      </div>
+      <div class="valor-item crec">
+        <div class="valor-label">Comp. B · Licencia Creciverso reducida</div>
+        <div class="valor-num">$10M</div>
+      </div>
+      <div class="valor-item coejec">
+        <div class="valor-label">Comp. C · Coejecución (fase ejecución)</div>
+        <div class="valor-num" style="font-size:10pt;opacity:.7;font-style:italic">Por definir</div>
+      </div>
+      <div class="valor-item total">
+        <div class="valor-label">Total formulación (A+B)</div>
+        <div class="valor-num">$37M</div>
+      </div>
+    </div>
+    <p style="font-size:9pt;color:var(--muted)">Total componentes A+B en letras: <em>Treinta y siete millones de pesos M/cte. (IVA incluido).</em></p>
+    <p style="font-size:9pt;color:var(--muted)">El Componente C (coejecución) se valorizará en el Anexo 4 conforme al contrato de ejecución del proyecto aprobado.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 6ª — Forma de pago (Componentes A + B)</div>
+  <div class="cl-body">
+    <table class="pay-table">
+      <thead><tr><th>Hito</th><th>Condición</th><th>%</th><th>Monto COP</th><th>Plazo</th></tr></thead>
+      <tbody>
+        <tr class="pay-section"><td colspan="5" style="font-family:Arial,sans-serif;font-size:8pt;padding:.25rem .6rem"><strong>— Componente A: Consultoría MGA · $27M —</strong></td></tr>
+        <tr><td>E0 · Anticipo</td><td>Firma del contrato</td><td>40%</td><td class="pay-amt">$10.800.000</td><td>Fecha de firma</td></tr>
+        <tr><td>E1 · Pago 1</td><td>Sign-off E1</td><td>30%</td><td class="pay-amt">$8.100.000</td><td>5 días post sign-off</td></tr>
+        <tr><td>E2 · Pago 2</td><td>Sign-off E2</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días post sign-off</td></tr>
+        <tr><td>E3 · Pago 3</td><td>Sign-off E3</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días post sign-off</td></tr>
+        <tr><td>E4 · Pago final</td><td>BPIN emitido + acta entrega</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días post BPIN</td></tr>
+        <tr class="pay-section"><td colspan="5" style="font-family:Arial,sans-serif;font-size:8pt;padding:.25rem .6rem"><strong>— Componente B: Licencia Creciverso reducida · $10M —</strong></td></tr>
+        <tr><td>Licencia · Pago 1</td><td>Firma del contrato + entrega docs. Creciverso</td><td>50%</td><td class="pay-amt">$5.000.000</td><td>Fecha de firma</td></tr>
+        <tr><td>Licencia · Pago 2</td><td>BPIN emitido + acta entrega</td><td>50%</td><td class="pay-amt">$5.000.000</td><td>5 días post BPIN</td></tr>
+        <tr class="pay-total"><td colspan="2"><strong>Total A + B</strong></td><td>100%</td><td class="pay-amt"><strong>$37.000.000</strong></td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:9pt;color:var(--muted)">El pago del Componente C (coejecución) se regirá por el Anexo 4 y estará vinculado al contrato de ejecución del proyecto financiado.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num creciverso">Cláusula 7ª — Propiedad intelectual</div>
+  <div class="cl-body">
+    <p><strong>7.1</strong> Creciverso (marco conceptual, app, apropiación) sigue siendo propiedad exclusiva del Contratista. La licencia reducida otorga uso limitado al proyecto Territorios Digitales Transformativos · [Territorio] con derecho de coejecución.</p>
+    <p><strong>7.2</strong> Los entregables E1–E4 son del Contratante al pago total de los Componentes A y B.</p>
+    <p><strong>7.3</strong> El know-how metodológico del Contratista (CRISP-DM, BSC-s, Agile–ODI, KDMO) permanece como propiedad exclusiva del Contratista.</p>
+    <p><strong>7.4</strong> La capa app y los materiales de entrenamiento producidos en coejecución (Comp. C) serán de propiedad compartida conforme al Anexo 4, con licencia perpetua al Contratante para el proyecto Territorios Digitales Transformativos · [Territorio].</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusulas 8ª a 15ª</div>
+  <div class="cl-body">
+    <p>Las cláusulas de plazo (7 semanas formulación + ejecución posterior), confidencialidad, independencia, causales de terminación, modificaciones, resolución de conflictos y documentos integrantes del Contrato Variante B aplican en su totalidad. El Anexo 4 — Acuerdo de Coejecución se suscribirá una vez sea adjudicado el proyecto y sus condiciones conocidas.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 16ª — Aceptación y firmas</div>
+  <div class="cl-body">
+    <p>Las partes suscriben el presente contrato en dos (2) ejemplares del mismo tenor, en la ciudad de _____________________, a los _____ días del mes de _______________ de 2026.</p>
+  </div>
+</div>
+
+<div class="firmas">
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="firma-rol">El Contratante — Licenciatario — Co-ejecutor</div>
+    <div class="firma-det">NIT / CC: [NIT_O_CC]<br>C.C. Rep. Legal: [CC_REP]</div>
+  </div>
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="firma-rol">El Contratista — Licenciante — Co-ejecutor Creciverso</div>
+    <div class="firma-det">C.C.: [CC_CONSULTOR]<br>ccolombia@soygenial.co</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div><span class="conf-lbl">Documento Confidencial</span> — Uso restringido a las partes signatarias</div>
+  <div>Ref. CCMS-CB-2026-001-A1 &nbsp;·&nbsp; MGA $27M + Creciverso $10M + Coejecución · Total formulación $37M</div>
+</div>
+
+</body>
+</html>

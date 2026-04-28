@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Brief Frente C — Presupuesto · Territorios Digitales Transformativos · [Territorio]</title>
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--green:#15803d;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--mono:'Courier New',monospace;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:11pt;line-height:1.7;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.doc-header{text-align:center;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;}
+.doc-title{font-size:15pt;font-weight:700;color:var(--navy);margin:.3rem 0;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.badge-frente{display:inline-block;background:var(--green);color:#fff;font-family:Arial,sans-serif;font-size:8pt;font-weight:700;padding:.2rem .6rem;border-radius:4px;margin:.4rem 0;}
+.seccion{margin-bottom:1.3rem;}
+.sec-title{font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);font-family:Arial,sans-serif;border-bottom:1px solid var(--border);padding-bottom:.15rem;margin-bottom:.5rem;}
+.body-text{font-size:10.5pt;line-height:1.75;text-align:justify;}
+.body-text p{margin-bottom:.5rem;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.5rem;margin:.5rem 0;}
+.info-row{display:flex;gap:.5rem;font-size:10pt;}
+.info-lbl{font-weight:700;min-width:9rem;color:var(--navy);}
+.info-val{color:var(--text);}
+.req-table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:.5rem 0;}
+.req-table th{background:var(--navy);color:#fff;padding:.3rem .5rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.req-table td{padding:.28rem .5rem;border-bottom:1px solid var(--border);vertical-align:top;}
+.req-table tr:nth-child(even) td{background:var(--bg);}
+.req-table td:first-child{font-weight:700;color:var(--green);font-family:var(--mono);white-space:nowrap;}
+.alert-box{background:#f0fdf4;border:1px solid #86efac;border-left:4px solid var(--green);border-radius:4px;padding:.6rem .8rem;font-size:9.5pt;margin:.5rem 0;}
+.alert-box strong{color:var(--green);}
+.dod-list{list-style:none;padding:0;margin:.4rem 0;}
+.dod-list li{padding:.2rem 0;font-size:10pt;padding-left:1.2rem;position:relative;}
+.dod-list li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700;}
+.template-box{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem .9rem;font-family:var(--mono);font-size:8.5pt;line-height:1.8;margin:.5rem 0;white-space:pre-wrap;}
+.capex-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.5rem 0;}
+.capex-card{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.6rem .8rem;}
+.capex-card h4{font-family:Arial,sans-serif;font-size:8pt;font-weight:700;text-transform:uppercase;color:var(--navy);margin-bottom:.4rem;}
+.capex-card ul{list-style:disc;padding-left:1.2rem;font-size:9.5pt;}
+.doc-footer{margin-top:1.5rem;padding-top:.65rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}html,body{margin:0;padding:0;max-width:100%;}.print-btn{display:none!important;}.seccion{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-header">
+  <div class="doc-type">Brief de Frente — E3 · Sprint 3 — Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-title">Brief Frente C — Especialista en Presupuesto</div>
+  <div class="badge-frente">Frente C · Especialista en Presupuesto</div><br>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-BRIEF-C &nbsp;·&nbsp; Emitido: 28 abr. 2026 &nbsp;·&nbsp; Entrega esperada: jue. 8 may. 2026</div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">1. Contexto del proyecto</div>
+  <div class="body-text">
+    <p><strong>Territorios Digitales Transformativos · [Territorio] — Arauca</strong> es un proyecto de inversión pública orientado a reducir la brecha digital en Arauca. La formulación se enmarca en la <strong>Metodología General Ajustada (MGA Web)</strong> del DNP, cuya sección §6 exige un presupuesto desagregado por fuente de financiamiento, componente, año y rubro de gasto (CAPEX/OPEX), coherente con el plan de implementación técnica.</p>
+    <p>El Sprint E3 corre en paralelo con el Sprint E2 (detalle técnico). El Frente C puede iniciar con los datos de diagnóstico del Sprint E1 y los parámetros de diseño orientativos, ajustando una vez se reciban los entregables del Frente B (jue. 8 may.) y del Frente D (mié. 7 may.).</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">2. Alcance del encargo — Frente C</div>
+  <div class="body-text">
+    <p>Su encargo cubre la construcción del presupuesto completo del proyecto bajo los estándares CAPEX/OPEX requeridos por la MGA. Los entregables serán incorporados en la sección §6 (fuentes de financiamiento) y §5 (productos y costos) de la MGA Web durante el Sprint E4.</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">3. Entregables requeridos</div>
+  <table class="req-table">
+    <thead><tr><th>ID</th><th>Entregable</th><th>Formato</th><th>Fecha límite</th></tr></thead>
+    <tbody>
+      <tr><td>C-01</td><td>CAPEX desagregado: inversión por componente, producto, unidad, cantidad y costo unitario (incluyendo imprevistos y administración)</td><td>Excel · hoja "CAPEX"</td><td>jue. 8 may.</td></tr>
+      <tr><td>C-02</td><td>OPEX anual: costos de operación y mantenimiento años 1–10 (personal, energía, mantenimiento, licencias, seguros)</td><td>Excel · hoja "OPEX"</td><td>jue. 8 may.</td></tr>
+      <tr><td>C-03</td><td>Fuentes de financiamiento propuestas: % y COP por fuente (Regalías SGR, SGP-TIC, OCAD-Paz, Fondos privados, Aportes municipio)</td><td>Excel · hoja "Fuentes"</td><td>jue. 8 may.</td></tr>
+      <tr><td>C-04</td><td>Proyección plurianual de gastos: distribución de la inversión CAPEX por año de ejecución (al menos 3 años de ejecución + 7 años de operación)</td><td>Excel · hoja "Plurianual"</td><td>jue. 8 may.</td></tr>
+      <tr><td>C-05</td><td>Verificación de coherencia presupuestal: totales CAPEX + OPEX coherentes con los productos de Frente B (B-03) y con los indicadores de impacto del Formulador</td><td>Nota en Excel o Word (½ pág.)</td><td>jue. 8 may.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">4. Estructura de rubros CAPEX/OPEX</div>
+  <div class="capex-grid">
+    <div class="capex-card">
+      <h4>CAPEX — Inversión inicial</h4>
+      <ul>
+        <li>Infraestructura de red (equipos activos y pasivos)</li>
+        <li>Obras civiles (torres, ductos, centros de datos)</li>
+        <li>Software y licencias de plataforma</li>
+        <li>Dotación de puntos de acceso público</li>
+        <li>Formación inicial de usuarios (año 1)</li>
+        <li>Gerencia de proyecto / interventoría</li>
+        <li>Imprevistos (5–10% sobre directos)</li>
+        <li>IVA / impuestos aplicables</li>
+      </ul>
+    </div>
+    <div class="capex-card">
+      <h4>OPEX — Operación y mantenimiento</h4>
+      <ul>
+        <li>Servicio de conectividad mayorista (enlace troncal)</li>
+        <li>Personal técnico de soporte y mantenimiento</li>
+        <li>Energía (sites remotos + centros de datos)</li>
+        <li>Mantenimiento preventivo / correctivo de equipos</li>
+        <li>Renovación de licencias de software</li>
+        <li>Seguros de equipos e infraestructura</li>
+        <li>Actualización tecnológica (fondo de reserva)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">5. Fuentes de financiamiento elegibles (orientativo)</div>
+  <table class="req-table">
+    <thead><tr><th>Fuente</th><th>Marco normativo</th><th>Elegibilidad</th><th>Nota</th></tr></thead>
+    <tbody>
+      <tr><td>SGR — Regalías</td><td>Ley 2056/2020 · OCAD Departamental</td><td>Alta — Arauca es dpto. con regalías</td><td>Requiere BPIN + OCAD aprobatorio</td></tr>
+      <tr><td>OCAD-Paz</td><td>Acto Legislativo 04/2017</td><td>Media — zonas PDET Arauca</td><td>Verif. si municipio está en listado PDET</td></tr>
+      <tr><td>MinTIC — Fondo TIC</td><td>Ley 1341/2009 + 1978/2019</td><td>Media — convocatorias abiertas</td><td>Revisar convocatorias vigentes 2026</td></tr>
+      <tr><td>SGP — TIC</td><td>Ley 715/2001 + Conpes TIC</td><td>Media — destinación específica</td><td>Verificar disponibilidad municipal</td></tr>
+      <tr><td>Aporte municipio</td><td>Plan de Desarrollo Municipal</td><td>Complementaria</td><td>Confirmar con cliente % disponible</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">6. Plantilla Excel requerida</div>
+  <div class="body-text"><p>El archivo Excel debe seguir esta estructura de pestañas:</p></div>
+  <div class="template-box">Pestaña 1 · CAPEX
+| Componente | Producto | Unidad | Cant. | C.Unit. (COP) | C.Total (COP) | Fuente |
+|------------|---------|--------|-------|----------------|----------------|--------|
+| Red troncal | Fibra óptica km | km | XX | $X.XXX.XXX | $X.XXX.XXX | SGR |
+| ...
+
+Pestaña 2 · OPEX
+| Rubro | Año 1 | Año 2 | … | Año 10 | Total 10 años |
+|-------|-------|-------|---|--------|---------------|
+
+Pestaña 3 · Fuentes
+| Fuente | Monto COP | % participación | Tipo (recuperable/no) |
+
+Pestaña 4 · Plurianual
+| Año | CAPEX | OPEX | Total | Fuente principal |
+
+Pestaña 5 · Coherencia
+| Producto Frente B | Qty B-03 | Costo unitario C-01 | Coherente S/N | Observación |</div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">7. Dependencias con otros frentes</div>
+  <div class="alert-box">
+    <strong>Inputs esperados:</strong><br>
+    • <strong>Frente D (mié. 7 may.):</strong> Datos de campo — número de hogares/sedes a conectar, zonas geográficas, distancias estimadas. Ajustar cantidades CAPEX con estos datos.<br>
+    • <strong>Frente B (jue. 8 may.):</strong> Listado de productos B-03 — verificar coherencia de precios unitarios. Si hay discrepancia, coordinar con Formulador (Frente A).<br>
+    • <strong>Frente A (disponible desde D3/E1):</strong> Horizonte del proyecto (10 años), indicadores de impacto esperados (beneficiarios), parámetros para evaluación económica (tasa social de descuento: 12% DNP, precios constantes 2026).
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">8. Parámetros para evaluación económica (E4)</div>
+  <div class="body-text">
+    <p>El Formulador (Frente A) calculará VPN, TIR y relación Beneficio-Costo en el Sprint E4 usando los datos del Frente C como insumo. Para facilitar ese cálculo, incluir en la proyección plurianual:</p>
+    <ul style="margin:.4rem 0 .4rem 1.4rem;font-size:10pt;line-height:1.8;">
+      <li>Inversión total en precios constantes 2026 (COP)</li>
+      <li>Costos de operación año a año</li>
+      <li>Indicación de qué porcentaje de CAPEX es recuperable vs. no recuperable</li>
+      <li>Deflactor a usar si se trabaja en precios corrientes</li>
+    </ul>
+    <p>Tasa de descuento social DNP: <strong>12% anual</strong> (precios constantes). Horizonte de evaluación: <strong>10 años</strong>.</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">9. Definición de "Done" para Frente C</div>
+  <ul class="dod-list">
+    <li>Los 5 entregables (C-01 a C-05) están en el Drive del proyecto antes del jue. 8 may. a las 18:00</li>
+    <li>El Excel tiene las 5 pestañas con la estructura del template §6 de este brief</li>
+    <li>El CAPEX total está desagregado a nivel de producto-unidad-cantidad con precio unitario referenciado</li>
+    <li>El OPEX cubre los 10 años del horizonte del proyecto</li>
+    <li>Las fuentes suman el 100% del costo total del proyecto</li>
+    <li>La nota de coherencia (C-05) confirma alineación con los productos del Frente B</li>
+    <li>Se envía confirmación al canal del proyecto con asunto: <code>[C-OK] Territorios Digitales Transformativos · [Territorio] · Frente C entregado</code></li>
+  </ul>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">10. Coordinación y canal</div>
+  <div class="info-grid">
+    <div class="info-row"><span class="info-lbl">Coordinador:</span><span class="info-val">Carlos Camilo Madera S. (Frente A)</span></div>
+    <div class="info-row"><span class="info-lbl">Correo:</span><span class="info-val">ccolombia@soygenial.co</span></div>
+    <div class="info-row"><span class="info-lbl">Canal del proyecto:</span><span class="info-val">[WA / Teams — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Drive del proyecto:</span><span class="info-val">[URL — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Plazo reply consultas:</span><span class="info-val">4 horas hábiles máximo</span></div>
+    <div class="info-row"><span class="info-lbl">Standup diario:</span><span class="info-val">09:00 · async · 3 líneas: Hecho / En curso / Bloqueo</span></div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div>Brief Frente C · Presupuesto · Territorios Digitales Transformativos · [Territorio] · Arauca</div>
+  <div>Ref. CCMS-CB-2026-001-BRIEF-C &nbsp;·&nbsp; Hoja 1 de 1</div>
+</div>
+
+</body>
+</html>

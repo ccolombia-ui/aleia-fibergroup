@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuelas Geniales Arauquita · Conectividad Educativa · Infografía v1</title>
+<style>
+:root {
+  --navy: #0f172a; --navy-m: #1e293b; --navy-l: #1e3a5f;
+  --emr: #059669; --emr-d: #047857; --emr-l: #34d399; --emr-bg: #f0fdf4;
+  --sky: #0284c7; --sky-d: #0369a1; --sky-l: #38bdf8;
+  --pur: #7c3aed; --pur-d: #6d28d9; --pur-l: #a78bfa;
+  --gld: #d97706; --gld-d: #b45309; --gld-l: #fcd34d;
+  --org: #ea580c; --org-d: #c2410c; --org-l: #fb923c;
+  --rose: #e11d48; --rose-d: #be123c;
+  --text: #334155; --muted: #64748b; --bg: #f8fafc; --border: rgba(0,0,0,0.08);
+  --mono: 'Courier New', Courier, monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Calibri, Carlito, Arial, sans-serif; font-size: 9.5pt; line-height: 1.42; color: var(--text); background: #fff; max-width: 215mm; margin: 0 auto; padding: 9mm 13mm; }
+.print-btn { position: fixed; top: 12px; right: 12px; background: var(--emr); color:#fff; border:none; padding: 0.5rem 1.1rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer; z-index: 999; font-family: inherit; box-shadow: 0 4px 14px rgba(0,0,0,0.28); }
+.print-btn:hover { background: var(--emr-d); }
+h1 { font-size: 20pt; font-weight: 700; color: var(--navy); line-height: 1.08; }
+h2 { font-size: 11pt; font-weight: 700; color: var(--navy); margin: 0.6rem 0 0.3rem; border-bottom: 2px solid var(--emr); padding-bottom: 0.15rem; }
+h3 { font-size: 9.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.18rem; }
+p  { margin-bottom: 0.28rem; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.hdr { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: end; margin-bottom: 0.4rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--emr); }
+.hdr .sub { font-size: 7.5pt; color: var(--emr-d); font-weight: 700; font-family: var(--mono); margin-top: 0.12rem; letter-spacing: 0.01em; }
+.hdr-meta { text-align: right; font-size: 7pt; color: var(--muted); line-height: 1.7; font-family: var(--mono); }
+.pg-2, .pg-3, .pg-4, .pg-5 { page-break-before: always; break-before: page; }
+.stats-hero { display: grid; grid-template-columns: repeat(6,1fr); background: linear-gradient(135deg, var(--emr-d) 0%, var(--navy) 100%); border-radius: 9px; overflow: hidden; margin: 0.5rem 0 0.45rem; }
+.sh { padding: 0.5rem 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.sh:last-child { border-right: none; }
+.sh-n { font-size: 12.5pt; font-weight: 700; color: var(--emr-l); display: block; font-family: var(--mono); }
+.sh-l { font-size: 6pt; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.05rem; }
+.tagline { font-size: 8.5pt; color: var(--text); line-height: 1.5; background: var(--emr-bg); padding: 0.45rem 0.7rem; border-left: 3.5px solid var(--emr); border-radius: 0 6px 6px 0; margin-bottom: 0.35rem; }
+.tagline strong { color: var(--emr-d); }
+.tesis { background: var(--navy); border-radius: 10px; padding: 0.7rem 1rem; margin: 0.4rem 0; color: #fff; }
+.tesis-eq { font-family: 'Georgia', serif; font-size: 12.5pt; font-weight: 700; color: var(--emr-l); text-align: center; line-height: 1.3; margin-bottom: 0.25rem; }
+.tesis-eq .arrow { color: var(--gld-l); padding: 0 0.25rem; }
+.tesis-sub { font-size: 8pt; color: rgba(255,255,255,0.78); text-align: center; font-style: italic; }
+.si { font-size: 8pt; color: var(--muted); margin-bottom: 0.4rem; }
+.charts-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.4rem 0; }
+.chart-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.7rem; background: #fff; break-inside: avoid; page-break-inside: avoid; }
+.chart-title { font-size: 8.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; padding-bottom: 0.2rem; border-bottom: 1.2px solid var(--bg); }
+.chart-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-top: -0.18rem; margin-bottom: 0.3rem; }
+.chart-foot { font-size: 6.5pt; color: var(--muted); margin-top: 0.3rem; padding-top: 0.22rem; border-top: 1px dashed var(--border); }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 7.5pt; }
+table.tbl th { background: var(--navy); color: white; font-weight: 700; padding: 0.25rem 0.45rem; text-align: left; font-size: 7pt; }
+table.tbl td { padding: 0.25rem 0.45rem; border-bottom: 1px solid var(--border); }
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl tr:nth-child(even) { background: var(--bg); }
+.tbl .num { font-family: var(--mono); text-align: right; }
+.tbl .hi { color: var(--rose-d); font-weight: 700; }
+.tbl .ok { color: var(--emr-d); font-weight: 700; }
+.stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin: 0.4rem 0; }
+.stk { border-radius: 7px; padding: 0.5rem 0.6rem; border: 1px solid var(--border); break-inside: avoid; }
+.stk-icon { font-size: 14pt; line-height: 1; }
+.stk-name { font-size: 8pt; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
+.stk-tech { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.2rem; }
+.stk-bpa { font-size: 6.5pt; color: var(--emr-d); font-style: italic; }
+.stk-cost { font-size: 6.5pt; color: var(--emr-d); font-weight: 700; margin-top: 0.15rem; }
+.stk.s1 { background: linear-gradient(180deg,#fff,#eff6ff); border-left: 3px solid var(--sky); }
+.stk.s2 { background: linear-gradient(180deg,#fff,#f0fdf4); border-left: 3px solid var(--emr); }
+.stk.s3 { background: linear-gradient(180deg,#fff,#fef3c7); border-left: 3px solid var(--gld); }
+.stk.s4 { background: linear-gradient(180deg,#fff,#f5f3ff); border-left: 3px solid var(--pur); }
+.stk.s5 { background: linear-gradient(180deg,#fff,#fff7ed); border-left: 3px solid var(--org); }
+.stk.s6 { background: linear-gradient(180deg,#fff,#fef2f2); border-left: 3px solid var(--rose); }
+.cmt-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.cmt { background: linear-gradient(135deg,#fff,#fafbfc); border: 1px solid var(--border); border-top: 3px solid var(--emr); border-radius: 6px; padding: 0.45rem 0.5rem; text-align: center; }
+.cmt-n { font-size: 13pt; font-weight: 700; font-family: var(--mono); color: var(--emr-d); display: block; line-height: 1; }
+.cmt-l { font-size: 5.8pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.18rem; }
+.ft { margin-top: 0.65rem; padding-top: 0.45rem; border-top: 1.5px solid var(--border); display: grid; grid-template-columns: 1fr auto; font-size: 6.5pt; color: var(--muted); }
+.ft-r { text-align: right; font-family: var(--mono); }
+.bench { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.4rem 0; }
+.bn { background: linear-gradient(135deg,#fff,#f8fafc); border: 1px solid var(--border); border-top: 3px solid var(--sky); border-radius: 7px; padding: 0.55rem 0.7rem; }
+.bn.cur { border-top-color: var(--emr); background: linear-gradient(135deg,#fff,#f0fdf4); }
+.bn-h { font-weight: 700; color: var(--navy); font-size: 8pt; }
+.bn-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.3rem; }
+.bn-row { display: flex; justify-content: space-between; font-size: 7pt; padding: 0.12rem 0; border-bottom: 1px dotted var(--border); }
+.bn-row:last-child { border-bottom: none; font-weight: 700; color: var(--navy); }
+.timeline { display: grid; grid-template-columns: repeat(8,1fr); gap: 4px; margin: 0.5rem 0; }
+.tl { padding: 0.45rem 0.3rem; border-radius: 5px; text-align: center; font-size: 6.5pt; }
+.tl-q { font-weight: 700; font-family: var(--mono); display: block; font-size: 7pt; color: var(--navy); }
+.tl-l { color: var(--muted); display: block; margin-top: 0.15rem; line-height: 1.25; }
+.tl-1, .tl-2 { background: linear-gradient(180deg,#d1fae5,#fff); border-left: 3px solid var(--emr); }
+.tl-3, .tl-4 { background: linear-gradient(180deg,#dbeafe,#fff); border-left: 3px solid var(--sky); }
+.tl-5, .tl-6 { background: linear-gradient(180deg,#fef3c7,#fff); border-left: 3px solid var(--gld); }
+.tl-7, .tl-8 { background: linear-gradient(180deg,#f5f3ff,#fff); border-left: 3px solid var(--pur); }
+.kpi-mini { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.kpi { background: var(--bg); border-radius: 6px; padding: 0.4rem 0.45rem; border: 1px solid var(--border); }
+.kpi-n { font-family: var(--mono); font-weight: 700; color: var(--emr-d); font-size: 11pt; }
+.kpi-l { font-size: 6.5pt; color: var(--muted); }
+@page { size: Letter portrait; margin: 9mm 11mm 9mm 11mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { margin:0; padding:0; max-width:100%; }
+  .print-btn { display: none !important; }
+  body { font-size: 8.5pt; padding: 0; line-height: 1.38; }
+  .pg-2, .pg-3, .pg-4, .pg-5 { page-break-before: always !important; break-before: page !important; }
+  .charts-2col, .stack, .cmt-grid, .kpi-mini, table.tbl, .bench, .timeline { break-inside: avoid; page-break-inside: avoid; }
+  .chart-box, .stk, .cmt, .kpi, .bn, .tl { break-inside: avoid; page-break-inside: avoid; }
+  h2 { margin: 0.45rem 0 0.22rem; font-size: 10pt; }
+  h1 { font-size: 18pt; }
+  .stats-hero { margin: 0.35rem 0 0.3rem; }
+  .sh { padding: 0.4rem 0.4rem; }
+  .sh-n { font-size: 11pt; }
+  .tagline { padding: 0.32rem 0.55rem; font-size: 7.8pt; line-height: 1.42; }
+  .tesis { padding: 0.55rem 0.85rem; }
+  .tesis-eq { font-size: 11pt; }
+  .tesis-sub { font-size: 7.2pt; }
+  .charts-2col { gap: 0.55rem; margin: 0.3rem 0; }
+  .chart-box { padding: 0.42rem 0.55rem; }
+  table.tbl { font-size: 7pt; }
+  .stk { padding: 0.4rem 0.5rem; }
+  .stk-name { font-size: 7.5pt; }
+  .stk-tech, .stk-bpa, .stk-cost { font-size: 6pt; }
+  .cmt-n { font-size: 11.5pt; }
+  .cmt-l { font-size: 5.5pt; }
+  .ft { margin-top: 0.5rem; padding-top: 0.35rem; }
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+<!-- ════ PÁGINA 1 ════ -->
+<div class="hdr">
+  <div>
+    <h1>Escuelas Geniales Arauquita · Conectividad + Dotación + Formación</h1>
+    <div class="sub">centros_digitales_educativos · MinTIC+MinEducación · 35 sedes · 5.500 estudiantes · 24 meses</div>
+  </div>
+  <div class="hdr-meta">
+    Iniciativa Escuelas Geniales · Arauquita<br>
+    Cód. DANE 81065 · PDET · ZOMAC · ZDP<br>
+    URN: poc-cb:arauquita:escuelas-geniales<br>
+    2026-04-27 · DRAFT v1 · scope MinTIC + MinEducación
+  </div>
+</div>
+
+<div class="stats-hero">
+  <div class="sh"><span class="sh-n">$2.800M</span><span class="sh-l">COP CAPEX+OPEX 24m</span></div>
+  <div class="sh"><span class="sh-n">35</span><span class="sh-l">sedes educativas</span></div>
+  <div class="sh"><span class="sh-n">5.500</span><span class="sh-l">estudiantes K-11</span></div>
+  <div class="sh"><span class="sh-n">280</span><span class="sh-l">docentes formados</span></div>
+  <div class="sh"><span class="sh-n">25/5</span><span class="sh-l">Mbps min por sede</span></div>
+  <div class="sh"><span class="sh-n">95/5</span><span class="sh-l">% MinTIC / GobArauca</span></div>
+</div>
+
+<div class="tesis">
+  <div class="tesis-eq">CONECTIVIDAD <span class="arrow">→</span> DOTACIÓN <span class="arrow">→</span> APROPIACIÓN PEDAGÓGICA · ESCUELA RURAL CONECTADA</div>
+  <div class="tesis-sub">Escuelas Geniales replica modelo "Centros Digitales" MinTIC ($2.1B / 14.745 sedes nacional · ~$140M/sede) en 35 sedes educativas Arauquita PDET · cierra brecha educativa rural 38.5% · habilita educación digital activa</div>
+</div>
+
+<div class="tagline">
+  <strong>Escuelas Geniales Arauquita</strong> conecta <strong>35 sedes educativas</strong> rurales y urbanas del municipio (~5.500 estudiantes K-11) con <strong>FTTH 25/5 Mbps</strong> + <strong>aulas TIC dotadas</strong> (computadores, tablets, pantalla interactiva, contenidos digitales) + <strong>plataforma e-learning</strong> + <strong>formación 280 docentes</strong> + <strong>mantenimiento 24 meses</strong> · réplica del modelo MinTIC <strong>Centros Digitales</strong> (14.745 sedes a 2031) y <strong>Computadores para Educar</strong> · sinergia con backbone FTTH Mi Casa Bacana · cofinanciación <strong>MinTIC 95% + GobArauca 5%</strong> + alianza Ministerio de Educación.
+</div>
+
+<h2>Composición del Paquete · 2 vistas</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$2.800M COP · 6 Componentes Educativos</div>
+    <div class="chart-sub">// CAPEX 70% conectividad+dotación + OPEX 30% formación+operación</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri,sans-serif" font-size="6.5">
+        <rect x="20" y="14" width="48" height="14" fill="#0284c7" rx="3"/>
+        <text x="73" y="24" fill="#0f172a">FTTH conexión 35 sedes · $700M (25%)</text>
+        <rect x="20" y="32" width="42" height="14" fill="#059669" rx="3"/>
+        <text x="67" y="42" fill="#0f172a">Dotación PCs+tablets+interactivos · $980M (35%)</text>
+        <rect x="20" y="50" width="20" height="14" fill="#d97706" rx="3"/>
+        <text x="45" y="60" fill="#0f172a">Plataforma educativa + contenidos · $310M (11%)</text>
+        <rect x="20" y="68" width="18" height="14" fill="#7c3aed" rx="3"/>
+        <text x="43" y="78" fill="#0f172a">Formación 280 docentes · $390M (14%)</text>
+        <rect x="20" y="86" width="14" height="14" fill="#ea580c" rx="3"/>
+        <text x="39" y="96" fill="#0f172a">OPEX 24m mantenim. + soporte · $280M (10%)</text>
+        <rect x="20" y="104" width="6" height="14" fill="#e11d48" rx="3"/>
+        <text x="31" y="114" fill="#0f172a">Adecuación aulas TIC obra menor · $140M (5%)</text>
+      </g>
+      <line x1="20" y1="10" x2="20" y2="125" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Total: $2.800M COP · MinTIC 95% + GobArauca 5%</text>
+      <text x="120" y="167" text-anchor="middle" font-family="Calibri" font-size="6" fill="#64748b">Costo/sede: $80M (vs benchmark Centros Digitales $140M)</text>
+    </svg>
+    <div class="chart-foot">Costo unitario optimizado por aprovechar backbone Mi Casa Bacana FTTH</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Distribución Sedes · 35 IE Arauquita</div>
+    <div class="chart-sub">// 12 cabecera + 23 rurales (centros poblados + veredas)</div>
+    <svg viewBox="0 0 280 145" style="width:100%;display:block;">
+      <path d="M 0,90 Q 60,80 90,85 Q 130,90 160,80 Q 200,70 280,85 L 280,145 L 0,145 Z" fill="#d1fae5" opacity="0.4"/>
+
+      <!-- Cabecera 12 sedes -->
+      <circle cx="140" cy="60" r="20" fill="#059669" stroke="white" stroke-width="2"/>
+      <text x="140" y="58" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="white">CABECERA</text>
+      <text x="140" y="68" text-anchor="middle" font-family="Calibri" font-size="6" fill="white">12 sedes</text>
+      <text x="140" y="32" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Arauquita urbano</text>
+      <text x="140" y="92" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">~3.000 estudiantes</text>
+
+      <!-- Rurales 23 sedes -->
+      <circle cx="60" cy="50" r="8" fill="#34d399"/>
+      <text x="60" y="35" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">La Esmeralda</text>
+      <text x="60" y="63" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">5 sedes</text>
+
+      <circle cx="220" cy="48" r="8" fill="#34d399"/>
+      <text x="220" y="33" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">Aguachica</text>
+      <text x="220" y="61" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">5 sedes</text>
+
+      <circle cx="220" cy="85" r="8" fill="#34d399"/>
+      <text x="220" y="103" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">Panamá</text>
+      <text x="220" y="98" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">4 sedes</text>
+
+      <circle cx="50" cy="85" r="8" fill="#34d399"/>
+      <text x="50" y="103" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">La Pesquera</text>
+      <text x="50" y="98" text-anchor="middle" font-family="Calibri" font-size="5" fill="#fff" font-weight="700">4 sedes</text>
+
+      <circle cx="100" cy="100" r="6" fill="#a7f3d0"/>
+      <circle cx="180" cy="100" r="6" fill="#a7f3d0"/>
+      <text x="140" y="115" text-anchor="middle" font-family="Calibri" font-size="5" fill="#64748b">5 sedes veredales dispersas</text>
+
+      <rect x="60" y="124" width="160" height="16" fill="#1e293b" rx="4"/>
+      <text x="140" y="135" text-anchor="middle" font-family="'Courier New'" font-size="6.5" font-weight="700" fill="#34d399">★ FTTH educativa · 35 sedes ★</text>
+    </svg>
+    <div class="chart-foot">Cobertura priorizada: cabecera (compleja) + 4 centros poblados + 5 veredales accesibles</div>
+  </div>
+</div>
+
+<h2>Posicionamiento · Centros Digitales + Computadores para Educar</h2>
+<table class="tbl">
+  <thead><tr><th>Dimensión</th><th>Posición Escuelas Geniales Arauquita</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Programas MinTIC base</strong></td><td>Centros Digitales (14.745 espacios · operación 2031) + Computadores para Educar + Conexión Total</td></tr>
+    <tr><td><strong>Modelo de referencia</strong></td><td>Centros Digitales nacional · $2.1 trillion / 14.745 sedes = $140M/sede promedio</td></tr>
+    <tr><td><strong>Aliado MinEducación</strong></td><td>Plan Sectorial Educación · plataforma Aprender Digital · Computadores para Educar</td></tr>
+    <tr><td><strong>Articulación Mi Casa Bacana</strong></td><td>Aprovecha backbone FTTH desplegado · sinergia operativa NOC compartido</td></tr>
+    <tr><td><strong>Articulación PDD Arauca</strong></td><td>Pilar 2 · Eje Estratégico 8 (Educación) + Pilar 1 Eje 6 (TIC)</td></tr>
+    <tr><td><strong>Articulación PDM Arauquita</strong></td><td>Eje Educación PDM "Arauquita Somos Todos 2024-2027"</td></tr>
+    <tr><td><strong>Productos MGA sector 22 + 23</strong></td><td>2202031 (dotación pedagógica) · 2301029 (conectividad sedes) · 2202077 (formación docente)</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Escuelas Geniales Arauquita · Página 1/5</div>
+  <div class="ft-r">CCMS-CB-2026-001-B-EG · v1 · Fibergroup-CCMS</div>
+</div>
+
+<!-- ════ PÁGINA 2 · DIAGNÓSTICO ════ -->
+<h2 class="pg-2" style="margin-top:0;">Diagnóstico · Brecha Educativa Digital Arauquita</h2>
+<div class="si">// brecha educación 38.5% MCB-DNP (mayor de subregión Arauca) · brecha TIC 67.8%</div>
+
+<div class="cmt-grid">
+  <div class="cmt"><span class="cmt-n">38.5%</span><span class="cmt-l">brecha educación Arauquita (MCB)</span></div>
+  <div class="cmt"><span class="cmt-n">~5.500</span><span class="cmt-l">estudiantes K-11 Arauquita</span></div>
+  <div class="cmt"><span class="cmt-n">~35</span><span class="cmt-l">sedes educativas total</span></div>
+  <div class="cmt"><span class="cmt-n">~280</span><span class="cmt-l">docentes activos</span></div>
+  <div class="cmt"><span class="cmt-n">~10%</span><span class="cmt-l">sedes con conectividad funcional</span></div>
+  <div class="cmt"><span class="cmt-n">5.8%</span><span class="cmt-l">hogares con internet (CNPV 2018)</span></div>
+  <div class="cmt"><span class="cmt-n">0.526</span><span class="cmt-l">IBD habilidades nacional 2024</span></div>
+  <div class="cmt"><span class="cmt-n">91%</span><span class="cmt-l">tasa inscripción ed. básica nacional</span></div>
+</div>
+
+<h2>Benchmark · Centros Digitales MinTIC · Matriz Verificada</h2>
+<div class="si">// fuentes SILVER · mintic.gov.co · arauca.gov.co · portafolio.co · semana.com · 2020-2025</div>
+<table class="tbl">
+  <thead><tr><th>Contrato / Programa</th><th class="num">Sedes</th><th class="num">Inversión Total</th><th class="num">$/sede</th><th class="num">Años</th><th>Departamentos · Arauca</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Comcel (Región A)</strong> · Contrato CD-2020</td><td class="num">7.468</td><td class="num">$1.060.000M</td><td class="num ok">$141.9M</td><td class="num">10 + 6m</td><td>Antioquia, Atlántico, La Guajira, Meta, NSantander, Santander... (17 depts)</td></tr>
+    <tr style="background:#eff6ff;"><td><strong>ETB Net Colombia Conectada (Región B)</strong> · Contrato 749-2022</td><td class="num">6.589</td><td class="num">$1.072.552M</td><td class="num ok">$162.8M</td><td class="num">10 + 6m</td><td><strong>ARAUCA: 131 sedes</strong> · 54 en Arauquita · 6 municipios</td></tr>
+    <tr style="background:#eff6ff;"><td>→ <strong>Arauca (ETB Net)</strong> · 6 municipios</td><td class="num">131</td><td class="num">~$21.327M</td><td class="num ok">$162.8M</td><td class="num">10 + 6m</td><td>Arauca 27 · <strong>Arauquita 54</strong> · Fortul 16 · Saravena 9 · Tame 23 · Pto.Rondón 2</td></tr>
+    <tr style="background:#fef9c3; font-weight:700;"><td>🎯 Escuelas Geniales Arauquita (PROPUESTA)</td><td class="num">35</td><td class="num">$2.800M</td><td class="num">$80M</td><td class="num">2</td><td>Arauquita · 35 de 54 sedes ETB Net · FTTH backbone Casa Bacana</td></tr>
+  </tbody>
+</table>
+<div class="si">* $80M/sede vs $162.8M/sede (ETB Net): diferencia = escala de 10 años vs 24 meses + Escuelas Geniales incluye dotación integral (PC+tablets+formación docente) que CD no incluye · CD cubre SOLO conectividad y soporte · Fuentes: MinTIC nota prensa mayo2022 · arauca.gov.co · Portafolio 2022</div>
+
+<div class="bench" style="grid-template-columns:1fr 1fr 1fr; margin-top:0.4rem;">
+  <div class="bn">
+    <div class="bn-h">📍 Nacional · Centros Digitales Comcel (Región A)</div>
+    <div class="bn-sub">// contrato CD-2020 · hasta 2031 · SILVER</div>
+    <div class="bn-row"><span>Sedes</span><span class="mono">7.468</span></div>
+    <div class="bn-row"><span>Inversión</span><span class="mono">$1.060.000M</span></div>
+    <div class="bn-row"><span>$/sede</span><span class="mono">$141.9M (10 años)</span></div>
+    <div class="bn-row"><span>Alcance</span><span class="mono">Conectividad WiFi + soporte</span></div>
+    <div class="bn-row"><span>Dotación</span><span class="mono">NO incluida</span></div>
+    <div class="bn-row"><span>Formación docente</span><span class="mono">NO incluida</span></div>
+  </div>
+
+  <div class="bn">
+    <div class="bn-h">📍 Arauca · ETB Net Colombia Conectada</div>
+    <div class="bn-sub">// contrato 749-2022 · 131 sedes dpto · SILVER</div>
+    <div class="bn-row"><span>Sedes Arauca</span><span class="mono">131 sedes (6 municipios)</span></div>
+    <div class="bn-row"><span>Arauquita</span><span class="mono">54 sedes rurales</span></div>
+    <div class="bn-row"><span>$/sede (nacional)</span><span class="mono">$162.8M (10 años WiFi)</span></div>
+    <div class="bn-row"><span>Operación</span><span class="mono">Hasta dic.2032 garantizado</span></div>
+    <div class="bn-row"><span>Cobertura</span><span class="mono">Interior + exterior 7.800m²</span></div>
+    <div class="bn-row"><span>Fibergroup sinergia</span><span class="mono">Backbone FTTH complementa</span></div>
+  </div>
+
+  <div class="bn cur">
+    <div class="bn-h">🎯 Arauquita · Escuelas Geniales (PROPUESTA)</div>
+    <div class="bn-sub">// MinTIC 95% + GobArauca 5% · 2026-2028 · scope ampliado</div>
+    <div class="bn-row"><span>Sedes</span><span class="mono">35 (de 54 ETB Net)</span></div>
+    <div class="bn-row"><span>Inversión</span><span class="mono">$2.800M</span></div>
+    <div class="bn-row"><span>$/sede</span><span class="mono">$80M (24m · dotación completa)</span></div>
+    <div class="bn-row"><span>Alcance</span><span class="mono">FTTH+dotación+formación+plataforma</span></div>
+    <div class="bn-row"><span>Formación docente</span><span class="mono">280 docentes capacitados</span></div>
+    <div class="bn-row"><span>Ventaja backbone</span><span class="mono">Casa Bacana = 0 costo troncal</span></div>
+  </div>
+</div>
+
+<h2>Tipología de Sedes · Adecuación por Tipo</h2>
+<table class="tbl">
+  <thead><tr><th>Tipo Sede</th><th class="num">Cantidad</th><th>Estudiantes/sede</th><th>Dotación estándar</th><th class="num">Inversión/sede</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Megacolegio cabecera (K-11)</strong></td><td class="num">2</td><td>~600</td><td>3 aulas TIC · 90 PCs · 30 tablets · pizarra interactiva</td><td class="num">$180M</td></tr>
+    <tr><td><strong>Colegio cabecera (K-11)</strong></td><td class="num">5</td><td>~250</td><td>2 aulas TIC · 50 PCs · 20 tablets · pizarra interactiva</td><td class="num">$110M</td></tr>
+    <tr><td><strong>Escuela cabecera (K-5)</strong></td><td class="num">5</td><td>~150</td><td>1 aula TIC · 25 PCs · 15 tablets · pantalla TV</td><td class="num">$55M</td></tr>
+    <tr><td><strong>Centro Educativo Rural Concentrado</strong></td><td class="num">10</td><td>~120</td><td>1 aula TIC · 20 PCs · 10 tablets · pantalla TV</td><td class="num">$48M</td></tr>
+    <tr><td><strong>Sede Rural Dispersa</strong></td><td class="num">13</td><td>~30</td><td>Kit móvil 8 tablets · proyector · solar (off-grid)</td><td class="num">$28M</td></tr>
+    <tr><td><strong>TOTAL</strong></td><td class="num"><strong>35</strong></td><td>~5.500</td><td>—</td><td class="num"><strong>$2.800M</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Escuelas Geniales Arauquita · Diagnóstico · Página 2/5</div>
+  <div class="ft-r">Arauca: 54 sedes ETB Net 2022 ($162.8M/sede 10a) · propuesta $80M/sede 24m+dotación VERIFICADO</div>
+</div>
+
+<!-- ════ PÁGINA 3 · ARQUITECTURA + STACK ════ -->
+<h2 class="pg-3" style="margin-top:0;">Arquitectura · 6 Componentes del Stack Educativo</h2>
+<div class="si">// stack pedagógico-tecnológico · open source · alianza MinTIC + MinEducación + Universidad</div>
+
+<div class="stack">
+  <div class="stk s1">
+    <div class="stk-icon">🌐</div>
+    <div class="stk-name">Conectividad FTTH 35 sedes</div>
+    <div class="stk-tech">25/5 Mbps min · backbone Casa Bacana · ONT por sede</div>
+    <div class="stk-bpa">→ Conexión Total MinTIC</div>
+    <div class="stk-cost">$700M · 25%</div>
+  </div>
+  <div class="stk s2">
+    <div class="stk-icon">💻</div>
+    <div class="stk-name">Dotación PCs + Tablets</div>
+    <div class="stk-tech">~1.000 PCs · ~600 tablets · 35 pizarras interactivas</div>
+    <div class="stk-bpa">→ Computadores para Educar</div>
+    <div class="stk-cost">$980M · 35%</div>
+  </div>
+  <div class="stk s3">
+    <div class="stk-icon">📚</div>
+    <div class="stk-name">Plataforma E-Learning</div>
+    <div class="stk-tech">Aprender Digital MEN · Khan Academy es · Smartick</div>
+    <div class="stk-bpa">→ MinEducación Aprender Digital</div>
+    <div class="stk-cost">$310M · 11%</div>
+  </div>
+  <div class="stk s4">
+    <div class="stk-icon">👨‍🏫</div>
+    <div class="stk-name">Formación 280 Docentes</div>
+    <div class="stk-tech">120h por docente · pedagogía digital · TPACK</div>
+    <div class="stk-bpa">→ Computadores para Educar</div>
+    <div class="stk-cost">$390M · 14%</div>
+  </div>
+  <div class="stk s5">
+    <div class="stk-icon">🔧</div>
+    <div class="stk-name">OPEX Mantenimiento 24m</div>
+    <div class="stk-tech">soporte técnico · reposición · NOC compartido Casa Bacana</div>
+    <div class="stk-bpa">→ ITIL operación educativa</div>
+    <div class="stk-cost">$280M · 10%</div>
+  </div>
+  <div class="stk s6">
+    <div class="stk-icon">🏗️</div>
+    <div class="stk-name">Adecuación Aulas TIC</div>
+    <div class="stk-tech">red eléctrica · mobiliario · seguridad · ventilación</div>
+    <div class="stk-bpa">→ Estándar MinEducación aulas TIC</div>
+    <div class="stk-cost">$140M · 5%</div>
+  </div>
+</div>
+
+<h2>Plan de Formación Docente · Pedagogía Digital</h2>
+<table class="tbl">
+  <thead><tr><th>Módulo</th><th>Duración</th><th>Modalidad</th><th>Certificación</th></tr></thead>
+  <tbody>
+    <tr><td><strong>M1 · Alfabetización Digital Docente</strong></td><td>20h</td><td>Presencial + virtual</td><td>MinEducación</td></tr>
+    <tr><td><strong>M2 · Modelo TPACK + Diseño Instruccional</strong></td><td>30h</td><td>Virtual + casos</td><td>UNAD/UDFJC</td></tr>
+    <tr><td><strong>M3 · Plataforma Aprender Digital MEN</strong></td><td>20h</td><td>Virtual</td><td>MinEducación</td></tr>
+    <tr><td><strong>M4 · Recursos Educativos Abiertos</strong></td><td>15h</td><td>Virtual + práctica</td><td>UNESCO REAA</td></tr>
+    <tr><td><strong>M5 · Evaluación Formativa Digital</strong></td><td>15h</td><td>Presencial + virtual</td><td>MinEducación</td></tr>
+    <tr><td><strong>M6 · Comunidades de Práctica Docente</strong></td><td>20h</td><td>Continua</td><td>Centro Creciverso</td></tr>
+    <tr><td><strong>TOTAL POR DOCENTE</strong></td><td><strong>120h</strong></td><td>Híbrido</td><td>Diploma reconocido</td></tr>
+  </tbody>
+</table>
+
+<div class="si" style="margin-top:0.4rem;">// 280 docentes × 120h = 33.600 horas formación · entrega: ≥80% docentes certificados M24</div>
+
+<div class="ft">
+  <div>Escuelas Geniales Arauquita · Arquitectura · Página 3/5</div>
+  <div class="ft-r">Modelo TPACK + Aprender Digital MEN</div>
+</div>
+
+<!-- ════ PÁGINA 4 · CRONOGRAMA + FINANCIERO ════ -->
+<h2 class="pg-4" style="margin-top:0;">Plan de Despliegue · 24 Meses</h2>
+
+<div class="timeline">
+  <div class="tl tl-1"><span class="tl-q">T1 · M1-3</span><span class="tl-l"><strong>Estructuración</strong><br>Caracterización 35 sedes · contratación · diseños</span></div>
+  <div class="tl tl-2"><span class="tl-q">T2 · M4-6</span><span class="tl-l"><strong>Conectividad fase 1</strong><br>FTTH 12 sedes cabecera + 5 CP1</span></div>
+  <div class="tl tl-3"><span class="tl-q">T3 · M7-9</span><span class="tl-l"><strong>Conectividad fase 2</strong><br>FTTH 18 sedes restantes (CP+veredas)</span></div>
+  <div class="tl tl-4"><span class="tl-q">T4 · M10-12</span><span class="tl-l"><strong>Dotación + adecuación</strong><br>1.000 PCs + 600 tablets + pizarras</span></div>
+  <div class="tl tl-5"><span class="tl-q">T5 · M13-15</span><span class="tl-l"><strong>Formación docente intensiva</strong><br>280 docentes módulos M1-M3 (70h)</span></div>
+  <div class="tl tl-6"><span class="tl-q">T6 · M16-18</span><span class="tl-l"><strong>Operación + formación cont.</strong><br>5.500 estudiantes activos · M4-M6 (50h)</span></div>
+  <div class="tl tl-7"><span class="tl-q">T7 · M19-21</span><span class="tl-l"><strong>Año 2 operación</strong><br>Comunidades práctica · co-creación</span></div>
+  <div class="tl tl-8"><span class="tl-q">T8 · M22-24</span><span class="tl-l"><strong>Cierre + transición SED</strong><br>Transferencia a Secretaría Ed. Arauca</span></div>
+</div>
+
+<h2>Distribución Presupuestal + Cofinanciación</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$2.800M COP · CAPEX 70% / OPEX 30%</div>
+    <div class="chart-sub">// CAPEX = conectividad+dotación; OPEX = formación+mantenim.</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#059669" stroke-width="20" stroke-dasharray="241 104" transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#7c3aed" stroke-width="20" stroke-dasharray="104 241" stroke-dashoffset="-241" transform="rotate(-90 80 80)"/>
+      <text x="80" y="78" text-anchor="middle" font-family="Calibri" font-size="9" font-weight="700" fill="#0f172a">$2.800M</text>
+      <text x="80" y="89" text-anchor="middle" font-family="Calibri" font-size="6.5" fill="#64748b">total 24m</text>
+
+      <rect x="160" y="40" width="10" height="10" fill="#059669"/>
+      <text x="175" y="48" font-family="Calibri" font-size="7" fill="#0f172a">CAPEX 70%</text>
+      <text x="175" y="58" font-family="Calibri" font-size="6" fill="#64748b">$1.960M (red+dotación+aulas)</text>
+
+      <rect x="160" y="75" width="10" height="10" fill="#7c3aed"/>
+      <text x="175" y="83" font-family="Calibri" font-size="7" fill="#0f172a">OPEX 24m 30%</text>
+      <text x="175" y="93" font-family="Calibri" font-size="6" fill="#64748b">$840M (formación+manten.)</text>
+
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Activos transferidos a SED Arauca post-proyecto</text>
+    </svg>
+    <div class="chart-foot">Equipos quedan en propiedad de la Secretaría de Educación Arauca</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Cofinanciación · MinTIC 95% / GobArauca 5%</div>
+    <div class="chart-sub">// + alianza operativa MinEducación (sin recursos directos)</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="7">
+        <text x="5" y="20" fill="#0f172a" font-weight="700">MinTIC / FUTIC</text>
+        <rect x="100" y="12" width="120" height="16" fill="#d1fae5" rx="3"/>
+        <rect x="100" y="12" width="114" height="16" fill="#059669" rx="3"/>
+        <text x="225" y="23" fill="#0f172a" font-weight="700">95% · $2.660M</text>
+
+        <text x="5" y="48" fill="#0f172a" font-weight="700">Gob. Arauca</text>
+        <rect x="100" y="40" width="120" height="16" fill="#fef3c7" rx="3"/>
+        <rect x="100" y="40" width="6" height="16" fill="#d97706" rx="3"/>
+        <text x="225" y="51" fill="#0f172a" font-weight="700">5% · $140M</text>
+
+        <text x="5" y="76" fill="#0f172a" font-weight="700">MinEducación (operativo)</text>
+        <rect x="100" y="68" width="120" height="16" fill="#dbeafe" rx="3"/>
+        <text x="225" y="79" fill="#0f172a" font-weight="700">Plataforma + cert.</text>
+
+        <line x1="5" y1="95" x2="225" y2="95" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="115" fill="#64748b" font-style="italic">Comparativa Centros Digitales</text>
+        <text x="5" y="127" fill="#64748b">$2.1 trillion / 14.745 sedes nacional</text>
+        <text x="5" y="139" fill="#64748b">Modelo idéntico · operación 2031</text>
+
+        <text x="120" y="158" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">$80M/sede vs $142M nacional · ahorro 44%</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Optimización por sinergia con backbone FTTH Mi Casa Bacana</div>
+  </div>
+</div>
+
+<h2>Hitos Críticos · Pagos por Avance</h2>
+<table class="tbl">
+  <thead><tr><th>Hito</th><th>Mes</th><th>Indicador verificable</th><th class="num">% Desembolso</th></tr></thead>
+  <tbody>
+    <tr><td>H1 · Acta inicio + caracterización</td><td>M3</td><td>35 sedes caracterizadas · contratos · diseños</td><td class="num">10%</td></tr>
+    <tr><td>H2 · Conectividad cabecera + CP1</td><td>M6</td><td>17 sedes con FTTH activa · pruebas SLA</td><td class="num">15%</td></tr>
+    <tr><td>H3 · Conectividad 100% sedes</td><td>M9</td><td>35 sedes con FTTH activa · disponibilidad ≥98%</td><td class="num">15%</td></tr>
+    <tr><td>H4 · Dotación instalada</td><td>M12</td><td>1.000 PCs + 600 tablets + 35 pizarras instaladas</td><td class="num">25%</td></tr>
+    <tr><td>H5 · Formación docente fase 1</td><td>M15</td><td>≥80% docentes certificados M1-M3 (70h)</td><td class="num">15%</td></tr>
+    <tr><td>H6 · Operación con estudiantes</td><td>M18</td><td>≥4.500 estudiantes con uso activo plataforma</td><td class="num">10%</td></tr>
+    <tr><td>H7 · Formación completa</td><td>M21</td><td>≥80% docentes certificados 120h completas</td><td class="num">5%</td></tr>
+    <tr><td>H8 · Cierre + transición SED</td><td>M24</td><td>Acta transferencia a SED Arauca · informe final</td><td class="num">5%</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Escuelas Geniales Arauquita · Cronograma + Financiero · Página 4/5</div>
+  <div class="ft-r">Estructura modelo Centros Digitales MinTIC</div>
+</div>
+
+<!-- ════ PÁGINA 5 · IMPACTO + KPIs ════ -->
+<h2 class="pg-5" style="margin-top:0;">Impacto Esperado + KPIs Educativos</h2>
+
+<h2>Cadena de Resultados RBM-GAC</h2>
+<table class="tbl">
+  <thead><tr><th>Nivel</th><th>Indicador</th><th class="num">LB 2024</th><th class="num">Meta 2028</th><th>Plazo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>INSUMOS</strong></td><td>Inversión total</td><td class="num">$0</td><td class="num">$2.800M</td><td>24m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Sedes educativas conectadas FTTH</td><td class="num">~3</td><td class="num">35</td><td>9m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>PCs + tablets + pizarras dotadas</td><td class="num">~80</td><td class="num">1.635</td><td>12m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Docentes formados ≥120h</td><td class="num">~30</td><td class="num">280</td><td>21m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Estudiantes con acceso plataforma</td><td class="num">~400</td><td class="num">5.500</td><td>18m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Sedes con uso pedagógico activo</td><td class="num">~10%</td><td class="num">≥85%</td><td>24m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Tasa retención docente formación</td><td class="num">N/A</td><td class="num">≥80%</td><td>24m</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Brecha educación (MCB-DNP)</td><td class="num hi">38.5%</td><td class="num ok">≤25%</td><td>4 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Cobertura neta educación media</td><td class="num">~55%</td><td class="num">≥70%</td><td>4 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Resultados Saber 11 promedio</td><td class="num">~250</td><td class="num">≥275</td><td>5 años</td></tr>
+  </tbody>
+</table>
+
+<h2>KPIs Operativos · Mensual</h2>
+<div class="kpi-mini">
+  <div class="kpi"><div class="kpi-n">≥98%</div><div class="kpi-l">Disponibilidad conectividad sedes</div></div>
+  <div class="kpi"><div class="kpi-n">≥85%</div><div class="kpi-l">Sedes con uso pedagógico activo</div></div>
+  <div class="kpi"><div class="kpi-n">≥4h/sem</div><div class="kpi-l">Uso plataforma por estudiante</div></div>
+  <div class="kpi"><div class="kpi-n">≤72h</div><div class="kpi-l">Tiempo respuesta soporte técnico</div></div>
+</div>
+
+<h2>Sostenibilidad Post-Proyecto · M25-M60</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">Modelo Sostenibilidad · 4 Pilares</div>
+    <div class="chart-sub">// transición a SED Arauca + ecosistema permanente</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <rect x="10" y="15" width="100" height="35" fill="#059669" rx="4" opacity="0.85"/>
+        <text x="60" y="30" text-anchor="middle" fill="white" font-weight="700">1. Transferencia SED</text>
+        <text x="60" y="40" text-anchor="middle" fill="#fff" font-size="5.5">Activos pasan a Secretaría</text>
+        <text x="60" y="48" text-anchor="middle" fill="#fff" font-size="5.5">Educación Departamental</text>
+
+        <rect x="120" y="15" width="100" height="35" fill="#0284c7" rx="4" opacity="0.85"/>
+        <text x="170" y="30" text-anchor="middle" fill="white" font-weight="700">2. Centros Digitales</text>
+        <text x="170" y="40" text-anchor="middle" fill="#fff" font-size="5.5">MinTIC operación garantizada</text>
+        <text x="170" y="48" text-anchor="middle" fill="#fff" font-size="5.5">conectividad hasta 2031</text>
+
+        <rect x="10" y="60" width="100" height="35" fill="#7c3aed" rx="4" opacity="0.85"/>
+        <text x="60" y="75" text-anchor="middle" fill="white" font-weight="700">3. Comunidad docente</text>
+        <text x="60" y="85" text-anchor="middle" fill="#fff" font-size="5.5">280 docentes formados</text>
+        <text x="60" y="93" text-anchor="middle" fill="#fff" font-size="5.5">apropiación retenida</text>
+
+        <rect x="120" y="60" width="100" height="35" fill="#d97706" rx="4" opacity="0.85"/>
+        <text x="170" y="75" text-anchor="middle" fill="white" font-weight="700">4. Computadores Educar</text>
+        <text x="170" y="85" text-anchor="middle" fill="#fff" font-size="5.5">Reposición continua</text>
+        <text x="170" y="93" text-anchor="middle" fill="#fff" font-size="5.5">programa nacional permanente</text>
+
+        <rect x="60" y="115" width="120" height="35" fill="#1e293b" rx="5"/>
+        <text x="120" y="130" text-anchor="middle" fill="white" font-weight="700" font-size="7">Ecosistema Educativo Digital</text>
+        <text x="120" y="142" text-anchor="middle" fill="#fcd34d" font-size="6">Operación &gt;7 años garantizada</text>
+
+        <line x1="60" y1="50" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="50" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="60" y1="95" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="95" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+
+        <text x="120" y="170" text-anchor="middle" font-size="6.5" font-weight="700" fill="#0f172a">Modelo viable · respaldo institucional</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Centros Digitales MinTIC garantiza conectividad sedes hasta 2031 (modelo nacional)</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">ROI Social · Educación Digital 5 años</div>
+    <div class="chart-sub">// VPN beneficio educación vs $2.800M</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <text x="5" y="20" fill="#0f172a" font-weight="700">Beneficios estimados (5 años)</text>
+
+        <text x="5" y="38" fill="#0f172a">Cierre brecha educación rural</text>
+        <rect x="135" y="30" width="85" height="11" fill="#d1fae5" rx="2"/>
+        <rect x="135" y="30" width="68" height="11" fill="#059669" rx="2"/>
+        <text x="225" y="38" fill="#0f172a" font-weight="700">$2.450M</text>
+
+        <text x="5" y="58" fill="#0f172a">Mejora resultados Saber 11</text>
+        <rect x="135" y="50" width="85" height="11" fill="#dbeafe" rx="2"/>
+        <rect x="135" y="50" width="42" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="58" fill="#0f172a" font-weight="700">$1.500M</text>
+
+        <text x="5" y="78" fill="#0f172a">Acceso educación superior +20%</text>
+        <rect x="135" y="70" width="85" height="11" fill="#f5f3ff" rx="2"/>
+        <rect x="135" y="70" width="50" height="11" fill="#7c3aed" rx="2"/>
+        <text x="225" y="78" fill="#0f172a" font-weight="700">$1.800M</text>
+
+        <text x="5" y="98" fill="#0f172a">Capital docente formado</text>
+        <rect x="135" y="90" width="85" height="11" fill="#fef3c7" rx="2"/>
+        <rect x="135" y="90" width="35" height="11" fill="#d97706" rx="2"/>
+        <text x="225" y="98" fill="#0f172a" font-weight="700">$1.250M</text>
+
+        <line x1="5" y1="115" x2="225" y2="115" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="130" fill="#0f172a" font-weight="700">VPN beneficios totales</text>
+        <text x="225" y="130" text-anchor="end" fill="#059669" font-weight="700" font-size="8">$7.000M</text>
+
+        <text x="5" y="145" fill="#0f172a" font-weight="700">Inversión total</text>
+        <text x="225" y="145" text-anchor="end" fill="#0284c7" font-weight="700" font-size="8">$2.800M</text>
+
+        <text x="5" y="160" fill="#0f172a" font-weight="700">Ratio B/C</text>
+        <text x="225" y="160" text-anchor="end" fill="#7c3aed" font-weight="700" font-size="9">2.50 ✓</text>
+      </g>
+    </svg>
+    <div class="chart-foot">BRONZE · referencia OCDE Going Digital + estudios MinEducación</div>
+  </div>
+</div>
+
+<div class="tesis" style="padding:0.55rem 0.85rem;margin:0.5rem 0 0.3rem;">
+  <div class="tesis-eq" style="font-size:11pt;">35 sedes · 5.500 estudiantes · 280 docentes · brecha 38.5% → ≤25%</div>
+  <div class="tesis-sub">Escuelas Geniales transforma la educación de Arauquita PDET vía conectividad universal sedes + dotación + apropiación docente · sinergia FTTH Casa Bacana · respaldo permanente Centros Digitales MinTIC hasta 2031</div>
+</div>
+
+<div class="ft">
+  <div>Escuelas Geniales Arauquita · Impacto + Sostenibilidad · Página 5/5</div>
+  <div class="ft-r">FIN · 5 páginas · CCMS-CB-2026-001-B-EG v1</div>
+</div>
+
+</body>
+</html>

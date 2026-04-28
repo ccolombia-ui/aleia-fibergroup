@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro Creciverso Arauquita · IA + Innovación · Infografía v1</title>
+<style>
+:root {
+  --navy: #0f172a; --navy-m: #1e293b; --navy-l: #1e3a5f;
+  --pur: #7c3aed; --pur-d: #6d28d9; --pur-l: #a78bfa; --pur-bg: #f5f3ff;
+  --sky: #0284c7; --sky-d: #0369a1; --sky-l: #38bdf8;
+  --emr: #059669; --emr-d: #047857; --emr-l: #34d399;
+  --gld: #d97706; --gld-d: #b45309; --gld-l: #fcd34d;
+  --org: #ea580c; --org-d: #c2410c; --org-l: #fb923c;
+  --rose: #e11d48; --rose-d: #be123c;
+  --text: #334155; --muted: #64748b; --bg: #f8fafc; --border: rgba(0,0,0,0.08);
+  --mono: 'Courier New', Courier, monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Calibri, Carlito, Arial, sans-serif; font-size: 9.5pt; line-height: 1.42; color: var(--text); background: #fff; max-width: 215mm; margin: 0 auto; padding: 9mm 13mm; }
+.print-btn { position: fixed; top: 12px; right: 12px; background: var(--pur); color:#fff; border:none; padding: 0.5rem 1.1rem; border-radius: 8px; font-size: 0.78rem; font-weight: 700; cursor: pointer; z-index: 999; font-family: inherit; box-shadow: 0 4px 14px rgba(0,0,0,0.28); }
+.print-btn:hover { background: var(--pur-d); }
+h1 { font-size: 20pt; font-weight: 700; color: var(--navy); line-height: 1.08; }
+h2 { font-size: 11pt; font-weight: 700; color: var(--navy); margin: 0.6rem 0 0.3rem; border-bottom: 2px solid var(--pur); padding-bottom: 0.15rem; }
+h3 { font-size: 9.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.18rem; }
+p  { margin-bottom: 0.28rem; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.hdr { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: end; margin-bottom: 0.4rem; padding-bottom: 0.5rem; border-bottom: 3px solid var(--pur); }
+.hdr .sub { font-size: 7.5pt; color: var(--pur-d); font-weight: 700; font-family: var(--mono); margin-top: 0.12rem; letter-spacing: 0.01em; }
+.hdr-meta { text-align: right; font-size: 7pt; color: var(--muted); line-height: 1.7; font-family: var(--mono); }
+.pg-2, .pg-3, .pg-4, .pg-5 { page-break-before: always; break-before: page; }
+.stats-hero { display: grid; grid-template-columns: repeat(6,1fr); background: linear-gradient(135deg, var(--pur-d) 0%, var(--navy) 100%); border-radius: 9px; overflow: hidden; margin: 0.5rem 0 0.45rem; }
+.sh { padding: 0.5rem 0.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.sh:last-child { border-right: none; }
+.sh-n { font-size: 12.5pt; font-weight: 700; color: var(--pur-l); display: block; font-family: var(--mono); }
+.sh-l { font-size: 6pt; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.05rem; }
+.tagline { font-size: 8.5pt; color: var(--text); line-height: 1.5; background: var(--pur-bg); padding: 0.45rem 0.7rem; border-left: 3.5px solid var(--pur); border-radius: 0 6px 6px 0; margin-bottom: 0.35rem; }
+.tagline strong { color: var(--pur-d); }
+.tesis { background: var(--navy); border-radius: 10px; padding: 0.7rem 1rem; margin: 0.4rem 0; color: #fff; }
+.tesis-eq { font-family: 'Georgia', serif; font-size: 12.5pt; font-weight: 700; color: var(--pur-l); text-align: center; line-height: 1.3; margin-bottom: 0.25rem; }
+.tesis-eq .arrow { color: var(--gld-l); padding: 0 0.25rem; }
+.tesis-sub { font-size: 8pt; color: rgba(255,255,255,0.78); text-align: center; font-style: italic; }
+.si { font-size: 8pt; color: var(--muted); margin-bottom: 0.4rem; }
+.charts-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 0.4rem 0; }
+.chart-box { border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.7rem; background: #fff; break-inside: avoid; page-break-inside: avoid; }
+.chart-title { font-size: 8.5pt; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; padding-bottom: 0.2rem; border-bottom: 1.2px solid var(--bg); }
+.chart-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-top: -0.18rem; margin-bottom: 0.3rem; }
+.chart-foot { font-size: 6.5pt; color: var(--muted); margin-top: 0.3rem; padding-top: 0.22rem; border-top: 1px dashed var(--border); }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 7.5pt; }
+table.tbl th { background: var(--navy); color: white; font-weight: 700; padding: 0.25rem 0.45rem; text-align: left; font-size: 7pt; }
+table.tbl td { padding: 0.25rem 0.45rem; border-bottom: 1px solid var(--border); }
+table.tbl tr:last-child td { border-bottom: none; }
+table.tbl tr:nth-child(even) { background: var(--bg); }
+.tbl .num { font-family: var(--mono); text-align: right; }
+.tbl .hi { color: var(--rose-d); font-weight: 700; }
+.tbl .ok { color: var(--emr-d); font-weight: 700; }
+.stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; margin: 0.4rem 0; }
+.stk { border-radius: 7px; padding: 0.5rem 0.6rem; border: 1px solid var(--border); break-inside: avoid; }
+.stk-icon { font-size: 14pt; line-height: 1; }
+.stk-name { font-size: 8pt; font-weight: 700; color: var(--navy); margin: 0.2rem 0 0.1rem; }
+.stk-tech { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.2rem; }
+.stk-bpa { font-size: 6.5pt; color: var(--pur-d); font-style: italic; }
+.stk-cost { font-size: 6.5pt; color: var(--emr-d); font-weight: 700; margin-top: 0.15rem; }
+.stk.s1 { background: linear-gradient(180deg,#fff,#eff6ff); border-left: 3px solid var(--sky); }
+.stk.s2 { background: linear-gradient(180deg,#fff,#f0fdf4); border-left: 3px solid var(--emr); }
+.stk.s3 { background: linear-gradient(180deg,#fff,#fef3c7); border-left: 3px solid var(--gld); }
+.stk.s4 { background: linear-gradient(180deg,#fff,#f5f3ff); border-left: 3px solid var(--pur); }
+.stk.s5 { background: linear-gradient(180deg,#fff,#fff7ed); border-left: 3px solid var(--org); }
+.stk.s6 { background: linear-gradient(180deg,#fff,#fef2f2); border-left: 3px solid var(--rose); }
+.cmt-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.cmt { background: linear-gradient(135deg,#fff,#fafbfc); border: 1px solid var(--border); border-top: 3px solid var(--pur); border-radius: 6px; padding: 0.45rem 0.5rem; text-align: center; }
+.cmt-n { font-size: 13pt; font-weight: 700; font-family: var(--mono); color: var(--pur-d); display: block; line-height: 1; }
+.cmt-l { font-size: 5.8pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.18rem; }
+.ft { margin-top: 0.65rem; padding-top: 0.45rem; border-top: 1.5px solid var(--border); display: grid; grid-template-columns: 1fr auto; font-size: 6.5pt; color: var(--muted); }
+.ft-r { text-align: right; font-family: var(--mono); }
+.bench { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 0.4rem 0; }
+.bn { background: linear-gradient(135deg,#fff,#f8fafc); border: 1px solid var(--border); border-top: 3px solid var(--pur); border-radius: 7px; padding: 0.55rem 0.7rem; }
+.bn.cur { border-top-color: var(--emr); background: linear-gradient(135deg,#fff,#f0fdf4); }
+.bn-h { font-weight: 700; color: var(--navy); font-size: 8pt; }
+.bn-sub { font-size: 6.5pt; color: var(--muted); font-family: var(--mono); margin-bottom: 0.3rem; }
+.bn-row { display: flex; justify-content: space-between; font-size: 7pt; padding: 0.12rem 0; border-bottom: 1px dotted var(--border); }
+.bn-row:last-child { border-bottom: none; font-weight: 700; color: var(--navy); }
+.timeline { display: grid; grid-template-columns: repeat(8,1fr); gap: 4px; margin: 0.5rem 0; }
+.tl { padding: 0.45rem 0.3rem; border-radius: 5px; text-align: center; font-size: 6.5pt; }
+.tl-q { font-weight: 700; font-family: var(--mono); display: block; font-size: 7pt; color: var(--navy); }
+.tl-l { color: var(--muted); display: block; margin-top: 0.15rem; line-height: 1.25; }
+.tl-1, .tl-2 { background: linear-gradient(180deg,#f5f3ff,#fff); border-left: 3px solid var(--pur); }
+.tl-3, .tl-4 { background: linear-gradient(180deg,#dbeafe,#fff); border-left: 3px solid var(--sky); }
+.tl-5, .tl-6 { background: linear-gradient(180deg,#d1fae5,#fff); border-left: 3px solid var(--emr); }
+.tl-7, .tl-8 { background: linear-gradient(180deg,#fef3c7,#fff); border-left: 3px solid var(--gld); }
+.kpi-mini { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.4rem; }
+.kpi { background: var(--bg); border-radius: 6px; padding: 0.4rem 0.45rem; border: 1px solid var(--border); }
+.kpi-n { font-family: var(--mono); font-weight: 700; color: var(--pur-d); font-size: 11pt; }
+.kpi-l { font-size: 6.5pt; color: var(--muted); }
+@page { size: Letter portrait; margin: 9mm 11mm 9mm 11mm; }
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { margin:0; padding:0; max-width:100%; }
+  .print-btn { display: none !important; }
+  body { font-size: 8.5pt; padding: 0; line-height: 1.38; }
+  .pg-2, .pg-3, .pg-4, .pg-5 { page-break-before: always !important; break-before: page !important; }
+  .charts-2col, .stack, .cmt-grid, .kpi-mini, table.tbl, .bench, .timeline { break-inside: avoid; page-break-inside: avoid; }
+  .chart-box, .stk, .cmt, .kpi, .bn, .tl { break-inside: avoid; page-break-inside: avoid; }
+  h2 { margin: 0.45rem 0 0.22rem; font-size: 10pt; }
+  h1 { font-size: 18pt; }
+  .stats-hero { margin: 0.35rem 0 0.3rem; }
+  .sh { padding: 0.4rem 0.4rem; }
+  .sh-n { font-size: 11pt; }
+  .tagline { padding: 0.32rem 0.55rem; font-size: 7.8pt; line-height: 1.42; }
+  .tesis { padding: 0.55rem 0.85rem; }
+  .tesis-eq { font-size: 11pt; }
+  .tesis-sub { font-size: 7.2pt; }
+  .charts-2col { gap: 0.55rem; margin: 0.3rem 0; }
+  .chart-box { padding: 0.42rem 0.55rem; }
+  table.tbl { font-size: 7pt; }
+  .stk { padding: 0.4rem 0.5rem; }
+  .stk-name { font-size: 7.5pt; }
+  .stk-tech, .stk-bpa, .stk-cost { font-size: 6pt; }
+  .cmt-n { font-size: 11.5pt; }
+  .cmt-l { font-size: 5.5pt; }
+  .ft { margin-top: 0.5rem; padding-top: 0.35rem; }
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+
+<!-- ════ PÁGINA 1 · COVER + STATS + TESIS ════ -->
+<div class="hdr">
+  <div>
+    <h1>Centro Creciverso Arauquita · IA + Innovación + Coworking</h1>
+    <div class="sub">centro_potencia_replica · IA_competencias_digitales · MarTICa+TalentoTech · 800-1000m² · 24 meses</div>
+  </div>
+  <div class="hdr-meta">
+    Iniciativa Centro Creciverso · Arauquita<br>
+    Cód. DANE 81065 · PDET · ZOMAC · ZDP<br>
+    URN: poc-cb:arauquita:centro-creciverso<br>
+    2026-04-27 · DRAFT v1 · scope IA + formación
+  </div>
+</div>
+
+<div class="stats-hero">
+  <div class="sh"><span class="sh-n">$3.200M</span><span class="sh-l">COP CAPEX+OPEX 24m</span></div>
+  <div class="sh"><span class="sh-n">1</span><span class="sh-l">Centro físico Arauquita</span></div>
+  <div class="sh"><span class="sh-n">800m²</span><span class="sh-l">área construcción</span></div>
+  <div class="sh"><span class="sh-n">~25K</span><span class="sh-l">personas formadas</span></div>
+  <div class="sh"><span class="sh-n">5</span><span class="sh-l">áreas formación tech</span></div>
+  <div class="sh"><span class="sh-n">95/5</span><span class="sh-l">% MinTIC / GobArauca</span></div>
+</div>
+
+<div class="tesis">
+  <div class="tesis-eq">CONECTIVIDAD <span class="arrow">→</span> CENTRO FÍSICO IA <span class="arrow">→</span> COMPETENCIAS DIGITALES TERRITORIO</div>
+  <div class="tesis-sub">Centro Creciverso replica modelo "Centros PotencIA" Atlántico ($9.717M / 3 centros / 842K beneficiarios) en Arauquita PDET · hub físico de IA + robótica + coworking + formación técnica para cerrar brecha competencias digitales</div>
+</div>
+
+<div class="tagline">
+  <strong>Centro Creciverso Arauquita</strong> es el <strong>hub físico de innovación digital</strong> que complementa <strong>Mi Casa Bacana FTTH</strong> · 800-1000m² de construcción dotados con <strong>computadores, tablets, gafas VR, salones de robótica, espacio juegos interactivos infantil, teatrino al aire libre, coworking</strong> · masifica <strong>IA + competencias digitales</strong> + <strong>formación técnica</strong> en producción de contenidos, software, ciberseguridad, analítica de datos · réplica del modelo MinTIC <strong>Centros PotencIA</strong> Atlántico (3 centros · $9.717M COP) ajustado a 1 centro Arauquita · ejecución 24 meses · cofinanciación <strong>MinTIC 95% + GobArauca 5%</strong>.
+</div>
+
+<h2>Composición del Paquete · 2 vistas</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$3.200M COP · 6 Componentes Centro</div>
+    <div class="chart-sub">// CAPEX 80% obra+dotación + OPEX 20% formación 24m</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri,sans-serif" font-size="6.5">
+        <rect x="20" y="14" width="50" height="14" fill="#0284c7" rx="3"/>
+        <text x="75" y="24" fill="#0f172a">Construcción 800m² · $1.200M (37%)</text>
+        <rect x="20" y="32" width="34" height="14" fill="#7c3aed" rx="3"/>
+        <text x="59" y="42" fill="#0f172a">Dotación TIC (PCs+VR+robótica) · $820M (26%)</text>
+        <rect x="20" y="50" width="22" height="14" fill="#059669" rx="3"/>
+        <text x="47" y="60" fill="#0f172a">Formación + bootcamps Talento Tech · $540M (17%)</text>
+        <rect x="20" y="68" width="14" height="14" fill="#d97706" rx="3"/>
+        <text x="39" y="78" fill="#0f172a">Mobiliario + ambientación · $340M (11%)</text>
+        <rect x="20" y="86" width="9" height="14" fill="#ea580c" rx="3"/>
+        <text x="34" y="96" fill="#0f172a">OPEX 24m operación + servicios · $220M (7%)</text>
+        <rect x="20" y="104" width="3" height="14" fill="#e11d48" rx="3"/>
+        <text x="28" y="114" fill="#0f172a">Plataforma e-learning + contenidos · $80M (2%)</text>
+      </g>
+      <line x1="20" y1="10" x2="20" y2="125" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Total: $3.200M COP · MinTIC 95% + GobArauca 5%</text>
+      <text x="120" y="167" text-anchor="middle" font-family="Calibri" font-size="6" fill="#64748b">Costo benchmark Centros PotencIA: $3.239M/centro</text>
+    </svg>
+    <div class="chart-foot">CAPEX intensivo · benchmark Centros PotencIA Atlántico · GobArauca aporta lote</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Localización · Cabecera Arauquita</div>
+    <div class="chart-sub">// 1 centro físico cabecera + radio acción municipal</div>
+    <svg viewBox="0 0 280 145" style="width:100%;display:block;">
+      <path d="M 0,80 Q 60,70 90,80 Q 130,90 160,75 Q 200,65 280,80 L 280,145 L 0,145 Z" fill="#f5f3ff" opacity="0.4"/>
+      <circle cx="140" cy="60" r="22" fill="#7c3aed" stroke="white" stroke-width="2"/>
+      <text x="140" y="58" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="white">CENTRO</text>
+      <text x="140" y="68" text-anchor="middle" font-family="Calibri" font-size="6" fill="white">CRECIVERSO</text>
+      <text x="140" y="32" text-anchor="middle" font-family="Calibri" font-size="7" font-weight="700" fill="#0f172a">Arauquita Cabecera</text>
+      <text x="140" y="92" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#64748b">800m² · 25.000 beneficiarios</text>
+
+      <!-- Radio acción municipal -->
+      <circle cx="140" cy="60" r="55" fill="none" stroke="#7c3aed" stroke-width="0.8" stroke-dasharray="2,2" opacity="0.5"/>
+      <text x="200" y="65" font-family="Calibri" font-size="5.5" fill="#7c3aed" font-style="italic">radio acción municipal</text>
+
+      <!-- Sub-poblaciones -->
+      <circle cx="80" cy="48" r="4" fill="#a78bfa"/>
+      <text x="80" y="40" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">La Esmeralda</text>
+      <circle cx="200" cy="50" r="4" fill="#a78bfa"/>
+      <text x="200" y="42" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">Aguachica</text>
+      <circle cx="220" cy="80" r="4" fill="#a78bfa"/>
+      <text x="220" y="98" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">Panamá</text>
+      <circle cx="60" cy="78" r="4" fill="#a78bfa"/>
+      <text x="60" y="98" text-anchor="middle" font-family="Calibri" font-size="5.5" fill="#0f172a">La Pesquera</text>
+
+      <rect x="60" y="124" width="160" height="16" fill="#1e293b" rx="4"/>
+      <text x="140" y="135" text-anchor="middle" font-family="'Courier New'" font-size="6.5" font-weight="700" fill="#a78bfa">★ HUB IA + COWORKING + ROBÓTICA ★</text>
+    </svg>
+    <div class="chart-foot">Aprovecha conectividad FTTH Casa Bacana · alianza UDFJC + UNAD para acreditación</div>
+  </div>
+</div>
+
+<h2>Posicionamiento · Centros PotencIA Atlántico Replicado</h2>
+<table class="tbl">
+  <thead><tr><th>Dimensión</th><th>Posición Centro Creciverso Arauquita</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Programa MinTIC marco</strong></td><td>Centros PotencIA · construcción + dotación a cargo MinTIC · lote a cargo Gobernación/Alcaldía</td></tr>
+    <tr><td><strong>Modelo de referencia</strong></td><td>Centros PotencIA Atlántico · 3 centros (Pto. Colombia, Soledad, Sabanalarga) · $9.717M total · 842K beneficiarios</td></tr>
+    <tr><td><strong>Articulación Mi Casa Bacana</strong></td><td>Centro físico complementa conectividad residencial FTTH · sinergia formación/uso productivo</td></tr>
+    <tr><td><strong>Articulación PDD Arauca</strong></td><td>Pilar 1 · Eje Estratégico 6 sub-eje 9 (Gestión Desarrollo TIC) + sub-eje 10 (CTeI)</td></tr>
+    <tr><td><strong>Productos MGA sector 23 + 39</strong></td><td>2301087 (sedes tecnológicas) · 2301084 (apropiación) · 3902024 (formación CTeI)</td></tr>
+    <tr><td><strong>Programa formación complementario</strong></td><td>Talento Tech (bootcamps IA, ciberseguridad, datos, blockchain, programación)</td></tr>
+    <tr><td><strong>Operador / Gestor</strong></td><td>Fibergroup S.A.S. + Alcaldía Arauquita + alianza académica UDFJC/UNAD</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Centro Creciverso Arauquita · IA + Innovación · Página 1/5</div>
+  <div class="ft-r">CCMS-CB-2026-001-B-CC · v1 · Fibergroup-CCMS</div>
+</div>
+
+<!-- ════ PÁGINA 2 · DIAGNÓSTICO + BENCHMARK ════ -->
+<h2 class="pg-2" style="margin-top:0;">Diagnóstico · Brecha de Competencias Digitales</h2>
+<div class="si">// IBD MinTIC 2024 · habilidades digitales = mayor componente brecha (34.7%)</div>
+
+<div class="cmt-grid">
+  <div class="cmt"><span class="cmt-n">0.682</span><span class="cmt-l">IBD Habilidades Orinoq.-Amaz.</span></div>
+  <div class="cmt"><span class="cmt-n">42.059</span><span class="cmt-l">adultos Arauquita 2024</span></div>
+  <div class="cmt"><span class="cmt-n">7.2%</span><span class="cmt-l">colombianos con habilidades programación</span></div>
+  <div class="cmt"><span class="cmt-n">38.5%</span><span class="cmt-l">brecha educación Arauquita (MCB)</span></div>
+  <div class="cmt"><span class="cmt-n">0</span><span class="cmt-l">centros formación IA en Arauca</span></div>
+  <div class="cmt"><span class="cmt-n">~3.500</span><span class="cmt-l">estudiantes activos cabecera</span></div>
+  <div class="cmt"><span class="cmt-n">~700</span><span class="cmt-l">jóvenes 15-24 años NEET</span></div>
+  <div class="cmt"><span class="cmt-n">25.000</span><span class="cmt-l">meta personas formadas</span></div>
+</div>
+
+<h2>Benchmark · Centros PotencIA MinTIC · Matriz Verificada</h2>
+<div class="si">// fuentes SILVER · mintic.gov.co · cordoba.gov.co · atlantico.gov.co · palmira.gov.co · 2024-2025</div>
+<table class="tbl">
+  <thead><tr><th>Convenio / Programa</th><th>Tipo</th><th class="num">Área</th><th class="num">Equipos</th><th class="num">$/centro</th><th class="num">MinTIC%</th><th class="num">Gob%</th><th>Beneficiarios</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Centros PotencIA Tipo A</strong> (Valle del Cauca)</td><td>A · grande</td><td class="num">1.097 m²</td><td class="num">190 eq.</td><td class="num hi">$6.600M</td><td class="num">~100%</td><td class="num">0%</td><td>Mayor capacidad · 135 PC + 42 tab + 6 VR</td></tr>
+    <tr><td><strong>Centros PotencIA Tipo B</strong> (Valle del Cauca)</td><td>B · mediano</td><td class="num">1.246 m²</td><td class="num">118 eq.</td><td class="num">$4.700M</td><td class="num">~100%</td><td class="num">0%</td><td>Capacidad media · 90 PC + 21 tab + 3 VR</td></tr>
+    <tr><td><strong>Centros PotencIA Tipo C</strong> (Valle del Cauca)</td><td>C · básico</td><td class="num">1.007 m²</td><td class="num">76 eq.</td><td class="num ok">$3.700M</td><td class="num">~100%</td><td class="num">0%</td><td>48 PC + 21 tab + 3 VR · tipo más cercano</td></tr>
+    <tr style="background:#eff6ff;"><td><strong>Centros PotencIA Atlántico</strong> (3 centros · sep2024)</td><td>Estándar</td><td class="num">500-1.000m²</td><td class="num">N/D</td><td class="num ok">$3.239M avg</td><td class="num">100%</td><td class="num">0%</td><td>842.000 beneficiarios · Pto. Colombia + Soledad + Sabanalarga</td></tr>
+    <tr style="background:#eff6ff;"><td><strong>Centros PotencIA Córdoba</strong> (3 centros · oct2024)</td><td>Estándar</td><td class="num">N/D</td><td class="num">N/D</td><td class="num ok">$3.333M avg</td><td class="num">90%</td><td class="num">10%</td><td>187.000 beneficiarios · Ciénaga Oro + Buenavista + Tierralta</td></tr>
+    <tr style="background:#fef9c3; font-weight:700;"><td>🎯 Centro Creciverso Arauquita (PROPUESTA)</td><td>Tipo C análogo</td><td class="num">800 m²</td><td class="num">~90 eq.</td><td class="num">$3.200M</td><td class="num">95%</td><td class="num">5%</td><td>~25.000 · PDET EIBC · 1er centro IA en Arauca</td></tr>
+  </tbody>
+</table>
+<div class="si">Fuentes: mintic.gov.co (Valle Cauca Centro PotencIA tipos) · cordoba.gov.co (Convenio $10.000M/3 centros oct2024) · atlantico.gov.co (Convenio $9.717M/3 centros sep2024)</div>
+
+<div class="bench" style="grid-template-columns:1fr 1fr 1fr; margin-top:0.4rem;">
+  <div class="bn">
+    <div class="bn-h">📍 Atlántico · 3 Centros PotencIA</div>
+    <div class="bn-sub">// Convenio MinTIC 100% · sept2024 · SILVER</div>
+    <div class="bn-row"><span>Centros</span><span class="mono">3</span></div>
+    <div class="bn-row"><span>Municipios</span><span class="mono">Pto.Colombia · Soledad · Sabanalarga</span></div>
+    <div class="bn-row"><span>Inversión total</span><span class="mono">$9.717M</span></div>
+    <div class="bn-row"><span>Por centro</span><span class="mono">$3.239M avg ✓</span></div>
+    <div class="bn-row"><span>Área típica</span><span class="mono">500-1.000 m²</span></div>
+    <div class="bn-row"><span>MinTIC%</span><span class="mono">100% · GobAto aporta lote</span></div>
+    <div class="bn-row"><span>Beneficiarios</span><span class="mono">842.000 atlanticenses</span></div>
+  </div>
+
+  <div class="bn">
+    <div class="bn-h">📍 Córdoba · 3 Centros PotencIA</div>
+    <div class="bn-sub">// MinTIC 90% + GobCórdoba 10% · oct2024 · SILVER</div>
+    <div class="bn-row"><span>Centros</span><span class="mono">3</span></div>
+    <div class="bn-row"><span>Municipios</span><span class="mono">Ciénaga O. · Buenavista · Tierralta</span></div>
+    <div class="bn-row"><span>Inversión total</span><span class="mono">$10.000M</span></div>
+    <div class="bn-row"><span>Por centro</span><span class="mono">$3.333M avg ✓</span></div>
+    <div class="bn-row"><span>MinTIC</span><span class="mono">$9.000M (90%)</span></div>
+    <div class="bn-row"><span>GobCórdoba</span><span class="mono">$1.000M (10%)</span></div>
+    <div class="bn-row"><span>Beneficiarios</span><span class="mono">187.000 cordobeses</span></div>
+  </div>
+
+  <div class="bn cur">
+    <div class="bn-h">🎯 Arauquita · 1 Centro Creciverso (PROPUESTA)</div>
+    <div class="bn-sub">// MinTIC 95% + GobArauca 5% · 2026-2028 · PDET</div>
+    <div class="bn-row"><span>Centros</span><span class="mono">1</span></div>
+    <div class="bn-row"><span>Municipio</span><span class="mono">Arauquita cabecera</span></div>
+    <div class="bn-row"><span>Inversión total</span><span class="mono">$3.200M</span></div>
+    <div class="bn-row"><span>Por centro</span><span class="mono">$3.200M (vs $3.239-3.333M avg)</span></div>
+    <div class="bn-row"><span>Área</span><span class="mono">800 m² (análogo Tipo C)</span></div>
+    <div class="bn-row"><span>MinTIC</span><span class="mono">$3.040M (95%)</span></div>
+    <div class="bn-row"><span>Beneficiarios</span><span class="mono">~25.000 personas formadas</span></div>
+  </div>
+</div>
+
+<h2>Dotación Estándar · Componentes Físicos</h2>
+<table class="tbl">
+  <thead><tr><th>Espacio funcional</th><th>Dotación estándar</th><th class="num">Cantidad</th><th class="num">Inversión</th></tr></thead>
+  <tbody>
+    <tr><td>Aula coworking + capacitación</td><td>Computadores All-in-One · sillas ergonómicas · pantalla colaborativa</td><td class="num">30 PCs</td><td class="num">$220M</td></tr>
+    <tr><td>Salón robótica + maker</td><td>Kits Lego Education · Arduino · 3D printers · electrónica básica</td><td class="num">25 kits</td><td class="num">$180M</td></tr>
+    <tr><td>Realidad virtual + inmersiva</td><td>Gafas VR Quest 3 · sensores movimiento · contenido educativo VR</td><td class="num">15 gafas</td><td class="num">$140M</td></tr>
+    <tr><td>Lab IA + datos</td><td>Servidores GPU · workstations · plataformas IA cloud</td><td class="num">8 estaciones</td><td class="num">$160M</td></tr>
+    <tr><td>Espacio infantil 3-8 años</td><td>Tabletas educativas · juegos interactivos · contenidos lúdicos</td><td class="num">20 tablets</td><td class="num">$70M</td></tr>
+    <tr><td>Estudio contenidos digitales</td><td>Cámaras streaming · audio profesional · iluminación · edición</td><td class="num">2 estudios</td><td class="num">$50M</td></tr>
+    <tr><td>Teatrino al aire libre</td><td>Audio + video portable · gradas · pantalla LED outdoor</td><td class="num">1 espacio</td><td class="num">$0M (incl.obra)</td></tr>
+    <tr><td><strong>Total dotación TIC</strong></td><td>Equipo + software + licencias 24m</td><td class="num">—</td><td class="num"><strong>$820M</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Centro Creciverso Arauquita · Diagnóstico + Benchmark · Página 2/5</div>
+  <div class="ft-r">Benchmarks: Atlántico $3.239M · Córdoba $3.333M · TipoC $3.700M · Propuesta $3.200M VERIFICADO</div>
+</div>
+
+<!-- ════ PÁGINA 3 · ARQUITECTURA + STACK ════ -->
+<h2 class="pg-3" style="margin-top:0;">Arquitectura · 6 Áreas Funcionales</h2>
+<div class="si">// stack pedagógico-tecnológico · open source · alianza UDFJC + UNAD</div>
+
+<div class="stack">
+  <div class="stk s1">
+    <div class="stk-icon">💻</div>
+    <div class="stk-name">Coworking + Capacitación</div>
+    <div class="stk-tech">30 PCs · LMS Moodle · Talento Tech bootcamps</div>
+    <div class="stk-bpa">→ MinTIC Talento Tech</div>
+    <div class="stk-cost">$220M dotación + $200M obra</div>
+  </div>
+  <div class="stk s4">
+    <div class="stk-icon">🤖</div>
+    <div class="stk-name">Robótica + Maker Lab</div>
+    <div class="stk-tech">Lego Edu · Arduino · 3D printers · CNC</div>
+    <div class="stk-bpa">→ Centros PotencIA modelo</div>
+    <div class="stk-cost">$180M dotación + $150M obra</div>
+  </div>
+  <div class="stk s2">
+    <div class="stk-icon">🥽</div>
+    <div class="stk-name">Realidad Virtual</div>
+    <div class="stk-tech">Quest 3 · ContentVR educativo · simuladores</div>
+    <div class="stk-bpa">→ Casa Bacana Atlántico</div>
+    <div class="stk-cost">$140M dotación + $80M obra</div>
+  </div>
+  <div class="stk s3">
+    <div class="stk-icon">🧠</div>
+    <div class="stk-name">Lab IA + Datos</div>
+    <div class="stk-tech">GPU workstations · Python · TensorFlow · datos abiertos</div>
+    <div class="stk-bpa">→ MinTIC IA Política Nacional</div>
+    <div class="stk-cost">$160M dotación + $120M obra</div>
+  </div>
+  <div class="stk s5">
+    <div class="stk-icon">🎨</div>
+    <div class="stk-name">Espacio Infantil 3-8 años</div>
+    <div class="stk-tech">tablets educativas · juegos interactivos lúdicos</div>
+    <div class="stk-bpa">→ Centros PotencIA infantil</div>
+    <div class="stk-cost">$70M dotación + $250M obra</div>
+  </div>
+  <div class="stk s6">
+    <div class="stk-icon">🎬</div>
+    <div class="stk-name">Estudio + Teatrino</div>
+    <div class="stk-tech">streaming · podcast · audio · video editing · LED outdoor</div>
+    <div class="stk-bpa">→ creación contenidos digitales</div>
+    <div class="stk-cost">$50M dotación + $400M obra</div>
+  </div>
+</div>
+
+<h2>Áreas de Formación · 5 Líneas Talento Tech</h2>
+<table class="tbl">
+  <thead><tr><th>Área</th><th>Modalidad</th><th class="num">Duración</th><th class="num">Cohortes/año</th><th class="num">Estudiantes/año</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Inteligencia Artificial</strong></td><td>Bootcamp intensivo</td><td class="num">160h</td><td class="num">3</td><td class="num">90</td></tr>
+    <tr><td><strong>Ciberseguridad</strong></td><td>Bootcamp intensivo</td><td class="num">160h</td><td class="num">2</td><td class="num">60</td></tr>
+    <tr><td><strong>Analítica de Datos</strong></td><td>Bootcamp intensivo</td><td class="num">120h</td><td class="num">3</td><td class="num">90</td></tr>
+    <tr><td><strong>Programación + Cloud</strong></td><td>Bootcamp intensivo</td><td class="num">200h</td><td class="num">3</td><td class="num">90</td></tr>
+    <tr><td><strong>Internet de las Cosas (IoT)</strong></td><td>Bootcamp + maker lab</td><td class="num">120h</td><td class="num">2</td><td class="num">60</td></tr>
+    <tr><td>Talleres comunitarios libres</td><td>Sesiones cortas</td><td class="num">3-6h</td><td class="num">~80</td><td class="num">~5.000</td></tr>
+    <tr><td>Talleres infantiles 3-8</td><td>Lúdico-pedagógico</td><td class="num">2h</td><td class="num">~120</td><td class="num">~3.000</td></tr>
+    <tr><td>Estudiantes K-11 visitas</td><td>Visitas guiadas + práctica</td><td class="num">4h</td><td class="num">~150</td><td class="num">~7.500</td></tr>
+    <tr><td><strong>TOTAL ANUAL</strong></td><td>—</td><td class="num">—</td><td class="num">—</td><td class="num"><strong>~16.000</strong></td></tr>
+  </tbody>
+</table>
+<div class="si" style="margin-top:0.4rem;">// 24 meses operación = ~25.000 personas formadas (6.000 técnico + 19.000 talleres)</div>
+
+<div class="ft">
+  <div>Centro Creciverso Arauquita · Arquitectura · Página 3/5</div>
+  <div class="ft-r">Modelo formación Talento Tech MinTIC</div>
+</div>
+
+<!-- ════ PÁGINA 4 · CRONOGRAMA + FINANCIERO ════ -->
+<h2 class="pg-4" style="margin-top:0;">Plan de Despliegue · 24 Meses</h2>
+
+<div class="timeline">
+  <div class="tl tl-1"><span class="tl-q">T1 · M1-3</span><span class="tl-l"><strong>Estructuración</strong><br>Lote · diseños · permisos · contratación</span></div>
+  <div class="tl tl-2"><span class="tl-q">T2 · M4-6</span><span class="tl-l"><strong>Cimentación</strong><br>Excavación · estructura · cubierta</span></div>
+  <div class="tl tl-3"><span class="tl-q">T3 · M7-9</span><span class="tl-l"><strong>Acabados obra</strong><br>Mampostería · instalaciones · acabados</span></div>
+  <div class="tl tl-4"><span class="tl-q">T4 · M10-12</span><span class="tl-l"><strong>Dotación</strong><br>PCs · VR · robótica · mobiliario</span></div>
+  <div class="tl tl-5"><span class="tl-q">T5 · M13-15</span><span class="tl-l"><strong>Apertura + 1ras cohortes</strong><br>Inauguración · 5 bootcamps · talleres</span></div>
+  <div class="tl tl-6"><span class="tl-q">T6 · M16-18</span><span class="tl-l"><strong>Operación plena</strong><br>~12K personas formadas año 1</span></div>
+  <div class="tl tl-7"><span class="tl-q">T7 · M19-21</span><span class="tl-l"><strong>Año 2 operación</strong><br>~16K personas formadas año 2</span></div>
+  <div class="tl tl-8"><span class="tl-q">T8 · M22-24</span><span class="tl-l"><strong>Cierre + transición</strong><br>Acta · Operador permanente</span></div>
+</div>
+
+<h2>Distribución Presupuestal · CAPEX vs OPEX</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">$3.200M COP · 80/20 CAPEX/OPEX</div>
+    <div class="chart-sub">// CAPEX = obra + dotación; OPEX = 24m formación + servicios</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#7c3aed" stroke-width="20" stroke-dasharray="276 69" transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="55" fill="none" stroke="#059669" stroke-width="20" stroke-dasharray="69 276" stroke-dashoffset="-276" transform="rotate(-90 80 80)"/>
+      <text x="80" y="78" text-anchor="middle" font-family="Calibri" font-size="9" font-weight="700" fill="#0f172a">$3.200M</text>
+      <text x="80" y="89" text-anchor="middle" font-family="Calibri" font-size="6.5" fill="#64748b">total 24m</text>
+
+      <rect x="160" y="40" width="10" height="10" fill="#7c3aed"/>
+      <text x="175" y="48" font-family="Calibri" font-size="7" fill="#0f172a">CAPEX 80%</text>
+      <text x="175" y="58" font-family="Calibri" font-size="6" fill="#64748b">$2.560M (obra+dotación)</text>
+
+      <rect x="160" y="75" width="10" height="10" fill="#059669"/>
+      <text x="175" y="83" font-family="Calibri" font-size="7" fill="#0f172a">OPEX 24m 20%</text>
+      <text x="175" y="93" font-family="Calibri" font-size="6" fill="#64748b">$640M (formación + serv.)</text>
+
+      <text x="120" y="155" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Construcción + dotación a cargo MinTIC · GobArauca aporta lote</text>
+    </svg>
+    <div class="chart-foot">Activos quedan en propiedad de la Alcaldía/Departamento post-MinTIC</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">Cofinanciación · MinTIC 95% / GobArauca 5%</div>
+    <div class="chart-sub">// más predio (lote) aportado por GobArauca/Alcaldía</div>
+    <svg viewBox="0 0 240 165" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="7">
+        <text x="5" y="20" fill="#0f172a" font-weight="700">MinTIC / FUTIC</text>
+        <rect x="100" y="12" width="120" height="16" fill="#f5f3ff" rx="3"/>
+        <rect x="100" y="12" width="114" height="16" fill="#7c3aed" rx="3"/>
+        <text x="225" y="23" fill="#0f172a" font-weight="700">95% · $3.040M</text>
+
+        <text x="5" y="48" fill="#0f172a" font-weight="700">Gob. Arauca</text>
+        <rect x="100" y="40" width="120" height="16" fill="#fef3c7" rx="3"/>
+        <rect x="100" y="40" width="6" height="16" fill="#d97706" rx="3"/>
+        <text x="225" y="51" fill="#0f172a" font-weight="700">5% · $160M</text>
+
+        <text x="5" y="76" fill="#0f172a" font-weight="700">Alcaldía Arauquita</text>
+        <rect x="100" y="68" width="120" height="16" fill="#fff7ed" rx="3"/>
+        <rect x="100" y="68" width="120" height="16" fill="#ea580c" rx="3" opacity="0.5"/>
+        <text x="225" y="79" fill="#0f172a" font-weight="700">+ Lote</text>
+
+        <line x1="5" y1="95" x2="225" y2="95" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="115" fill="#64748b" font-style="italic">Comparativa Centros PotencIA Atlántico</text>
+        <text x="5" y="127" fill="#64748b">$9.717M / 3 centros = $3.239M/centro</text>
+        <text x="5" y="139" fill="#64748b">MinTIC obra + dotación · Gob aporta lote</text>
+
+        <text x="120" y="158" text-anchor="middle" font-family="Calibri" font-size="6.5" font-weight="700" fill="#0f172a">Modelo idéntico a Atlántico</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Lote ~1500m² ubicado en cabecera Arauquita (zona céntrica · acceso público)</div>
+  </div>
+</div>
+
+<h2>Hitos Críticos · Pagos por Avance</h2>
+<table class="tbl">
+  <thead><tr><th>Hito</th><th>Mes</th><th>Indicador verificable</th><th class="num">% Desembolso</th></tr></thead>
+  <tbody>
+    <tr><td>H1 · Acta inicio + lote</td><td>M1</td><td>Lote escriturado · contrato firmado · garantías</td><td class="num">10%</td></tr>
+    <tr><td>H2 · Cimentación + estructura</td><td>M6</td><td>Estructura completa · cubierta · 50% obra civil</td><td class="num">25%</td></tr>
+    <tr><td>H3 · Acabados + instalaciones</td><td>M9</td><td>100% obra civil · instalaciones eléctricas/datos</td><td class="num">20%</td></tr>
+    <tr><td>H4 · Dotación instalada</td><td>M12</td><td>Equipos instalados · pruebas funcionales · acta</td><td class="num">25%</td></tr>
+    <tr><td>H5 · Apertura + cohortes 1</td><td>M15</td><td>Inauguración · 5 bootcamps activos · 1.000 personas</td><td class="num">10%</td></tr>
+    <tr><td>H6 · 12K formados año 1</td><td>M18</td><td>12.000 personas formadas · informe pedagógico</td><td class="num">5%</td></tr>
+    <tr><td>H7 · 25K formados acumulado</td><td>M24</td><td>25.000 acumulado · transición operador permanente</td><td class="num">5%</td></tr>
+  </tbody>
+</table>
+
+<div class="ft">
+  <div>Centro Creciverso Arauquita · Cronograma + Financiero · Página 4/5</div>
+  <div class="ft-r">Estructura modelo Centros PotencIA Atlántico</div>
+</div>
+
+<!-- ════ PÁGINA 5 · IMPACTO + KPIs ════ -->
+<h2 class="pg-5" style="margin-top:0;">Impacto Esperado + KPIs Operativos</h2>
+
+<h2>Cadena de Resultados RBM-GAC</h2>
+<table class="tbl">
+  <thead><tr><th>Nivel</th><th>Indicador</th><th class="num">LB 2024</th><th class="num">Meta 2028</th><th>Plazo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>INSUMOS</strong></td><td>Inversión total</td><td class="num">$0</td><td class="num">$3.200M</td><td>24m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Centro físico construido + dotado</td><td class="num">0</td><td class="num">1 (800m²)</td><td>12m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Estaciones de trabajo IA + VR + robótica</td><td class="num">0</td><td class="num">98 estaciones</td><td>12m</td></tr>
+    <tr><td><strong>PRODUCTOS</strong></td><td>Personas formadas (acumulado)</td><td class="num">0</td><td class="num">25.000</td><td>24m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>% adultos Arauquita formados</td><td class="num">0%</td><td class="num">~22%</td><td>24m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Bootcamps Talento Tech completados</td><td class="num">0</td><td class="num">~390 cohortes</td><td>24m</td></tr>
+    <tr><td><strong>RESULTADOS</strong></td><td>Habilidades programación post-bootcamp</td><td class="num">7.2%</td><td class="num">≥40%</td><td>24m</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Brecha educación (MCB-DNP)</td><td class="num hi">38.5%</td><td class="num ok">≤25%</td><td>4 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Empleabilidad jóvenes formados</td><td class="num">N/A</td><td class="num">≥50%</td><td>3 años</td></tr>
+    <tr><td><strong>IMPACTOS</strong></td><td>Emprendimientos digitales nacidos</td><td class="num">~5</td><td class="num">≥80</td><td>5 años</td></tr>
+  </tbody>
+</table>
+
+<h2>KPIs de Operación · Mensual</h2>
+<div class="kpi-mini">
+  <div class="kpi"><div class="kpi-n">≥85%</div><div class="kpi-l">Ocupación espacios + bootcamps</div></div>
+  <div class="kpi"><div class="kpi-n">≥1.000</div><div class="kpi-l">Personas formadas/mes (operación plena)</div></div>
+  <div class="kpi"><div class="kpi-n">≥4/5</div><div class="kpi-l">Calificación satisfacción asistentes</div></div>
+  <div class="kpi"><div class="kpi-n">≥98%</div><div class="kpi-l">Disponibilidad equipos + conectividad</div></div>
+</div>
+
+<h2>Sostenibilidad Post-Proyecto · M25-M60</h2>
+<div class="charts-2col">
+  <div class="chart-box">
+    <div class="chart-title">Modelo Operación Permanente</div>
+    <div class="chart-sub">// transición a operador estable post-MinTIC</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <rect x="10" y="15" width="100" height="35" fill="#7c3aed" rx="4" opacity="0.85"/>
+        <text x="60" y="30" text-anchor="middle" fill="white" font-weight="700">1. Operador estable</text>
+        <text x="60" y="40" text-anchor="middle" fill="#fff" font-size="5.5">Alcaldía o convenio mixto</text>
+        <text x="60" y="48" text-anchor="middle" fill="#fff" font-size="5.5">público-privado-académico</text>
+
+        <rect x="120" y="15" width="100" height="35" fill="#059669" rx="4" opacity="0.85"/>
+        <text x="170" y="30" text-anchor="middle" fill="white" font-weight="700">2. Talento Tech continuo</text>
+        <text x="170" y="40" text-anchor="middle" fill="#fff" font-size="5.5">MinTIC continúa subsidio</text>
+        <text x="170" y="48" text-anchor="middle" fill="#fff" font-size="5.5">bootcamps anualmente</text>
+
+        <rect x="10" y="60" width="100" height="35" fill="#0284c7" rx="4" opacity="0.85"/>
+        <text x="60" y="75" text-anchor="middle" fill="white" font-weight="700">3. Servicios rentables</text>
+        <text x="60" y="85" text-anchor="middle" fill="#fff" font-size="5.5">coworking pago · empresas</text>
+        <text x="60" y="93" text-anchor="middle" fill="#fff" font-size="5.5">contratos formación a medida</text>
+
+        <rect x="120" y="60" width="100" height="35" fill="#d97706" rx="4" opacity="0.85"/>
+        <text x="170" y="75" text-anchor="middle" fill="white" font-weight="700">4. Alianzas académicas</text>
+        <text x="170" y="85" text-anchor="middle" fill="#fff" font-size="5.5">UDFJC + UNAD presenciales</text>
+        <text x="170" y="93" text-anchor="middle" fill="#fff" font-size="5.5">cursos extensión + posgrados</text>
+
+        <rect x="60" y="115" width="120" height="35" fill="#1e293b" rx="5"/>
+        <text x="120" y="130" text-anchor="middle" fill="white" font-weight="700" font-size="7">Modelo Híbrido Sostenible</text>
+        <text x="120" y="142" text-anchor="middle" fill="#fcd34d" font-size="6">≥10 años operación</text>
+
+        <line x1="60" y1="50" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="50" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="60" y1="95" x2="100" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+        <line x1="170" y1="95" x2="140" y2="115" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,1"/>
+
+        <text x="120" y="170" text-anchor="middle" font-size="6.5" font-weight="700" fill="#0f172a">Modelo público-privado-académico</text>
+      </g>
+    </svg>
+    <div class="chart-foot">Activos transferidos a Alcaldía + costo operativo soportado por mix público-privado</div>
+  </div>
+
+  <div class="chart-box">
+    <div class="chart-title">ROI Social · 5 años</div>
+    <div class="chart-sub">// VPN beneficio social vs $3.200M</div>
+    <svg viewBox="0 0 240 175" style="width:100%;display:block;">
+      <g font-family="Calibri" font-size="6.5">
+        <text x="5" y="20" fill="#0f172a" font-weight="700">Beneficios estimados (5 años)</text>
+
+        <text x="5" y="38" fill="#0f172a">Empleabilidad +50% jóvenes</text>
+        <rect x="135" y="30" width="85" height="11" fill="#f5f3ff" rx="2"/>
+        <rect x="135" y="30" width="65" height="11" fill="#7c3aed" rx="2"/>
+        <text x="225" y="38" fill="#0f172a" font-weight="700">$2.100M</text>
+
+        <text x="5" y="58" fill="#0f172a">Emprendimientos digitales nacidos</text>
+        <rect x="135" y="50" width="85" height="11" fill="#fef3c7" rx="2"/>
+        <rect x="135" y="50" width="55" height="11" fill="#d97706" rx="2"/>
+        <text x="225" y="58" fill="#0f172a" font-weight="700">$1.800M</text>
+
+        <text x="5" y="78" fill="#0f172a">Reducción migración rural</text>
+        <rect x="135" y="70" width="85" height="11" fill="#d1fae5" rx="2"/>
+        <rect x="135" y="70" width="38" height="11" fill="#059669" rx="2"/>
+        <text x="225" y="78" fill="#0f172a" font-weight="700">$1.200M</text>
+
+        <text x="5" y="98" fill="#0f172a">Capital humano TIC formado</text>
+        <rect x="135" y="90" width="85" height="11" fill="#dbeafe" rx="2"/>
+        <rect x="135" y="90" width="50" height="11" fill="#0284c7" rx="2"/>
+        <text x="225" y="98" fill="#0f172a" font-weight="700">$1.600M</text>
+
+        <line x1="5" y1="115" x2="225" y2="115" stroke="#cbd5e1" stroke-width="0.5"/>
+
+        <text x="5" y="130" fill="#0f172a" font-weight="700">VPN beneficios totales</text>
+        <text x="225" y="130" text-anchor="end" fill="#059669" font-weight="700" font-size="8">$6.700M</text>
+
+        <text x="5" y="145" fill="#0f172a" font-weight="700">Inversión total</text>
+        <text x="225" y="145" text-anchor="end" fill="#7c3aed" font-weight="700" font-size="8">$3.200M</text>
+
+        <text x="5" y="160" fill="#0f172a" font-weight="700">Ratio B/C</text>
+        <text x="225" y="160" text-anchor="end" fill="#d97706" font-weight="700" font-size="9">2.09 ✓</text>
+      </g>
+    </svg>
+    <div class="chart-foot">BRONZE · referencia formación tipo Talento Tech (4.060 jóvenes Atlántico 2024)</div>
+  </div>
+</div>
+
+<div class="tesis" style="padding:0.55rem 0.85rem;margin:0.5rem 0 0.3rem;">
+  <div class="tesis-eq" style="font-size:11pt;">25.000 personas formadas · 800m² · 24 meses · Hub IA Arauca</div>
+  <div class="tesis-sub">Centro Creciverso Arauquita = primera infraestructura física de IA + competencias digitales en Arauca PDET · réplica probada Centros PotencIA Atlántico · cierre brecha competencias 38.5% → ≤25%</div>
+</div>
+
+<div class="ft">
+  <div>Centro Creciverso Arauquita · Impacto + Sostenibilidad · Página 5/5</div>
+  <div class="ft-r">FIN · 5 páginas · CCMS-CB-2026-001-B-CC v1</div>
+</div>
+
+</body>
+</html>

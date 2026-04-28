@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §1.7 Análisis de Actores · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-gob{background:rgba(56,189,248,.18);color:#0c4a6e;border-color:rgba(3,105,161,.4);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.section-banner{background:linear-gradient(135deg,rgba(56,189,248,.10) 0%,rgba(3,105,161,.06) 100%);border:1px solid rgba(56,189,248,.28);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:#0c4a6e;}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.pos-a{background:rgba(4,120,87,.12);color:var(--emr);font-weight:700;font-family:var(--sans);font-size:7pt;padding:.04rem .2rem;border-radius:2px;}
+.pos-n{background:rgba(148,163,184,.15);color:#475569;font-weight:700;font-family:var(--sans);font-size:7pt;padding:.04rem .2rem;border-radius:2px;}
+.pos-o{background:rgba(190,18,60,.10);color:var(--rose);font-weight:700;font-family:var(--sans);font-size:7pt;padding:.04rem .2rem;border-radius:2px;}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§1.7 Análisis de Actores · Mapa de Stakeholders Multinivel</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§1-7-actores-v0.1 · 1–2 may 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 2 may 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §1.7 · Análisis de actores · interés · poder · posición</div>
+    <div class="banner-title">Stakeholders nacional · departamental · municipal · privado · comunidad</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D · GOB</strong></div>
+    <div class="banner-date">Día de entrega: <strong>1–2 may 2026</strong></div>
+  </div>
+</div>
+
+<div class="cl-num">§1.7.A — Instrucciones DNP para análisis de actores</div>
+<div class="cl-body"><p>La MGA Web DNP §1.7 requiere identificar todos los actores que inciden o son afectados por el proyecto, clasificados por: <strong>nivel</strong> (nacional/departamental/municipal/privado/comunidad) · <strong>interés</strong> (alto/medio/bajo) · <strong>poder</strong> (alto/medio/bajo) · <strong>posición</strong> (a favor/neutro/en contra). Para cada actor se describe su rol y las acciones de relacionamiento recomendadas.</p></div>
+
+<!-- ACTORES NACIONALES -->
+<div class="cl-num">§1.7.B — Actores nivel nacional (verificados)</div>
+<table class="tbl">
+  <thead><tr><th>Actor</th><th>Rol en proyecto</th><th>Interés</th><th>Poder</th><th>Posición</th><th>Acción</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>MinTIC</strong></td>
+      <td>Rector del sector · financiador FUTIC · cofinanciador ~95%</td>
+      <td>Alto</td><td>Alto</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Gestionar radicación MGA · asegurar alineación con Conv FUTIC</td>
+    </tr>
+    <tr>
+      <td><strong>DNP</strong></td>
+      <td>Banco de Proyectos BPIN-SUIFP · viabilidad técnica</td>
+      <td>Medio</td><td>Alto</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Asegurar MGA completa · indicadores correctos · cadena valor coherente</td>
+    </tr>
+    <tr>
+      <td><strong>ART</strong></td>
+      <td>Validador PDET · habilitante inversiones Arauca</td>
+      <td>Alto</td><td>Alto</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Coordinar con GOB para aval PATR · verificar alineación PDET Arauca 2023</td>
+    </tr>
+    <tr>
+      <td><strong>CRC</strong></td>
+      <td>Comisión de Regulación · condiciones calidad PRST</td>
+      <td>Bajo</td><td>Medio</td>
+      <td><span class="pos-n">Neutro</span></td>
+      <td>Verificar cumplimiento condiciones de calidad regulatorias</td>
+    </tr>
+    <tr>
+      <td><strong>InterNexa</strong></td>
+      <td>Potencial proveedor backbone nacional de fibra</td>
+      <td>Medio</td><td>Medio</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Consultar con B disponibilidad enlace troncal hacia Arauquita</td>
+    </tr>
+    <tr>
+      <td><strong>Fiducoldex</strong></td>
+      <td>Fiducia administradora de recursos FUTIC</td>
+      <td>Bajo</td><td>Medio</td>
+      <td><span class="pos-n">Neutro</span></td>
+      <td>Verificar condiciones de desembolso FUTIC con JUR</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ACTORES DEPARTAMENTALES -->
+<div class="cl-num">§1.7.C — Actores nivel departamental</div>
+<table class="tbl">
+  <thead><tr><th>Actor</th><th>Rol en proyecto</th><th>Interés</th><th>Poder</th><th>Posición</th><th>Acción</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Gobernación Arauca</strong></td>
+      <td>Rector PDD · posible cofinancador departamental</td>
+      <td>Alto</td><td>Alto</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Carta de aval PDD Arauca Mejor Eje 6 · explorar contraparte departamental</td>
+    </tr>
+    <tr>
+      <td><strong>Secretaría TIC Arauca</strong></td>
+      <td>Ejecutor TIC departamental · complementa MinTIC</td>
+      <td>Alto</td><td>Medio</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Alineación técnica · evitar duplicación con programas departamentales</td>
+    </tr>
+    <tr>
+      <td><strong>ART regional Arauca</strong></td>
+      <td>Coordinación PDET subregional · PATR</td>
+      <td>Alto</td><td>Medio</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Validar ficha subregional PDET · D activa este enlace</td>
+    </tr>
+    <tr>
+      <td><strong>Secretaría Educación Arauca</strong></td>
+      <td>Beneficiaria sedes educativas cubiertas</td>
+      <td>Medio</td><td>Bajo</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Listado sedes educativas · D facilita contacto</td>
+    </tr>
+    <tr>
+      <td><strong>Secretaría Salud Arauca</strong></td>
+      <td>Beneficiaria IPS cubiertas · telemedicina</td>
+      <td>Medio</td><td>Bajo</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Listado IPS · telemedicina como impacto directo §6</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ACTORES MUNICIPALES -->
+<div class="cl-num">§1.7.D — Actores nivel municipal (confirmar con D · 1 may)</div>
+<table class="tbl">
+  <thead><tr><th>Actor</th><th>Rol en proyecto</th><th>Interés</th><th>Poder</th><th>Posición</th><th>Acción</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Alcaldía Arauquita</strong></td>
+      <td>Autoridad territorial · carta de aval · facilitador logístico</td>
+      <td>Alto</td><td>Alto</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Carta de aval PDM · permisos prediales · coordinación comunidad</td>
+    </tr>
+    <tr>
+      <td><strong>Concejo Municipal</strong></td>
+      <td>Legislativo municipal · puede eximir impuestos locales</td>
+      <td>Medio</td><td>Medio</td>
+      <td><span class="pos-n">Neutro</span></td>
+      <td>Informar sobre proyecto · resolución de aval (si aplica)</td>
+    </tr>
+    <tr>
+      <td><strong>Juntas de Acción Comunal</strong></td>
+      <td>Representantes directos de la comunidad beneficiaria</td>
+      <td>Alto</td><td>Bajo</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Socialización del proyecto · D facilita contacto líderes comunitarios</td>
+    </tr>
+    <tr>
+      <td><strong>Comunidades rurales y urbanas</strong></td>
+      <td>Beneficiarios directos · ~14.000 personas</td>
+      <td>Alto</td><td>Bajo</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Apropiación digital · programa capacitación MGA Producto 2301030</td>
+    </tr>
+    <tr>
+      <td><strong>Sector empresarial local</strong></td>
+      <td>Beneficiarios indirectos · mayor productividad</td>
+      <td>Alto</td><td>Bajo</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Consultar Cámara de Comercio local · D facilita</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ACTORES PRIVADOS/OTROS -->
+<div class="cl-num">§1.7.E — Actores privados · ISPs · potenciales tensiones</div>
+<table class="tbl">
+  <thead><tr><th>Actor</th><th>Rol en proyecto</th><th>Interés</th><th>Poder</th><th>Posición</th><th>Acción</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>Fibergroup S.A.S. E.S.P.</strong></td>
+      <td>Ejecutor · contratante · contraparte 5%</td>
+      <td>Alto</td><td>Alto</td>
+      <td><span class="pos-a">A favor</span></td>
+      <td>Principal aliado · gerente Ciro Manuel González lidera operativamente</td>
+    </tr>
+    <tr>
+      <td><strong>ISPs locales activos</strong></td>
+      <td>Operadores existentes (SIUST · confirmar)</td>
+      <td>Medio</td><td>Bajo</td>
+      <td><span class="pos-o">Tenso</span></td>
+      <td>Mapear con SIUST · asegurar que proyecto NO duplica coberturas existentes</td>
+    </tr>
+    <tr>
+      <td><strong>WICOM S.A.S.</strong></td>
+      <td>Ganador Conv005 en Arauca capital · competidor</td>
+      <td>Bajo</td><td>Bajo</td>
+      <td><span class="pos-n">Neutro</span></td>
+      <td>Verificar delimitación geográfica: Arauquita ≠ Arauca ciudad</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- TAREAS -->
+<div class="cl-num">§1.7.F — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Completar mapa de actores con toda la información del presente portal. Ingresar en MGA Web DNP §1.7.</td><td><span class="act act-cti">CTI</span></td><td>1 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>Validar con D: líderes locales · JACs activas · actores municipales adicionales no listados · caracterización ISPs locales.</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-gob">GOB</span></td><td>1 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Validación legal: roles institucionales correctamente nombrados · ninguna afirmación incorrecta sobre obligaciones de actores.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>1 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>Sign-off del Gerente sobre §1.7 · publicar v1.0 en portal de avance.</td><td><span class="act act-ger">GER</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Nota de campo:</strong> El Frente D debe proporcionar: (a) listado líderes JAC por barrios y veredas · (b) nombres específicos de ISPs activos locales si existen · (c) contacto Alcaldía Arauquita para carta de aval. Sin esta información el actor nivel municipal queda incompleto.</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§1-7-actores-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

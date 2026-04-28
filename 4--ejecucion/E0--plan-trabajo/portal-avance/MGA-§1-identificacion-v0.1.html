@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §1 Identificación · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f172a; --blue:#0369a1; --blue-d:#075985; --blue-l:#38bdf8;
+  --emr:#047857; --pur:#6d28d9; --gld:#b45309; --rose:#be123c;
+  --text:#1e293b; --muted:#64748b; --muted-2:#94a3b8;
+  --border:#cbd5e1; --bg:#f8fafc;
+  --ok:#047857; --prog:#b45309; --pend:#94a3b8; --late:#be123c;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Times New Roman',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl td.code{font-family:var(--mono);font-weight:600;color:var(--navy);font-size:7pt;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-late{background:rgba(190,18,60,.14);color:var(--late);border:1px solid rgba(190,18,60,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.st-late::before{color:var(--late);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.card{border:1px solid rgba(3,105,161,.25);border-radius:5px;padding:.4rem .55rem;margin:.22rem 0;background:rgba(248,250,252,.5);break-inside:avoid;}
+.card-id{display:inline-block;padding:.06rem .35rem;border-radius:2px;font-size:6.6pt;font-weight:700;font-family:var(--mono);background:rgba(3,105,161,.15);color:var(--blue-d);letter-spacing:.4px;margin-right:.4rem;}
+.card-name{font-size:9pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.field-box{background:rgba(248,250,252,.8);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.35rem .55rem;margin:.15rem 0;}
+.field-label{font-size:6.4pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.field-value{font-size:9pt;font-family:var(--mono);color:var(--navy);font-weight:600;}
+.field-inst{font-size:7.5pt;color:var(--muted);font-family:var(--sans);margin-top:.06rem;font-style:italic;}
+.field-src{display:inline-block;font-size:6.2pt;font-family:var(--mono);color:var(--emr);background:rgba(4,120,87,.07);padding:.02rem .22rem;border-radius:2px;border:1px solid rgba(4,120,87,.18);margin-left:.3rem;}
+.progress-bar{background:rgba(203,213,225,.4);border-radius:4px;height:6px;margin:.12rem 0;}
+.progress-fill{height:6px;border-radius:4px;background:var(--pend);}
+.fill-0{width:0%;}
+.section-banner{background:linear-gradient(135deg,rgba(3,105,161,.10) 0%,rgba(7,89,133,.06) 100%);border:1px solid rgba(3,105,161,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--blue-d);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<!-- ═══ HEADER ═══ -->
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§1 Identificación del Proyecto</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§1-identificacion-v0.1 · 29 abr 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 29 abr 2026</span>
+</div>
+
+<!-- ═══ BANNER SECCIÓN ═══ -->
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §1 · Sector 23 TIC · BPIN-SUIFP</div>
+    <div class="banner-title">Identificación · nombre · sector · localización · presupuesto · plazo</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D</strong></div>
+    <div class="banner-date">Día de entrega: <strong>29 abr 2026</strong></div>
+  </div>
+</div>
+<div class="progress-bar"><div class="progress-fill fill-0"></div></div>
+
+<!-- ═══ §1 INSTRUCCIONES CAMPO A CAMPO ═══ -->
+<div class="cl-num">§1.A — Campos del formulario MGA Web · Identificación</div>
+<div class="cl-body"><p>Campos a diligenciar en el sistema MGA Web DNP (SUIFP). Los valores pre-llenados provienen de fuentes GOLD/SILVER verificadas (ver INDEX_FUENTES.md). Los campos en blanco deben ser completados por el CTI con insumo del Frente D el 29 abr 2026.</p></div>
+
+<div class="field-box">
+  <div class="field-label">Nombre del proyecto <span class="field-src">G-06 PDD · contrato v11</span></div>
+  <div class="field-value">Implementación de infraestructura de telecomunicaciones para la conectividad residencial en el municipio de Arauquita, departamento de Arauca</div>
+  <div class="field-inst">Máx 300 caracteres en MGA Web. Usar nomenclatura DNP: verbo acción + objeto + localización. Revisar con JUR que coincida exactamente con objeto del contrato CCMS-CB-2026-001-B-v11.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Sector <span class="field-src">MGA Sector 23 TIC</span></div>
+  <div class="field-value">23 — Tecnologías de la Información y las Comunicaciones</div>
+  <div class="field-inst">Seleccionar del catálogo MGA: sector 23 TIC. Entidad cabeza de sector: MinTIC.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Entidad responsable · ejecutor</div>
+  <div class="field-value">FIBERGROUP S.A.S. E.S.P. · NIT 901.322.864-7</div>
+  <div class="field-inst">Entidad que ejecuta el proyecto ante SUIFP. Verificar con JUR si va Fibergroup como ejecutor o si hay figura de convenio interadministrativo con MinTIC.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Localización · Departamento <span class="field-src">G-01 DANE CNPV2018</span></div>
+  <div class="field-value">Arauca</div>
+  <div class="field-inst">Código DANE departamento: 81</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Localización · Municipio <span class="field-src">G-01 DANE CNPV2018</span></div>
+  <div class="field-value">Arauquita — Código DANE: 81065</div>
+  <div class="field-inst">Verificar código municipal en DIVIPOLA. Si el proyecto cubre centros poblados externos al casco urbano, agregar municipio completo.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Plazo de ejecución <span class="field-src">CONPES 4167 · benchmarks similares</span></div>
+  <div class="field-value">24 meses</div>
+  <div class="field-inst">Plazo estándar para proyectos FTTH en ConectiVIDAd (Conv005/2025 referencias). Incluye diseño, obra, pruebas y primer año de operación sostenida.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Presupuesto total (COP) <span class="field-src">B-05 · benchmark §7 Cadena Valor</span></div>
+  <div class="field-value">$3.500.000.000 COP</div>
+  <div class="field-inst">Estimado inicial ±25%. Desagregado en §7 Cadena de Valor (27 rubros). Confirmar con Frente C (Sprint 2) antes de BPIN-SUIFP.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Fuentes de financiación (resumen) <span class="field-src">CONPES 4167 · Conv005/2025</span></div>
+  <div class="field-value">MinTIC – FUTIC: ~95% (~$3.325M) · Fibergroup contraparte: ~5% (~$175M)</div>
+  <div class="field-inst">Referencia: Mi Casa Bacana Atlántico MinTIC 78.9% + Gob 21.1%. Proyecto aspira a mayor % MinTIC por triple condición PDET+ZOMAC+ZDP. Validar con JUR y C en Sprint 2.</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Objetivo general (una línea para §1)</div>
+  <div class="field-value">[COMPLETAR CON D · 29 abr]</div>
+  <div class="field-inst">Alinear con el árbol de objetivos §2. Verbo infinitivo + objeto + indicador cuantitativo. Ejemplo: "Proveer acceso a internet de banda ancha a 4.000 hogares del municipio de Arauquita en 24 meses".</div>
+</div>
+
+<div class="field-box">
+  <div class="field-label">Población beneficiaria (dato §1 resumido) <span class="field-src">B-01 B-07 · DANE CNPV2018</span></div>
+  <div class="field-value">~4.000 hogares · cabecera municipal + 4 centros poblados priorizados</div>
+  <div class="field-inst">Detalle completo en §3 Población. Para §1 usar cifra redonda con nota (±15%). Confirmar con D el 29 abr listado de centros poblados.</div>
+</div>
+
+<!-- ═══ §1.B CONTEXTO CLAVE PARA EL FORMULADOR ═══ -->
+<div class="cl-num">§1.B — Datos de contexto verificados (no van al formulario MGA — son para el formulador)</div>
+
+<table class="tbl">
+  <thead><tr><th>Dato</th><th>Valor verificado</th><th>Fuente</th><th>Nivel trazabilidad</th></tr></thead>
+  <tbody>
+    <tr><td>Hogares totales Arauquita 2018</td><td>13.882</td><td>DANE CNPV2018 · G-01</td><td><strong>GOLD</strong></td></tr>
+    <tr><td>Hogares estimados 2024</td><td>~17.672</td><td>Proyección B-01 × 1.273</td><td><strong>BRONZE ±15%</strong></td></tr>
+    <tr><td>Hogares sin internet 2024</td><td>~16.435 (93%)</td><td>B-02 · penetración PDET 7%</td><td><strong>BRONZE ±20%</strong></td></tr>
+    <tr><td>Hogares meta proyecto</td><td>~4.000</td><td>B-07 · cabecera + 4 CP</td><td><strong>BRONZE</strong></td></tr>
+    <tr><td>Penetración internet CNPV2018</td><td>5,8%</td><td>DANE CNPV2018 · G-01</td><td><strong>GOLD</strong></td></tr>
+    <tr><td>Penetración internet subregión 2022</td><td>7% (PDET)</td><td>ART PDET G-02</td><td><strong>GOLD</strong></td></tr>
+    <tr><td>IBD Orinoquia-Amazonia</td><td>0.499</td><td>MinTIC IBD 2024 · G-03</td><td><strong>GOLD</strong></td></tr>
+    <tr><td>Código DANE municipio</td><td>81065</td><td>DIVIPOLA</td><td><strong>GOLD</strong></td></tr>
+    <tr><td>Coordenadas cabecera (aprox.)</td><td>7.0095° N · -71.7678° W</td><td>OpenStreetMap / IGAC · confirmar con D</td><td><strong>SILVER</strong></td></tr>
+    <tr><td>Clasificación PDET</td><td>Sí · Arauca subregional 2023</td><td>ART G-02</td><td><strong>GOLD</strong></td></tr>
+    <tr><td>Clasificación ZOMAC</td><td>Confirmar con JUR · probable</td><td>DNP / MinHacienda</td><td><strong>PENDIENTE</strong></td></tr>
+    <tr><td>Clasificación ZDP</td><td>Confirmar con JUR · probable</td><td>Presidencia / DNP</td><td><strong>PENDIENTE</strong></td></tr>
+  </tbody>
+</table>
+
+<!-- ═══ §1.C TAREAS ═══ -->
+<div class="cl-num">§1.C — 4 tareas de la sección · estado de avance</div>
+
+<table class="tbl">
+  <thead>
+    <tr>
+      <th style="width:5rem">Tarea</th>
+      <th>Descripción</th>
+      <th style="width:5.5rem">Responsable</th>
+      <th style="width:4.5rem">Fecha</th>
+      <th class="center" style="width:5rem">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Construir</strong></td>
+      <td>Diligenciar todos los campos de §1 en MGA Web DNP con valores del presente portal. Guardar borrador y generar captura de pantalla.</td>
+      <td><span class="act act-cti">CTI</span></td>
+      <td>29 abr 2026</td>
+      <td style="text-align:center;"><span class="st st-pend">Pend</span></td>
+    </tr>
+    <tr>
+      <td><strong>Consultar E1</strong></td>
+      <td>Validar con Frente D: nombre del proyecto · localización precisa · centros poblados · coordenadas · objetivo general.</td>
+      <td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td>
+      <td>29 abr 2026</td>
+      <td style="text-align:center;"><span class="st st-pend">Pend</span></td>
+    </tr>
+    <tr>
+      <td><strong>Informar JUR</strong></td>
+      <td>Enviar captura de §1 diligenciado al asesor jurídico Fibergroup. Verificar: nombre alineado con contrato · entidad responsable · presupuesto coherente.</td>
+      <td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td>
+      <td>29 abr 2026</td>
+      <td style="text-align:center;"><span class="st st-pend">Pend</span></td>
+    </tr>
+    <tr>
+      <td><strong>Aprobar GER</strong></td>
+      <td>Sign-off del Gerente Ciro Manuel González Hernández sobre §1. Publicar versión v1.0 en portal de avance.</td>
+      <td><span class="act act-ger">GER</span></td>
+      <td>29 abr 2026</td>
+      <td style="text-align:center;"><span class="st st-pend">Pend</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Gaps críticos:</strong> Confirmar clasificación ZOMAC y ZDP con JUR antes del 30 abr — impactan la argumentación de cofinanciación al 95%. PDM Arauquita 2024-2027 pendiente de recibir del Frente D (I1-06 · insumo crítico). SIUST datos de ISPs registrados en Arauquita pendientes para complementar análisis sectorial §1.5.</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§1-identificacion-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §1.8 Marco Lógico · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl tr.level-imp td{background:rgba(4,120,87,.06)!important;}
+.tbl tr.level-res td{background:rgba(3,105,161,.05)!important;}
+.tbl tr.level-pro td{background:rgba(56,189,248,.05)!important;}
+.tbl tr.level-act td{background:rgba(148,163,184,.05)!important;}
+.tbl tr.level-ins td{background:rgba(241,245,249,.5)!important;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-b{background:rgba(4,120,87,.12);color:var(--emr);border-color:rgba(4,120,87,.25);}
+.act-c{background:rgba(180,83,9,.12);color:var(--gld);border-color:rgba(180,83,9,.28);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.section-banner{background:linear-gradient(135deg,rgba(109,40,217,.08) 0%,rgba(109,40,217,.04) 100%);border:1px solid rgba(109,40,217,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--pur);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.lbl{display:inline-block;padding:.04rem .25rem;border-radius:2px;font-size:6.5pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;}
+.lbl-imp{background:rgba(4,120,87,.14);color:var(--emr);}
+.lbl-res{background:rgba(3,105,161,.14);color:var(--blue-d);}
+.lbl-pro{background:rgba(56,189,248,.18);color:#0c4a6e;}
+.lbl-act{background:rgba(148,163,184,.18);color:#475569;}
+.lbl-ins{background:rgba(241,245,249,.8);color:var(--navy);border:1px solid var(--border);}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§1.8 Marco Lógico RBM-GAC · Matriz Insumos → Impactos</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§1-8-marco-logico-v0.1 · 2–3 may 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 3 may 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §1.8 · Marco lógico RBM-GAC · XLSX 5 tabs</div>
+    <div class="banner-title">Insumos → Actividades → Productos MGA → Resultados → Impactos</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D · B · C</strong></div>
+    <div class="banner-date">Día de entrega: <strong>2–3 may 2026</strong></div>
+  </div>
+</div>
+
+<div class="cl-num">§1.8.A — Instrucciones marco lógico DNP (P1-04 XLSX · 5 tabs)</div>
+<div class="cl-body"><p>El marco lógico del proyecto se construye en formato XLSX con 5 tabs: <strong>Insumos · Actividades · Productos (MGA Sector 23) · Resultados · Impactos</strong>. Cada nivel lleva: nombre · descripción · indicador · línea base · meta · medio de verificación · supuesto. El CTI construye la estructura el 2 may; los expertos D·B·C validan coherencia; JUR revisa supuestos; GER aprueba el 3 may.</p></div>
+
+<!-- TABLA MARCO LÓGICO COMPLETO -->
+<div class="cl-num">§1.8.B — Cadena de resultados (estructura completa pre-llenada)</div>
+
+<table class="tbl">
+  <thead>
+    <tr>
+      <th style="width:4rem">Nivel</th>
+      <th>Nombre</th>
+      <th style="width:8rem">Indicador</th>
+      <th style="width:5rem">Línea base</th>
+      <th style="width:5rem">Meta 24m</th>
+      <th style="width:7rem">Supuesto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="subt"><td colspan="6">IMPACTOS (largo plazo · 3-5 años post-proyecto)</td></tr>
+    <tr class="level-imp">
+      <td><span class="lbl lbl-imp">Impacto</span></td>
+      <td>Reducción brecha digital MCB-DNP en Arauquita</td>
+      <td>Brecha MCB-DNP pp ↓</td>
+      <td>67,8% (PATR 2023)</td>
+      <td>≤ 55% al año 3</td>
+      <td>Hogares mantienen suscripción post-proyecto</td>
+    </tr>
+    <tr class="level-imp">
+      <td><span class="lbl lbl-imp">Impacto</span></td>
+      <td>Aumento acceso a servicios digitales del Estado por población objetivo</td>
+      <td>% hogares con trámite en línea</td>
+      <td>[D provee LB]</td>
+      <td>≥ 60% al año 2</td>
+      <td>Servicios e-gov disponibles y usables</td>
+    </tr>
+    <tr class="level-imp">
+      <td><span class="lbl lbl-imp">Impacto</span></td>
+      <td>Mejora productividad sectorial · municipio PDET competitivo</td>
+      <td>ICER Arauca (DNP)</td>
+      <td>[DNP · pendiente]</td>
+      <td>Mejora ≥ 5 posiciones al año 5</td>
+      <td>Ecosistema económico local favorable</td>
+    </tr>
+    <tr class="subt"><td colspan="6">RESULTADOS (mediano plazo · al cierre del proyecto)</td></tr>
+    <tr class="level-res">
+      <td><span class="lbl lbl-res">Resultado</span></td>
+      <td>~4.000 hogares con acceso efectivo a internet de banda ancha</td>
+      <td>Hogares conectados activos</td>
+      <td>~800 (estimado 5,8%)</td>
+      <td>4.000 al mes 24</td>
+      <td>Adopción ≥ 80% conexiones instaladas</td>
+    </tr>
+    <tr class="level-res">
+      <td><span class="lbl lbl-res">Resultado</span></td>
+      <td>≥ 500 personas con habilidades digitales certificadas</td>
+      <td>Certificados programa apropiación</td>
+      <td>0</td>
+      <td>500 al mes 24</td>
+      <td>Comunidad participa en jornadas de capacitación</td>
+    </tr>
+    <tr class="level-res">
+      <td><span class="lbl lbl-res">Resultado</span></td>
+      <td>Red FTTH GPON operativa · disponibilidad ≥ 99%</td>
+      <td>SLA disponibilidad mensual</td>
+      <td>N/A (nueva red)</td>
+      <td>≥ 99% mensual</td>
+      <td>Proveedor backbone disponible · no fuerza mayor</td>
+    </tr>
+    <tr class="subt"><td colspan="6">PRODUCTOS MGA · Sector 23 TIC (5 productos catálogo DNP)</td></tr>
+    <tr class="level-pro">
+      <td><span class="lbl lbl-pro">Producto</span></td>
+      <td>2301027 — Hogares con acceso a servicio de internet</td>
+      <td>Número de hogares conectados</td>
+      <td>0</td>
+      <td>4.000 hogares</td>
+      <td>Familias aceptan servicio · pago tarifa E1</td>
+    </tr>
+    <tr class="level-pro">
+      <td><span class="lbl lbl-pro">Producto</span></td>
+      <td>2301028 — Soluciones de conectividad · portador FTTH</td>
+      <td>Km de red desplegada · nodos instalados</td>
+      <td>0</td>
+      <td>[B define · Sprint 2]</td>
+      <td>Permisos prediales · ROW aprobados</td>
+    </tr>
+    <tr class="level-pro">
+      <td><span class="lbl lbl-pro">Producto</span></td>
+      <td>2301030 — Programas de educación informal TIC</td>
+      <td>Personas capacitadas</td>
+      <td>0</td>
+      <td>500 personas</td>
+      <td>Espacios comunitarios disponibles</td>
+    </tr>
+    <tr class="level-pro">
+      <td><span class="lbl lbl-pro">Producto</span></td>
+      <td>2301084 — Programas de apropiación y uso de TIC</td>
+      <td>Sedes con programa activo</td>
+      <td>0</td>
+      <td>[D define · Sprint 1]</td>
+      <td>Alianza con Alcaldía y colegios</td>
+    </tr>
+    <tr class="level-pro">
+      <td><span class="lbl lbl-pro">Producto</span></td>
+      <td>2301087 — Sedes tecnológicas dotadas y conectadas</td>
+      <td>Sedes conectadas</td>
+      <td>[G-08 · verificar]</td>
+      <td>[D define · Sprint 1]</td>
+      <td>Sedes con cableado interno existente</td>
+    </tr>
+    <tr class="subt"><td colspan="6">ACTIVIDADES (principales · detalle en §4.1 y §7)</td></tr>
+    <tr class="level-act"><td><span class="lbl lbl-act">Actividad</span></td><td>A01 — Diseño técnico de la red FTTH GPON</td><td colspan="4">Sprint 2 · Frente B · BOM · topología · planos</td></tr>
+    <tr class="level-act"><td><span class="lbl lbl-act">Actividad</span></td><td>A02 — Tendido de fibra óptica backbone y última milla</td><td colspan="4">Ejecución meses 3-18 del proyecto</td></tr>
+    <tr class="level-act"><td><span class="lbl lbl-act">Actividad</span></td><td>A03 — Instalación de equipos CPE en hogares</td><td colspan="4">Ejecución meses 6-20 del proyecto</td></tr>
+    <tr class="level-act"><td><span class="lbl lbl-act">Actividad</span></td><td>A04 — Programa de apropiación y capacitación digital</td><td colspan="4">Ejecución meses 1-24 paralela</td></tr>
+    <tr class="level-act"><td><span class="lbl lbl-act">Actividad</span></td><td>A05 — Operación y mantenimiento de la red</td><td colspan="4">Meses 12-24 · período de sostenibilidad</td></tr>
+    <tr class="subt"><td colspan="6">INSUMOS (entradas al proyecto · detalle en §7 Cadena de Valor)</td></tr>
+    <tr class="level-ins"><td><span class="lbl lbl-ins">Insumo</span></td><td>I01 — Recursos FUTIC MinTIC (~95% · $3.325M)</td><td colspan="4">Desembolso por hitos · fiducia Fiducoldex</td></tr>
+    <tr class="level-ins"><td><span class="lbl lbl-ins">Insumo</span></td><td>I02 — Contraparte Fibergroup (~5% · $175M)</td><td colspan="4">Equity operacional · cartera activa Fibergroup</td></tr>
+    <tr class="level-ins"><td><span class="lbl lbl-ins">Insumo</span></td><td>I03 — Equipo técnico humano · Frentes B·C·D</td><td colspan="4">Ver §9 RACI Sprint 1</td></tr>
+    <tr class="level-ins"><td><span class="lbl lbl-ins">Insumo</span></td><td>I04 — Materiales y equipos FTTH (BOM)</td><td colspan="4">Detalle en E2 Sprint 2 · Frente B</td></tr>
+    <tr class="level-ins"><td><span class="lbl lbl-ins">Insumo</span></td><td>I05 — Permisos y licencias (ROW · alcaldía)</td><td colspan="4">JUR gestiona Sprint 3</td></tr>
+    <tr class="level-ins"><td><span class="lbl lbl-ins">Insumo</span></td><td>I06 — Plataforma MGA Web DNP · BPIN SUIFP</td><td colspan="4">Producto del presente contrato · E4</td></tr>
+  </tbody>
+</table>
+
+<!-- TAREAS -->
+<div class="cl-num">§1.8.C — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Crear P1-04 XLSX 5 tabs con la estructura del marco lógico. Ingresar cadena de resultados en MGA Web DNP §1.8.</td><td><span class="act act-cti">CTI</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>Validar coherencia de la cadena: D (datos campo · LB resultados) · B (productos técnicos · metas km red) · C (insumos financieros · metas presupuesto).</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-b">B</span> <span class="act act-c">C</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Review legal de supuestos: contingencias contractuales · riesgos legales · cumplimiento DNP-SUIFP. Verificar que los supuestos no contradicen el contrato.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>Sign-off del Gerente sobre §1.8 marco lógico · publicar v1.0 en portal de avance.</td><td><span class="act act-ger">GER</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Nota DNP:</strong> Los 5 productos MGA del catálogo Sector 23 (2301027 · 2301028 · 2301030 · 2301084 · 2301087) ya están identificados y confirmados. Las metas cuantitativas de productos técnicos (km red · nodos · BOM) solo podrán llenarse en Sprint 2 cuando el Frente B entregue E2 diseño técnico. El marco lógico Sprint 1 lleva metas estimadas con nota de confirmación en Sprint 2.</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§1-8-marco-logico-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

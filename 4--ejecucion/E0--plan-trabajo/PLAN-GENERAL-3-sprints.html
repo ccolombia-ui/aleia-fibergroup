@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan General · 3 Sprints — Formulación MGA · Territorios Digitales Transformativos · Arauca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#dbeafe',
+      primaryTextColor: '#0f172a',
+      primaryBorderColor: '#0369a1',
+      lineColor: '#475569',
+      secondaryColor: '#dcfce7',
+      tertiaryColor: '#fef3c7',
+      fontFamily: 'Inter, Segoe UI, Arial, sans-serif',
+      fontSize: '12px'
+    },
+    er: { fontSize: 11 },
+    sequence: { fontSize: 11, actorFontSize: 12, noteFontSize: 10 },
+    flowchart: { fontSize: 11, htmlLabels: true, curve: 'basis' }
+  });
+</script>
+<style>
+:root{
+  --navy:#0f172a; --blue:#0369a1; --blue-d:#075985; --blue-l:#38bdf8;
+  --emr:#047857; --pur:#6d28d9; --gld:#b45309; --rose:#be123c;
+  --text:#1e293b; --muted:#64748b; --muted-2:#94a3b8;
+  --border:#cbd5e1; --bg:#f8fafc;
+  --crit:#b91c1c;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Times New Roman',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.55rem 0 .2rem;}
+.cl-num:first-of-type{margin-top:0;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.2rem;}
+
+.diag-box{background:rgba(248,250,252,.5);border:1px solid var(--border);border-radius:5px;padding:.6rem .5rem;margin:.25rem 0;break-inside:avoid;page-break-inside:avoid;}
+.diag-cap{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-family:var(--sans);text-align:center;margin-top:.3rem;padding-top:.25rem;border-top:1px dashed var(--border);}
+.mermaid{display:flex;justify-content:center;font-family:var(--sans);font-size:11px!important;}
+
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:.25rem;margin:.3rem 0;font-size:7.4pt;font-family:var(--sans);}
+.lg-item{padding:.2rem .35rem;border-radius:3px;border-left:3px solid var(--blue);background:var(--bg);}
+.lg-item strong{color:var(--navy);font-size:7.5pt;}
+.lg-item.lg-s1{border-left-color:var(--blue);}
+.lg-item.lg-s2{border-left-color:var(--emr);}
+.lg-item.lg-s3{border-left-color:var(--gld);}
+.lg-item.lg-fin{border-left-color:var(--pur);}
+
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.2rem .4rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.18rem .4rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl td.code{font-family:var(--mono);font-weight:600;color:var(--navy);font-size:7pt;}
+
+.consultor-footer{margin-top:.5rem;border-top:1px solid rgba(15,23,42,.35);padding-top:.3rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;font-size:6.5pt;font-family:var(--sans);color:var(--muted);align-items:center;}
+.cf-left{justify-self:start;}
+.cf-center{justify-self:center;text-align:center;font-family:var(--mono);font-weight:700;color:var(--blue-d);font-size:6.8pt;letter-spacing:.3px;}
+.cf-right{justify-self:end;text-align:right;}
+.cf-conf{display:inline-block;background:rgba(185,28,28,.06);color:var(--crit);padding:.06rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(185,28,28,.2);font-size:5.8pt;margin-right:.3rem;}
+.cf-meta{font-family:var(--mono);color:var(--muted-2);font-size:5.8pt;letter-spacing:.3px;}
+.cf-brand{color:var(--navy);font-weight:700;font-family:var(--sans);font-size:6.8pt;}
+
+@page{size:Letter portrait;margin:9mm 12mm 10mm 12mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  body{padding:6mm 10mm;}
+  .print-btn{display:none!important;}
+  .diag-box,.tbl{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Plan General · 3 Sprints · Vista de Diagramas</div>
+  <div class="doc-title">Plan General · S1–S3 — Formulación MGA · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-B-PLAN-GEN &nbsp;·&nbsp; Bogotá D.C. &nbsp;·&nbsp; 28 de abril de 2026</div>
+  <div class="doc-variant">erDiagram · Flujo de Productos · Diagrama de Secuencia · v1</div>
+</div>
+
+<!-- ═══════════════ §1 ECOSISTEMA DOCUMENTAL FINAL ═══════════════ -->
+<div class="cl-num">§1 — Ecosistema documental final (post-Sprint 3) · erDiagram</div>
+<div class="cl-body">
+  <p>Diagrama de entidades-relaciones de los <strong>artefactos finales</strong> del contrato. Cada entidad es un documento entregable; las relaciones indican dependencia estructural (un documento incorpora, alimenta o consolida a otro). El BPIN-DNP y la MGA Web SUIFP son el centro del ecosistema; los Doc-E1, E2, E3 son las capas de contenido; los anexos técnicos y cartas de aval son los soportes.</p>
+</div>
+
+<div class="diag-box">
+<pre class="mermaid">
+erDiagram
+    BPIN_DNP_SUIFP ||--|| MGA_WEB : "emite_codigo_para"
+    MGA_WEB ||--|| DOC_E1 : "consolida_§1-§3"
+    MGA_WEB ||--|| DOC_E2 : "consolida_§4-§6"
+    MGA_WEB ||--|| DOC_E3 : "consolida_§7-§9"
+    MGA_WEB ||--|| DOC_E4 : "consolida_§8-§10"
+    MGA_WEB ||--o{ INDICADORES_§8 : "registra"
+    MGA_WEB ||--o{ CADENA_VALOR_§7 : "registra"
+    MGA_WEB ||--|| RESUMEN_§10 : "publica"
+
+    DOC_E1 ||--o{ ARBOL_PROBLEMAS : "incluye"
+    DOC_E1 ||--o{ ARBOL_OBJETIVOS : "incluye"
+    DOC_E1 ||--o{ MAPA_POBLACION : "incluye"
+    DOC_E1 ||--o{ MARCO_LOGICO : "incluye"
+    DOC_E1 ||--o{ ANALISIS_SECTOR : "incluye"
+    DOC_E1 ||--o{ FICHA_ALTERNATIVAS : "incluye"
+
+    DOC_E2 ||--|| DISENO_TECNICO_FTTH : "describe"
+    DOC_E2 ||--|| BOM_TECNICO : "lista"
+    DOC_E2 ||--|| CRONOGRAMA_GANTT : "calendariza"
+    DOC_E2 ||--|| MATRIZ_RIESGOS : "evalua"
+    DOC_E2 ||--|| ANALISIS_AMBIENTAL : "evalua"
+
+    DOC_E3 ||--|| CADENA_VALOR_§7 : "estructura"
+    DOC_E3 ||--|| CAPEX_DESAGREGADO : "presupuesta"
+    DOC_E3 ||--|| OPEX_24M : "presupuesta"
+    DOC_E3 ||--|| PLURIANUAL : "proyecta"
+    DOC_E3 ||--|| FUENTES_FIN : "identifica"
+
+    DOC_E4 ||--|| EVALUACION_VPN_TIR : "calcula"
+    DOC_E4 ||--|| ACTA_ENTREGA : "cierra"
+
+    PDM_ARAUQUITA ||--o{ DOC_E1 : "fuente_normativa"
+    PDD_ARAUCA ||--o{ DOC_E1 : "fuente_normativa"
+    PATR_PDET_2028 ||--o{ DOC_E1 : "fuente_normativa"
+    SISBEN_HOGARES ||--o{ MAPA_POBLACION : "fuente_datos"
+    DIAGNOSTICO_TERRITORIAL ||--o{ DOC_E1 : "fuente_GOLD"
+
+    BOM_TECNICO ||--o{ CAPEX_DESAGREGADO : "valoriza_con"
+    COTIZACIONES_SECOP ||--o{ CAPEX_DESAGREGADO : "valoriza_con"
+
+    CARTA_AVAL_GOBARAUCA ||--o{ FUENTES_FIN : "respalda_5%"
+    CARTA_AVAL_ART_PDET ||--o{ FUENTES_FIN : "respalda_alineacion"
+    CARTA_AVAL_MINTIC ||--o{ FUENTES_FIN : "respalda_95%"
+
+    INDICADORES_§8 ||--o{ MARCO_LOGICO : "deriva_de"
+    CADENA_VALOR_§7 ||--o{ BOM_TECNICO : "consolida"
+
+    BPIN_DNP_SUIFP {
+        string codigo "asignado_por_DNP"
+        date fecha_emision
+        string entidad_responsable "Fibergroup_o_aliado_publico"
+    }
+    MGA_WEB {
+        string proyecto "Territorios_Digitales_Transformativos_Arauca"
+        string sector "23_TIC"
+        decimal valor_COP "3500000000"
+        int duracion_meses "24"
+    }
+    CADENA_VALOR_§7 {
+        int productos_MGA "5"
+        int actividades "11"
+        int rubros_insumos "27"
+        decimal total_COP "3500000000"
+    }
+</pre>
+<div class="diag-cap">Fig. 1 · Ecosistema documental final · 27+ entidades · centro: BPIN_DNP_SUIFP + MGA_WEB</div>
+</div>
+
+<!-- ═══════════════ §2 FLUJO DE PRODUCTOS INTERMEDIOS POR SPRINT ═══════════════ -->
+<div class="cl-num">§2 — Flujo de productos intermedios por sprint · flowchart</div>
+<div class="cl-body">
+  <p>Visualización del flujo de productos intermedios desde insumos del Contratante (rosa) hasta los entregables finales (morado). Cada sprint (azul/verde/dorado) transforma productos intermedios; el sign-off del Contratante autoriza el avance al siguiente sprint y libera el pago del hito.</p>
+</div>
+
+<div class="legend">
+  <div class="lg-item lg-s1"><strong>S1 · E1</strong><br>Diagnóstico + Solución + Sector + Impacto</div>
+  <div class="lg-item lg-s2"><strong>S2 · E2+E3</strong><br>Detalle Técnico + Presupuestal (paralelo)</div>
+  <div class="lg-item lg-s3"><strong>S3 · E4</strong><br>Carga MGA Web + BPIN</div>
+  <div class="lg-item lg-fin"><strong>FIN</strong><br>Ecosistema documental + BPIN</div>
+</div>
+
+<div class="diag-box">
+<pre class="mermaid">
+flowchart TD
+    classDef cli fill:#fee2e2,stroke:#be123c,color:#7f1d1d
+    classDef s1 fill:#dbeafe,stroke:#0369a1,color:#0f172a
+    classDef s2 fill:#dcfce7,stroke:#047857,color:#0f172a
+    classDef s3 fill:#fef3c7,stroke:#b45309,color:#0f172a
+    classDef fin fill:#ede9fe,stroke:#6d28d9,color:#0f172a
+
+    PDM[PDM Arauquita]:::cli
+    PDD[PDD Arauca]:::cli
+    SISBEN[SISBEN E1+E2]:::cli
+    CARFG[Caracterización Fibergroup]:::cli
+    CARGOB[Carta intención GobArauca]:::cli
+    CAMPO[Datos Frente D · campo]:::cli
+
+    DIAG[Diagnóstico territorial]:::s1
+    ARBOL[Árbol problemas + objetivos]:::s1
+    POB[Mapa población objetivo KML]:::s1
+    SECT[Análisis sectorial 23 TIC]:::s1
+    ML[Marco lógico RBM-GAC]:::s1
+    ALT[Ficha alternativas A1/A2/A3]:::s1
+    DOCE1[Documento E1 v1.0]:::s1
+
+    BOM[BOM técnico Frente B]:::cli
+    DISENO[Diseño FTTH GPON]:::cli
+    GANTT[Gantt despliegue 24m]:::cli
+    AMBI[Análisis ambiental]:::cli
+
+    COTI[Cotizaciones reales C]:::cli
+    MO[Tarifas mano obra]:::cli
+    OPEX[OPEX 24m]:::cli
+
+    TECNI[Análisis técnico §4]:::s2
+    RIES[Matriz riesgos §6]:::s2
+    DOCE2[Documento E2 v1.0]:::s2
+
+    CV[Cadena Valor §7 · 27 rubros]:::s2
+    CAPEX[CAPEX desagregado]:::s2
+    PLU[Plurianual]:::s2
+    FF[Fuentes financiación §9]:::s2
+    DOCE3[Documento E3 v1.0]:::s2
+
+    AVALGOB[Carta aval GobArauca]:::cli
+    AVALART[Carta aval ART PDET]:::cli
+    ACMGA[Acceso MGA Web SUIFP]:::cli
+    INDFG[Indicadores Fibergroup]:::cli
+
+    MGA1[MGA Web §1-§3 cargado]:::s3
+    MGA4[MGA Web §4-§6 cargado]:::s3
+    MGA7[MGA Web §7-§9 cargado]:::s3
+    IND8[Indicadores §8]:::s3
+    EVAL[VPN TIR B/C]:::s3
+
+    BPIN[BPIN emitido DNP-SUIFP]:::fin
+    ACTA[Acta entrega final]:::fin
+    DOCFIN[Ecosistema documental v1.1]:::fin
+
+    PDM --> DIAG
+    PDD --> DIAG
+    CARFG --> DIAG
+    SISBEN --> POB
+    CAMPO --> DIAG
+    CAMPO --> POB
+    CARGOB --> ML
+
+    DIAG --> ARBOL
+    ARBOL --> POB
+    DIAG --> SECT
+    ARBOL --> ML
+    POB --> ML
+    SECT --> ALT
+    ML --> ALT
+    ARBOL --> DOCE1
+    POB --> DOCE1
+    ML --> DOCE1
+    SECT --> DOCE1
+    ALT --> DOCE1
+
+    DOCE1 --> TECNI
+    DISENO --> TECNI
+    BOM --> TECNI
+    GANTT --> TECNI
+    AMBI --> RIES
+    TECNI --> RIES
+    TECNI --> DOCE2
+    RIES --> DOCE2
+
+    DOCE1 --> CV
+    BOM --> CV
+    COTI --> CAPEX
+    MO --> CAPEX
+    OPEX --> CV
+    CAPEX --> CV
+    CV --> PLU
+    CARGOB --> FF
+    PLU --> FF
+    CV --> DOCE3
+    FF --> DOCE3
+
+    DOCE1 --> MGA1
+    ACMGA --> MGA1
+    DOCE2 --> MGA4
+    DOCE3 --> MGA7
+    AVALGOB --> MGA7
+    AVALART --> MGA7
+    INDFG --> IND8
+    ML --> IND8
+    DOCE3 --> EVAL
+
+    MGA1 --> BPIN
+    MGA4 --> BPIN
+    MGA7 --> BPIN
+    IND8 --> BPIN
+    EVAL --> BPIN
+    BPIN --> ACTA
+    DOCE1 --> DOCFIN
+    DOCE2 --> DOCFIN
+    DOCE3 --> DOCFIN
+    BPIN --> DOCFIN
+    ACTA --> DOCFIN
+</pre>
+<div class="diag-cap">Fig. 2 · Flujo de productos intermedios · S1 → S2 → S3 → BPIN · 32 nodos · 6 niveles de transformación</div>
+</div>
+
+<!-- ═══════════════ §3 DIAGRAMA DE SECUENCIA ═══════════════ -->
+<div class="cl-num">§3 — Diagrama de secuencia · cada sprint como micro-fase</div>
+<div class="cl-body">
+  <p>Secuencia temporal de mensajes entre actores (Contratante · Frentes B/C/D · Contratista · DNP-SUIFP · GobArauca/ART). Cada sprint (S1, S2, S3) se modela como una micro-fase con sub-fases internas: <strong>(i) entrega de insumos</strong>, <strong>(ii) trabajo del Contratista</strong>, <strong>(iii) review intermedia</strong>, <strong>(iv) entrega de productos</strong>, <strong>(v) sign-off + facturación</strong>.</p>
+</div>
+
+<div class="diag-box">
+<pre class="mermaid">
+sequenceDiagram
+    autonumber
+    participant CTT as Contratante<br/>Fibergroup
+    participant D as Frente D<br/>Téc.Campo
+    participant B as Frente B<br/>Arq.Redes
+    participant C as Frente C<br/>Esp.Presup
+    participant CTI as Contratista<br/>Carlos
+    participant GOB as GobArauca<br/>+ART PDET
+    participant DNP as DNP-SUIFP
+
+    rect rgb(219, 234, 254)
+    Note over CTT,DNP: SPRINT 1 · E1 (29 abr → 4 may) · Diagnóstico+Solución+Sector+Impacto
+    CTT->>CTI: I1-01..06 (PDM·SISBEN·Caract·Carta GOB·ISP·TeoriaCambio)
+    D->>CTI: I1-09 datos campo socio-territoriales
+    CTI->>CTI: A1-01..09 (diagnóstico·árboles·población·sector·marco lógico·alternativas)
+    CTI->>CTT: review intermedia (3 may) — árboles para validación
+    CTT->>CTI: I1-10 sign-off árboles
+    CTI->>CTI: A1-10 consolidación E1 v1.0
+    CTI->>CTT: P1-01..06 entregables Sprint 1
+    CTT->>CTI: SIGN-OFF E1 (4 may)
+    CTI->>CTT: factura Hito 2 ($8.1M COP)
+    end
+
+    rect rgb(220, 252, 231)
+    Note over CTT,DNP: SPRINT 2 · E2+E3 paralelos (5 may → 9 may) · Detalle Técnico+Presupuestal
+    B->>CTI: I2-01..09 (diseño·BOM·datasheets·cobertura·Gantt·estudios·permisos·riesgos·ambiental)
+    C->>CTI: I3-01..09 (cotizaciones·MO·logística·AIU·OPEX·MarTICa·sedes·plurianual·fuentes)
+    par E2 técnico
+        CTI->>CTI: A2-01..04 (alternativas·ambiental·riesgos·cronograma)
+    and E3 presupuestal
+        CTI->>CTI: A3-01..04 (Cadena Valor §7·reconciliación·fuentes·plurianual)
+    end
+    CTI->>CTT: review intermedia (7 may) — Σ rubros = $3.500M ±5%
+    CTT->>CTI: ajustes priorización (si exceso)
+    CTI->>CTI: A23-05 consolidación E2+E3 MVP v1.0
+    CTI->>CTT: P2-01..04 + P3-01..06 entregables
+    CTT->>CTI: SIGN-OFF integral E2+E3 (9 may)
+    CTI->>CTT: factura Hito 3 ($8.1M COP)
+    end
+
+    rect rgb(254, 243, 199)
+    Note over CTT,DNP: SPRINT 3 · E4 (10 may → 16 may) · Carga MGA Web + BPIN
+    CTT->>CTI: I4-01 acceso MGA Web SUIFP
+    CTT->>CTI: I4-04 indicadores · I4-05 stakeholders
+    CTI->>DNP: A4-01..03 carga MGA §1-§6
+    GOB->>CTT: I4-02 carta aval GobArauca (cofinanciación 5%)
+    GOB->>CTT: I4-03 carta aval ART PDET
+    CTT->>CTI: avales firmados
+    CTI->>DNP: A4-04..07 carga MGA §7-§10 (Cadena Valor + Indicadores + Resumen)
+    CTI->>CTI: A4-08 evaluación VPN/TIR/B-C
+    CTI->>DNP: solicitud revisión técnica oficial
+    DNP-->>CTI: observaciones (eventuales)
+    CTI->>DNP: subsanación ≤2 días hábiles
+    DNP->>CTI: BPIN emitido (P4-05)
+    CTI->>CTT: P4-01..06 entregables finales + acta cierre
+    CTT->>CTI: SIGN-OFF final + acta entrega (16 may)
+    CTI->>CTT: factura Hito 4 ($5.4M COP)
+    end
+
+    Note over CTT,CTI: Cierre contrato CCMS-CB-2026-001-B-v11 · Total $27M COP
+</pre>
+<div class="diag-cap">Fig. 3 · Diagrama de secuencia · 3 sprints · 7 actores · ~30 mensajes · ciclo Agile-ODI completo</div>
+</div>
+
+<!-- ═══════════════ §4 SÍNTESIS · CONVENCIONES Y RUTA CRÍTICA ═══════════════ -->
+<div class="cl-num">§4 — Síntesis · ruta crítica y convenciones cross-sprint</div>
+<table class="tbl">
+  <thead><tr><th style="width:6rem">Convención</th><th>Significado · uso transversal</th></tr></thead>
+  <tbody>
+    <tr><td class="code">Ix-NN</td><td>Insumo del sprint x · numeración consecutiva (I1 = sprint 1, I2 = E2, I3 = E3, I4 = E4)</td></tr>
+    <tr><td class="code">Ax-NN</td><td>Actividad del sprint x · ejecutada por el Contratista</td></tr>
+    <tr><td class="code">Px-NN</td><td>Producto entregable del sprint x · sujeto a sign-off del Contratante</td></tr>
+    <tr><td class="code">CLI · B · C · D</td><td>Origen del insumo: Contratante directo · Frente B Redes · Frente C Presupuesto · Frente D Campo</td></tr>
+    <tr><td class="code">§N</td><td>Sección N de la MGA Web (DNP Manual v6.0)</td></tr>
+    <tr><td class="code">Sign-off</td><td>Aprobación formal del Contratante por correo a Gerencia@fibergroup.net + cmadera@udc.edu.co · activa hito de pago</td></tr>
+    <tr><td class="code">DoD</td><td>Definition of Done — criterios de aceptación E1-Cn..E4-Cn definidos en ACTA-ODI</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">§5 — Ruta crítica del cronograma (3 semanas · 13 días hábiles)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Día</th><th>Hito crítico</th><th style="width:8rem">Riesgo si se incumple</th></tr></thead>
+  <tbody>
+    <tr><td>D+1 (29 abr)</td><td>Recibir I1-01 a I1-03 (PDM · SISBEN · caracterización problema)</td><td>Sprint 1 no inicia</td></tr>
+    <tr><td>D+5 (3 may)</td><td>Sign-off intermedio árboles problema/objetivos</td><td>Sprint 1 cierre tardío</td></tr>
+    <tr><td><strong>D+6 (4 may)</strong></td><td><strong>Sign-off Sprint 1 + factura Hito 2</strong></td><td>Cuello de botella S2</td></tr>
+    <tr><td>D+8 (6 may)</td><td>Recibir I2-01..05 + I3-01..03 (diseño + cotizaciones)</td><td>Cadena Valor §7 sin datos</td></tr>
+    <tr><td>D+9 (7 may)</td><td>Validación intermedia Σ §7 = $3.500M ±5%</td><td>Renegociación scope</td></tr>
+    <tr><td><strong>D+11 (9 may)</strong></td><td><strong>Sign-off Sprint 2 + factura Hito 3</strong></td><td>Cuello de botella S3</td></tr>
+    <tr><td>D+12 (10 may)</td><td>Acceso MGA Web SUIFP (I4-01)</td><td>Carga MGA imposible</td></tr>
+    <tr><td>D+15 (13 may)</td><td>Avales firmados I4-02 + I4-03</td><td>§9 Fuentes incompleta</td></tr>
+    <tr><td>D+16 (14 may)</td><td>Envío oficial MGA Web a DNP-SUIFP</td><td>BPIN tardío</td></tr>
+    <tr><td><strong>D+18 (16 may)</strong></td><td><strong>BPIN emitido + sign-off Sprint 3 + factura Hito 4</strong></td><td>Cierre tardío contrato</td></tr>
+  </tbody>
+</table>
+
+<div class="consultor-footer">
+  <div class="cf-left"><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias</span></div>
+  <div class="cf-center">CCMS-CB-2026-001-B-PLAN-GEN · plan general v1</div>
+  <div class="cf-right"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><br><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+
+</body>
+</html>

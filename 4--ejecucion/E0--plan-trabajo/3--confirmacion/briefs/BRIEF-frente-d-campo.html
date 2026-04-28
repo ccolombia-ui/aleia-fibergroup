@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Brief Frente D — Técnicos de Campo · Territorios Digitales Transformativos · [Territorio]</title>
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--orange:#c2410c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--mono:'Courier New',monospace;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:11pt;line-height:1.7;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.doc-header{text-align:center;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;}
+.doc-title{font-size:15pt;font-weight:700;color:var(--navy);margin:.3rem 0;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.badge-frente{display:inline-block;background:var(--orange);color:#fff;font-family:Arial,sans-serif;font-size:8pt;font-weight:700;padding:.2rem .6rem;border-radius:4px;margin:.4rem 0;}
+.seccion{margin-bottom:1.3rem;}
+.sec-title{font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);font-family:Arial,sans-serif;border-bottom:1px solid var(--border);padding-bottom:.15rem;margin-bottom:.5rem;}
+.body-text{font-size:10.5pt;line-height:1.75;text-align:justify;}
+.body-text p{margin-bottom:.5rem;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.5rem;margin:.5rem 0;}
+.info-row{display:flex;gap:.5rem;font-size:10pt;}
+.info-lbl{font-weight:700;min-width:9rem;color:var(--navy);}
+.info-val{color:var(--text);}
+.req-table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:.5rem 0;}
+.req-table th{background:var(--navy);color:#fff;padding:.3rem .5rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.req-table td{padding:.28rem .5rem;border-bottom:1px solid var(--border);vertical-align:top;}
+.req-table tr:nth-child(even) td{background:var(--bg);}
+.req-table td:first-child{font-weight:700;color:var(--orange);font-family:var(--mono);white-space:nowrap;}
+.alert-box{background:#fff7ed;border:1px solid #fdba74;border-left:4px solid var(--orange);border-radius:4px;padding:.6rem .8rem;font-size:9.5pt;margin:.5rem 0;}
+.alert-box strong{color:var(--orange);}
+.dod-list{list-style:none;padding:0;margin:.4rem 0;}
+.dod-list li{padding:.2rem 0;font-size:10pt;padding-left:1.2rem;position:relative;}
+.dod-list li::before{content:"✓";position:absolute;left:0;color:var(--orange);font-weight:700;}
+.template-box{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem .9rem;font-family:var(--mono);font-size:8.5pt;line-height:1.8;margin:.5rem 0;white-space:pre-wrap;}
+.day-table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:.5rem 0;}
+.day-table th{background:var(--orange);color:#fff;padding:.3rem .5rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.day-table td{padding:.28rem .5rem;border-bottom:1px solid var(--border);vertical-align:top;}
+.day-table tr:nth-child(even) td{background:var(--bg);}
+.day-table td:first-child{font-weight:700;white-space:nowrap;color:var(--navy);}
+.doc-footer{margin-top:1.5rem;padding-top:.65rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}html,body{margin:0;padding:0;max-width:100%;}.print-btn{display:none!important;}.seccion{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-header">
+  <div class="doc-type">Brief de Frente — E1 · Sprint 1 — Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-title">Brief Frente D — Técnicos de Campo</div>
+  <div class="badge-frente">Frente D · Técnicos de Campo / Relevamiento Territorial</div><br>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-BRIEF-D &nbsp;·&nbsp; Emitido: 28 abr. 2026 &nbsp;·&nbsp; Entrega esperada: mié. 7 may. 2026</div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">1. Contexto del proyecto</div>
+  <div class="body-text">
+    <p><strong>Territorios Digitales Transformativos · [Territorio] — Arauca</strong> es un proyecto de inversión pública orientado a reducir la brecha digital en Arauca. Según el Índice de Brecha Digital (IBD) del MinTIC, Arauca registra un puntaje de <strong>0.494</strong> (posición 25/33 departamentos), lo que indica una brecha significativa en cobertura, velocidad y calidad de conexión comparado con el promedio nacional.</p>
+    <p>El trabajo de campo del Frente D es el insumo territorial más crítico del proyecto: permite verificar la situación real de conectividad en el territorio, identificar zonas sin cobertura, y caracterizar la población objetivo. Sin estos datos, la formulación MGA no puede sustentar el diagnóstico con evidencia primaria.</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">2. Alcance del encargo — Frente D</div>
+  <div class="body-text">
+    <p>El Frente D realiza el <strong>relevamiento territorial</strong> en el municipio de Arauca durante los primeros días del Sprint E1 (29 abr.–mié. 7 may.). El objetivo es recopilar datos primarios que sustenten el diagnóstico de brecha digital, la identificación de población objetivo y las condiciones geográficas para el diseño técnico.</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">3. Entregables requeridos</div>
+  <table class="req-table">
+    <thead><tr><th>ID</th><th>Entregable</th><th>Formato</th><th>Fecha límite</th></tr></thead>
+    <tbody>
+      <tr><td>D-01</td><td>Ficha de caracterización de zonas sin cobertura: barrios/veredas, coordenadas GPS, distancia al casco urbano, obstáculos geográficos (ríos, selva, etc.)</td><td>Excel georeferenciado + fotos</td><td>mié. 7 may.</td></tr>
+      <tr><td>D-02</td><td>Conteo y caracterización de población objetivo: hogares sin internet, establecimientos educativos, centros de salud, puestos de policía, juntas comunales — sin cobertura o con cobertura deficiente</td><td>Excel con tabla de beneficiarios por categoría</td><td>mié. 7 may.</td></tr>
+      <tr><td>D-03</td><td>Encuesta de demanda digital: mínimo 30 hogares / 10 establecimientos. Variables: ¿tiene internet? ¿cuál operador? ¿velocidad percibida? ¿uso principal? ¿disposición a pagar?</td><td>Excel con respuestas individuales + resumen estadístico</td><td>mié. 7 may.</td></tr>
+      <tr><td>D-04</td><td>Registro fotográfico: mínimo 20 fotos georreferenciadas mostrando la situación actual (postes, antenas, cables, ausencia de infraestructura, escuelas sin señal, etc.)</td><td>Carpeta Drive con fotos nombradas: FOTO-[zona]-[num].jpg</td><td>mié. 7 may.</td></tr>
+      <tr><td>D-05</td><td>Informe de campo consolidado: resumen ejecutivo (1 pág.) con hallazgos clave, principales brechas identificadas y observaciones sobre viabilidad de instalación de infraestructura</td><td>Word/PDF 1–3 págs.</td><td>mié. 7 may.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">4. Variables prioritarias de relevamiento</div>
+  <div class="body-text"><p>En el trabajo de campo, asegurarse de capturar las siguientes variables por zona visitada:</p></div>
+  <table class="req-table">
+    <thead><tr><th>Variable</th><th>Descripción</th><th>Cómo medirla</th></tr></thead>
+    <tbody>
+      <tr><td>Cobertura operadores</td><td>¿Qué operadores tienen señal en la zona? ¿Claro, Tigo, Movistar, ETB, otros?</td><td>Test de cobertura en campo con celulares múltiples operadores</td></tr>
+      <tr><td>Velocidad de conexión</td><td>Mbps bajada/subida en zonas con señal</td><td>App Speedtest en puntos seleccionados</td></tr>
+      <tr><td>Tipo de conexión predominante</td><td>¿Móvil 4G/3G, wifi, fibra, ninguna?</td><td>Encuesta + observación directa</td></tr>
+      <tr><td>Hogares sin internet</td><td>Número de hogares en zonas sin cobertura o con cobertura deficiente (&lt;10 Mbps)</td><td>Conteo + encuesta</td></tr>
+      <tr><td>Sedes educativas</td><td>Escuelas y colegios sin internet o con conectividad insuficiente para actividades académicas</td><td>Visita + entrevista con rector/docente</td></tr>
+      <tr><td>Centros de salud</td><td>Puestos de salud y hospitales sin telemedicina por falta de conectividad</td><td>Visita + entrevista</td></tr>
+      <tr><td>Topografía / obstáculos</td><td>Altura, distancia entre zonas, ríos, selva — relevante para diseño de red</td><td>GPS + observación + consulta mapas IGM</td></tr>
+      <tr><td>Infraestructura eléctrica</td><td>¿Hay electricidad estable? ¿Fuentes de energía alternativa disponibles?</td><td>Encuesta + observación</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">5. Calendario de campo sugerido</div>
+  <table class="day-table">
+    <thead><tr><th>Día</th><th>Fecha</th><th>Actividad</th><th>Zona sugerida</th></tr></thead>
+    <tbody>
+      <tr><td>D1</td><td>Mar. 29 abr.</td><td>Kick-off · recibir brief · preparar instrumentos · coordinar logística con Contratante</td><td>Oficina / virtual</td></tr>
+      <tr><td>D2</td><td>Mié. 30 abr.</td><td>Relevamiento zona urbana de Arauca: barrios periféricos sin cobertura · encuestas hogares</td><td>Casco urbano Arauca</td></tr>
+      <tr><td>D3</td><td>Vie. 2 may.</td><td>Relevamiento zona rural: veredas prioritarias · sedes educativas · centros de salud</td><td>Área rural municipio</td></tr>
+      <tr><td>D4</td><td>Lun. 5 may.</td><td>Cierre de campo · consolidación de datos · inicio redacción informe D-05</td><td>Oficina</td></tr>
+      <tr><td>D5</td><td>Mar. 6 may. – Mié. 7 may.</td><td>Entrega todos los entregables (D-01 a D-05) en Drive del proyecto antes de las 18:00 del mié. 7</td><td>Oficina / remoto</td></tr>
+    </tbody>
+  </table>
+  <div class="alert-box" style="margin-top:.5rem;">
+    <strong>Nota:</strong> El 1 de mayo es festivo. El cronograma evita ese día. Si hay dificultades de acceso a zonas rurales, coordinar con el Contratante local para apoyo logístico (transporte, acompañamiento de autoridades locales).
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">6. Plantilla de encuesta de demanda (D-03)</div>
+  <div class="template-box">ENCUESTA DEMANDA DIGITAL — CIUDAD BACANA — ARAUCA
+Fecha: __________ · Zona/Barrio: _________________ · Encuestador: _________________
+GPS: Lat _________ · Lon _________
+
+SECCIÓN A — IDENTIFICACIÓN
+1. Tipo de encuestado: □ Hogar  □ Negocio  □ Sede educativa  □ Salud  □ Otro: ____
+2. Número de personas en el hogar / usuarios en la sede: _____
+
+SECCIÓN B — CONECTIVIDAD ACTUAL
+3. ¿Tiene acceso a internet? □ Sí  □ No  → Si No: pasar a §C
+4. ¿Qué tipo de conexión usa? □ WiFi fijo  □ Datos móviles  □ Fibra  □ Satélite  □ Otro: ____
+5. ¿Cuál operador? □ Claro  □ Tigo  □ Movistar  □ ETB  □ Otro: ____
+6. ¿Cómo califica la velocidad? □ Muy lenta  □ Lenta  □ Aceptable  □ Rápida  □ Muy rápida
+7. Speedtest (si aplica): Bajada ____ Mbps · Subida ____ Mbps
+8. ¿Usos principales? □ Tareas/estudio  □ Trabajo  □ Entretenimiento  □ Telemedicina  □ Otro: ____
+
+SECCIÓN C — DEMANDA Y DISPOSICIÓN
+9. ¿Para qué usaría internet si tuviera? __________________________________________
+10. ¿Cuánto pagaría mensualmente por una buena conexión? $_______________
+11. ¿Conoce programas del gobierno para conectividad? □ Sí: ____________  □ No
+
+OBSERVACIONES DE CAMPO: ___________________________________________________</div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">7. Cómo subir los entregables al Drive</div>
+  <div class="body-text">
+    <p>Organizar los archivos en el Drive del proyecto bajo la carpeta: <code>Ciudad-Bacana / E1-Diagnostico / Frente-D-Campo /</code></p>
+    <ul style="margin:.4rem 0 .4rem 1.4rem;font-size:10pt;line-height:1.8;">
+      <li>Un Excel con pestañas: D-01, D-02, D-03, D-04 (índice de fotos), D-05 (resumen)</li>
+      <li>Una carpeta <code>FOTOS/</code> con las imágenes nombradas <code>FOTO-[zona]-[num].jpg</code></li>
+      <li>Un PDF del informe de campo (D-05)</li>
+    </ul>
+    <p>Al subir, notificar en el canal del proyecto con mensaje: <code>[D-OK] Territorios Digitales Transformativos · [Territorio] · Frente D entregado · mié 7 may</code></p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">8. Definición de "Done" para Frente D</div>
+  <ul class="dod-list">
+    <li>Los 5 entregables (D-01 a D-05) están en el Drive antes del mié. 7 may. a las 18:00</li>
+    <li>D-01 tiene coordenadas GPS de al menos 3 zonas sin cobertura identificadas</li>
+    <li>D-02 cuantifica el número de hogares, sedes educativas y centros de salud sin cobertura adecuada</li>
+    <li>D-03 tiene mínimo 30 encuestas de hogares y 10 de establecimientos completadas</li>
+    <li>D-04 tiene mínimo 20 fotos georreferenciadas y nombradas correctamente</li>
+    <li>D-05 incluye un párrafo sobre viabilidad de instalación de infraestructura en las zonas visitadas</li>
+    <li>Se notifica la entrega en el canal del proyecto</li>
+  </ul>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">9. Coordinación y canal</div>
+  <div class="info-grid">
+    <div class="info-row"><span class="info-lbl">Coordinador:</span><span class="info-val">Carlos Camilo Madera S. (Frente A)</span></div>
+    <div class="info-row"><span class="info-lbl">Correo:</span><span class="info-val">ccolombia@soygenial.co</span></div>
+    <div class="info-row"><span class="info-lbl">Contacto local:</span><span class="info-val">[Contratante — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Canal del proyecto:</span><span class="info-val">[WA / Teams — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Drive del proyecto:</span><span class="info-val">[URL — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Plazo reply consultas:</span><span class="info-val">4 horas hábiles máximo</span></div>
+    <div class="info-row"><span class="info-lbl">Standup diario:</span><span class="info-val">09:00 · async · 3 líneas: Hecho / En curso / Bloqueo</span></div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div>Brief Frente D · Técnicos de Campo · Territorios Digitales Transformativos · [Territorio] · Arauca</div>
+  <div>Ref. CCMS-CB-2026-001-BRIEF-D &nbsp;·&nbsp; Hoja 1 de 1</div>
+</div>
+
+</body>
+</html>

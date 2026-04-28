@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Brief Frente B — Arquitectura de Redes · Territorios Digitales Transformativos · [Territorio]</title>
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--amber:#b45309;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--mono:'Courier New',monospace;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:11pt;line-height:1.7;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.doc-header{text-align:center;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;}
+.doc-title{font-size:15pt;font-weight:700;color:var(--navy);margin:.3rem 0;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.badge-frente{display:inline-block;background:var(--blue);color:#fff;font-family:Arial,sans-serif;font-size:8pt;font-weight:700;padding:.2rem .6rem;border-radius:4px;margin:.4rem 0;}
+.seccion{margin-bottom:1.3rem;}
+.sec-title{font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);font-family:Arial,sans-serif;border-bottom:1px solid var(--border);padding-bottom:.15rem;margin-bottom:.5rem;}
+.body-text{font-size:10.5pt;line-height:1.75;text-align:justify;}
+.body-text p{margin-bottom:.5rem;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.5rem;margin:.5rem 0;}
+.info-row{display:flex;gap:.5rem;font-size:10pt;}
+.info-lbl{font-weight:700;min-width:9rem;color:var(--navy);}
+.info-val{color:var(--text);}
+.req-table{width:100%;border-collapse:collapse;font-size:9.5pt;margin:.5rem 0;}
+.req-table th{background:var(--navy);color:#fff;padding:.3rem .5rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.req-table td{padding:.28rem .5rem;border-bottom:1px solid var(--border);vertical-align:top;}
+.req-table tr:nth-child(even) td{background:var(--bg);}
+.req-table td:first-child{font-weight:700;color:var(--blue);font-family:var(--mono);white-space:nowrap;}
+.alert-box{background:#fef3c7;border:1px solid #f59e0b;border-left:4px solid var(--amber);border-radius:4px;padding:.6rem .8rem;font-size:9.5pt;margin:.5rem 0;}
+.alert-box strong{color:var(--amber);}
+.dod-list{list-style:none;padding:0;margin:.4rem 0;}
+.dod-list li{padding:.2rem 0;font-size:10pt;padding-left:1.2rem;position:relative;}
+.dod-list li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.template-box{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.7rem .9rem;font-family:var(--mono);font-size:8.5pt;line-height:1.8;margin:.5rem 0;white-space:pre-wrap;}
+.doc-footer{margin-top:1.5rem;padding-top:.65rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}html,body{margin:0;padding:0;max-width:100%;}.print-btn{display:none!important;}.seccion{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-header">
+  <div class="doc-type">Brief de Frente — E2 · Sprint 2 — Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-title">Brief Frente B — Arquitectura de Redes</div>
+  <div class="badge-frente">Frente B · Arquitecto(a) de Redes</div><br>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-BRIEF-B &nbsp;·&nbsp; Emitido: 28 abr. 2026 &nbsp;·&nbsp; Entrega esperada: jue. 8 may. 2026</div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">1. Contexto del proyecto</div>
+  <div class="body-text">
+    <p><strong>Territorios Digitales Transformativos · [Territorio] — Arauca</strong> es un proyecto de inversión pública que busca reducir la brecha digital en el municipio de Arauca. Según el Índice de Brecha Digital (IBD) del MinTIC, Arauca registra un puntaje de <strong>0.494</strong> (posición 25/33 departamentos), indicando cobertura y calidad de conectividad significativamente por debajo del promedio nacional.</p>
+    <p>El proyecto se formula bajo la Metodología General Ajustada (MGA Web) del DNP y busca obtener registro BPIN para postulación a fuentes de financiamiento público (Regalías, SGP, OCAD-Paz, u otras). El frente B es responsable exclusivo del componente técnico de infraestructura de redes.</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">2. Alcance del encargo — Frente B</div>
+  <div class="body-text">
+    <p>Su encargo cubre la especificación técnica completa de la solución de conectividad, que será integrada en los Sprints E2 (detalle técnico) y E4 (consolidación MGA). Los entregables serán incorporados directamente en las secciones §4 (descripción técnica) y §5 (productos y costos) de la MGA.</p>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">3. Entregables requeridos</div>
+  <table class="req-table">
+    <thead><tr><th>ID</th><th>Entregable</th><th>Formato</th><th>Fecha límite</th></tr></thead>
+    <tbody>
+      <tr><td>B-01</td><td>Diagnóstico técnico de infraestructura existente en Arauca (operadores, cobertura, tecnologías desplegadas: fibra/4G/5G/satélite)</td><td>Doc Word/PDF + resumen ejecutivo 1 pág.</td><td>jue. 8 may.</td></tr>
+      <tr><td>B-02</td><td>Especificación técnica de la solución propuesta (topología de red, tecnología seleccionada, equipos clave, estándares ITU/IEEE aplicables)</td><td>Doc Word/PDF con tablas de especificaciones</td><td>jue. 8 may.</td></tr>
+      <tr><td>B-03</td><td>Listado de productos y cantidades técnicas (hardware, software, licencias, obras civiles asociadas a infraestructura TIC)</td><td>Excel estructurado por producto-unidad-cantidad</td><td>jue. 8 may.</td></tr>
+      <tr><td>B-04</td><td>Matriz de riesgos técnicos (probabilidad × impacto) con al menos 5 riesgos identificados y su mitigación</td><td>Excel o tabla en Word</td><td>jue. 8 may.</td></tr>
+      <tr><td>B-05</td><td>Cronograma técnico de implementación: actividades, duraciones y hitos (compatible con formato Gantt)</td><td>Excel o MS Project exportado a Excel</td><td>jue. 8 may.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">4. Fuentes de referencia recomendadas</div>
+  <div class="body-text">
+    <ul style="margin:.4rem 0 .4rem 1.4rem;font-size:10pt;line-height:1.8;">
+      <li>MinTIC — Índice de Brecha Digital (IBD) 2024 · ficha departamental Arauca</li>
+      <li>MinTIC — Plan Nacional de Conectividad Rural · mapa de proyectos activos</li>
+      <li>ANE — Espectro radioeléctrico asignado en Arauca</li>
+      <li>DANE — Encuesta de Calidad de Vida · módulo TIC 2022–2024</li>
+      <li>SITR MinTIC — Sistema de Información de Telecomunicaciones</li>
+      <li>UIT-T / IEEE 802.x — estándares técnicos de red (según tecnología propuesta)</li>
+      <li>SECOP II — contratos referencia de proyectos similares en Llanos/Arauca</li>
+    </ul>
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">5. Parámetros técnicos de diseño</div>
+  <table class="req-table">
+    <thead><tr><th>Parámetro</th><th>Valor orientativo</th><th>Fuente</th></tr></thead>
+    <tbody>
+      <tr><td>Población objetivo</td><td>Por definir con datos campo Frente D</td><td>DANE / campo</td></tr>
+      <tr><td>Zonas prioritarias</td><td>Barrios / veredas sin cobertura · definir con Frente D</td><td>Campo + IBD</td></tr>
+      <tr><td>Velocidad mínima objetivo</td><td>25 Mbps bajada / 10 Mbps subida por hogar</td><td>MinTIC estándar</td></tr>
+      <tr><td>Tecnologías elegibles</td><td>Fibra óptica, 4G/5G, satelital LEO, microondas</td><td>MGA §4</td></tr>
+      <tr><td>Vida útil del proyecto</td><td>10 años (evaluación económica VPN/TIR)</td><td>DNP MGA</td></tr>
+      <tr><td>Norma sísmica / ambiental</td><td>NSR-10 · RAS 2000 (obras civiles asociadas)</td><td>ICONTEC</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">6. Dependencia con Frente D (campo)</div>
+  <div class="alert-box">
+    <strong>Atención:</strong> El Frente D (Técnicos de Campo) entregará datos de relevamiento territorial el <strong>mié. 7 may.</strong> Antes de esa fecha, usted puede avanzar en la especificación técnica con parámetros orientativos y ajustar el diseño final una vez reciba los datos de campo. Coordinar con el Formulador (Frente A) cualquier discrepancia entre datos de campo y asunciones técnicas.
+  </div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">7. Formato de entrega de especificación técnica (B-02)</div>
+  <div class="body-text"><p>El documento B-02 debe seguir esta estructura mínima para facilitar su incorporación en la MGA:</p></div>
+  <div class="template-box">1. Resumen ejecutivo (½ pág.)
+2. Diagnóstico de red existente
+   2.1 Operadores activos en Arauca
+   2.2 Cobertura por tecnología (mapa o tabla)
+   2.3 Brechas identificadas
+3. Solución propuesta
+   3.1 Topología de red (describir + diagrama)
+   3.2 Tecnología seleccionada y justificación
+   3.3 Estándares aplicables (UIT / IEEE)
+4. Especificaciones técnicas
+   4.1 Hardware principal (con fichas técnicas en anexo)
+   4.2 Software y plataformas de gestión
+   4.3 Infraestructura civil asociada
+5. Productos y cantidades (tabla para presupuesto)
+6. Cronograma técnico de implementación
+7. Riesgos técnicos y mitigación
+8. Anexos: fichas técnicas de equipos, mapas de cobertura</div>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">8. Definición de "Done" para Frente B</div>
+  <ul class="dod-list">
+    <li>Los 5 entregables (B-01 a B-05) están en el Drive del proyecto antes del jue. 8 may. a las 18:00</li>
+    <li>La especificación técnica (B-02) sigue la estructura del template §7 de este brief</li>
+    <li>El listado de productos (B-03) tiene columnas: Producto · Unidad · Cantidad · Descripción técnica</li>
+    <li>Los riesgos (B-04) tienen: ID · Descripción · Probabilidad (A/M/B) · Impacto (A/M/B) · Mitigación</li>
+    <li>El cronograma (B-05) es compatible con el horizonte de 10 años de vida útil del proyecto</li>
+    <li>Se envía confirmación de entrega al canal del proyecto con asunto: <code>[B-OK] Territorios Digitales Transformativos · [Territorio] · Frente B entregado</code></li>
+  </ul>
+</div>
+
+<div class="seccion">
+  <div class="sec-title">9. Coordinación y canal</div>
+  <div class="info-grid">
+    <div class="info-row"><span class="info-lbl">Coordinador:</span><span class="info-val">Carlos Camilo Madera S. (Frente A)</span></div>
+    <div class="info-row"><span class="info-lbl">Correo:</span><span class="info-val">ccolombia@soygenial.co</span></div>
+    <div class="info-row"><span class="info-lbl">Canal del proyecto:</span><span class="info-val">[WA / Teams — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Drive del proyecto:</span><span class="info-val">[URL — por confirmar]</span></div>
+    <div class="info-row"><span class="info-lbl">Plazo reply consultas:</span><span class="info-val">4 horas hábiles máximo</span></div>
+    <div class="info-row"><span class="info-lbl">Standup diario:</span><span class="info-val">09:00 · async · 3 líneas: Hecho / En curso / Bloqueo</span></div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div>Brief Frente B · Arquitectura de Redes · Territorios Digitales Transformativos · [Territorio] · Arauca</div>
+  <div>Ref. CCMS-CB-2026-001-BRIEF-B &nbsp;·&nbsp; Hoja 1 de 1</div>
+</div>
+
+</body>
+</html>

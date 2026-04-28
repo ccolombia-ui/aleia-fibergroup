@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acta de Inicio · Hito 1 (Starting · E0) — Formulación MGA · Territorios Digitales Transformativos · Arauca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f172a; --navy-2:#1e293b; --blue:#0369a1; --blue-d:#075985; --blue-l:#38bdf8; --blue-x:#7dd3fc;
+  --text:#1e293b; --muted:#64748b; --muted-2:#94a3b8;
+  --border:#cbd5e1; --bg:#f8fafc; --bg-2:#f1f5f9;
+  --crit:#b91c1c;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Times New Roman',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9.3pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+
+/* ───────── DOC META ───────── */
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+
+/* ───────── PARTES ───────── */
+.partes-box{background:rgba(248,250,252,.6);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.4rem .65rem;margin-bottom:.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.parte-rol{font-size:6.5pt;font-weight:700;text-transform:uppercase;color:var(--blue);font-family:var(--sans);letter-spacing:.5px;margin-bottom:.12rem;}
+.parte-grid{display:grid;grid-template-columns:auto 1fr;gap:.04rem .4rem;font-size:8pt;font-family:var(--sans);align-items:baseline;line-height:1.22;}
+.parte-lbl{color:var(--muted);font-weight:600;font-size:7pt;text-transform:uppercase;letter-spacing:.3px;}
+.parte-val{color:var(--text);}
+.parte-end{font-size:7.2pt;color:var(--muted);font-style:italic;margin-top:.18rem;}
+
+/* ───────── CLÁUSULAS ───────── */
+.clausula{margin-bottom:.4rem;}
+.cl-num{font-size:7.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin-bottom:.18rem;}
+.cl-body{font-size:9.5pt;line-height:1.5;text-align:justify;}
+.cl-body p{margin-bottom:.2rem;}
+.cl-body p:last-child{margin-bottom:0;}
+
+/* ───────── TABLA HITOS / COMPROMISOS ───────── */
+.pay-table{width:100%;border-collapse:collapse;margin:.25rem 0 .15rem;font-size:7.8pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.pay-table th{background:rgba(3,105,161,.13);color:var(--navy);padding:.22rem .4rem;text-align:left;font-size:6.8pt;text-transform:uppercase;letter-spacing:.4px;border-bottom:1.5px solid rgba(3,105,161,.3);}
+.pay-table th.num{text-align:right;}
+.pay-table td{padding:.18rem .4rem;border-bottom:1px solid rgba(203,213,225,.6);vertical-align:top;}
+.pay-table td.num{text-align:right;font-variant-numeric:tabular-nums;}
+.pay-table tr:nth-child(even) td{background:rgba(241,245,249,.55);}
+.pay-amt{font-family:var(--mono);font-weight:700;color:var(--navy);}
+.pay-total td{font-weight:700;border-top:1.5px solid rgba(3,105,161,.4);background:rgba(3,105,161,.07)!important;color:var(--navy);}
+.pay-current td{background:rgba(56,189,248,.16)!important;color:var(--navy);}
+.pay-current td:first-child{font-weight:700;}
+
+/* ───────── VALOR BOX ───────── */
+.valor-box{background:linear-gradient(135deg,rgba(56,189,248,.16) 0%,rgba(3,105,161,.12) 100%);color:var(--navy);border:1px solid rgba(3,105,161,.25);border-radius:4px;padding:.45rem .9rem;margin:.2rem 0 .25rem;display:flex;justify-content:space-between;align-items:center;}
+.valor-label{font-size:6.5pt;font-family:var(--sans);color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;}
+.valor-num{font-size:11pt;font-weight:700;font-family:var(--mono);color:var(--blue-d);}
+.valor-letras{font-size:8pt;font-family:var(--serif);color:var(--text);font-style:italic;}
+
+/* ───────── ANEXO / DATOS BANCARIOS CARD ───────── */
+.anexo-card{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.35rem .65rem;margin:.2rem 0;}
+.anexo-lbl{font-size:6.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);font-family:var(--sans);}
+.anexo-title{font-size:9pt;font-weight:700;color:var(--navy);margin:.1rem 0 .12rem;}
+.anexo-desc{font-size:8pt;color:var(--muted);font-family:var(--sans);line-height:1.4;}
+.bank-grid{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:.05rem .5rem;font-size:8pt;font-family:var(--sans);align-items:baseline;line-height:1.3;margin-top:.18rem;}
+.bank-lbl{color:var(--muted);font-weight:600;font-size:7pt;text-transform:uppercase;letter-spacing:.3px;}
+.bank-val{color:var(--navy);font-weight:600;font-family:var(--mono);font-size:8pt;}
+
+/* ───────── CHECKLIST KICK-OFF ───────── */
+.check-table{width:100%;border-collapse:collapse;margin:.2rem 0;font-size:8pt;font-family:var(--sans);}
+.check-table td{padding:.16rem .4rem;border-bottom:1px solid rgba(203,213,225,.4);vertical-align:top;}
+.check-table tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.check-table td:first-child{width:1.4rem;text-align:center;color:var(--blue);font-weight:700;font-size:9pt;}
+.check-table td:last-child{width:5rem;font-size:7pt;color:var(--muted);text-align:right;font-family:var(--mono);}
+
+/* ───────── FIRMAS ───────── */
+.firma-section{break-inside:avoid;page-break-inside:avoid;}
+.firma-section .clausula{margin-bottom:.3rem;}
+.firmas{margin-top:.7rem;display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;break-inside:avoid;page-break-inside:avoid;}
+.firma-block{text-align:center;}
+.firma-line{border-top:1px solid rgba(15,23,42,.45);margin-bottom:.18rem;margin-top:.3rem;}
+.firma-nombre{font-weight:700;font-size:9pt;color:var(--navy);}
+.firma-rol{font-size:7pt;color:var(--muted);font-family:var(--sans);text-transform:uppercase;letter-spacing:.5px;}
+.firma-det{font-size:7pt;color:var(--muted);font-family:var(--mono);margin-top:.1rem;}
+.firma-img{height:40pt;max-width:100%;width:auto;margin:.2rem auto;display:block;}
+.firma-placeholder{height:40pt;margin:.2rem auto;}
+
+/* ───────── PIE DE PÁGINA ───────── */
+.consultor-footer{
+  margin-top:.55rem;
+  border-top:1px solid rgba(15,23,42,.35);
+  padding-top:.3rem;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:.7rem;
+  font-size:6.5pt;
+  font-family:var(--sans);
+  color:var(--muted);
+  align-items:center;
+}
+.cf-left{justify-self:start;}
+.cf-center{justify-self:center;text-align:center;font-family:var(--mono);font-weight:700;color:var(--blue-d);font-size:6.8pt;letter-spacing:.3px;}
+.cf-right{justify-self:end;text-align:right;}
+.cf-conf{display:inline-block;background:rgba(185,28,28,.06);color:var(--crit);padding:.06rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(185,28,28,.2);font-size:5.8pt;margin-right:.3rem;}
+.cf-meta{font-family:var(--mono);color:var(--muted-2);font-size:5.8pt;letter-spacing:.3px;}
+.cf-brand{color:var(--navy);font-weight:700;font-family:var(--sans);font-size:6.8pt;}
+
+/* ───────── PRINT ───────── */
+@page{size:Letter portrait;margin:9mm 12mm 10mm 12mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  body{padding:6mm 10mm;}
+  .print-btn{display:none!important;}
+  .clausula{break-inside:avoid;}
+  .firmas{break-inside:avoid;}
+  .partes-box{break-inside:avoid;}
+  .anexo-card{break-inside:avoid;}
+  .consultor-footer{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<!-- ═══════════════ DOC TYPE + REFERENCIA ═══════════════ -->
+<div class="doc-meta">
+  <div class="doc-type">Acta de Inicio · Hito 1 — Soporte de Facturación</div>
+  <div class="doc-title">Acta de Inicio · Starting · E0 — Formulación MGA · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-B-ACTA-H1 &nbsp;·&nbsp; Bogotá D.C. &nbsp;·&nbsp; 28 de abril de 2026</div>
+  <div class="doc-variant">Hito 1 (20%) · Anexo del contrato CCMS-CB-2026-001-B-v11</div>
+</div>
+
+<!-- ═══════════════ PARTES ═══════════════ -->
+<div class="partes-box">
+  <div class="parte">
+    <div class="parte-rol">Contratante</div>
+    <div class="parte-grid">
+      <span class="parte-lbl">Nombre</span><span class="parte-val" style="font-weight:700;color:var(--navy)">FIBERGROUP S.A.S. E.S.P.</span>
+      <span class="parte-lbl">NIT</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">901.322.864-7</span>
+      <span class="parte-lbl">Rep. legal</span><span class="parte-val">Ciro Manuel González Hernández · C.C. <span style="font-family:var(--mono);font-weight:600;color:var(--navy)">91.511.053</span></span>
+      <span class="parte-lbl">Dirección</span><span class="parte-val">Calle 46 # 39-56, Cabecera del Llano · Bucaramanga, Santander</span>
+      <span class="parte-lbl">Correo</span><span class="parte-val">Gerencia@fibergroup.net</span>
+      <span class="parte-lbl">Teléfono</span><span class="parte-val" style="font-family:var(--mono)">(607) 691 6069</span>
+    </div>
+    <div class="parte-end">En adelante <strong>EL CONTRATANTE</strong></div>
+  </div>
+  <div class="parte">
+    <div class="parte-rol">Contratista — Consultor</div>
+    <div class="parte-grid">
+      <span class="parte-lbl">Nombre</span><span class="parte-val" style="font-weight:700;color:var(--navy)">Carlos Camilo Madera Sepúlveda</span>
+      <span class="parte-lbl">C.C.</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">79.801.495 de Bogotá</span>
+      <span class="parte-lbl">NIT/RUT</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">79.801.495-7</span>
+      <span class="parte-lbl">Domicilio</span><span class="parte-val">Bogotá D.C., Colombia</span>
+      <span class="parte-lbl">Correo</span><span class="parte-val">cmadera@udc.edu.co</span>
+      <span class="parte-lbl">Teléfono</span><span class="parte-val" style="font-family:var(--mono)">+57 300 472 4009</span>
+    </div>
+    <div class="parte-end">En adelante <strong>EL CONTRATISTA</strong></div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONSIDERANDOS ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Considerandos</div>
+  <div class="cl-body">
+    <p>Que con fecha 28 de abril de 2026 las partes suscribieron el <strong>Contrato de Prestación de Servicios de Consultoría Ref. CCMS-CB-2026-001-B-v11</strong> para la formulación del proyecto de inversión pública <em>Territorios Digitales Transformativos · Arauca</em> mediante la Metodología General Ajustada (MGA Web) del DNP, por valor total de $27.000.000 COP. Que la Cláusula 3ª del referido contrato establece el pago en cuatro (4) hitos verificables, siendo el <strong>Hito 1 — Starting · E0</strong> el correspondiente a la firma del contrato y kick-off del proyecto, con un valor del 20% del contrato. Que las partes celebran la presente Acta para dejar constancia formal del cumplimiento de las condiciones del Hito 1 y autorizar el desembolso correspondiente, con sujeción a las siguientes cláusulas:</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 1 — IDENTIFICACIÓN DEL HITO ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 1ª — Identificación del Hito 1</div>
+  <div class="cl-body">
+    <table class="pay-table">
+      <thead><tr><th>Hito</th><th>Condición contractual</th><th class="num">%</th><th class="num">Monto COP</th><th class="num">Fecha</th></tr></thead>
+      <tbody>
+        <tr class="pay-current"><td><strong>Starting · E0</strong></td><td>Firma del contrato y kick-off</td><td class="num">20%</td><td class="num pay-amt">$5.400.000</td><td class="num">28 abr 2026 ✓</td></tr>
+        <tr><td>Sprint 1 · Draft</td><td>Cierre S1 — Draft E1 (diagnóstico+solución+sector+impacto)</td><td class="num">30%</td><td class="num pay-amt">$8.100.000</td><td class="num">4 may 2026</td></tr>
+        <tr><td>Sprint 2 · MVP v1.0</td><td>Cierre S2 — sign-off integral E2+E3 (técnico + presupuestal)</td><td class="num">30%</td><td class="num pay-amt">$8.100.000</td><td class="num">9 may 2026</td></tr>
+        <tr><td>Sprint 3 · RC v1.1</td><td>Cierre S3 — RC v1.1, MGA Web §7–§8 y BPIN emitido</td><td class="num">20%</td><td class="num pay-amt">$5.400.000</td><td class="num">16 may 2026</td></tr>
+        <tr class="pay-total"><td colspan="2"><strong>Total contrato</strong></td><td class="num"><strong>100%</strong></td><td class="num pay-amt"><strong>$27.000.000</strong></td><td class="num">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 2 — CONSTANCIA DE CUMPLIMIENTO ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 2ª — Constancia de cumplimiento del Hito 1</div>
+  <div class="cl-body">
+    <p>El Contratante deja constancia formal de que en el día de hoy se han cumplido las condiciones contractuales del Hito 1 (Starting · E0), conforme al siguiente verificable:</p>
+    <table class="check-table">
+      <tbody>
+        <tr><td>✓</td><td>Suscripción del Contrato CCMS-CB-2026-001-B-v11 por ambas partes en Bogotá D.C.</td><td>Hoy</td></tr>
+        <tr><td>✓</td><td>Aceptación e incorporación del Anexo único (Propuesta técnico-económica v11) como parte integral del contrato</td><td>Hoy</td></tr>
+        <tr><td>✓</td><td>Reunión de kick-off realizada entre el Contratante y el Contratista — alineación de alcance, sprints y criterios de aceptación (DoD)</td><td>Hoy</td></tr>
+        <tr><td>✓</td><td>Confirmación del cronograma Agile–ODI de tres sprints con cierre estimado el 16 may 2026</td><td>Hoy</td></tr>
+        <tr><td>✓</td><td>Apertura del repositorio del proyecto (Drive) y canal de comunicación entre las partes</td><td>Hoy</td></tr>
+        <tr><td>✓</td><td>Identificación de los frentes externos del Contratante (Arquitectura de Redes · Especialista Presupuesto · Técnicos de Campo) conforme Anexo único</td><td>Hoy</td></tr>
+        <tr><td>✓</td><td>Suministro inicial de insumos territoriales por parte del Contratante (Cláusula 5.2 del contrato)</td><td>Hoy</td></tr>
+      </tbody>
+    </table>
+    <p>En consecuencia, el Hito 1 (Starting · E0) se entiende <strong>cumplido</strong> y da causación al pago del 20% del valor total del contrato.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 3 — VALOR DEL HITO Y AUTORIZACIÓN DE FACTURACIÓN ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 3ª — Valor del hito y autorización de facturación</div>
+  <div class="cl-body">
+    <div class="valor-box">
+      <div><div class="valor-label">Valor del Hito 1 · 20% · IVA incluido</div><div class="valor-num">$5.400.000 COP</div></div>
+      <div style="text-align:right"><div class="valor-label">En letras</div><div class="valor-letras">Cinco millones cuatrocientos mil pesos M/cte.</div></div>
+    </div>
+    <p>El Contratante autoriza al Contratista a emitir la <strong>factura electrónica de venta</strong> correspondiente al Hito 1 por valor de $5.400.000 COP. El desembolso se realizará por transferencia bancaria a la cuenta del Contratista detallada en la Cláusula 4ª de la presente Acta, dentro de los <strong>cinco (5) días hábiles</strong> siguientes a la firma de esta Acta, conforme a lo previsto en la Cláusula 3ª del contrato.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 4 — DATOS BANCARIOS ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 4ª — Datos bancarios para el desembolso</div>
+  <div class="cl-body">
+    <div class="anexo-card">
+      <div class="anexo-lbl">Cuenta bancaria del Contratista</div>
+      <div class="anexo-title">Carlos Camilo Madera Sepúlveda · C.C. 79.801.495</div>
+      <div class="bank-grid">
+        <span class="bank-lbl">Banco</span><span class="bank-val">Nu Colombia Compañía de Financiamiento S.A.</span>
+        <span class="bank-lbl">NIT banco</span><span class="bank-val">901.658.107-2</span>
+        <span class="bank-lbl">Tipo</span><span class="bank-val">Cuenta de ahorros</span>
+        <span class="bank-lbl">Número</span><span class="bank-val">72991701</span>
+        <span class="bank-lbl">Titular</span><span class="bank-val">Carlos Camilo Madera Sepúlveda</span>
+        <span class="bank-lbl">C.C.</span><span class="bank-val">79.801.495</span>
+      </div>
+      <div class="anexo-desc" style="margin-top:.2rem">Soporte: Certificación de cuenta expedida por Nu Colombia el 23 de abril de 2026 (`13--Cert-Bancaria.pdf`).</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 5 — PRÓXIMOS HITOS ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 5ª — Próximos hitos y cronograma</div>
+  <div class="cl-body">
+    <p>A partir de la firma de la presente Acta, las partes se obligan a continuar la ejecución conforme al cronograma Agile–ODI de tres sprints establecido en el Anexo único: cierre estimado de Sprint 1 · Draft el <strong>4 de mayo de 2026</strong>, Sprint 2 · MVP v1.0 el <strong>9 de mayo de 2026</strong> y Sprint 3 · RC v1.1 con BPIN emitido el <strong>16 de mayo de 2026</strong>. Las fechas estimadas admiten margen de ±5 días hábiles sin que constituya incumplimiento, conforme a la Cláusula 3ª del contrato.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 6 — DOCUMENTO ANEXO AL CONTRATO ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 6ª — Documento anexo al contrato</div>
+  <div class="cl-body">
+    <p>La presente Acta forma <strong>parte integral</strong> del Contrato CCMS-CB-2026-001-B-v11, con igual valor jurídico vinculante, y constituye soporte verificable del Hito 1 para efectos contables, tributarios y de auditoría. En caso de contradicción entre la presente Acta y el contrato, prevalece el texto del contrato.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 7 + FIRMAS ═══════════════ -->
+<div class="firma-section">
+<div class="clausula">
+  <div class="cl-num">Cláusula 7ª — Aceptación y firmas</div>
+  <div class="cl-body">
+    <p>En constancia de haber leído, entendido y aceptado el contenido de la presente Acta de Inicio del Hito 1, las partes la suscriben en dos (2) ejemplares del mismo tenor y valor en la ciudad de Bogotá D.C., el día <strong>28 de abril de 2026</strong>.</p>
+  </div>
+</div>
+
+<div class="firmas">
+  <div class="firma-block">
+    <div class="firma-placeholder"></div>
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Ciro Manuel González Hernández</div>
+    <div class="firma-rol">Representante legal · El Contratante</div>
+    <div class="firma-det">FIBERGROUP S.A.S. E.S.P. · NIT 901.322.864-7<br>C.C. 91.511.053 · Gerencia@fibergroup.net</div>
+  </div>
+  <div class="firma-block">
+    <img class="firma-img" src="../../../../2-udfjc-reforma/2-contratacion/_meta/_images/firma-contratista.png" alt="Firma autógrafa Carlos Camilo Madera Sepúlveda">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="firma-rol">El Contratista</div>
+    <div class="firma-det">C.C. 79.801.495 de Bogotá · RUT 79.801.495-7<br>+57 300 472 4009 · cmadera@udc.edu.co</div>
+  </div>
+</div>
+</div><!-- /.firma-section -->
+
+<!-- ═══════════════ PIE DE PÁGINA ═══════════════ -->
+<div class="consultor-footer">
+  <div class="cf-left">
+    <span class="cf-conf">Confidencial</span>
+    <span class="cf-meta">Uso restringido · partes signatarias</span>
+  </div>
+  <div class="cf-center">CCMS-CB-2026-001-B-ACTA-H1 · acta v1</div>
+  <div class="cf-right">
+    <span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><br>
+    <span class="cf-meta">Innovación Transformativa · 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

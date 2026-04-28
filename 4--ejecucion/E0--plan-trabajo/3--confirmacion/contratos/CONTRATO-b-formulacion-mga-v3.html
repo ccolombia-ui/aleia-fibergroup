@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato PSS — Formulación MGA · Territorios Digitales Transformativos · Arauca · v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f172a; --navy-2:#1e293b; --blue:#0369a1; --blue-l:#38bdf8; --blue-x:#7dd3fc;
+  --text:#1e293b; --muted:#64748b; --muted-2:#94a3b8;
+  --border:#cbd5e1; --bg:#f8fafc; --bg-2:#f1f5f9;
+  --crit:#b91c1c;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Times New Roman',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9.3pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+
+/* ───────── DOC META (compacto) ───────── */
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+
+/* ───────── PARTES (con form fields) ───────── */
+.partes-box{background:rgba(248,250,252,.6);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.4rem .65rem;margin-bottom:.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.parte-rol{font-size:6.5pt;font-weight:700;text-transform:uppercase;color:var(--blue);font-family:var(--sans);letter-spacing:.5px;margin-bottom:.12rem;}
+.parte-grid{display:grid;grid-template-columns:auto 1fr;gap:.04rem .4rem;font-size:8pt;font-family:var(--sans);align-items:baseline;line-height:1.22;}
+.parte-lbl{color:var(--muted);font-weight:600;font-size:7pt;text-transform:uppercase;letter-spacing:.3px;}
+.parte-val{color:var(--text);}
+.parte-end{font-size:7.2pt;color:var(--muted);font-style:italic;margin-top:.18rem;}
+
+/* ───────── FORM FIELDS DILIGENCIABLES ───────── */
+.fld{
+  display:inline-block;
+  border:none;
+  border-bottom:1px solid var(--border);
+  background:transparent;
+  font-family:var(--sans);
+  font-size:8.2pt;
+  color:var(--text);
+  padding:1px 3px;
+  min-width:80px;
+  width:100%;
+  font-weight:600;
+}
+.fld:focus{outline:none;background:rgba(56,189,248,.08);border-bottom-color:var(--blue);}
+.fld::placeholder{color:var(--muted-2);font-style:italic;font-weight:400;}
+.fld-inline{
+  display:inline-block;
+  border:none;
+  border-bottom:1px dotted var(--muted-2);
+  background:transparent;
+  font-family:inherit;
+  font-size:inherit;
+  color:var(--navy);
+  padding:0 3px;
+  min-width:50px;
+  font-weight:600;
+}
+.fld-inline:focus{outline:none;background:rgba(56,189,248,.08);border-bottom-color:var(--blue);border-bottom-style:solid;}
+.fld-inline::placeholder{color:var(--muted-2);font-style:italic;font-weight:400;}
+.fld-bank{font-family:var(--mono);font-size:7.8pt;}
+
+/* ───────── CLÁUSULAS (densidad alta) ───────── */
+.clausula{margin-bottom:.4rem;}
+.cl-num{font-size:7.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin-bottom:.18rem;}
+.cl-body{font-size:9.5pt;line-height:1.5;text-align:justify;}
+.cl-body p{margin-bottom:.2rem;}
+.cl-body p:last-child{margin-bottom:0;}
+
+/* ───────── TABLA PAGOS (pastel) ───────── */
+.pay-table{width:100%;border-collapse:collapse;margin:.25rem 0 .15rem;font-size:7.8pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.pay-table th{background:rgba(3,105,161,.13);color:var(--navy);padding:.22rem .4rem;text-align:left;font-size:6.8pt;text-transform:uppercase;letter-spacing:.4px;border-bottom:1.5px solid rgba(3,105,161,.3);}
+.pay-table th:nth-child(3),.pay-table th:nth-child(4),.pay-table th:nth-child(5){text-align:right;}
+.pay-table td{padding:.18rem .4rem;border-bottom:1px solid rgba(203,213,225,.6);}
+.pay-table td:nth-child(3),.pay-table td:nth-child(4),.pay-table td:nth-child(5){text-align:right;font-variant-numeric:tabular-nums;}
+.pay-table tr:nth-child(even) td{background:rgba(241,245,249,.55);}
+.pay-amt{font-family:var(--mono);font-weight:700;color:var(--navy);}
+.pay-total td{font-weight:700;border-top:1.5px solid rgba(3,105,161,.4);background:rgba(3,105,161,.07)!important;color:var(--navy);}
+
+/* ───────── VALOR BOX (pastel) ───────── */
+.valor-box{background:linear-gradient(135deg,rgba(56,189,248,.16) 0%,rgba(3,105,161,.12) 100%);color:var(--navy);border:1px solid rgba(3,105,161,.25);border-radius:4px;padding:.45rem .9rem;margin:.2rem 0 .25rem;display:flex;justify-content:space-between;align-items:center;}
+.valor-label{font-size:6.5pt;font-family:var(--sans);color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;}
+.valor-num{font-size:11pt;font-weight:700;font-family:var(--mono);color:var(--blue-d);}
+.valor-letras{font-size:8pt;font-family:var(--serif);color:var(--text);font-style:italic;}
+
+/* ───────── ANEXO HIGHLIGHT (pastel) ───────── */
+.anexo-card{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.35rem .65rem;margin:.2rem 0;}
+.anexo-lbl{font-size:6.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue);font-family:var(--sans);}
+.anexo-title{font-size:9pt;font-weight:700;color:var(--navy);margin:.1rem 0 .12rem;}
+.anexo-desc{font-size:8pt;color:var(--muted);font-family:var(--sans);line-height:1.4;}
+
+/* ───────── BLOQUE DE FIRMA (anti-huérfanas) ───────── */
+.firma-section{break-inside:avoid;page-break-inside:avoid;}
+.firma-section .clausula{margin-bottom:.3rem;}
+.firmas{margin-top:.7rem;display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;break-inside:avoid;page-break-inside:avoid;}
+.firma-block{text-align:center;}
+.firma-line{border-top:1px solid rgba(15,23,42,.45);margin-bottom:.18rem;margin-top:.3rem;}
+.firma-nombre{font-weight:700;font-size:9pt;color:var(--navy);}
+.firma-rol{font-size:7pt;color:var(--muted);font-family:var(--sans);text-transform:uppercase;letter-spacing:.5px;}
+.firma-det{font-size:7pt;color:var(--muted);font-family:var(--mono);margin-top:.1rem;}
+
+/* ───────── FIRMA AUTÓGRAFA ───────── */
+.firma-autografa{
+  font-family:'Allura',cursive;
+  font-size:24pt;
+  color:#1e3a8a;
+  line-height:1;
+  margin:.3rem 0 .15rem;
+  min-height:32pt;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding-bottom:.18rem;
+  letter-spacing:.5px;
+}
+.firma-img{height:40pt;max-width:100%;width:auto;margin:.2rem auto;display:block;}
+.firma-placeholder{
+  height:40pt;
+  margin:.2rem auto;
+}
+
+/* ───────── PIE DE PÁGINA (pastel) ───────── */
+.consultor-footer{
+  margin-top:.55rem;
+  border-top:1px solid rgba(15,23,42,.35);
+  padding-top:.3rem;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:.7rem;
+  font-size:6.5pt;
+  font-family:var(--sans);
+  color:var(--muted);
+  align-items:center;
+}
+.cf-left{justify-self:start;}
+.cf-center{justify-self:center;text-align:center;font-family:var(--mono);font-weight:700;color:var(--blue-d);font-size:6.8pt;letter-spacing:.3px;}
+.cf-right{justify-self:end;text-align:right;}
+.cf-conf{display:inline-block;background:rgba(185,28,28,.06);color:var(--crit);padding:.06rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(185,28,28,.2);font-size:5.8pt;margin-right:.3rem;}
+.cf-meta{font-family:var(--mono);color:var(--muted-2);font-size:5.8pt;letter-spacing:.3px;}
+.cf-brand{color:var(--navy);font-weight:700;font-family:var(--sans);font-size:6.8pt;}
+
+/* ───────── PRINT ───────── */
+@page{size:Letter portrait;margin:9mm 12mm 10mm 12mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  body{padding:6mm 10mm;}
+  .print-btn{display:none!important;}
+  .clausula{break-inside:avoid;}
+  .firmas{break-inside:avoid;}
+  .partes-box{break-inside:avoid;}
+  .anexo-card{break-inside:avoid;}
+  .consultor-footer{break-inside:avoid;}
+  .fld,.fld-inline{border-bottom:1px dotted #94a3b8;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<!-- ═══════════════ DOC TYPE + REFERENCIA ═══════════════ -->
+<div class="doc-meta">
+  <div class="doc-type">Contrato de Prestación de Servicios de Consultoría</div>
+  <div class="doc-title">Formulación MGA — Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-B-v11 &nbsp;·&nbsp; Bogotá D.C. &nbsp;·&nbsp; Formalizado a la firma de las partes</div>
+  <div class="doc-variant">Solo formulación MGA · Alineado a Propuesta v11</div>
+</div>
+
+<!-- ═══════════════ PARTES (form fields) ═══════════════ -->
+<div class="partes-box">
+  <div class="parte">
+    <div class="parte-rol">Contratante</div>
+    <div class="parte-grid">
+      <span class="parte-lbl">Nombre</span><span class="parte-val" style="font-weight:700;color:var(--navy)">FIBERGROUP S.A.S. E.S.P.</span>
+      <span class="parte-lbl">NIT</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">901.322.864-7</span>
+      <span class="parte-lbl">Rep. legal</span><span class="parte-val">Ciro Manuel González Hernández · C.C. <span style="font-family:var(--mono);font-weight:600;color:var(--navy)">91.511.053</span></span>
+      <span class="parte-lbl">Dirección</span><span class="parte-val">Calle 46 # 39-56, Cabecera del Llano · Bucaramanga, Santander</span>
+      <span class="parte-lbl">Correo</span><span class="parte-val">Gerencia@fibergroup.net</span>
+      <span class="parte-lbl">Teléfono</span><span class="parte-val" style="font-family:var(--mono)">(607) 691 6069</span>
+    </div>
+    <div class="parte-end">En adelante <strong>EL CONTRATANTE</strong></div>
+  </div>
+  <div class="parte">
+    <div class="parte-rol">Contratista — Consultor</div>
+    <div class="parte-grid">
+      <span class="parte-lbl">Nombre</span><span class="parte-val" style="font-weight:700;color:var(--navy)">Carlos Camilo Madera Sepúlveda</span>
+      <span class="parte-lbl">C.C.</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">79.801.495 de Bogotá</span>
+      <span class="parte-lbl">NIT/RUT</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">79.801.495-7</span>
+      <span class="parte-lbl">Domicilio</span><span class="parte-val">Bogotá D.C., Colombia</span>
+      <span class="parte-lbl">Correo</span><span class="parte-val">cmadera@udc.edu.co</span>
+      <span class="parte-lbl">Teléfono</span><span class="parte-val" style="font-family:var(--mono)">+57 300 472 4009</span>
+    </div>
+    <div class="parte-end">En adelante <strong>EL CONTRATISTA</strong></div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONSIDERANDOS ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Considerandos</div>
+  <div class="cl-body">
+    <p>Que el Contratante requiere los servicios de un consultor especializado para la formulación del proyecto de inversión pública <em>Territorios Digitales Transformativos · Arauca</em>, mediante la Metodología General Ajustada (MGA Web) del DNP. Que el Contratista presentó la <strong>Propuesta técnico-económica Ref. CCMS-CB-2026-001-v11</strong>, aceptada por las partes y que se incorpora como <strong>anexo único y parte integral</strong> de este contrato. Que las partes celebran el presente contrato con sujeción a las siguientes cláusulas:</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 1 — OBJETO ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 1ª — Objeto</div>
+  <div class="cl-body">
+    <p>El Contratista prestará servicios de consultoría especializada para la <strong>formulación completa del proyecto de inversión pública Territorios Digitales Transformativos · Arauca</strong>, conforme a la MGA Web (Manual v6.0, DNP), bajo el alcance, metodología y entregables (E1 Diagnóstico+Solución · E2 Detalle técnico · E3 Detalle presupuestal · E4 Consolidación+BPIN) detallados en la Propuesta v11 (Anexo único), hasta la obtención del código BPIN ante el DNP-SUIFP.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 2 — VALOR ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 2ª — Valor</div>
+  <div class="cl-body">
+    <div class="valor-box">
+      <div><div class="valor-label">Valor total · IVA incluido</div><div class="valor-num">$27.000.000 COP</div></div>
+      <div style="text-align:right"><div class="valor-label">En letras</div><div class="valor-letras">Veintisiete millones de pesos M/cte.</div></div>
+    </div>
+    <p>El valor incluye todos los costos del Contratista. Los costos de los frentes externos (Arquitectura de Redes, Especialista Presupuesto y Técnicos de Campo) son responsabilidad del Contratante, conforme al Anexo único.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 3 — FORMA DE PAGO ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 3ª — Forma de pago</div>
+  <div class="cl-body">
+    <p>Pago en cuatro (4) hitos verificables alineados al ciclo Agile–ODI de tres sprints (Anexo único):</p>
+    <table class="pay-table">
+      <thead><tr><th>Hito</th><th>Condición</th><th>%</th><th>Monto COP</th><th>Fecha estim.</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Starting · E0</strong></td><td>Firma del contrato y kick-off</td><td>20%</td><td class="pay-amt">$5.400.000</td><td>28 abr 2026</td></tr>
+        <tr><td><strong>Sprint 1 · Draft</strong></td><td>Cierre S1 — Draft E1 (diagnóstico+solución+sector+impacto)</td><td>30%</td><td class="pay-amt">$8.100.000</td><td>4 may 2026</td></tr>
+        <tr><td><strong>Sprint 2 · MVP v1.0</strong></td><td>Cierre S2 — sign-off integral E2+E3 (técnico + presupuestal)</td><td>30%</td><td class="pay-amt">$8.100.000</td><td>9 may 2026</td></tr>
+        <tr><td><strong>Sprint 3 · RC v1.1</strong></td><td>Cierre S3 — RC v1.1, MGA Web §7–§8 y BPIN emitido</td><td>20%</td><td class="pay-amt">$5.400.000</td><td>16 may 2026</td></tr>
+        <tr class="pay-total"><td colspan="2"><strong>Total</strong></td><td><strong>100%</strong></td><td class="pay-amt"><strong>$27.000.000</strong></td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p>Pagos por transferencia bancaria a <input type="text" class="fld-inline fld-bank" placeholder="Banco" style="min-width:80px"> · <input type="text" class="fld-inline fld-bank" placeholder="Tipo cuenta" style="min-width:80px"> · No. <input type="text" class="fld-inline fld-bank" placeholder="Número de cuenta" style="min-width:120px"> a nombre de Carlos Camilo Madera Sepúlveda, dentro de los cinco (5) días hábiles siguientes al sign-off del sprint correspondiente. Las fechas estimadas admiten margen de ±5 días hábiles sin que constituya incumplimiento.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 4 — PLAZO ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 4ª — Plazo de ejecución</div>
+  <div class="cl-body">
+    <p>Aproximadamente <strong>tres (3) semanas calendario</strong> desde la fecha de firma (28 abr 2026), con cierre estimado el 16 may 2026, conforme al ciclo Agile–ODI de tres sprints definido en el Anexo único. Prórroga de mutuo acuerdo mediante otrosí, por causas atribuibles al Contratante o fuerza mayor documentada.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 5 — OBLIGACIONES ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 5ª — Obligaciones de las partes</div>
+  <div class="cl-body">
+    <p><strong>5.1 Del Contratista:</strong> entregar productos E1–E4 con calidad técnica suficiente para aprobación SUIFP-DNP, conforme alcance, sprints y criterios de aceptación (DoD) del Anexo único; gestionar registro MGA Web hasta obtención BPIN; mantener confidencialidad; atender requerimientos técnicos del DNP.</p>
+    <p><strong>5.2 Del Contratante:</strong> desembolsar pagos en plazos pactados; suministrar insumos requeridos (datos territoriales, especificaciones técnicas, indicadores sectoriales); garantizar disponibilidad de frentes externos; revisar y emitir sign-off de cada entregable en plazo no mayor a dos (2) días hábiles dentro del sprint en curso.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 6 — PI + CONFIDENCIALIDAD ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 6ª — Propiedad intelectual y confidencialidad</div>
+  <div class="cl-body">
+    <p><strong>6.1 Propiedad intelectual.</strong> Los entregables específicos del proyecto serán propiedad del Contratante una vez efectuado el pago total del valor del contrato. Los marcos metodológicos y know-how empleados por el Contratista (CRISP-DM, BSC-s v5.1, RBM-GAC, Agile–ODI, KDMO) permanecen como propiedad exclusiva del Contratista; el Contratante no adquiere derecho de uso, reproducción o comercialización sobre dichos marcos. Los datos primarios — territoriales, estadísticos y técnicos — aportados por el Contratante o levantados por los frentes externos (B, C, D) son y seguirán siendo de propiedad del Contratante o de sus titulares originales.</p>
+    <p><strong>6.2 Licencia de portafolio.</strong> El Contratista conserva una licencia no exclusiva, perpetua y gratuita para usar versiones <strong>anonimizadas</strong> de los entregables en su portafolio profesional, casos de estudio y publicaciones académicas, sin revelar información identificable del Contratante ni datos sensibles del territorio.</p>
+    <p><strong>6.3 Confidencialidad.</strong> Las partes mantendrán estricta confidencialidad sobre la información técnica, financiera, territorial y estratégica intercambiada en desarrollo del contrato. Esta obligación subsistirá por <strong>seis (6) meses</strong> contados desde la terminación del contrato, salvo información pública, de dominio de terceros o requerida por mandato legal.</p>
+    <p><strong>6.4 Cláusula penal por violación de confidencialidad.</strong> La parte que incumpla la obligación de confidencialidad pagará a la otra, a título de cláusula penal pecuniaria, una sanción equivalente al <strong>cien por ciento (100%) del valor total del contrato ($27.000.000 COP)</strong>, sin perjuicio de los daños y perjuicios adicionales que se prueben.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 7 — TERMINACIÓN ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 7ª — Causales de terminación</div>
+  <div class="cl-body">
+    <p>El contrato podrá terminarse anticipadamente por: <strong>mutuo acuerdo</strong> mediante otrosí con liquidación proporcional; <strong>incumplimiento del Contratista</strong>, previo requerimiento escrito y plazo de cinco (5) días hábiles para subsanar; <strong>incumplimiento del Contratante</strong> en pagos, otorgando al Contratista derecho a suspender previo aviso de tres (3) días hábiles y a cobrar los entregables ya producidos; o por <strong>fuerza mayor</strong> debidamente documentada.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 8 — DOCUMENTO INTEGRANTE ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 8ª — Documento integrante</div>
+  <div class="cl-body">
+    <p>Forma <strong>parte integral</strong> del presente contrato, con igual valor jurídico vinculante:</p>
+    <div class="anexo-card">
+      <div class="anexo-lbl">Anexo único</div>
+      <div class="anexo-title">Propuesta técnico-económica · Ref. CCMS-CB-2026-001-v11</div>
+      <div class="anexo-desc">Documento maestro con objeto, alcance, metodología (CRISP-DM · BSC-s v5.1 · RBM-GAC · Agile–ODI), entregables por sprint con criterios de aceptación (DoD), cronograma Gantt, módulos MGA Web §1–§8 y estructura presupuestal. Sus contenidos se entienden incorporados como obligaciones contractuales exigibles.</div>
+    </div>
+    <p>En caso de contradicción, prevalece el texto del contrato; en silencio o vacío, se complementa con la Propuesta v11.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 9 — DISPOSICIONES GENERALES ═══════════════ -->
+<div class="clausula">
+  <div class="cl-num">Cláusula 9ª — Disposiciones generales</div>
+  <div class="cl-body">
+    <p><strong>9.1 Independencia:</strong> El Contratista actúa como profesional independiente. No se genera relación laboral ni vínculo de subordinación. El Contratista responde por sus obligaciones tributarias, de seguridad social y parafiscales.</p>
+    <p><strong>9.2 Modificaciones:</strong> Cualquier modificación al objeto, valor, plazo o forma de pago deberá constar en otrosí escrito firmado por ambas partes. Cambios de alcance posteriores al sign-off de un sprint podrán generar ajuste en el valor, previo acuerdo.</p>
+    <p><strong>9.3 Resolución de conflictos:</strong> Las diferencias se resolverán de manera directa y amigable dentro de los quince (15) días hábiles siguientes a la notificación. Si no se logra acuerdo, las partes se someterán a la jurisdicción ordinaria de la República de Colombia, con domicilio en Bogotá D.C.</p>
+  </div>
+</div>
+
+<!-- ═══════════════ CLÁUSULA 10 + FIRMAS (bloque anti-huérfanas) ═══════════════ -->
+<div class="firma-section">
+<div class="clausula">
+  <div class="cl-num">Cláusula 10ª — Aceptación y firmas</div>
+  <div class="cl-body">
+    <p>En constancia de haber leído, entendido y aceptado el presente contrato y su anexo único, las partes lo suscriben en dos (2) ejemplares del mismo tenor y valor en la ciudad de Bogotá D.C. El contrato se entiende <strong>formalizado a la firma de ambas partes</strong>, fecha desde la cual surte plenos efectos jurídicos.</p>
+  </div>
+</div>
+
+<div class="firmas">
+  <div class="firma-block">
+    <div class="firma-placeholder"></div>
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Ciro Manuel González Hernández</div>
+    <div class="firma-rol">Representante legal · El Contratante</div>
+    <div class="firma-det">FIBERGROUP S.A.S. E.S.P. · NIT 901.322.864-7<br>C.C. 91.511.053 · Gerencia@fibergroup.net</div>
+  </div>
+  <div class="firma-block">
+    <img class="firma-img" src="../../../2-udfjc-reforma/2-contratacion/_meta/_images/firma-contratista.png" alt="Firma autógrafa Carlos Camilo Madera Sepúlveda">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="firma-rol">El Contratista</div>
+    <div class="firma-det">C.C. 79.801.495 de Bogotá · RUT 79.801.495-7<br>+57 300 472 4009 · cmadera@udc.edu.co</div>
+  </div>
+</div>
+</div><!-- /.firma-section -->
+
+<!-- ═══════════════ PIE DE PÁGINA ═══════════════ -->
+<div class="consultor-footer">
+  <div class="cf-left">
+    <span class="cf-conf">Confidencial</span>
+    <span class="cf-meta">Uso restringido · partes signatarias</span>
+  </div>
+  <div class="cf-center">CCMS-CB-2026-001-B-v11 · contrato v3</div>
+  <div class="cf-right">
+    <span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><br>
+    <span class="cf-meta">Innovación Transformativa · 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

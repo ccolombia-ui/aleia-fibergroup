@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §3 Población · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.field-box{background:rgba(248,250,252,.8);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.35rem .55rem;margin:.15rem 0;}
+.field-label{font-size:6.4pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.field-value{font-size:9pt;font-family:var(--mono);color:var(--navy);font-weight:600;}
+.field-inst{font-size:7.5pt;color:var(--muted);font-family:var(--sans);margin-top:.06rem;font-style:italic;}
+.field-src{display:inline-block;font-size:6.2pt;font-family:var(--mono);color:var(--emr);background:rgba(4,120,87,.07);padding:.02rem .22rem;border-radius:2px;border:1px solid rgba(4,120,87,.18);margin-left:.3rem;}
+.section-banner{background:linear-gradient(135deg,rgba(4,120,87,.08) 0%,rgba(4,120,87,.04) 100%);border:1px solid rgba(4,120,87,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--emr);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.kml-box{background:rgba(220,252,231,.3);border:1px solid rgba(4,120,87,.22);border-radius:4px;padding:.35rem .55rem;margin:.18rem 0;}
+.kml-title{font-size:7pt;font-weight:700;text-transform:uppercase;color:var(--emr);font-family:var(--sans);margin-bottom:.2rem;}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§3 Población Objetivo · Cuantificación y Georreferenciación</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§3-poblacion-v0.1 · 1–2 may 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 2 may 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §3 · Población objetivo · mapa KML · WGS84</div>
+    <div class="banner-title">Cuantificación hogares · centros poblados · mapa georreferenciado</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D</strong></div>
+    <div class="banner-date">Día de entrega: <strong>1–2 may 2026</strong></div>
+  </div>
+</div>
+
+<!-- §3.A CUANTIFICACIÓN -->
+<div class="cl-num">§3.A — Cuantificación de la población objetivo</div>
+<div class="cl-body"><p>La MGA Web DNP requiere en §3 la cuantificación de la población afectada (total del área) y la población objetivo directa del proyecto. Los datos base provienen del DANE CNPV2018 (GOLD) y deben ser actualizados con proyecciones y datos de campo del Frente D.</p></div>
+
+<table class="tbl">
+  <thead><tr><th>Categoría población</th><th>Valor</th><th>Fuente</th><th>Nivel</th><th>Acción requerida</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="5">MUNICIPIO COMPLETO (referencia)</td></tr>
+    <tr><td>Habitantes totales 2018</td><td>49.841</td><td>DANE CNPV2018 · G-01</td><td><strong>GOLD</strong></td><td>Usar como línea base</td></tr>
+    <tr><td>Habitantes proyección 2024</td><td>~63.432</td><td>DANE proyección · S-07</td><td><strong>SILVER</strong></td><td>Confirmar con DANE dane.gov.co</td></tr>
+    <tr><td>Hogares totales 2018</td><td>13.882</td><td>DANE CNPV2018 · G-01</td><td><strong>GOLD</strong></td><td>Dato oficial — usar en MGA</td></tr>
+    <tr><td>Viviendas ocupadas 2018</td><td>13.008</td><td>DANE CNPV2018 · G-01</td><td><strong>GOLD</strong></td><td>Complementa dato hogares</td></tr>
+    <tr><td>Hogares proyección 2024</td><td>~17.672</td><td>B-01 (× 1.273 crecimiento)</td><td><strong>BRONZE ±15%</strong></td><td>Confirmar con DANE proyección hogares</td></tr>
+    <tr class="subt"><td colspan="5">POBLACIÓN AFECTADA (referencia del problema §2)</td></tr>
+    <tr><td>Hogares sin internet 2018</td><td>~13.075 (94,2%)</td><td>DANE CNPV2018 5,8% · G-01</td><td><strong>GOLD cálculo</strong></td><td>Calculado: 13.882 × 94,2%</td></tr>
+    <tr><td>Hogares sin internet 2024</td><td>~16.435 (93%)</td><td>B-02 · PDET penetración 7%</td><td><strong>BRONZE ±20%</strong></td><td>Confirmar con D datos campo</td></tr>
+    <tr class="subt"><td colspan="5">POBLACIÓN OBJETIVO DIRECTA (beneficiarios del proyecto)</td></tr>
+    <tr><td>Hogares beneficiarios</td><td>~4.000</td><td>B-07 · cabecera ÷ 3,5 p/h</td><td><strong>BRONZE</strong></td><td>Confirmar con D listado predios + catastro</td></tr>
+    <tr><td>Personas beneficiarias</td><td>~14.000</td><td>B-07 × 3,5 p/h promedio</td><td><strong>BRONZE</strong></td><td>DANE p/h promedio Arauca 3,5</td></tr>
+    <tr><td>Sedes educativas cubiertas</td><td>[CONFIRMAR D]</td><td>G-04 MinTIC D81065 · G-08</td><td><strong>PENDIENTE D</strong></td><td>Frente D provee listado I1-08</td></tr>
+    <tr><td>Sedes salud cubiertas</td><td>[CONFIRMAR D]</td><td>Alcaldía · PDM</td><td><strong>PENDIENTE D</strong></td><td>Frente D provee listado I1-08</td></tr>
+  </tbody>
+</table>
+
+<!-- §3.B CENTROS POBLADOS -->
+<div class="cl-num">§3.B — Centros poblados objetivo · localización (completar con D)</div>
+
+<table class="tbl">
+  <thead><tr><th style="width:3rem">#</th><th>Centro poblado</th><th>Hogares est.</th><th>Lat.</th><th>Lon.</th><th>Red propuesta</th><th>Estado</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Cabecera municipal · Arauquita</td><td>~3.500</td><td>[D provee]</td><td>[D provee]</td><td>FTTH GPON</td><td><span class="st st-pend">Pend D</span></td></tr>
+    <tr><td>2</td><td>Centro poblado 1 · [nombre D]</td><td>~150</td><td>[D provee]</td><td>[D provee]</td><td>Radio/WiFi o extensión</td><td><span class="st st-pend">Pend D</span></td></tr>
+    <tr><td>3</td><td>Centro poblado 2 · [nombre D]</td><td>~120</td><td>[D provee]</td><td>[D provee]</td><td>Radio/WiFi o extensión</td><td><span class="st st-pend">Pend D</span></td></tr>
+    <tr><td>4</td><td>Centro poblado 3 · [nombre D]</td><td>~120</td><td>[D provee]</td><td>[D provee]</td><td>Radio/WiFi o extensión</td><td><span class="st st-pend">Pend D</span></td></tr>
+    <tr><td>5</td><td>Centro poblado 4 · [nombre D]</td><td>~110</td><td>[D provee]</td><td>[D provee]</td><td>Radio/WiFi o extensión</td><td><span class="st st-pend">Pend D</span></td></tr>
+    <tr class="subt"><td colspan="2"><strong>TOTAL</strong></td><td><strong>~4.000</strong></td><td colspan="4"></td></tr>
+  </tbody>
+</table>
+
+<!-- §3.C KML -->
+<div class="cl-num">§3.C — Especificación del mapa KML (P1-03)</div>
+<div class="cl-body"><p>El mapa KML es el producto P1-03 del Sprint 1. Debe entregarse en formato KMZ para MGA Web DNP y en KML para Google Maps/Earth. El CTI construye la plantilla de capas; el Frente D provee las coordenadas de campo el 1 may.</p></div>
+
+<div class="kml-box">
+<div class="kml-title">Especificación de capas KML · 6 capas · WGS84</div>
+<table class="tbl" style="margin-top:0;">
+  <thead><tr><th style="width:3rem">#</th><th>Capa</th><th>Geometría</th><th>Color</th><th>Datos atributo</th><th>Fuente coordenadas</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Cabecera municipal</td><td>Polígono</td><td>#0369a1 azul</td><td>nombre · hogares · penetración actual</td><td>IGAC / D</td></tr>
+    <tr><td>2</td><td>Centros poblados (4 CP)</td><td>Puntos + buffer</td><td>#047857 verde</td><td>nombre CP · hogares · prioridad</td><td>D campo</td></tr>
+    <tr><td>3</td><td>Ruta backbone fibra propuesta</td><td>Línea</td><td>#0f172a negro</td><td>distancia km · tipo fibra · nodos</td><td>B Arq. Redes Sprint 2</td></tr>
+    <tr><td>4</td><td>Red última milla FTTH</td><td>Línea</td><td>#0369a1 azul</td><td>m lineales · tipo ducto</td><td>B Arq. Redes Sprint 2</td></tr>
+    <tr><td>5</td><td>Sedes educativas</td><td>Puntos</td><td>#b45309 dorado</td><td>nombre · nivel · matrícula</td><td>D + Secretaría Educ.</td></tr>
+    <tr><td>6</td><td>Sedes salud</td><td>Puntos</td><td>#be123c rojo</td><td>nombre · nivel · capacidad</td><td>D + Secretaría Salud</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="nota"><strong>Herramienta para KML:</strong> Google My Maps (gratuito · exporta KMZ). Alternativa: QGIS con plugin Google Maps. El archivo final debe llamarse <code>P1-03-KML-Arauquita-v1.0.kmz</code> y subirse al sistema MGA Web DNP en §3. El CTI prepara la plantilla el 1 may; D valida coordenadas el mismo día.</div>
+
+<!-- §3.D TAREAS -->
+<div class="cl-num">§3.D — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Crear P1-03 KML con 6 capas · cuantificar población objetivos con datos disponibles · ingresar §3 en MGA Web DNP.</td><td><span class="act act-cti">CTI</span></td><td>1 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>Validar con D: coordenadas exactas centros poblados · ajustar hogares por CP · confirmar sedes educativas y salud.</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>1 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Visto bueno legal sobre tratamiento de datos SISBEN (Ley 1581/2012) · anonimización en mapa publicado · no publicar datos personales.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>1 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>Sign-off del Gerente sobre §3 · publicar v1.0 en portal de avance.</td><td><span class="act act-ger">GER</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Insumos críticos:</strong> I1-01 DANE CNPV2018 (disponible · G-01) · I1-08 listado sedes edu/salud (pendiente D · solicitar hoy 29 abr) · I1-09 datos campo coordenadas CP (pendiente D · solicitar hoy 29 abr). Sin datos del Frente D este portal no puede completarse.</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§3-poblacion-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

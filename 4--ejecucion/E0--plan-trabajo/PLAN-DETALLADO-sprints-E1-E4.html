@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Detallado Sprints E1–E4 · Formulación MGA · Territorios Digitales Transformativos · Arauca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f172a; --navy-2:#1e293b; --blue:#0369a1; --blue-d:#075985; --blue-l:#38bdf8; --blue-x:#7dd3fc;
+  --emr:#047857; --pur:#6d28d9; --gld:#b45309; --rose:#be123c;
+  --text:#1e293b; --muted:#64748b; --muted-2:#94a3b8;
+  --border:#cbd5e1; --bg:#f8fafc; --bg-2:#f1f5f9;
+  --crit:#b91c1c;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --sans:'Inter','Segoe UI',Arial,sans-serif;
+  --serif:'Times New Roman',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+
+/* ───── DOC META ───── */
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+
+/* ───── PARTES ───── */
+.partes-box{background:rgba(248,250,252,.6);border:1px solid rgba(203,213,225,.7);border-radius:4px;padding:.4rem .65rem;margin-bottom:.4rem;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+.parte-rol{font-size:6.5pt;font-weight:700;text-transform:uppercase;color:var(--blue);font-family:var(--sans);letter-spacing:.5px;margin-bottom:.12rem;}
+.parte-grid{display:grid;grid-template-columns:auto 1fr;gap:.04rem .4rem;font-size:8pt;font-family:var(--sans);align-items:baseline;line-height:1.22;}
+.parte-lbl{color:var(--muted);font-weight:600;font-size:7pt;text-transform:uppercase;letter-spacing:.3px;}
+.parte-val{color:var(--text);}
+
+/* ───── SECCIONES SPRINT ───── */
+.sprint{margin-bottom:.6rem;border:1px solid rgba(3,105,161,.2);border-radius:4px;overflow:hidden;break-inside:avoid;page-break-inside:avoid;}
+.sprint.s1{border-left:3px solid var(--blue);}
+.sprint.s2{border-left:3px solid var(--emr);}
+.sprint.s3{border-left:3px solid var(--gld);}
+.sprint-head{background:linear-gradient(90deg,rgba(3,105,161,.08) 0%,rgba(3,105,161,.02) 100%);padding:.3rem .55rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(203,213,225,.5);}
+.s1 .sprint-head{background:linear-gradient(90deg,rgba(3,105,161,.10) 0%,rgba(3,105,161,.02) 100%);}
+.s2 .sprint-head{background:linear-gradient(90deg,rgba(4,120,87,.10) 0%,rgba(4,120,87,.02) 100%);}
+.s3 .sprint-head{background:linear-gradient(90deg,rgba(180,83,9,.10) 0%,rgba(180,83,9,.02) 100%);}
+.sprint-tag{font-size:7pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;font-family:var(--sans);color:var(--blue-d);}
+.s2 .sprint-tag{color:var(--emr);}
+.s3 .sprint-tag{color:var(--gld);}
+.sprint-title{font-size:9.5pt;font-weight:700;color:var(--navy);}
+.sprint-meta{font-size:7pt;color:var(--muted);font-family:var(--mono);}
+.sprint-body{padding:.35rem .55rem .45rem;}
+
+/* ───── SUBSECCIONES ───── */
+.cl-num{font-size:7.3pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.2);padding-bottom:.06rem;margin:.3rem 0 .14rem;}
+.cl-num:first-child{margin-top:0;}
+.cl-body{font-size:8.7pt;line-height:1.42;text-align:justify;}
+.cl-body p{margin-bottom:.18rem;}
+.cl-body p:last-child{margin-bottom:0;}
+
+/* ───── TABLAS ───── */
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0 .12rem;font-size:7.4pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;border-bottom:1.5px solid rgba(3,105,161,.3);}
+.tbl th.num{text-align:right;}
+.tbl td{padding:.14rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);}
+.tbl td.code{font-family:var(--mono);font-weight:600;color:var(--navy);font-size:7pt;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.tot td{font-weight:700;background:rgba(3,105,161,.07)!important;border-top:1.5px solid rgba(3,105,161,.4);}
+.tbl tr.subtot td{background:rgba(241,245,249,.7)!important;font-weight:600;}
+
+.tbl-mga th{background:rgba(4,120,87,.13);border-bottom-color:rgba(4,120,87,.3);}
+.tbl-mga tr.cab td{background:rgba(4,120,87,.08)!important;font-weight:700;color:var(--emr);}
+
+/* ───── BOX VALOR / NOTA ───── */
+.valor-box{background:linear-gradient(135deg,rgba(56,189,248,.16) 0%,rgba(3,105,161,.12) 100%);border:1px solid rgba(3,105,161,.25);border-radius:4px;padding:.35rem .7rem;margin:.18rem 0;display:flex;justify-content:space-between;align-items:center;}
+.valor-label{font-size:6.4pt;font-family:var(--sans);color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:700;}
+.valor-num{font-size:9.5pt;font-weight:700;font-family:var(--mono);color:var(--blue-d);}
+
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.nota.warn{border-left-color:var(--rose);background:rgba(190,18,60,.05);}
+.nota.warn strong{color:var(--rose);}
+
+/* ───── BADGE ───── */
+.bdg{display:inline-block;padding:.04rem .32rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;text-transform:uppercase;vertical-align:1px;}
+.bdg-c{background:rgba(3,105,161,.12);color:var(--blue-d);border:1px solid rgba(3,105,161,.25);}
+.bdg-b{background:rgba(4,120,87,.12);color:var(--emr);border:1px solid rgba(4,120,87,.25);}
+.bdg-d{background:rgba(180,83,9,.12);color:var(--gld);border:1px solid rgba(180,83,9,.25);}
+.bdg-cli{background:rgba(190,18,60,.10);color:var(--rose);border:1px solid rgba(190,18,60,.25);}
+.bdg-mga{background:rgba(109,40,217,.12);color:var(--pur);border:1px solid rgba(109,40,217,.25);}
+
+/* ───── PIE DE PÁGINA ───── */
+.consultor-footer{
+  margin-top:.5rem;border-top:1px solid rgba(15,23,42,.35);padding-top:.3rem;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;
+  font-size:6.5pt;font-family:var(--sans);color:var(--muted);align-items:center;
+}
+.cf-left{justify-self:start;}
+.cf-center{justify-self:center;text-align:center;font-family:var(--mono);font-weight:700;color:var(--blue-d);font-size:6.8pt;letter-spacing:.3px;}
+.cf-right{justify-self:end;text-align:right;}
+.cf-conf{display:inline-block;background:rgba(185,28,28,.06);color:var(--crit);padding:.06rem .4rem;border-radius:2px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border:1px solid rgba(185,28,28,.2);font-size:5.8pt;margin-right:.3rem;}
+.cf-meta{font-family:var(--mono);color:var(--muted-2);font-size:5.8pt;letter-spacing:.3px;}
+.cf-brand{color:var(--navy);font-weight:700;font-family:var(--sans);font-size:6.8pt;}
+
+/* ───── PRINT ───── */
+@page{size:Letter portrait;margin:9mm 12mm 10mm 12mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  body{padding:6mm 10mm;}
+  .print-btn{display:none!important;}
+  .sprint{break-inside:avoid;}
+  .partes-box{break-inside:avoid;}
+  .tbl{break-inside:avoid;}
+  .nota{break-inside:avoid;}
+  .valor-box{break-inside:avoid;}
+  .consultor-footer{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<!-- ═══════════════ DOC META ═══════════════ -->
+<div class="doc-meta">
+  <div class="doc-type">Plan Detallado de Ejecución · Sprints E1–E4 · Formulación MGA</div>
+  <div class="doc-title">Plan Detallado · Sprints E1–E4 — Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-B-PLAN-E14 &nbsp;·&nbsp; Bogotá D.C. &nbsp;·&nbsp; 28 de abril de 2026</div>
+  <div class="doc-variant">Insumos · Actividades · Productos · Rubros MGA Sector 23 TIC · v1</div>
+</div>
+
+<!-- ═══════════════ PARTES ═══════════════ -->
+<div class="partes-box">
+  <div class="parte">
+    <div class="parte-rol">Contratante</div>
+    <div class="parte-grid">
+      <span class="parte-lbl">Nombre</span><span class="parte-val" style="font-weight:700;color:var(--navy)">FIBERGROUP S.A.S. E.S.P.</span>
+      <span class="parte-lbl">NIT</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">901.322.864-7</span>
+      <span class="parte-lbl">Rep. legal</span><span class="parte-val">Ciro Manuel González Hernández</span>
+      <span class="parte-lbl">Correo</span><span class="parte-val">Gerencia@fibergroup.net</span>
+    </div>
+  </div>
+  <div class="parte">
+    <div class="parte-rol">Contratista — Consultor / Formulador</div>
+    <div class="parte-grid">
+      <span class="parte-lbl">Nombre</span><span class="parte-val" style="font-weight:700;color:var(--navy)">Carlos Camilo Madera Sepúlveda</span>
+      <span class="parte-lbl">C.C.</span><span class="parte-val" style="font-family:var(--mono);font-weight:600;color:var(--navy)">79.801.495 de Bogotá</span>
+      <span class="parte-lbl">Correo</span><span class="parte-val">cmadera@udc.edu.co</span>
+      <span class="parte-lbl">Tel.</span><span class="parte-val" style="font-family:var(--mono)">+57 300 472 4009</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ §1 MARCO GENERAL ═══════════════ -->
+<div class="cl-num">§1 — Marco general · cronograma · convenciones</div>
+<div class="cl-body">
+  <p>Este documento desagrega el alcance de los sprints <strong>E1–E4</strong> del contrato CCMS-CB-2026-001-B-v11 hasta el nivel de <strong>insumos requeridos del Contratante</strong> (formato y fecha), <strong>actividades del Contratista</strong>, <strong>productos entregables</strong> y su <strong>mapeo a Rubros MGA Sector 23 TIC</strong> (Cadena de Valor §7). Complementa — sin sustituir — el contrato, la Propuesta v11 (Anexo único), el ACTA-ODI de criterios DoD (CCMS-CB-2026-001-ACTA-ODI) y los briefs de los frentes externos (B Redes · C Presupuesto · D Campo).</p>
+  <table class="tbl">
+    <thead><tr><th>Sprint</th><th>Alcance MGA</th><th>Inicio</th><th>Cierre estim.</th><th class="num">% pago</th><th class="num">Monto COP</th></tr></thead>
+    <tbody>
+      <tr><td><strong>E0 · Starting</strong></td><td>Kick-off + acceso a insumos + apertura de canal</td><td>28 abr 2026</td><td>28 abr 2026 ✓</td><td class="num">20%</td><td class="num">$5.400.000</td></tr>
+      <tr><td><strong>E1 · S1 Draft</strong></td><td>MGA §1 Identificación · §2 Problema · §3 Población · análisis sectorial · marco lógico</td><td>29 abr 2026</td><td>4 may 2026</td><td class="num">30%</td><td class="num">$8.100.000</td></tr>
+      <tr><td><strong>E2 · S2 MVP v1.0</strong></td><td>MGA §4 Análisis técnico · §5 Ambiental · §6 Riesgos · alternativas · cronograma</td><td>5 may 2026</td><td>9 may 2026</td><td class="num" rowspan="2" style="vertical-align:middle">30%</td><td class="num" rowspan="2" style="vertical-align:middle">$8.100.000</td></tr>
+      <tr><td><strong>E3 · S2 MVP v1.0 (paralelo)</strong></td><td>MGA §7 Cadena de Valor (rubros completos) · §9 Fuentes de financiación · CAPEX/OPEX</td><td>5 may 2026</td><td>9 may 2026</td></tr>
+      <tr><td><strong>E4 · S3 RC v1.1</strong></td><td>Carga MGA Web §1–§8 · §8 Indicadores · §10 Resumen · BPIN-SUIFP</td><td>10 may 2026</td><td>16 may 2026</td><td class="num">20%</td><td class="num">$5.400.000</td></tr>
+      <tr class="tot"><td colspan="4"><strong>Total contrato</strong></td><td class="num"><strong>100%</strong></td><td class="num"><strong>$27.000.000</strong></td></tr>
+    </tbody>
+  </table>
+  <p><strong>Convenciones de origen del insumo:</strong> <span class="bdg bdg-cli">CLI</span> Contratante directo · <span class="bdg bdg-b">B</span> Frente B Arquitectura de Redes · <span class="bdg bdg-c">C</span> Frente C Esp. Presupuesto · <span class="bdg bdg-d">D</span> Frente D Téc. de Campo · <span class="bdg bdg-mga">MGA</span> derivado por el Formulador. Las fechas estimadas admiten ±5 días hábiles (Cláusula 3ª contrato).</p>
+</div>
+
+<!-- ═══════════════ SPRINT 1 — E1 ═══════════════ -->
+<div class="sprint s1">
+<div class="sprint-head">
+  <div><div class="sprint-tag">E1 · Sprint 1 · Draft</div><div class="sprint-title">Diagnóstico territorial + Solución + Sector + Impacto</div></div>
+  <div class="sprint-meta">29 abr → 4 may 2026 · 30% · $8.100.000</div>
+</div>
+<div class="sprint-body">
+
+<div class="cl-num">1.1 — Insumos requeridos</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Insumo</th><th style="width:9rem">Formato</th><th style="width:5rem">Origen</th><th style="width:5.2rem">Fecha límite</th></tr></thead>
+  <tbody>
+    <tr><td class="code">I1-01</td><td>Plan de Desarrollo Municipal "Arauquita Somos Todos 2024-2027" + Acuerdo Concejo aprobatorio</td><td>PDF</td><td><span class="bdg bdg-cli">CLI</span></td><td>29 abr</td></tr>
+    <tr><td class="code">I1-02</td><td>Listado SISBEN A1-B7 hogares Arauquita 2026 (cabecera + 4 centros poblados, georreferenciado)</td><td>XLSX + KML</td><td><span class="bdg bdg-cli">CLI</span></td><td>29 abr</td></tr>
+    <tr><td class="code">I1-03</td><td>Caracterización del problema territorial según Fibergroup: narrativa con datos no públicos (cobertura ISP actual, capacidad de demanda no atendida)</td><td>DOCX / MD</td><td><span class="bdg bdg-cli">CLI</span></td><td>29 abr</td></tr>
+    <tr><td class="code">I1-04</td><td>Carta de intención GobArauca cofinanciación 5% sobre Eje 6 PDD "Arauca Mejor"</td><td>PDF firmado</td><td><span class="bdg bdg-cli">CLI</span></td><td>30 abr</td></tr>
+    <tr><td class="code">I1-05</td><td>Caracterización ISP Fibergroup en Arauca: cobertura actual, RUTIC, capacidad backbone, cuentas activas</td><td>PDF + KML</td><td><span class="bdg bdg-cli">CLI</span></td><td>30 abr</td></tr>
+    <tr><td class="code">I1-06</td><td>Teoría de cambio Fibergroup: cómo la conectividad transforma el territorio (lógica de intervención preliminar)</td><td>DOCX / MD</td><td><span class="bdg bdg-cli">CLI</span></td><td>30 abr</td></tr>
+    <tr><td class="code">I1-07</td><td>Listado preliminar de alternativas técnicas evaluadas (FTTH GPON · radio enlace · híbrida · satelital)</td><td>DOCX / MD</td><td><span class="bdg bdg-cli">CLI</span> + <span class="bdg bdg-b">B</span></td><td>30 abr</td></tr>
+    <tr><td class="code">I1-08</td><td>Indicadores de impacto preliminares Fibergroup (KPIs sociales, económicos, técnicos esperados)</td><td>XLSX</td><td><span class="bdg bdg-cli">CLI</span></td><td>1 may</td></tr>
+    <tr><td class="code">I1-09</td><td>Datos de campo Frente D: relevamiento socio-territorial Arauquita (D-01 a D-05 brief)</td><td>XLSX + fotos</td><td><span class="bdg bdg-d">D</span></td><td>1 may</td></tr>
+    <tr><td class="code">I1-10</td><td>Validación del Contratante a árbol de problemas y árbol de objetivos (review intermedia)</td><td>Comentarios Drive</td><td><span class="bdg bdg-cli">CLI</span></td><td>3 may</td></tr>
+  </tbody>
+</table>
+<div class="nota warn"><strong>Insumos críticos sin los cuales el sprint no puede iniciar:</strong> I1-01 (PDM), I1-02 (SISBEN), I1-03 (caracterización problema). Si no se reciben el 29 abr, el cierre del sprint se desplaza día a día con el insumo más tardío (Cláusula 3ª contrato).</div>
+
+<div class="cl-num">1.2 — Actividades del Contratista (formulador)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Actividad</th><th>Insumo entrada</th><th>Producto salida</th></tr></thead>
+  <tbody>
+    <tr><td class="code">A1-01</td><td>Construir diagnóstico territorial integrado: demografía CNPV 2018 + brechas MCB-DNP + IBD MinTIC + PATR-PDET + PDD + PDM</td><td>I1-01, I1-02, fuentes GOLD ya recopiladas (DIAGNOSTICO-territorial-Arauquita-v1.md)</td><td>Sec. §1.1 Diagnóstico</td></tr>
+    <tr><td class="code">A1-02</td><td>Construir árbol de problemas (3 causas directas, 3 efectos) y árbol de objetivos espejo</td><td>I1-03, I1-09, A1-01</td><td>Sec. §2 Problema</td></tr>
+    <tr><td class="code">A1-03</td><td>Definir población objetivo (4.000 hogares E1+E2 PDET) con localización georreferenciada y caracterización</td><td>I1-02, I1-09</td><td>Sec. §3 Población</td></tr>
+    <tr><td class="code">A1-04</td><td>Análisis sectorial Sector 23 TIC: marco normativo (Ley 1341/2009, 1978/2019, 2108/2021, 2294/2023, Res. 3689/2023, CONPES 4167/2022)</td><td>SOTA-mintic-v1.md, I1-05</td><td>Sec. §1.5 Sector</td></tr>
+    <tr><td class="code">A1-05</td><td>Análisis de actores y stakeholders (5 niveles: nacional, dpto, municipal, ART PDET, comunidad)</td><td>I1-04, I1-09</td><td>Sec. §1.7 Actores</td></tr>
+    <tr><td class="code">A1-06</td><td>Marco lógico (RBM-GAC) y teoría de cambio: insumos → actividades → productos → resultados → impactos</td><td>I1-06, A1-02, A1-03</td><td>Sec. §1.8 Marco lógico</td></tr>
+    <tr><td class="code">A1-07</td><td>Análisis preliminar de impactos: ODS 9, 10, 17 + estimados cualitativos VPN/TIR/B-C</td><td>I1-08, A1-06</td><td>Sec. §6 Impactos</td></tr>
+    <tr><td class="code">A1-08</td><td>Definición preliminar de la solución: alternativa principal FTTH GPON + 4.000 hogares + 24m + cofinanciación</td><td>I1-07, A1-04</td><td>Sec. §4.1 Solución</td></tr>
+    <tr><td class="code">A1-09</td><td>Borrador de alternativas técnicas (mínimo A1=FTTH GPON, A2=Radio enlace híbrido, A3=Satelital)</td><td>I1-07</td><td>Sec. §4.2 Alternativas</td></tr>
+    <tr><td class="code">A1-10</td><td>Consolidación documento E1 Draft + sign-off review intermedia</td><td>A1-01..09, I1-10</td><td>Documento E1 v1.0</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">1.3 — Productos entregables (Sprint E1)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Producto</th><th style="width:7rem">Sección MGA</th><th style="width:9rem">Formato entregable</th></tr></thead>
+  <tbody>
+    <tr><td class="code">P1-01</td><td>Documento E1 Draft v1.0 (PDF + MD fuente)</td><td><span class="bdg bdg-mga">MGA §1-§3</span></td><td>PDF + MD en Drive</td></tr>
+    <tr><td class="code">P1-02</td><td>Árbol de problemas y árbol de objetivos (diagrama + tabla)</td><td><span class="bdg bdg-mga">MGA §2</span></td><td>PNG/SVG + DOCX</td></tr>
+    <tr><td class="code">P1-03</td><td>Mapa georreferenciado de población objetivo (4.000 hogares por punto)</td><td><span class="bdg bdg-mga">MGA §3</span></td><td>KML + PDF</td></tr>
+    <tr><td class="code">P1-04</td><td>Marco lógico RBM-GAC (matriz)</td><td><span class="bdg bdg-mga">MGA §1.8</span></td><td>XLSX + DOCX</td></tr>
+    <tr><td class="code">P1-05</td><td>Ficha de alternativas técnicas A1/A2/A3 (CAPEX indicativo cada una)</td><td><span class="bdg bdg-mga">MGA §4</span></td><td>XLSX + DOCX</td></tr>
+    <tr><td class="code">P1-06</td><td>Análisis sectorial Sector 23 TIC (referencias cruzadas)</td><td><span class="bdg bdg-mga">MGA §1.5</span></td><td>DOCX</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">1.4 — DoD (sign-off Sprint E1)</div>
+<div class="cl-body"><p>Criterios E1-C1 a E1-C7 del ACTA-ODI (CCMS-CB-2026-001-ACTA-ODI). Sign-off por correo del Contratante a Gerencia@fibergroup.net + cmadera@udc.edu.co antes de las 18:00 del <strong>4 may 2026</strong>. Activa pago Hito 2 ($8.100.000) dentro de 5 días hábiles.</p></div>
+
+</div></div>
+
+<!-- ═══════════════ SPRINT 2 — E2 + E3 paralelos ═══════════════ -->
+<div class="sprint s2">
+<div class="sprint-head">
+  <div><div class="sprint-tag">E2 + E3 · Sprint 2 · MVP v1.0 · paralelos</div><div class="sprint-title">Detalle técnico (E2) + Detalle presupuestal (E3) · Cadena de Valor MGA §7</div></div>
+  <div class="sprint-meta">5 may → 9 may 2026 · 30% · $8.100.000</div>
+</div>
+<div class="sprint-body">
+
+<div class="cl-num">2.1 — Insumos requeridos · E2 Detalle técnico (Frente B)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Insumo</th><th style="width:9rem">Formato</th><th style="width:5rem">Origen</th><th style="width:5.2rem">Fecha límite</th></tr></thead>
+  <tbody>
+    <tr><td class="code">I2-01</td><td>Diseño técnico FTTH GPON Arauquita: topología (backbone Arauca→Arauquita · OLT cabecera · feeder · drop · NAP)</td><td>DWG/PDF/PNG</td><td><span class="bdg bdg-b">B</span></td><td>5 may</td></tr>
+    <tr><td class="code">I2-02</td><td>BOM completo · cantidades por componente (fibra-km, OLT, ONT, splitters, ODF, NAP, postería, ferretería)</td><td>XLSX (plantilla MGA-compatible)</td><td><span class="bdg bdg-b">B</span></td><td>5 may</td></tr>
+    <tr><td class="code">I2-03</td><td>Especificaciones técnicas datasheets por equipo (OLT GPON · ONT · splitter · SFP)</td><td>PDF</td><td><span class="bdg bdg-b">B</span></td><td>5 may</td></tr>
+    <tr><td class="code">I2-04</td><td>Análisis de cobertura por punto (cabecera + 4 CP) con cálculo de presupuesto óptico (loss budget)</td><td>KML + PDF</td><td><span class="bdg bdg-b">B</span></td><td>6 may</td></tr>
+    <tr><td class="code">I2-05</td><td>Plan de despliegue 24 meses (Gantt) con hitos: backbone (T1-T2) · última milla (T3) · conexiones Fase 1 (T4) · Fase 2 (T5)</td><td>XLSX + MS Project</td><td><span class="bdg bdg-b">B</span></td><td>6 may</td></tr>
+    <tr><td class="code">I2-06</td><td>Estudios previos: suelo · ambiental · arqueológico · ROW (right of way) por tramo</td><td>PDF</td><td><span class="bdg bdg-b">B</span></td><td>7 may</td></tr>
+    <tr><td class="code">I2-07</td><td>Listado de permisos y licencias requeridas (CRC, ANE, alcaldía, ANT, autoridad ambiental Corporinoquia)</td><td>XLSX</td><td><span class="bdg bdg-b">B</span></td><td>7 may</td></tr>
+    <tr><td class="code">I2-08</td><td>Matriz de riesgos técnicos (≥5 riesgos: probabilidad · impacto · mitigación · responsable)</td><td>XLSX</td><td><span class="bdg bdg-b">B</span></td><td>7 may</td></tr>
+    <tr><td class="code">I2-09</td><td>Análisis ambiental: identificación impactos, medidas de manejo y compensación (PMA preliminar)</td><td>DOCX + PDF</td><td><span class="bdg bdg-b">B</span></td><td>8 may</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">2.2 — Insumos requeridos · E3 Detalle presupuestal (Frente C)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Insumo</th><th style="width:9rem">Formato</th><th style="width:5rem">Origen</th><th style="width:5.2rem">Fecha límite</th></tr></thead>
+  <tbody>
+    <tr><td class="code">I3-01</td><td>Cotizaciones reales por componente del BOM I2-02 (mínimo 2 por ítem · validez ≥30 días · IVA discriminado)</td><td>PDF + XLSX consolidado</td><td><span class="bdg bdg-c">C</span></td><td>6 may</td></tr>
+    <tr><td class="code">I3-02</td><td>Tarifas mano de obra por actividad: tendido fibra (HH/km) · empalme · instalación CPE · supervisión técnica</td><td>XLSX (referencia SECOP II + boletines CAMACOL)</td><td><span class="bdg bdg-c">C</span></td><td>6 may</td></tr>
+    <tr><td class="code">I3-03</td><td>Costos logísticos a Arauquita: transporte materiales (Bogotá-Bucaramanga-Arauca) · combustible · viáticos · fletes</td><td>XLSX</td><td><span class="bdg bdg-c">C</span></td><td>6 may</td></tr>
+    <tr><td class="code">I3-04</td><td>AIU (Administración · Imprevistos · Utilidad) por componente · % aplicable según tipo de obra</td><td>XLSX</td><td><span class="bdg bdg-c">C</span></td><td>7 may</td></tr>
+    <tr><td class="code">I3-05</td><td>OPEX 24m: O&M activos · energía OLT/NAP · soporte N1/N2 · mantenimiento preventivo y correctivo · seguros · licencias OSS/BSS</td><td>XLSX (plantilla "OPEX")</td><td><span class="bdg bdg-c">C</span></td><td>7 may</td></tr>
+    <tr><td class="code">I3-06</td><td>Costos apropiación digital MarTICa: facilitadores HH · materiales × 4.000 paquetes · plataforma e-learning · contenidos · refrigerios</td><td>XLSX</td><td><span class="bdg bdg-c">C</span> + <span class="bdg bdg-cli">CLI</span></td><td>7 may</td></tr>
+    <tr><td class="code">I3-07</td><td>Costos sedes tecnológicas comunitarias: 2 puntos × adecuación + dotación + WiFi + mantenimiento</td><td>XLSX</td><td><span class="bdg bdg-c">C</span></td><td>7 may</td></tr>
+    <tr><td class="code">I3-08</td><td>Cuadro consolidado CAPEX + OPEX 24m con totales por componente (vs. $3.500M techo)</td><td>XLSX (plantilla "Plurianual")</td><td><span class="bdg bdg-c">C</span></td><td>8 may</td></tr>
+    <tr><td class="code">I3-09</td><td>Estructura de fuentes de financiación: MinTIC FUTIC 95% ($3.325M) + GobArauca 5% ($175M) + posible adicional SGR-CTeI</td><td>XLSX (plantilla "Fuentes") + I1-04</td><td><span class="bdg bdg-c">C</span></td><td>8 may</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">2.3 — Actividades del Contratista (E2 + E3 paralelos)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Actividad</th><th>Insumo entrada</th><th>Producto salida</th></tr></thead>
+  <tbody>
+    <tr><td class="code">A2-01</td><td>Análisis técnico §4 MGA: comparativa A1/A2/A3 con criterios costo-beneficio · selección y justificación A1=FTTH GPON</td><td>I2-01..04, P1-05</td><td>Sec. §4 MGA</td></tr>
+    <tr><td class="code">A2-02</td><td>Análisis ambiental §5 MGA: identificación impactos · medidas mitigación · PMA preliminar</td><td>I2-09</td><td>Sec. §5 MGA</td></tr>
+    <tr><td class="code">A2-03</td><td>Análisis de riesgos §6 MGA (técnicos B + financieros C + sociales D + institucionales)</td><td>I2-08, +D</td><td>Sec. §6 MGA</td></tr>
+    <tr><td class="code">A3-01</td><td>Construir Cadena de Valor §7 MGA con productos Sector 23 TIC (ver §3 más abajo): producto → actividad → insumo → costo unitario · cantidad · costo total</td><td>I2-02, I3-01..08</td><td>Sec. §7 MGA</td></tr>
+    <tr><td class="code">A3-02</td><td>Validar coherencia: Σ rubros = $3.500M (techo) ±5% · si exceso → priorización con Contratante</td><td>I3-08, A3-01</td><td>Cuadro reconciliación</td></tr>
+    <tr><td class="code">A3-03</td><td>Estructurar fuentes de financiación §9 MGA: MinTIC FUTIC + GobArauca + SGR-CTeI (eventual)</td><td>I3-09, I1-04</td><td>Sec. §9 MGA</td></tr>
+    <tr><td class="code">A3-04</td><td>Proyección plurianual: CAPEX año 1 (75%) + OPEX años 1-2 (25%) + extensión sostenibilidad años 3-5</td><td>I3-08</td><td>Plurianual XLSX</td></tr>
+    <tr><td class="code">A2-04</td><td>Cronograma de ejecución MGA (8 trimestres) coherente con I2-05 + estructura de pagos por hitos</td><td>I2-05, A3-01</td><td>Cronograma MGA</td></tr>
+    <tr><td class="code">A23-05</td><td>Consolidación documento E2+E3 MVP v1.0 + sign-off integral</td><td>A2-01..04, A3-01..04</td><td>Documento E2+E3 v1.0</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">2.4 — Productos entregables (Sprint E2 + E3)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Producto</th><th style="width:8rem">Sección MGA</th><th style="width:9rem">Formato</th></tr></thead>
+  <tbody>
+    <tr><td class="code">P2-01</td><td>Documento E2 MVP v1.0 — análisis técnico, alternativas, cronograma, ambiental, riesgos</td><td><span class="bdg bdg-mga">§4-§6</span></td><td>PDF + MD</td></tr>
+    <tr><td class="code">P2-02</td><td>Plan Maestro de Alternativas (matriz comparativa A1/A2/A3 con scoring multicriterio)</td><td><span class="bdg bdg-mga">§4</span></td><td>XLSX</td></tr>
+    <tr><td class="code">P2-03</td><td>Cronograma MGA 24m + 12m sostenibilidad (Gantt)</td><td><span class="bdg bdg-mga">§4.6</span></td><td>XLSX + PNG</td></tr>
+    <tr><td class="code">P2-04</td><td>Matriz de riesgos consolidada (≥10 riesgos con prob × impacto + mitigación)</td><td><span class="bdg bdg-mga">§6</span></td><td>XLSX</td></tr>
+    <tr><td class="code">P3-01</td><td>Documento E3 MVP v1.0 — Cadena de Valor §7 + Fuentes §9 + plurianual</td><td><span class="bdg bdg-mga">§7, §9</span></td><td>PDF + MD</td></tr>
+    <tr><td class="code">P3-02</td><td>Cadena de Valor §7 MGA — rubros desagregados (ver §3 abajo)</td><td><span class="bdg bdg-mga">§7</span></td><td>XLSX (plantilla MGA)</td></tr>
+    <tr><td class="code">P3-03</td><td>CAPEX consolidado por componente (≥10 ítems con precio unitario, cantidad, total)</td><td><span class="bdg bdg-mga">§7</span></td><td>XLSX hoja "CAPEX"</td></tr>
+    <tr><td class="code">P3-04</td><td>OPEX anual 24m (≥5 ítems con tarifa, vigencia, fuente)</td><td><span class="bdg bdg-mga">§7</span></td><td>XLSX hoja "OPEX"</td></tr>
+    <tr><td class="code">P3-05</td><td>Estructura de fuentes de financiación con %/COP por fuente (justificación elegibilidad)</td><td><span class="bdg bdg-mga">§9</span></td><td>XLSX hoja "Fuentes"</td></tr>
+    <tr><td class="code">P3-06</td><td>Proyección plurianual de gastos (CAPEX año 1 + OPEX años 1-2 + extensión)</td><td><span class="bdg bdg-mga">§7.4</span></td><td>XLSX hoja "Plurianual"</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">2.5 — DoD (sign-off Sprint E2 + E3)</div>
+<div class="cl-body"><p>Criterios E2-C1..C6 + E3-C1..C5 del ACTA-ODI. Validación crítica: Σ rubros §7 = $3.500M ±5% · todas las alternativas A1/A2/A3 con CAPEX indicativo · ≥2 fuentes de financiación con justificación. Sign-off integral E2+E3 antes 18:00 del <strong>9 may 2026</strong>. Activa pago Hito 3 ($8.100.000).</p></div>
+
+</div></div>
+
+<!-- ═══════════════ SPRINT 3 — E4 ═══════════════ -->
+<div class="sprint s3">
+<div class="sprint-head">
+  <div><div class="sprint-tag">E4 · Sprint 3 · RC v1.1 · Cierre</div><div class="sprint-title">Consolidación + Carga MGA Web §1–§8 + Indicadores + BPIN</div></div>
+  <div class="sprint-meta">10 may → 16 may 2026 · 20% · $5.400.000</div>
+</div>
+<div class="sprint-body">
+
+<div class="cl-num">3.1 — Insumos requeridos</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Insumo</th><th style="width:9rem">Formato</th><th style="width:5rem">Origen</th><th style="width:5.2rem">Fecha límite</th></tr></thead>
+  <tbody>
+    <tr><td class="code">I4-01</td><td>Acceso a MGA Web SUIFP-DNP: usuario · clave · entidad responsable registrada (Fibergroup o entidad pública asociada)</td><td>credenciales</td><td><span class="bdg bdg-cli">CLI</span></td><td>10 may</td></tr>
+    <tr><td class="code">I4-02</td><td>Carta de aval territorial Gobernación Arauca firmada (cofinanciación 5% comprometida en CDP)</td><td>PDF firmado</td><td><span class="bdg bdg-cli">CLI</span></td><td>11 may</td></tr>
+    <tr><td class="code">I4-03</td><td>Carta de aval ART PDET Arauca (alineación con PATR 2018-2028)</td><td>PDF firmado</td><td><span class="bdg bdg-cli">CLI</span></td><td>12 may</td></tr>
+    <tr><td class="code">I4-04</td><td>Indicadores §8 MGA propuestos por Fibergroup (producto + gestión) con líneas base y metas</td><td>XLSX</td><td><span class="bdg bdg-cli">CLI</span></td><td>10 may</td></tr>
+    <tr><td class="code">I4-05</td><td>Listado final de stakeholders para validación (correos + roles)</td><td>XLSX</td><td><span class="bdg bdg-cli">CLI</span></td><td>10 may</td></tr>
+    <tr><td class="code">I4-06</td><td>Borradores de actos administrativos relacionados (ordenanzas, resoluciones, convenios marco)</td><td>PDF</td><td><span class="bdg bdg-cli">CLI</span></td><td>13 may</td></tr>
+    <tr><td class="code">I4-07</td><td>Validación final del Contratante al documento E1+E2+E3 consolidado v1.0 → v1.1</td><td>Comentarios Drive</td><td><span class="bdg bdg-cli">CLI</span></td><td>14 may</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">3.2 — Actividades del Contratista</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Actividad</th><th>Insumo entrada</th><th>Producto salida</th></tr></thead>
+  <tbody>
+    <tr><td class="code">A4-01</td><td>Cargar MGA Web §1 Identificación (proyecto, sector, localización, contacto)</td><td>P1-01..06, I4-01</td><td>MGA §1 cargado</td></tr>
+    <tr><td class="code">A4-02</td><td>Cargar MGA Web §2 Problema · §3 Población (árboles + georreferenciación)</td><td>P1-02, P1-03</td><td>MGA §2-§3 cargado</td></tr>
+    <tr><td class="code">A4-03</td><td>Cargar MGA Web §4 Análisis técnico · §5 Ambiental · §6 Riesgos</td><td>P2-01..04</td><td>MGA §4-§6 cargado</td></tr>
+    <tr><td class="code">A4-04</td><td>Cargar MGA Web §7 Cadena de Valor: cada producto-actividad-insumo con costo (ver §3 abajo)</td><td>P3-01..06</td><td>MGA §7 cargado</td></tr>
+    <tr><td class="code">A4-05</td><td>Construir y cargar §8 Indicadores: producto (resultado físico) + gestión (avance ejecución) con LB y meta</td><td>I4-04, P3-01</td><td>MGA §8 cargado</td></tr>
+    <tr><td class="code">A4-06</td><td>Cargar §9 Fuentes de financiación con cartas de aval de cada fuente</td><td>P3-05, I4-02, I4-03</td><td>MGA §9 cargado</td></tr>
+    <tr><td class="code">A4-07</td><td>Generar §10 Resumen del proyecto (ficha ejecutiva)</td><td>A4-01..06</td><td>MGA §10 cargado</td></tr>
+    <tr><td class="code">A4-08</td><td>Evaluación económica: cálculo VPN @12% · TIR · B-C ratio · análisis sensibilidad ±10%</td><td>P3-06</td><td>VPN/TIR/B-C tabla</td></tr>
+    <tr><td class="code">A4-09</td><td>Solicitud de revisión técnica DNP-SUIFP · atender observaciones · subsanar (≤2 días hábiles)</td><td>MGA Web completo</td><td>BPIN emitido</td></tr>
+    <tr><td class="code">A4-10</td><td>Acta de entrega final + transición operativa al Contratante</td><td>A4-01..09</td><td>Acta cierre</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">3.3 — Productos entregables (Sprint E4)</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Producto</th><th style="width:8rem">Sección MGA</th><th style="width:9rem">Formato</th></tr></thead>
+  <tbody>
+    <tr><td class="code">P4-01</td><td>Proyecto registrado MGA Web §1–§8 sin campos obligatorios vacíos</td><td><span class="bdg bdg-mga">§1-§8</span></td><td>Pantallazos PDF</td></tr>
+    <tr><td class="code">P4-02</td><td>Indicadores §8 (≥3 producto + ≥3 gestión) con LB y meta</td><td><span class="bdg bdg-mga">§8</span></td><td>XLSX + MGA Web</td></tr>
+    <tr><td class="code">P4-03</td><td>Resumen ejecutivo del proyecto (1 página · ficha BPIN)</td><td><span class="bdg bdg-mga">§10</span></td><td>PDF</td></tr>
+    <tr><td class="code">P4-04</td><td>Evaluación económica VPN/TIR/B-C con sensibilidad</td><td><span class="bdg bdg-mga">§7.5</span></td><td>XLSX + PDF</td></tr>
+    <tr><td class="code">P4-05</td><td><strong>Código BPIN emitido</strong> por DNP-SUIFP</td><td>—</td><td>Notificación DNP PDF</td></tr>
+    <tr><td class="code">P4-06</td><td>Acta de entrega final firmada por ambas partes</td><td>—</td><td>HTML/PDF firmado</td></tr>
+  </tbody>
+</table>
+
+<div class="cl-num">3.4 — DoD (sign-off Sprint E4 — cierre del contrato)</div>
+<div class="cl-body"><p>Criterios E4-C1..C6 del ACTA-ODI. Criterio definitivo: P4-05 = código BPIN emitido. Si el DNP solicita correcciones al registro, el Formulador las atiende dentro de 2 días hábiles sin costo adicional. Sign-off final + acta entrega antes del <strong>16 may 2026</strong>. Activa pago Hito 4 ($5.400.000).</p></div>
+
+</div></div>
+
+<!-- ═══════════════ §3 RUBROS MGA SECTOR 23 TIC ═══════════════ -->
+<div class="cl-num">§3 — Cadena de Valor MGA · Sector 23 TIC · Rubros desagregados (estructura objetivo del Sprint E3)</div>
+<div class="cl-body">
+  <p>Esta es la estructura de productos-actividades-insumos a poblar en MGA §7 con datos de los Frentes B y C. Cada rubro debe tener: <strong>cantidad · unidad · costo unitario · costo total · fuente de financiación</strong>. La suma total objetivo es <strong>$3.500.000.000 COP</strong> (techo Casa Bacana Arauquita Fase 1 · 4.000 hogares · 24m).</p>
+
+  <table class="tbl tbl-mga">
+    <thead><tr><th style="width:6rem">Producto MGA</th><th>Actividad</th><th>Insumo / rubro</th><th style="width:4rem">Unidad</th><th class="num" style="width:3.5rem">Cantidad</th><th class="num" style="width:5rem">Costo unit. COP</th><th class="num" style="width:5rem">Costo total COP</th></tr></thead>
+    <tbody>
+      <tr class="cab"><td colspan="7"><strong>Producto 2301027</strong> — Servicios de acceso a Internet (zonas urbanas + rurales) <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">2301027</td><td>Conexión hogares E1+E2 cabecera</td><td>ONT/CPE GPON Clase B+ (incluye instalación inicial)</td><td>UN</td><td class="num">3.500</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301027</td><td>Conexión hogares E1+E2 cabecera</td><td>Drop cable fibra óptica monomodo (promedio 50m/hogar)</td><td>m</td><td class="num">175.000</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301027</td><td>Conexión hogares E1+E2 cabecera</td><td>Mano de obra instalación CPE + activación + provisioning</td><td>HH</td><td class="num">7.000</td><td class="num">[I3-02]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301027</td><td>Conexión hogares E1+E2 centros poblados</td><td>ONT/CPE GPON + drop cable + mano de obra rural (50% premium logístico)</td><td>UN</td><td class="num">500</td><td class="num">[I3-01+02+03]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="cab"><td colspan="7"><strong>Producto 2301028</strong> — Servicios de portador (red FTTH GPON) <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">2301028</td><td>Despliegue red troncal Arauca-Arauquita</td><td>Fibra óptica 96-hilos · cable ADSS o canalizado</td><td>km</td><td class="num">[I2-04]</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Despliegue red troncal Arauca-Arauquita</td><td>Postería + ferretería + acometidas</td><td>UN</td><td class="num">[I2-02]</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Estación cabecera (NOC Arauquita)</td><td>OLT GPON 16 puertos + chasis + UPS + redundancia</td><td>UN</td><td class="num">2</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Estación cabecera (NOC Arauquita)</td><td>SFP+/GBIC · módulos ópticos GPON</td><td>UN</td><td class="num">32</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Distribución última milla cabecera</td><td>Splitters 1:64 ópticos pasivos</td><td>UN</td><td class="num">32</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Distribución última milla cabecera</td><td>Cajas NAP (Network Access Point) y empalme</td><td>UN</td><td class="num">~50</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Distribución última milla cabecera</td><td>ODF (Optical Distribution Frame) cabecera y nodos</td><td>UN</td><td class="num">~10</td><td class="num">[I3-01]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Permisos y licencias</td><td>ROW · permisos ANT · CRC · ANE · alcaldía · ambiental Corporinoquia</td><td>Glb</td><td class="num">1</td><td class="num">[I2-07]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301028</td><td>Estudios y diseños</td><td>Ingeniería de detalle · estudios suelo/ambiental/arqueológico</td><td>Glb</td><td class="num">1</td><td class="num">[I2-06]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="cab"><td colspan="7"><strong>Producto 2301030</strong> — Educación informal en TIC (MarTICa) <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">2301030</td><td>Talleres apropiación digital cabecera (30h/hogar)</td><td>Facilitadores certificados · HH formación</td><td>HH</td><td class="num">~10.500</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301030</td><td>Talleres apropiación digital cabecera</td><td>Material didáctico · paquetes por hogar</td><td>UN</td><td class="num">3.500</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301030</td><td>Talleres apropiación digital cabecera</td><td>Logística (refrigerios · transportes · alquiler salones)</td><td>Glb</td><td class="num">1</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301030</td><td>Talleres centros poblados</td><td>Facilitadores + material + logística rural (premium 30%)</td><td>UN</td><td class="num">500</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="cab"><td colspan="7"><strong>Producto 2301084</strong> — Servicios de apropiación TIC <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">2301084</td><td>Plataforma e-learning</td><td>Licencia LMS open-source (Moodle hosting + soporte) 24m</td><td>mes</td><td class="num">24</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301084</td><td>Plataforma e-learning</td><td>Producción contenidos digitales (≥30 módulos)</td><td>UN</td><td class="num">30</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301084</td><td>Acompañamiento a hogares</td><td>Asesores domiciliarios · HH soporte uso TIC post-instalación</td><td>HH</td><td class="num">~4.000</td><td class="num">[I3-06]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="cab"><td colspan="7"><strong>Producto 2301087</strong> — Sedes tecnológicas comunitarias <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">2301087</td><td>Adecuación 2 puntos comunitarios</td><td>Mobiliario · cableado interno · iluminación · seguridad</td><td>UN</td><td class="num">2</td><td class="num">[I3-07]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301087</td><td>Dotación tecnológica</td><td>PCs / tablets · proyector · pantalla · WiFi indoor (10 PCs/punto)</td><td>UN</td><td class="num">2</td><td class="num">[I3-07]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">2301087</td><td>Conectividad</td><td>Enlace FTTH dedicado + ONT comercial × 2 sedes 24m</td><td>mes</td><td class="num">48</td><td class="num">[I3-07]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="cab"><td colspan="7"><strong>Operación + Mantenimiento (OPEX 24m · transversal)</strong> <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">OPEX</td><td>Operación red FTTH</td><td>Energía OLT/NAP/cabecera · 24m</td><td>mes</td><td class="num">24</td><td class="num">[I3-05]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">OPEX</td><td>Soporte y mantenimiento</td><td>Soporte N1/N2 (mesa de ayuda 24/7) · 24m</td><td>mes</td><td class="num">24</td><td class="num">[I3-05]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">OPEX</td><td>Soporte y mantenimiento</td><td>Mantenimiento preventivo + correctivo equipos · 24m</td><td>mes</td><td class="num">24</td><td class="num">[I3-05]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">OPEX</td><td>Operación red FTTH</td><td>Seguros equipos e infraestructura · póliza anual</td><td>año</td><td class="num">2</td><td class="num">[I3-05]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">OPEX</td><td>Plataforma OSS/BSS</td><td>Licencias OSS/BSS gestión red · 24m</td><td>mes</td><td class="num">24</td><td class="num">[I3-05]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="cab"><td colspan="7"><strong>Gerencia / supervisión / AIU (transversal)</strong> <span class="bdg bdg-mga">§7</span></td></tr>
+      <tr><td class="code">GER</td><td>Gerencia de proyecto</td><td>Project manager dedicado 24m + equipo PMO</td><td>mes</td><td class="num">24</td><td class="num">[I3-04]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">GER</td><td>Interventoría / supervisión</td><td>Interventoría técnica externa · hitos trimestrales</td><td>UN</td><td class="num">8</td><td class="num">[I3-04]</td><td class="num">[calcular]</td></tr>
+      <tr><td class="code">AIU</td><td>Administración + Imprevistos + Utilidad</td><td>AIU sobre directos · % por componente (típico 25-30%)</td><td>%</td><td class="num">~28%</td><td class="num">[I3-04]</td><td class="num">[calcular]</td></tr>
+
+      <tr class="tot"><td colspan="6"><strong>Σ Total proyecto (techo MGA · MinTIC FUTIC 95% + GobArauca 5%)</strong></td><td class="num"><strong>$3.500.000.000</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="nota"><strong>Notas operativas para el Frente C:</strong> los valores `[calcular]` se llenan en E3 con cotizaciones reales (I3-01) + tarifas mano de obra (I3-02). Cada rubro debe quedar registrado individualmente en MGA Web §7 (Cadena de Valor) con su producto-actividad-insumo asociado. AIU se distribuye entre componentes — no se carga como una sola línea agregada en MGA Web. El detalle a nivel "rubro" es el insumo individual; MGA Web exige el desglose granular para validación SUIFP-DNP.</div>
+</div>
+
+<!-- ═══════════════ §4 INDICADORES §8 ═══════════════ -->
+<div class="cl-num">§4 — Indicadores §8 MGA (estructura objetivo · poblar en E4 con I4-04)</div>
+<table class="tbl">
+  <thead><tr><th style="width:6rem">Tipo</th><th>Indicador</th><th style="width:5rem">Unidad</th><th class="num" style="width:4rem">LB 2024</th><th class="num" style="width:4rem">Meta 2028</th><th>Fuente verificable</th></tr></thead>
+  <tbody>
+    <tr><td><span class="bdg bdg-mga">Producto</span></td><td>Hogares E1+E2 conectados FTTH</td><td>UN</td><td class="num">~805</td><td class="num">4.805</td><td>Reporte mensual Fibergroup · auditoría DNP</td></tr>
+    <tr><td><span class="bdg bdg-mga">Producto</span></td><td>Km red FTTH desplegada (backbone + última milla)</td><td>km</td><td class="num">0</td><td class="num">≥85</td><td>Acta entrega red · GIS Fibergroup</td></tr>
+    <tr><td><span class="bdg bdg-mga">Producto</span></td><td>Hogares con MarTICa completada (≥30h)</td><td>UN</td><td class="num">0</td><td class="num">4.000</td><td>Listas de asistencia · certificados</td></tr>
+    <tr><td><span class="bdg bdg-mga">Producto</span></td><td>Sedes tecnológicas comunitarias adecuadas y operativas</td><td>UN</td><td class="num">0</td><td class="num">2</td><td>Acta entrega · inventario equipos</td></tr>
+    <tr><td><span class="bdg bdg-mga">Gestión</span></td><td>% avance ejecución CAPEX</td><td>%</td><td class="num">0%</td><td class="num">100%</td><td>Reporte trimestral interventoría</td></tr>
+    <tr><td><span class="bdg bdg-mga">Gestión</span></td><td>SLA disponibilidad red FTTH</td><td>%</td><td class="num">N/A</td><td class="num">≥98%</td><td>NOC + reportes mensuales SLA</td></tr>
+    <tr><td><span class="bdg bdg-mga">Gestión</span></td><td>Tasa retención post-subsidio (M25-M36)</td><td>%</td><td class="num">N/A</td><td class="num">≥75%</td><td>Reporte facturación Fibergroup</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ §5 RIESGOS DEL CRONOGRAMA ═══════════════ -->
+<div class="cl-num">§5 — Riesgos críticos del cronograma 3 semanas</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">ID</th><th>Riesgo</th><th style="width:4rem">Prob.</th><th style="width:4rem">Impacto</th><th>Mitigación</th></tr></thead>
+  <tbody>
+    <tr><td class="code">R1</td><td>Insumos críticos del Contratante (I1-01..06) llegan después del 29 abr → desplaza E1</td><td>Media</td><td>Alto</td><td>Pre-acuerdo en Acta-Inicio + envío diario de pendientes · margen ±5 días hábiles según contrato</td></tr>
+    <tr><td class="code">R2</td><td>Cotizaciones reales (I3-01) tardías o muy dispersas → bloquea Cadena de Valor §7</td><td>Media</td><td>Alto</td><td>Frente C inicia con SECOP II + Mi Casa Bacana benchmarks; cotizaciones validan/ajustan</td></tr>
+    <tr><td class="code">R3</td><td>Σ rubros §7 supera $3.500M techo → renegociar alcance o cofinanciación</td><td>Baja</td><td>Alto</td><td>Validación intermedia E3 (7 may); priorización con Contratante en 24h si exceso</td></tr>
+    <tr><td class="code">R4</td><td>DNP-SUIFP solicita correcciones al MGA Web → BPIN diferido</td><td>Media</td><td>Medio</td><td>Pre-validación con consultor SUIFP antes de envío oficial · 2 días hábiles para subsanar</td></tr>
+    <tr><td class="code">R5</td><td>Carta de aval GobArauca (I4-02) o ART PDET (I4-03) demora → §9 incompleta</td><td>Media</td><td>Medio</td><td>Solicitud formal Contratante en E0 · plan B: cargar como "en gestión" con compromiso fechado</td></tr>
+    <tr><td class="code">R6</td><td>Acceso MGA Web (I4-01) no disponible al inicio E4 → bloquea carga</td><td>Baja</td><td>Crítico</td><td>Verificar credenciales en E0 (28 abr) · backup: cargar a través de cuenta Fibergroup/asesor DNP</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ §6 RESUMEN DE FECHAS CLAVE ═══════════════ -->
+<div class="cl-num">§6 — Fechas clave consolidadas</div>
+<table class="tbl">
+  <thead><tr><th style="width:5.2rem">Fecha</th><th>Hito · Insumo · Producto</th><th style="width:7rem">Responsable</th></tr></thead>
+  <tbody>
+    <tr><td>28 abr (mar)</td><td>Firma contrato + acta inicio + factura Hito 1 ($5.4M) + acceso a Drive y canales</td><td>Ambas partes</td></tr>
+    <tr><td>29 abr (mié)</td><td>Insumos críticos I1-01 a I1-03 entregados al Contratista</td><td><span class="bdg bdg-cli">CLI</span></td></tr>
+    <tr><td>30 abr (jue)</td><td>I1-04 a I1-07 entregados</td><td><span class="bdg bdg-cli">CLI</span> + <span class="bdg bdg-b">B</span></td></tr>
+    <tr><td>1 may (vie)</td><td>I1-08 a I1-09 entregados</td><td><span class="bdg bdg-cli">CLI</span> + <span class="bdg bdg-d">D</span></td></tr>
+    <tr><td>3 may (dom)</td><td>Review intermedia E1 + I1-10 (validación árboles)</td><td><span class="bdg bdg-cli">CLI</span></td></tr>
+    <tr><td><strong>4 may (lun)</strong></td><td><strong>Sign-off E1 + factura Hito 2 ($8.1M)</strong></td><td>Ambas partes</td></tr>
+    <tr><td>5 may (mar)</td><td>Insumos I2-01 a I2-03 (Frente B) entregados</td><td><span class="bdg bdg-b">B</span></td></tr>
+    <tr><td>6 may (mié)</td><td>I2-04, I2-05 + I3-01 a I3-03 (Frente C) entregados</td><td><span class="bdg bdg-b">B</span> + <span class="bdg bdg-c">C</span></td></tr>
+    <tr><td>7 may (jue)</td><td>I2-06 a I2-08 + I3-04 a I3-07 entregados</td><td><span class="bdg bdg-b">B</span> + <span class="bdg bdg-c">C</span></td></tr>
+    <tr><td>8 may (vie)</td><td>I2-09 + I3-08, I3-09 entregados (consolidado CAPEX/OPEX/Fuentes)</td><td><span class="bdg bdg-b">B</span> + <span class="bdg bdg-c">C</span></td></tr>
+    <tr><td><strong>9 may (sáb)</strong></td><td><strong>Sign-off E2+E3 + factura Hito 3 ($8.1M)</strong></td><td>Ambas partes</td></tr>
+    <tr><td>10 may (dom)</td><td>I4-01 (acceso MGA Web), I4-04, I4-05 entregados · inicio carga MGA Web §1-§4</td><td><span class="bdg bdg-cli">CLI</span></td></tr>
+    <tr><td>11-12 may</td><td>I4-02, I4-03 (avales) · carga MGA Web §5-§8</td><td><span class="bdg bdg-cli">CLI</span> + Contratista</td></tr>
+    <tr><td>13 may (mié)</td><td>I4-06 + envío oficial a DNP-SUIFP</td><td>Contratista</td></tr>
+    <tr><td>14-15 may</td><td>Atención observaciones DNP (si aplica) · subsanación</td><td>Contratista</td></tr>
+    <tr><td><strong>16 may (sáb)</strong></td><td><strong>BPIN emitido + acta entrega final + factura Hito 4 ($5.4M)</strong></td><td>Ambas partes</td></tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════ PIE DE PÁGINA ═══════════════ -->
+<div class="consultor-footer">
+  <div class="cf-left">
+    <span class="cf-conf">Confidencial</span>
+    <span class="cf-meta">Uso restringido · partes signatarias</span>
+  </div>
+  <div class="cf-center">CCMS-CB-2026-001-B-PLAN-E14 · plan v1</div>
+  <div class="cf-right">
+    <span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><br>
+    <span class="cf-meta">Innovación Transformativa · 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

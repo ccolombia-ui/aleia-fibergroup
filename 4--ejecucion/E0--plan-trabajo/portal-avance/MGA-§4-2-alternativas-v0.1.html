@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §4.2 Alternativas Técnicas · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl th.center{text-align:center;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:middle;}
+.tbl td.center{text-align:center;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.win td{background:rgba(4,120,87,.08)!important;}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-b{background:rgba(4,120,87,.12);color:var(--emr);border-color:rgba(4,120,87,.25);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.win-badge{display:inline-flex;align-items:center;gap:.25rem;padding:.08rem .4rem;border-radius:3px;background:rgba(4,120,87,.16);color:var(--emr);font-size:7pt;font-weight:700;font-family:var(--sans);border:1px solid rgba(4,120,87,.3);}
+.dec-badge{display:inline-flex;align-items:center;gap:.25rem;padding:.08rem .4rem;border-radius:3px;background:rgba(15,23,42,.14);color:#fff;font-size:7pt;font-weight:700;font-family:var(--sans);}
+.section-banner{background:linear-gradient(135deg,rgba(180,83,9,.08) 0%,rgba(180,83,9,.04) 100%);border:1px solid rgba(180,83,9,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--gld);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.score-num{font-size:11pt;font-weight:700;font-family:var(--mono);}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§4.2 Alternativas Técnicas · Scoring Multicriterio · DEC-2</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§4-2-alternativas-v0.1 · 2–3 may 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 3 may 2026 · DEC-2</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §4.2 · Análisis de alternativas · scoring multicriterio · P1-05 XLSX</div>
+    <div class="banner-title">A1 FTTH GPON · A2 Radio+WiFi mesh · A3 Satelital LEO · 7 criterios</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D · B</strong></div>
+    <div class="banner-date">DEC-2 sign-off: <strong>3 may 2026</strong></td>
+  </div>
+</div>
+
+<div class="cl-num">§4.2.A — Metodología de scoring multicriterio (P1-05 XLSX)</div>
+<div class="cl-body"><p>La evaluación de alternativas se realiza con 7 criterios ponderados (peso total = 100%). Cada alternativa recibe puntuación 1–5 en cada criterio. El puntaje ponderado es <code>∑(peso × score)</code>. La metodología cumple con los lineamientos DNP MGA v6.0 §4.2 y la neutralidad tecnológica de la Res. MinTIC 3689/2023. El Frente B (Arq. Redes) valida los scores técnicos el 2 may; el Frente D (campo) valida los criterios territoriales.</p></div>
+
+<!-- CRITERIOS DE EVALUACIÓN -->
+<div class="cl-num">§4.2.B — Criterios de evaluación y pesos</div>
+<table class="tbl">
+  <thead><tr><th style="width:2rem">#</th><th>Criterio</th><th style="width:5rem">Peso (%)</th><th>Justificación del peso</th><th style="width:6rem">Valida</th></tr></thead>
+  <tbody>
+    <tr><td>C1</td><td>Costo de inversión (CAPEX/hogar)</td><td style="text-align:center;"><strong>30%</strong></td><td>Factor dominante en municipio PDET · benchmark MinTIC</td><td><span class="act act-c">C · B</span></td></tr>
+    <tr><td>C2</td><td>Velocidad y calidad de servicio (SLA)</td><td style="text-align:center;"><strong>20%</strong></td><td>Cumplimiento Res. 3689/2023 estrato E1 ≥ 25 Mbps</td><td><span class="act act-b">B</span></td></tr>
+    <tr><td>C3</td><td>Escalabilidad y vida útil de la infraestructura</td><td style="text-align:center;"><strong>15%</strong></td><td>Inversión pública = sostenibilidad largo plazo</td><td><span class="act act-b">B</span></td></tr>
+    <tr><td>C4</td><td>Viabilidad técnica en el territorio (topografía · ROW)</td><td style="text-align:center;"><strong>15%</strong></td><td>Arauca es región plana-selva · condicionante real</td><td><span class="act act-d">D · B</span></td></tr>
+    <tr><td>C5</td><td>Costo de operación y mantenimiento (OPEX/mes)</td><td style="text-align:center;"><strong>10%</strong></td><td>Sostenibilidad post-proyecto · Fibergroup PRST</td><td><span class="act act-b">B · C</span></td></tr>
+    <tr><td>C6</td><td>Impacto ambiental y social</td><td style="text-align:center;"><strong>5%</strong></td><td>Menor peso · zona PDET sensible</td><td><span class="act act-d">D</span></td></tr>
+    <tr><td>C7</td><td>Alineación con política pública MinTIC</td><td style="text-align:center;"><strong>5%</strong></td><td>Conformidad con conv. FUTIC · elegibilidad financiación</td><td><span class="act act-jur">JUR</span></td></tr>
+    <tr class="subt"><td colspan="2"><strong>TOTAL</strong></td><td style="text-align:center;"><strong>100%</strong></td><td colspan="2"></td></tr>
+  </tbody>
+</table>
+
+<!-- SCORING MATRIX -->
+<div class="cl-num">§4.2.C — Matriz de scoring (1=muy malo · 5=excelente) · scores preliminares CTI</div>
+<div class="cl-body"><p>Los scores marcados con <em>[B]</em> deben ser validados por el Frente B (Arq. Redes) el 2 may. Los marcados con <em>[D]</em> por el Frente D. Los demás son asignación preliminar del CTI.</p></div>
+
+<table class="tbl">
+  <thead>
+    <tr>
+      <th>Criterio</th>
+      <th class="center">Peso</th>
+      <th class="center" style="background:rgba(4,120,87,.2);color:var(--emr);">A1 FTTH GPON<br><small>Score | Pond.</small></th>
+      <th class="center" style="background:rgba(180,83,9,.12);color:var(--gld);">A2 Radio+WiFi<br><small>Score | Pond.</small></th>
+      <th class="center" style="background:rgba(148,163,184,.2);color:#475569;">A3 Satelital LEO<br><small>Score | Pond.</small></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>C1 · CAPEX/hogar</td><td class="center">30%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>4</strong> | 1.20 <em>[B]</em></td>
+      <td class="center"><strong>3</strong> | 0.90 <em>[B]</em></td>
+      <td class="center"><strong>2</strong> | 0.60 <em>[B]</em></td>
+    </tr>
+    <tr>
+      <td>C2 · Velocidad/SLA</td><td class="center">20%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>5</strong> | 1.00 <em>[B]</em></td>
+      <td class="center"><strong>3</strong> | 0.60 <em>[B]</em></td>
+      <td class="center"><strong>4</strong> | 0.80 <em>[B]</em></td>
+    </tr>
+    <tr>
+      <td>C3 · Escalabilidad/vida útil</td><td class="center">15%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>5</strong> | 0.75 <em>[B]</em></td>
+      <td class="center"><strong>2</strong> | 0.30 <em>[B]</em></td>
+      <td class="center"><strong>3</strong> | 0.45 <em>[B]</em></td>
+    </tr>
+    <tr>
+      <td>C4 · Viabilidad territorial</td><td class="center">15%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>4</strong> | 0.60 <em>[D][B]</em></td>
+      <td class="center"><strong>3</strong> | 0.45 <em>[D][B]</em></td>
+      <td class="center"><strong>4</strong> | 0.60 <em>[D]</em></td>
+    </tr>
+    <tr>
+      <td>C5 · OPEX mensual</td><td class="center">10%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>4</strong> | 0.40 <em>[B]</em></td>
+      <td class="center"><strong>3</strong> | 0.30 <em>[B]</em></td>
+      <td class="center"><strong>1</strong> | 0.10 <em>[B]</em></td>
+    </tr>
+    <tr>
+      <td>C6 · Impacto ambiental</td><td class="center">5%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>3</strong> | 0.15 <em>[D]</em></td>
+      <td class="center"><strong>4</strong> | 0.20 <em>[D]</em></td>
+      <td class="center"><strong>5</strong> | 0.25 <em>[D]</em></td>
+    </tr>
+    <tr>
+      <td>C7 · Alineación política MinTIC</td><td class="center">5%</td>
+      <td class="center" style="background:rgba(4,120,87,.06);"><strong>5</strong> | 0.25 <em>[JUR]</em></td>
+      <td class="center"><strong>3</strong> | 0.15 <em>[JUR]</em></td>
+      <td class="center"><strong>4</strong> | 0.20 <em>[JUR]</em></td>
+    </tr>
+    <tr class="win">
+      <td><strong>TOTAL PONDERADO</strong></td><td class="center"><strong>100%</strong></td>
+      <td class="center"><span class="score-num" style="color:var(--emr);">4.35</span> <span class="win-badge">GANADOR</span></td>
+      <td class="center"><span class="score-num" style="color:var(--gld);">2.90</span></td>
+      <td class="center"><span class="score-num" style="color:#475569;">3.00</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- DESCRIPCIÓN DE ALTERNATIVAS -->
+<div class="cl-num">§4.2.D — Descripción de cada alternativa (P1-05 XLSX · Tab por alternativa)</div>
+
+<table class="tbl">
+  <thead><tr><th style="width:4rem">Alternativa</th><th>Descripción técnica</th><th>Ventaja principal</th><th>Desventaja principal</th><th style="width:5rem">Decisión</th></tr></thead>
+  <tbody>
+    <tr class="win">
+      <td><strong>A1 · FTTH GPON</strong></td>
+      <td>Red de fibra óptica física al hogar. OLT central + splitters pasivos + ONT en cada hogar. Velocidad garantizada simétrica ≥ 1 Gbps por fibra.</td>
+      <td>Máxima velocidad y confiabilidad · vida útil ≥ 25 años · cero radio-interferencia · mayor valorización territorial</td>
+      <td>Mayor CAPEX inicial · requiere obra civil (ductos) · tiempo de despliegue mayor</td>
+      <td><span class="win-badge">DEC-2 · SELECCIONADA</span></td>
+    </tr>
+    <tr>
+      <td><strong>A2 · Radio + WiFi mesh</strong></td>
+      <td>Red inalámbrica: radioenlaces punto-a-punto para backbone + puntos de acceso WiFi mesh para última milla. Bandas libres (2.4/5/6 GHz) o licenciadas.</td>
+      <td>Menor costo de despliegue inicial · más rápido · sin obra civil</td>
+      <td>Interferencia · menor velocidad · vida útil ≤ 7 años · escalabilidad limitada · OPEX más alto</td>
+      <td style="text-align:center;">Descartada</td>
+    </tr>
+    <tr>
+      <td><strong>A3 · Satelital LEO</strong></td>
+      <td>Acceso a internet vía satélite de órbita baja (ej. Starlink). CPE satelital en cada hogar. Sin obra civil de red.</td>
+      <td>Cero obra civil · inmediata disponibilidad · cubre zonas más dispersas</td>
+      <td>OPEX más alto ($85-120 USD/hogar/mes) · latencia variable · CPE costoso · sin subsidio FUTIC actualmente</td>
+      <td style="text-align:center;">Descartada</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- TAREAS -->
+<div class="cl-num">§4.2.E — 4 tareas de la sección · DEC-2</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Producir P1-05 XLSX: 3 hojas (A1/A2/A3) + hoja scoring. Ingresar en MGA Web DNP §4.2 con las 3 alternativas y el scoring.</td><td><span class="act act-cti">CTI</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>D valida viabilidad territorial de A1 (condiciones del suelo · ROW · topografía) · B valida scores técnicos (C1/C2/C3/C5).</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span> <span class="act act-b">B</span></td><td>2 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Review legal de criterios de selección · cumplimiento neutralidad tecnológica Res. MinTIC 3689/2023 · justificación legal de la selección A1.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER (DEC-2)</strong></td><td>Decisión DEC-2: Gerente Ciro Manuel González aprueba formalmente la selección de A1 FTTH GPON. Este es un hito de decisión crítico para el proyecto.</td><td><span class="act act-ger">GER</span></td><td>3 may 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Nota regulatoria:</strong> La Resolución MinTIC 3689/2023 exige que las convocatorias FUTIC sean tecnológicamente neutras. El scoring multicriterio documenta la objetividad de la selección. Los criterios y pesos deben estar justificados en el XLSX (tab "Metodología") antes de ingresar a MGA Web.</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§4-2-alternativas-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contrato PSS + Licencia Creciverso — Territorios Digitales Transformativos · [Territorio] · Variant A2</title>
+<style>
+:root{
+  --navy:#0f172a; --blue:#0369a1; --pur:#6d28d9; --text:#1e293b; --muted:#64748b;
+  --border:#cbd5e1; --bg:#f8fafc; --mono:'Courier New',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Times New Roman',Georgia,serif;font-size:11pt;line-height:1.7;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:18mm 22mm;}
+.print-btn{position:fixed;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:.45rem 1rem;border-radius:6px;font-size:.75rem;font-weight:700;cursor:pointer;z-index:999;font-family:Arial,sans-serif;}
+.print-btn:hover{background:var(--pur);}
+.doc-header{text-align:center;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double var(--navy);}
+.doc-type{font-size:8.5pt;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:.3rem;}
+.doc-title{font-size:15pt;font-weight:700;color:var(--navy);margin-bottom:.3rem;}
+.doc-ref{font-size:9pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.2rem .75rem;border-radius:4px;font-size:8pt;font-weight:700;background:rgba(109,40,217,.1);color:var(--pur);font-family:Arial,sans-serif;border:1px solid rgba(109,40,217,.2);margin-top:.35rem;}
+.partes-box{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:1rem 1.3rem;margin-bottom:1.5rem;}
+.partes-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);font-family:Arial,sans-serif;margin-bottom:.7rem;}
+.parte{margin-bottom:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--border);}
+.parte:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.parte-rol{font-size:8.5pt;font-weight:700;text-transform:uppercase;color:var(--pur);font-family:Arial,sans-serif;}
+.parte-nombre{font-size:11pt;font-weight:700;color:var(--navy);}
+.parte-det{font-size:9.5pt;color:var(--muted);line-height:1.5;}
+.clausula{margin-bottom:1.3rem;}
+.cl-num{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--navy);font-family:Arial,sans-serif;border-bottom:1px solid var(--border);padding-bottom:.18rem;margin-bottom:.5rem;}
+.cl-num.creciverso{color:var(--pur);border-bottom-color:rgba(109,40,217,.3);}
+.cl-body{font-size:10.5pt;line-height:1.75;text-align:justify;}
+.cl-body p{margin-bottom:.55rem;}
+.cl-body ul{padding-left:1.4rem;margin:.35rem 0 .55rem;}
+.cl-body li{margin-bottom:.3rem;}
+
+/* Creciverso highlight box */
+.crec-box{background:rgba(109,40,217,.05);border:1.5px solid rgba(109,40,217,.25);border-radius:6px;padding:.85rem 1.1rem;margin:.5rem 0 .7rem;}
+.crec-box-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--pur);font-family:Arial,sans-serif;margin-bottom:.4rem;}
+
+.pay-table{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:9.5pt;}
+.pay-table th{background:var(--navy);color:#fff;padding:.32rem .6rem;text-align:left;font-family:Arial,sans-serif;font-size:8pt;}
+.pay-table td{padding:.28rem .6rem;border-bottom:1px solid var(--border);}
+.pay-table tr:nth-child(even) td{background:var(--bg);}
+.pay-amt{font-family:var(--mono);font-weight:700;color:var(--navy);}
+.pay-total td{font-weight:700;border-top:2px solid var(--navy);background:#f1f5f9!important;}
+.pay-section{background:rgba(109,40,217,.04)!important;}
+.pay-section td{color:var(--pur);}
+
+.valor-box{border-radius:6px;padding:.75rem 1.2rem;margin:.5rem 0 .7rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.valor-item{background:var(--navy);color:#fff;border-radius:4px;padding:.55rem .9rem;}
+.valor-label{font-size:7.5pt;font-family:Arial,sans-serif;opacity:.6;text-transform:uppercase;letter-spacing:.4px;margin-bottom:.15rem;}
+.valor-num{font-size:13pt;font-weight:700;font-family:var(--mono);color:#38bdf8;}
+.valor-item.crec{background:var(--pur);}
+.valor-item.total{background:#0f172a;border:2px solid #38bdf8;}
+
+.firmas{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.firma-block{text-align:center;}
+.firma-line{border-top:1.5px solid var(--navy);margin-bottom:.35rem;margin-top:2.5rem;}
+.firma-nombre{font-weight:700;font-size:10.5pt;color:var(--navy);}
+.firma-rol{font-size:9pt;color:var(--muted);}
+.firma-det{font-size:8.5pt;color:var(--muted);font-family:var(--mono);}
+.doc-footer{margin-top:2rem;padding-top:.75rem;border-top:2px solid var(--navy);font-size:7.5pt;color:var(--muted);display:flex;justify-content:space-between;font-family:Arial,sans-serif;}
+.conf-lbl{font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#dc2626;}
+@page{size:Letter portrait;margin:15mm 18mm 22mm 18mm;}
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+  html,body{margin:0;padding:0;max-width:100%;}
+  .print-btn{display:none!important;}
+  .clausula,.firmas,.valor-box{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir PDF</button>
+
+<div class="doc-header">
+  <div class="doc-type">Contrato de Prestación de Servicios de Consultoría + Licencia de Propiedad Intelectual</div>
+  <div class="doc-title">Formulación MGA + Licencia Creciverso — Territorios Digitales Transformativos · [Territorio]</div>
+  <div class="doc-ref">Ref.: CCMS-CB-2026-001-A2 &nbsp;·&nbsp; Bogotá D.C., ___ de __________ de 2026</div>
+  <div class="doc-variant">Variante A2 · MGA + Licencia Creciverso plena · Sin coejec. compartida</div>
+</div>
+
+<div class="partes-box">
+  <div class="partes-title">Partes del contrato</div>
+  <div class="parte">
+    <div class="parte-rol">Contratante — Licenciatario</div>
+    <div class="parte-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="parte-det">
+      NIT / CC: [NIT_O_CC] &nbsp;·&nbsp; Representante legal: [NOMBRE_REP_LEGAL]<br>
+      Dirección: [DIRECCIÓN] &nbsp;·&nbsp; Ciudad: [CIUDAD]<br>
+      Correo: [CORREO] &nbsp;·&nbsp; Tel.: [TELÉFONO]<br>
+      En adelante <strong>EL CONTRATANTE</strong>
+    </div>
+  </div>
+  <div class="parte">
+    <div class="parte-rol">Contratista — Consultor y Licenciante</div>
+    <div class="parte-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="parte-det">
+      C.C.: [CC_CONSULTOR] &nbsp;·&nbsp; NIT/RUT: [NIT_CONSULTOR]<br>
+      Titular exclusivo de la conceptualización <em>Creciverso</em><br>
+      Correo: ccolombia@soygenial.co &nbsp;·&nbsp; Tel.: [TELÉFONO_CONSULTOR]<br>
+      En adelante <strong>EL CONTRATISTA</strong>
+    </div>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Considerandos</div>
+  <div class="cl-body">
+    <p>Que el Contratante requiere los servicios de consultoría para la formulación del proyecto de inversión pública <em>Territorios Digitales Transformativos · [Territorio]</em> en municipios de Arauca mediante la MGA Web (DNP).</p>
+    <p>Que el Contratista es titular de la conceptualización denominada <strong>Creciverso</strong> — marco de diseño de proyectos de inversión pública con componentes de plataforma digital, apropiación ciudadana y gestión del conocimiento territorial, adaptable a proyectos de conectividad, educación, salud y desarrollo territorial —, desarrollada con recursos propios y sin financiación pública.</p>
+    <p>Que el Contratante desea incorporar la conceptualización Creciverso al proyecto Territorios Digitales Transformativos · [Territorio], para lo cual requiere una licencia de uso de dicha propiedad intelectual, sin participación en la ejecución del proyecto.</p>
+    <p>Que las partes acuerdan celebrar el presente contrato dual (consultoría + licencia) con sujeción a las siguientes cláusulas:</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 1ª — Objeto del contrato</div>
+  <div class="cl-body">
+    <p>El presente contrato tiene un objeto dual:</p>
+    <ul>
+      <li><strong>Componente A — Consultoría:</strong> Prestación de servicios de consultoría especializada para la formulación completa del proyecto Territorios Digitales Transformativos · [Territorio] mediante MGA Web, incluyendo entregables E1 (diagnóstico + solución + sector + impacto), E2 (detalle técnico + cadena de valor + productos + cronograma + riesgos), E3 (detalle presupuestal) y E4 (consolidación + MGA §1–§8 + BPIN).</li>
+      <li><strong>Componente B — Licencia:</strong> Otorgamiento al Contratante de una licencia no exclusiva, no transferible y limitada al proyecto Territorios Digitales Transformativos · [Territorio], para el uso de la conceptualización <em>Creciverso</em> en sus módulos de diseño de proyecto, marco lógico adaptado y arquitectura de apropiación ciudadana.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num creciverso">Cláusula 2ª — La conceptualización Creciverso</div>
+  <div class="cl-body">
+    <div class="crec-box">
+      <div class="crec-box-title">¿Qué es Creciverso?</div>
+      <p style="font-size:10pt;margin:0">Creciverso es una conceptualización propietaria de Carlos Camilo Madera Sepúlveda que provee un marco integrado para el diseño de proyectos de inversión pública, estructurado en tres capas: (1) <strong>Marco conceptual</strong> — estructura lógica de intervención adaptable a múltiples sectores; (2) <strong>Capa de plataforma digital (app)</strong> — arquitectura funcional para la gestión y seguimiento del proyecto; (3) <strong>Capa de apropiación y entrenamiento</strong> — protocolo de capacitación y transferencia de capacidades a actores territoriales.</p>
+    </div>
+    <p>La licencia otorgada por el presente contrato cubre las capas 1, 2 y 3 para uso exclusivo en el proyecto Territorios Digitales Transformativos · [Territorio]. El Contratante no podrá reproducir, adaptar, sublicenciar ni transferir total o parcialmente la conceptualización Creciverso a terceros, ni utilizarla en otros proyectos sin nuevo contrato de licencia con el Contratista.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 3ª — Obligaciones del Contratista</div>
+  <div class="cl-body">
+    <p><strong>3.1 Consultoría MGA:</strong> Formular el proyecto conforme a la MGA Web, entregar E1–E4 en los plazos del plan de trabajo, gestionar el BPIN y mantener comunicación permanente conforme al Acta ODI (Anexo 2).</p>
+    <p><strong>3.2 Licencia Creciverso:</strong> Entregar al Contratante la documentación de referencia de la conceptualización Creciverso en sus tres capas, en formato digital, dentro de los primeros cinco (5) días hábiles contados desde la firma del contrato. Prestar soporte de interpretación y adaptación de la conceptualización al contexto del proyecto Territorios Digitales Transformativos · [Territorio] durante el plazo de ejecución.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 4ª — Obligaciones del Contratante</div>
+  <div class="cl-body">
+    <p>Además de las obligaciones de la Variante B (facilitar insumos, respetar plazos de review, garantizar frentes B/C/D), el Contratante se compromete a:</p>
+    <ul>
+      <li>Usar la conceptualización Creciverso exclusivamente en el proyecto Territorios Digitales Transformativos · [Territorio].</li>
+      <li>No reproducir, divulgar, adaptar ni distribuir la conceptualización Creciverso sin autorización escrita del Contratista.</li>
+      <li>Reconocer la autoría de Carlos Camilo Madera Sepúlveda sobre Creciverso en toda documentación del proyecto donde se use.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 5ª — Valor del contrato</div>
+  <div class="cl-body">
+    <div class="valor-box">
+      <div class="valor-item">
+        <div class="valor-label">Componente A · Consultoría MGA</div>
+        <div class="valor-num">$27.000.000</div>
+      </div>
+      <div class="valor-item crec">
+        <div class="valor-label">Componente B · Licencia Creciverso plena</div>
+        <div class="valor-num">$45.000.000</div>
+      </div>
+      <div class="valor-item total">
+        <div class="valor-label">Total contrato (IVA incluido)</div>
+        <div class="valor-num">$72.000.000</div>
+      </div>
+    </div>
+    <p style="font-size:9pt;color:var(--muted)">En letras: <em>Setenta y dos millones de pesos M/cte. (IVA incluido).</em></p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 6ª — Forma de pago</div>
+  <div class="cl-body">
+    <p>El valor se pagará en los siguientes hitos:</p>
+    <table class="pay-table">
+      <thead><tr><th>Hito</th><th>Condición</th><th>%</th><th>Monto COP</th><th>Plazo</th></tr></thead>
+      <tbody>
+        <tr class="pay-section"><td colspan="5" style="font-family:Arial,sans-serif;font-size:8pt;padding:.25rem .6rem"><strong>— Componente A: Consultoría MGA —</strong></td></tr>
+        <tr><td>E0 · Anticipo</td><td>Firma del contrato</td><td>40%</td><td class="pay-amt">$10.800.000</td><td>Fecha de firma</td></tr>
+        <tr><td>E1 · Pago 1</td><td>Sign-off E1 (diagnóstico + solución)</td><td>30%</td><td class="pay-amt">$8.100.000</td><td>5 días post sign-off</td></tr>
+        <tr><td>E2 · Pago 2</td><td>Sign-off E2 (detalle técnico)</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días post sign-off</td></tr>
+        <tr><td>E3 · Pago 3</td><td>Sign-off E3 (presupuesto)</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días post sign-off</td></tr>
+        <tr><td>E4 · Pago final</td><td>BPIN emitido + acta entrega</td><td>10%</td><td class="pay-amt">$2.700.000</td><td>5 días post BPIN</td></tr>
+        <tr class="pay-section"><td colspan="5" style="font-family:Arial,sans-serif;font-size:8pt;padding:.25rem .6rem"><strong>— Componente B: Licencia Creciverso —</strong></td></tr>
+        <tr><td>Licencia · Pago 1</td><td>Firma del contrato + entrega docs. Creciverso</td><td>50%</td><td class="pay-amt">$22.500.000</td><td>Fecha de firma</td></tr>
+        <tr><td>Licencia · Pago 2</td><td>Sign-off E4 + BPIN emitido</td><td>50%</td><td class="pay-amt">$22.500.000</td><td>5 días post BPIN</td></tr>
+        <tr class="pay-total"><td colspan="2"><strong>Total contrato</strong></td><td>100%</td><td class="pay-amt"><strong>$72.000.000</strong></td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 7ª — Plazo de ejecución</div>
+  <div class="cl-body">
+    <p>El plazo de ejecución es de <strong>aproximadamente siete (7) semanas</strong> conforme al plan de trabajo (Anexo 1). La licencia Creciverso tiene vigencia indefinida para el proyecto Territorios Digitales Transformativos · [Territorio] desde la fecha de firma.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num creciverso">Cláusula 8ª — Propiedad intelectual y licencia</div>
+  <div class="cl-body">
+    <p><strong>8.1 Titularidad Creciverso.</strong> La conceptualización Creciverso — en todas sus capas (marco conceptual, plataforma digital, apropiación y entrenamiento) — es y seguirá siendo propiedad exclusiva de Carlos Camilo Madera Sepúlveda. El presente contrato otorga al Contratante únicamente una licencia de uso no exclusiva, no transferible, limitada al proyecto Territorios Digitales Transformativos · [Territorio].</p>
+    <p><strong>8.2 Entregables de consultoría.</strong> Los documentos producidos específicamente como entregables E1–E4 serán de propiedad del Contratante una vez efectuado el pago total del Componente A.</p>
+    <p><strong>8.3 Know-how del Contratista.</strong> Los marcos metodológicos utilizados (CRISP-DM, BSC-s v5.1, Agile–ODI, RBM-GAC, etc.) permanecen como propiedad exclusiva del Contratista.</p>
+    <p><strong>8.4 Restricciones de la licencia.</strong> La licencia Creciverso otorgada por este contrato <em>no incluye</em>: (i) derecho a sublicenciar; (ii) derecho a adaptar o modificar la conceptualización para otros proyectos; (iii) derecho a usar la marca "Creciverso" en comunicaciones externas del Contratante; (iv) participación en la fase de ejecución del proyecto.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusulas 9ª a 14ª</div>
+  <div class="cl-body">
+    <p>Las cláusulas de confidencialidad (9ª), independencia (10ª), causales de terminación (11ª), modificaciones (12ª), resolución de conflictos (13ª) y documentos integrantes (14ª) del Contrato Variante B aplican en su totalidad al presente contrato. En caso de terminación anticipada, la licencia Creciverso se extingue salvo pacto en contrario en el otrosí de terminación.</p>
+  </div>
+</div>
+
+<div class="clausula">
+  <div class="cl-num">Cláusula 15ª — Aceptación y firmas</div>
+  <div class="cl-body">
+    <p>Las partes suscriben el presente contrato en dos (2) ejemplares del mismo tenor, en la ciudad de _____________________, a los _____ días del mes de _______________ de 2026.</p>
+  </div>
+</div>
+
+<div class="firmas">
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">[NOMBRE_CONTRATANTE]</div>
+    <div class="firma-rol">El Contratante — Licenciatario</div>
+    <div class="firma-det">NIT / CC: [NIT_O_CC]<br>C.C. Rep. Legal: [CC_REP]</div>
+  </div>
+  <div class="firma-block">
+    <div class="firma-line"></div>
+    <div class="firma-nombre">Carlos Camilo Madera Sepúlveda</div>
+    <div class="firma-rol">El Contratista — Licenciante Creciverso</div>
+    <div class="firma-det">C.C.: [CC_CONSULTOR]<br>ccolombia@soygenial.co</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <div><span class="conf-lbl">Documento Confidencial</span> — Uso restringido a las partes signatarias</div>
+  <div>Ref. CCMS-CB-2026-001-A2 &nbsp;·&nbsp; MGA + Licencia Creciverso plena · $72M COP</div>
+</div>
+
+</body>
+</html>

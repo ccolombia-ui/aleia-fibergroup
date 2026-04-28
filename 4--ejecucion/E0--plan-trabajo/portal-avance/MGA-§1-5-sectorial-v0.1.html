@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Avance · MGA §1.5 Análisis Sectorial · Territorios Digitales Transformativos · Arauquita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f172a;--blue:#0369a1;--blue-d:#075985;--emr:#047857;--pur:#6d28d9;--gld:#b45309;--rose:#be123c;--text:#1e293b;--muted:#64748b;--border:#cbd5e1;--bg:#f8fafc;--ok:#047857;--prog:#b45309;--pend:#94a3b8;--late:#be123c;--mono:'JetBrains Mono','Courier New',monospace;--sans:'Inter','Segoe UI',Arial,sans-serif;--serif:'Times New Roman',Georgia,serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);background:#fff;max-width:215mm;margin:0 auto;padding:7mm 13mm 8mm;}
+.print-btn{position:fixed;top:10px;right:10px;background:var(--navy);color:#fff;border:none;padding:.4rem .85rem;border-radius:4px;font-size:.7rem;font-weight:700;cursor:pointer;z-index:999;font-family:var(--sans);}
+.print-btn:hover{background:var(--blue);}
+.doc-meta{text-align:center;margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1.5px double rgba(3,105,161,.45);}
+.doc-type{font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);font-family:var(--sans);margin-bottom:.08rem;}
+.doc-title{font-size:11.5pt;font-weight:700;color:var(--navy);font-family:var(--serif);line-height:1.15;margin-bottom:.12rem;}
+.doc-ref{font-size:7.4pt;color:var(--muted);font-family:var(--mono);}
+.doc-variant{display:inline-block;padding:.07rem .5rem;border-radius:2px;font-size:6.4pt;font-weight:700;background:rgba(3,105,161,.08);color:var(--blue);font-family:var(--sans);border:1px solid rgba(3,105,161,.18);margin-top:.12rem;letter-spacing:.3px;}
+.cl-num{font-size:7.6pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--blue-d);font-family:var(--sans);border-bottom:1px solid rgba(3,105,161,.25);padding-bottom:.08rem;margin:.5rem 0 .18rem;}
+.cl-body{font-size:8.8pt;line-height:1.45;text-align:justify;}
+.cl-body p{margin-bottom:.22rem;}
+.cl-body strong{color:var(--navy);}
+.tbl{width:100%;border-collapse:collapse;margin:.18rem 0;font-size:7.5pt;font-family:var(--sans);border:1px solid rgba(3,105,161,.18);border-radius:3px;overflow:hidden;}
+.tbl th{background:rgba(3,105,161,.13);color:var(--navy);padding:.18rem .35rem;text-align:left;font-size:6.5pt;text-transform:uppercase;letter-spacing:.4px;}
+.tbl td{padding:.16rem .35rem;border-bottom:1px solid rgba(203,213,225,.5);vertical-align:top;}
+.tbl tr:nth-child(even) td{background:rgba(241,245,249,.4);}
+.tbl tr.subt td{background:rgba(3,105,161,.08)!important;font-weight:700;color:var(--blue-d);font-size:6.7pt;text-transform:uppercase;letter-spacing:.4px;}
+.st{display:inline-flex;align-items:center;justify-content:center;gap:.18rem;padding:.05rem .28rem;border-radius:8px;font-size:6.4pt;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.3px;}
+.st-pend{background:rgba(148,163,184,.18);color:#475569;border:1px solid rgba(148,163,184,.35);}
+.st-prog{background:rgba(180,83,9,.14);color:var(--prog);border:1px solid rgba(180,83,9,.28);}
+.st-ok{background:rgba(4,120,87,.14);color:var(--ok);border:1px solid rgba(4,120,87,.28);}
+.st::before{content:"●";font-size:7pt;}
+.st-ok::before{color:var(--ok);}
+.st-prog::before{color:var(--prog);}
+.st-pend::before{color:var(--pend);}
+.act{display:inline-block;padding:.04rem .28rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--sans);letter-spacing:.3px;margin:.04rem .08rem .04rem 0;border:1px solid rgba(15,23,42,.18);background:rgba(15,23,42,.04);color:var(--navy);}
+.act-cti{background:rgba(3,105,161,.13);color:var(--blue-d);border-color:rgba(3,105,161,.3);}
+.act-d{background:rgba(109,40,217,.12);color:var(--pur);border-color:rgba(109,40,217,.28);}
+.act-jur{background:rgba(15,23,42,.08);color:var(--navy);border-color:rgba(15,23,42,.25);}
+.act-ger{background:rgba(15,23,42,.18);color:#fff;border-color:var(--navy);}
+.nota{background:rgba(241,245,249,.6);border-left:2px solid rgba(3,105,161,.5);border-radius:3px;padding:.3rem .55rem;margin:.18rem 0;font-size:8pt;font-family:var(--sans);color:var(--muted);line-height:1.4;}
+.nota strong{color:var(--navy);}
+.section-banner{background:linear-gradient(135deg,rgba(3,105,161,.10) 0%,rgba(3,105,161,.06) 100%);border:1px solid rgba(3,105,161,.22);border-radius:5px;padding:.45rem .7rem;margin:.25rem 0;display:flex;justify-content:space-between;align-items:center;}
+.banner-ref{font-size:7pt;font-family:var(--mono);color:var(--blue-d);}
+.banner-title{font-size:10pt;font-weight:700;color:var(--navy);font-family:var(--sans);}
+.banner-date{font-size:7pt;font-family:var(--sans);color:var(--muted);}
+.law-badge{display:inline-block;padding:.05rem .3rem;border-radius:2px;font-size:6.4pt;font-weight:700;font-family:var(--mono);background:rgba(109,40,217,.10);color:var(--pur);border:1px solid rgba(109,40,217,.22);margin:.05rem .08rem .05rem 0;}
+.consultor-footer{display:flex;justify-content:space-between;align-items:flex-end;padding:.3rem 0 0;border-top:1px solid rgba(203,213,225,.6);margin-top:.5rem;font-size:7pt;font-family:var(--sans);}
+.cf-brand{font-family:'Allura',cursive;font-size:14pt;color:var(--navy);display:block;}
+.cf-meta{color:var(--muted);font-size:6.4pt;}
+.cf-center{text-align:center;font-family:var(--mono);font-size:6.5pt;color:var(--muted);}
+.cf-conf{display:block;font-size:6.8pt;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--rose);}
+@media print{.print-btn{display:none;}body{padding:5mm 10mm;}}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">Imprimir / PDF</button>
+
+<div class="doc-meta">
+  <div class="doc-type">Portal de Avance MGA · Sprint 1 · E1 · Territorios Digitales Transformativos · Arauca</div>
+  <div class="doc-title">§1.5 Análisis Sectorial · Sector 23 TIC</div>
+  <div class="doc-ref">CCMS-CB-2026-001-B-v11 · MGA-§1-5-sectorial-v0.1 · 30 abr 2026</div>
+  <span class="doc-variant">Estado global: <span class="st st-pend">Pendiente</span> · 0 / 4 tareas completas · Entrega: 30 abr 2026</span>
+</div>
+
+<div class="section-banner">
+  <div>
+    <div class="banner-ref">MGA Web DNP §1.5 · Marco normativo · Programas MinTIC · PDD · PDM · PATR</div>
+    <div class="banner-title">Análisis del sector TIC · política pública · programas vigentes · tendencias</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="banner-date">Responsable: <strong>CTI</strong> · Consulta: <strong>D · JUR</strong></div>
+    <div class="banner-date">Día de entrega: <strong>30 abr 2026</strong></div>
+  </div>
+</div>
+
+<!-- §1.5.A MARCO NORMATIVO -->
+<div class="cl-num">§1.5.A — Marco normativo verificado (P1-06 · citas listas para MGA)</div>
+<div class="cl-body"><p>El análisis sectorial debe incluir el marco legal que habilita y obliga la provisión de conectividad en municipios PDET. Las normas que siguen están verificadas y listas para citar en MGA Web DNP. El JUR debe revisar las citas exactas y los artículos específicos a referenciar.</p></div>
+
+<table class="tbl">
+  <thead><tr><th style="width:6rem">Norma</th><th>Nombre</th><th>Relevancia para el proyecto</th><th>JUR revisó</th></tr></thead>
+  <tbody>
+    <tr class="subt"><td colspan="4">LEYES MARCO TIC</td></tr>
+    <tr><td><span class="law-badge">Ley 1341/2009</span></td><td>Ley TIC original · principios del sector</td><td>Define el Fondo Único de Telecomunicaciones (FUTIC) y la provisión de redes</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr><td><span class="law-badge">Ley 1978/2019</span></td><td>Modernización del sector TIC</td><td>Reestructura FUTIC · habilita convocatorias MinTIC ConectiVIDAd · subsidio a demanda</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr><td><span class="law-badge">Ley 2108/2021</span></td><td>Internet como servicio público</td><td>Declara internet servicio público esencial domiciliario · fuerza el deber estatal de provisión</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr><td><span class="law-badge">Ley 2294/2023</span></td><td>Plan Nacional de Desarrollo 2022-2026</td><td>Art. conectividad: meta 4M hogares rurales conectados · PDET prioridad · Colombia Potencia Mundial de la Vida</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr class="subt"><td colspan="4">RESOLUCIONES Y ACTOS ADMINISTRATIVOS</td></tr>
+    <tr><td><span class="law-badge">Res. MinTIC 3689/2023</span></td><td>Reglamento FUTIC · convocatorias · obligaciones PRST</td><td>Define tipos de red (E1/E2) · tarifas maximas (E1=$11.917 · E2=$26.391/mes) · estructura fiducia</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr class="subt"><td colspan="4">CONPES Y POLÍTICA PÚBLICA</td></tr>
+    <tr><td><span class="law-badge">CONPES 4167/2023</span></td><td>Política nacional digitalización</td><td>Meta cobertura · municipios PDET · inversión FUTIC proyectada 2023-2030</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr><td><span class="law-badge">CONPES 3932/2018</span></td><td>Política PDET</td><td>Arauquita incluida en PDET Arauca · habilita cofinanciación diferencial</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr class="subt"><td colspan="4">PLANES TERRITORIALES</td></tr>
+    <tr><td><span class="law-badge">PDD Arauca 2024-2027</span></td><td>Ordenanza 161 · "Arauca Mejor"</td><td>Eje Estratégico 6 = TIC + CTeI dentro Pilar 1 · objetivos conectividad departamental</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+    <tr><td><span class="law-badge">PDM Arauquita 2024-2027</span></td><td>Acuerdo 013 · [PENDIENTE RECIBIR D]</td><td>Objetivos de conectividad municipales · presupuesto municipal TIC · metas</td><td><span class="st st-pend">Pend D</span></td></tr>
+    <tr><td><span class="law-badge">PATR Arauca 2022-2031</span></td><td>Plan de Acción para la Transformación Regional</td><td>Brecha TIC 67,8% (MCB-DNP) · visión 2028 · inversiones PDET priorizadas</td><td><span class="st st-pend">Pend JUR</span></td></tr>
+  </tbody>
+</table>
+
+<!-- §1.5.B PROGRAMAS MINTIC -->
+<div class="cl-num">§1.5.B — Programas MinTIC vigentes · contexto sectorial verificado</div>
+<div class="cl-body"><p>Mapa de programas del sector TIC con datos de convocatorias verificadas (GOLD/SILVER). Esta matriz demuestra el ecosistema de política pública en el que se inserta el proyecto y justifica la viabilidad de cofinanciación.</p></div>
+
+<table class="tbl">
+  <thead><tr><th>Programa MinTIC</th><th>Conv./Año</th><th>Cobertura Arauca</th><th>Arauquita</th><th>Benchmark $/hogar</th></tr></thead>
+  <tbody>
+    <tr><td>ConectiVIDAd · Tipo 1 (rural)</td><td>Conv005/2025</td><td>Arauca ciudad (WICOM) · Saravena (Avidtel)</td><td><strong>NO incluida</strong></td><td>~$396K/hogar (subsidy)</td></tr>
+    <tr><td>ConectiVIDAd · Tipo 2 (urbano-periurbano)</td><td>Conv006/2025</td><td>Arauca capital · 18.531 hogares</td><td><strong>NO incluida</strong></td><td>~$396K/hogar (subsidy)</td></tr>
+    <tr><td>Mi Casa Bacana Digital · Atlántico</td><td>Conv. 790/2023</td><td>Solo Atlántico (precedente)</td><td><strong>NO aplica · referencia</strong></td><td><strong>$865.627/hogar · MinTIC 78,9%</strong></td></tr>
+    <tr><td>FTTH Norte de Santander PDET</td><td>Convenio PDET 2023</td><td>Solo N. Santander (precedente)</td><td><strong>NO aplica · referencia</strong></td><td><strong>$1.875.764/hogar · MinTIC 87%</strong></td></tr>
+    <tr><td>Zonas WiFi Digitales (ZDU/ZDR)</td><td>Conv004/2025</td><td>[Confirmar con D si hay zonas activas]</td><td>[Verificar D]</td><td>Puntos WiFi (≠ residencial)</td></tr>
+    <tr><td>Sedes Tecnológicas (Kioscos)</td><td>MinTIC histórico</td><td>[Confirmar MinTIC D81065 G-08]</td><td>[Verificar G-08]</td><td>Por sede (≠ residencial)</td></tr>
+  </tbody>
+</table>
+
+<!-- §1.5.C TENDENCIAS -->
+<div class="cl-num">§1.5.C — Tendencias sectoriales (argumentación MGA)</div>
+
+<table class="tbl">
+  <thead><tr><th>Tendencia</th><th>Dato de respaldo</th><th>Fuente</th><th>Aplicación al proyecto</th></tr></thead>
+  <tbody>
+    <tr><td>Caída costo FTTH GPON</td><td>CAPEX/hogar ↓ 35% 2018→2023</td><td>ITU Broadband Report 2023</td><td>Justifica viabilidad técnica-económica hoy</td></tr>
+    <tr><td>LEO satelital como alternativa B</td><td>Starlink disponible Colombia 2023</td><td>Resolución MinTIC 2023</td><td>Alternativa A3 en §4.2 (mayor costo recurrente)</td></tr>
+    <tr><td>Inversión FUTIC acelerada</td><td>$3,2 billones COP comprometidos 2022-2025</td><td>CONPES 4167</td><td>Ventana de oportunidad de financiación abierta</td></tr>
+    <tr><td>Brecha rural-urbana persistente</td><td>IBD rural 0.38 vs urbano 0.61</td><td>MinTIC IBD 2024 · G-03</td><td>Urgencia de intervención PDET prioritaria</td></tr>
+    <tr><td>Internet = factor de desarrollo humano</td><td>+1pp penetración = +0,2pp IDH municipal (OCDE)</td><td>Citar OCDE 2022</td><td>Justificación impactos §6</td></tr>
+  </tbody>
+</table>
+
+<!-- §1.5.D STAKEHOLDERS SECTORIALES -->
+<div class="cl-num">§1.5.D — Stakeholders sectoriales (síntesis · detalle en §1.7)</div>
+
+<table class="tbl">
+  <thead><tr><th>Actor</th><th>Rol sectorial</th><th>Relación con proyecto</th></tr></thead>
+  <tbody>
+    <tr><td>MinTIC</td><td>Rector · regulador · financiador FUTIC</td><td>Cofinanciador principal ~95% · habilitante regulatorio</td></tr>
+    <tr><td>CRC</td><td>Comisión de Regulación de Comunicaciones</td><td>Define condiciones de calidad · resolución disputas</td></tr>
+    <tr><td>ART</td><td>Agencia de Renovación del Territorio · PDET</td><td>Validador PATR · habilitante inversiones PDET</td></tr>
+    <tr><td>DNP</td><td>Banco de proyectos BPIN-SUIFP</td><td>Receptor del MGA · aprueba BPIN para financiación</td></tr>
+    <tr><td>Gobernación Arauca</td><td>Rector PDD · cofinanciador potencial</td><td>Puede aportar contraparte departamental</td></tr>
+    <tr><td>Alcaldía Arauquita</td><td>Beneficiario directo · facilitador logístico</td><td>Entrega PDM · avala proyecto en territorio</td></tr>
+    <tr><td>Fibergroup S.A.S. E.S.P.</td><td>Operador ejecutor · contraparte 5%</td><td>Ejecuta inversión · opera red</td></tr>
+    <tr><td>ISPs activos Arauquita</td><td>Competidores/complementadores</td><td>Confirmar con SIUST · evitar duplicación MinTIC</td></tr>
+  </tbody>
+</table>
+
+<!-- §1.5.E TAREAS -->
+<div class="cl-num">§1.5.E — 4 tareas de la sección</div>
+<table class="tbl">
+  <thead><tr><th style="width:5rem">Tarea</th><th>Descripción</th><th style="width:5.5rem">Responsable</th><th style="width:4.5rem">Fecha</th><th style="width:5rem;text-align:center">Estado</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Construir</strong></td><td>Producir P1-06 (8-12 pp) con todas las secciones del análisis sectorial. Ingresar en MGA Web DNP §1.5.</td><td><span class="act act-cti">CTI</span></td><td>30 abr 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Consultar E1</strong></td><td>Validar interpretación territorial con Frente D: ¿hay ISPs activos locales? ¿el PDM menciona metas TIC específicas? ¿el PATR tiene programas activos?</td><td><span class="act act-cti">CTI</span> ↔ <span class="act act-d">D</span></td><td>30 abr 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Informar JUR</strong></td><td>Review legal de citaciones normativas: Ley 1341 · 1978 · 2108 · 2294 · Res. 3689 · CONPES 4167. Verificar artículos específicos citados. 1h estimada.</td><td><span class="act act-cti">CTI</span> → <span class="act act-jur">JUR</span></td><td>30 abr 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+    <tr><td><strong>Aprobar GER</strong></td><td>Sign-off del Gerente sobre §1.5 · publicar v1.0 en portal de avance.</td><td><span class="act act-ger">GER</span></td><td>30 abr 2026</td><td style="text-align:center;"><span class="st st-pend">Pend</span></td></tr>
+  </tbody>
+</table>
+
+<div class="nota"><strong>Insumos críticos:</strong> G-04 MinTIC Conv005/2025 (disponible) · G-05 Conv005 condiciones (disponible) · G-06 PDD Arauca (disponible) · PDM Arauquita Acuerdo 013 (PENDIENTE · solicitar a D hoy 29 abr · máxima prioridad). SIUST consulta ISPs Arauquita (pendiente).</div>
+
+<div class="consultor-footer">
+  <div><span class="cf-conf">Confidencial</span><span class="cf-meta">Uso restringido · partes signatarias · CCMS-CB-2026-001-B-v11</span></div>
+  <div class="cf-center">MGA-§1-5-sectorial-v0.1 · portal avance · Sprint 1</div>
+  <div style="text-align:right;"><span class="cf-brand">Carlos Camilo Madera Sepúlveda</span><span class="cf-meta">Innovación Transformativa · 2026</span></div>
+</div>
+</body>
+</html>
