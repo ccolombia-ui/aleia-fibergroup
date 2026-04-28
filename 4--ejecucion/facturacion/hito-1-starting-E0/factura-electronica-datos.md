@@ -25,7 +25,7 @@ sistema: Siigo Nube · prefijo DAFE
 | Ciudad | `Bucaramanga` |
 | Departamento | `Santander` |
 | País | `Colombia` |
-| Correo electrónico (envío DIAN) | `Facturaelectronica@fibergroup.net` |
+| Correo electrónico (envío DIAN) | `facturaelectronica@fibergroup.net` |
 | Teléfono | `6076916069` |
 | Representante legal | `Ciro Manuel González Hernández` |
 | C.C. representante | `91.511.053` |
