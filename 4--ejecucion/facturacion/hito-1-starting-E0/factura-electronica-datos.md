@@ -53,7 +53,7 @@ sistema: Siigo Nube · prefijo DAFE
 | Cantidad | `1.00` |
 | Valor unitario | `5400000` |
 | Descuento | `0` |
-| IVA | `No aplica` |
+| IVA | `Exento — actividad excluida de IVA · Art. 476 E.T.` |
 | Valor total ítem | `5,400,000.00` |
 
 ## 4 · Observaciones
@@ -115,6 +115,6 @@ Más:
 
 | Campo | Valor |
 |---|---|
-| Para | `Gerencia@fibergroup.net` |
+| Para | `facturaelectronica@fibergroup.net` |
 | Asunto | `Factura Hito 1 (20%) · Contrato CCMS-CB-2026-001-B-v11 · Formulación MGA Arauca` |
 | Cuerpo | `Adjunto factura electrónica DAFE-### por valor de $5.400.000 COP correspondiente al Hito 1 (Starting · E0 — Firma y kick-off, 20%) del contrato CCMS-CB-2026-001-B-v11. Datos bancarios para transferencia: Nu Colombia, cuenta de ahorros 72991701, titular Carlos Camilo Madera Sepúlveda CC 79.801.495.` |
