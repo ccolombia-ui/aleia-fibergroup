@@ -110,13 +110,13 @@ body{font-family:var(--serif);font-size:9pt;line-height:1.32;color:var(--text);b
 <pre class="mermaid">
 erDiagram
     BPIN_DNP_SUIFP ||--|| MGA_WEB : "emite_codigo_para"
-    MGA_WEB ||--|| DOC_E1 : "consolida_§1-§3"
-    MGA_WEB ||--|| DOC_E2 : "consolida_§4-§6"
-    MGA_WEB ||--|| DOC_E3 : "consolida_§7-§9"
-    MGA_WEB ||--|| DOC_E4 : "consolida_§8-§10"
-    MGA_WEB ||--o{ INDICADORES_§8 : "registra"
-    MGA_WEB ||--o{ CADENA_VALOR_§7 : "registra"
-    MGA_WEB ||--|| RESUMEN_§10 : "publica"
+    MGA_WEB ||--|| DOC_E1 : "consolida_s1_s3"
+    MGA_WEB ||--|| DOC_E2 : "consolida_s4_s6"
+    MGA_WEB ||--|| DOC_E3 : "consolida_s7_s9"
+    MGA_WEB ||--|| DOC_E4 : "consolida_s8_s10"
+    MGA_WEB ||--o{ INDICADORES_S8 : "registra"
+    MGA_WEB ||--o{ CADENA_VALOR_S7 : "registra"
+    MGA_WEB ||--|| RESUMEN_S10 : "publica"
 
     DOC_E1 ||--o{ ARBOL_PROBLEMAS : "incluye"
     DOC_E1 ||--o{ ARBOL_OBJETIVOS : "incluye"
@@ -131,7 +131,7 @@ erDiagram
     DOC_E2 ||--|| MATRIZ_RIESGOS : "evalua"
     DOC_E2 ||--|| ANALISIS_AMBIENTAL : "evalua"
 
-    DOC_E3 ||--|| CADENA_VALOR_§7 : "estructura"
+    DOC_E3 ||--|| CADENA_VALOR_S7 : "estructura"
     DOC_E3 ||--|| CAPEX_DESAGREGADO : "presupuesta"
     DOC_E3 ||--|| OPEX_24M : "presupuesta"
     DOC_E3 ||--|| PLURIANUAL : "proyecta"
@@ -149,29 +149,29 @@ erDiagram
     BOM_TECNICO ||--o{ CAPEX_DESAGREGADO : "valoriza_con"
     COTIZACIONES_SECOP ||--o{ CAPEX_DESAGREGADO : "valoriza_con"
 
-    CARTA_AVAL_GOBARAUCA ||--o{ FUENTES_FIN : "respalda_5%"
+    CARTA_AVAL_GOBARAUCA ||--o{ FUENTES_FIN : "respalda_5pct"
     CARTA_AVAL_ART_PDET ||--o{ FUENTES_FIN : "respalda_alineacion"
-    CARTA_AVAL_MINTIC ||--o{ FUENTES_FIN : "respalda_95%"
+    CARTA_AVAL_MINTIC ||--o{ FUENTES_FIN : "respalda_95pct"
 
-    INDICADORES_§8 ||--o{ MARCO_LOGICO : "deriva_de"
-    CADENA_VALOR_§7 ||--o{ BOM_TECNICO : "consolida"
+    INDICADORES_S8 ||--o{ MARCO_LOGICO : "deriva_de"
+    CADENA_VALOR_S7 ||--o{ BOM_TECNICO : "consolida"
 
     BPIN_DNP_SUIFP {
         string codigo "asignado_por_DNP"
-        date fecha_emision
+        string fecha_emision "pendiente"
         string entidad_responsable "Fibergroup_o_aliado_publico"
     }
     MGA_WEB {
         string proyecto "Territorios_Digitales_Transformativos_Arauca"
         string sector "23_TIC"
-        decimal valor_COP "3500000000"
+        float valor_COP "3500000000"
         int duracion_meses "24"
     }
-    CADENA_VALOR_§7 {
+    CADENA_VALOR_S7 {
         int productos_MGA "5"
         int actividades "11"
         int rubros_insumos "27"
-        decimal total_COP "3500000000"
+        float total_COP "3500000000"
     }
 </pre>
 <div class="diag-cap">Fig. 1 · Ecosistema documental final · 27+ entidades · centro: BPIN_DNP_SUIFP + MGA_WEB</div>
